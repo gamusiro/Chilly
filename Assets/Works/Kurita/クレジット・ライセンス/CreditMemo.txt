@@ -1,0 +1,16 @@
+・エクセルの読み込みに関して（未使用）
+https://github.com/tsubaki/Unity-Excel-Importer-Maker
+Unity-Excel-Importer-Maker-master
+
+・オーディオスペクトラム
+https://github.com/keijiro/unity-audio-spectrum
+
+・テスト音楽
+https://dova-s.jp/bgm/play19617.html
+
+・会話イベント参考資料
+https://www.midnightunity.net/textmeshpro-japanese-font/
+https://gist.github.com/kgsi/ed2f1c5696a2211c1fd1e1e198c96ee4?h=1
+
+・Googleフォント
+https://fonts.google.com/specimen/Kosugi+Maru?subset=japanese&noto.script=Jpan
