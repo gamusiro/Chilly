@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mate : MonoBehaviour
+public class CS_NotesField : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float noteSpeed;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position -= transform.forward * Time.deltaTime * noteSpeed;
     }
 }
