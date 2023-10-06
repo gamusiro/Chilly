@@ -13,8 +13,6 @@ public class ConversationEvent : MonoBehaviour
     [SerializeField] public bool playing = false;
     [SerializeField] private float textSpeed = 0.1f;
 
-    void Start() { }
-
     // クリックで次のページを表示させるための関数
     public bool IsClicked()
     {

@@ -1,6 +1,7 @@
 ﻿// Audio spectrum component
 // By Keijiro Takahashi, 2013
 // https://github.com/keijiro/unity-audio-spectrum
+//一部項目においてインスペクター側からの操作が無効になるため、強制的に数値を代入しています//栗田
 using UnityEngine;
 using System.Collections;
 
@@ -35,10 +36,10 @@ public class AudioSpectrum : MonoBehaviour
     #endregion
 
     #region Public variables
-    public int numberOfSamples = 1024;
-    public BandType bandType = BandType.TenBand;
-    public float fallSpeed = 0.08f;
-    public float sensibility = 8.0f;
+    private int numberOfSamples = 1024;
+    private BandType bandType = BandType.ThirtyOneBand;
+    private float fallSpeed = 0.08f;
+    private float sensibility = 8.0f;
     #endregion
 
     #region Private variables
@@ -68,6 +69,7 @@ public class AudioSpectrum : MonoBehaviour
         if (rawSpectrum == null || rawSpectrum.Length != numberOfSamples) {
             rawSpectrum = new float[numberOfSamples];
         }
+        bandType = BandType.ThirtyOneBand;//強制
         var bandCount = middleFrequenciesForBands [(int)bandType].Length;
         if (levels == null || levels.Length != bandCount) {
             levels = new float[bandCount];
@@ -95,6 +97,7 @@ public class AudioSpectrum : MonoBehaviour
 
         AudioListener.GetSpectrumData (rawSpectrum, 0, FFTWindow.BlackmanHarris);
 
+        bandType = BandType.ThirtyOneBand;//強制
         float[] middlefrequencies = middleFrequenciesForBands [(int)bandType];
         var bandwidth = bandwidthForBands [(int)bandType];
 

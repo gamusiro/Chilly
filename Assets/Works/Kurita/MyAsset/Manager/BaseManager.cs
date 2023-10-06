@@ -10,13 +10,18 @@ public class BaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _baseObject[0].Initialized();
+        foreach (BaseObject baseObject in _baseObject)
+        {
+            baseObject.Initialized();
+        } 
     }
-
 
     // Update is called once per frame
     void Update()
     {
-        _baseObject[0].Updated();
+        foreach (BaseObject baseObject in _baseObject)
+        {
+            baseObject.Updated();
+        }
     }
 }

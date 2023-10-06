@@ -5,27 +5,27 @@ using UnityEngine;
 public class Enemy : BaseObject
 {
     //目の動き関するもの
-    [SerializeField] private List<Transform> _transformEyes;
-    [SerializeField] List<Transform> _transformEyesStandardPosition;//目の標準位置
+    [SerializeField] protected List<Transform> _transformEyes;
+    [SerializeField] protected List<Transform> _transformEyesStandardPosition;//目の標準位置
 
-    private List<float> _radianEyesRotate = new();//目の回転角度
-    private List<float> _radianEyesCircleMotion = new();//目の円運動の角度
+    protected List<float> _radianEyesRotate = new();//目の回転角度
+    protected List<float> _radianEyesCircleMotion = new();//目の円運動の角度
 
     //口に関するもの
-    [SerializeField] private Transform _transformMouth;
-    [SerializeField] Transform _transformMouthStandardPosition;//口の標準の位置
+    [SerializeField] protected Transform _transformMouth;
+    [SerializeField] protected Transform _transformMouthStandardPosition;//口の標準の位置
 
-    private Vector3 _standardMouthScale = new Vector3();//口の標準の大きさ
-    private float _radianMouthRescale = new();//口の大きさ変更の角度
-    private float _radianMouthRotate;//口の回転角度
-    private float _radianMouthCircleMotion;//口の円運動の角度
+    protected Vector3 _standardMouthScale = new Vector3();//口の標準の大きさ
+    protected float _radianMouthRescale = new();//口の大きさ変更の角度
+    protected float _radianMouthRotate;//口の回転角度
+    protected float _radianMouthCircleMotion;//口の円運動の角度
 
     //体のパーティクルに関するもの
-    [SerializeField] private ParticleSystem _particleSystem;
-     private float _frameHit = new();//ヒットしてからのフレーム
+    [SerializeField] protected ParticleSystem _particleSystem;
+     protected float _frameHit = new();//ヒットしてからのフレーム
 
-    [SerializeField] private Gradient _gradientOriginal;//元の色
-    [SerializeField] private Gradient _gradientHit;//ヒット時の色
+    [SerializeField] protected Gradient _gradientOriginal;//元の色
+    [SerializeField] protected Gradient _gradientHit;//ヒット時の色
 
     public override void Initialized()
     {
@@ -43,7 +43,6 @@ public class Enemy : BaseObject
         //その他変数
         _standardMouthScale = _transformMouth.localScale;//口の標準の大きさ
         _frameHit = 999.0f;//ヒットフレーム
-        Hit();//デバッグ用
     }
 
     public override void Updated()
@@ -54,7 +53,7 @@ public class Enemy : BaseObject
     }
 
     //プラスとマイナスを交互に出力する。
-    private float AlternatingPlusAndMinus(int index)
+    protected float AlternatingPlusAndMinus(int index)
     {
         if (index % 2 == 0)
             return 1.0f;
@@ -63,7 +62,7 @@ public class Enemy : BaseObject
     }
 
     //目の動き
-    private void Eyes()
+    protected void Eyes()
     {
         for (int i = 0; i < _transformEyes.Count; i++)
         {
@@ -79,7 +78,7 @@ public class Enemy : BaseObject
     }
 
     //口の動き
-    private void Mouth()
+    protected void Mouth()
     {
         //円運動
         _radianMouthCircleMotion += AddValue(0.01f, 1.0f);
@@ -89,7 +88,9 @@ public class Enemy : BaseObject
 
         //回転
         _radianMouthRotate += AddValue(0.03f, 1.0f);
-        _transformMouth.eulerAngles = new Vector3(0.0f, 0.0f, Mathf.Sin(_radianMouthRotate) * 13.0f);
+        Vector3 eulerAngle = _transformMouth.eulerAngles;
+        eulerAngle.z = Mathf.Sin(_radianMouthRotate) * 13.0f;
+        _transformMouth.eulerAngles = eulerAngle;
 
         //ぱくぱく
         _radianMouthRescale += AddValue(0.01f, 6.0f);
@@ -99,20 +100,21 @@ public class Enemy : BaseObject
     }
 
     //当たり判定
-    private void OnParticleCollision(GameObject other)
+    protected void OnParticleCollision(GameObject other)
     {
         //インスペクター側でレイヤーの設定済
            Hit();
     }
 
     //攻撃された判定
-    private void Hit()
+    protected void Hit()
     {
         _frameHit = 0;
     }
 
-    private void HitAnimation()
+    protected void HitAnimation()
     {
+
         //色変更
         ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
         colorOverLifetime.enabled = true;
@@ -133,7 +135,7 @@ public class Enemy : BaseObject
         colorOverLifetime.color = gradient;
     }
 
-    private float AddValue(float value,float multiple)
+    protected float AddValue(float value,float multiple)
     {
         if (_frameHit < 10.0f)
             return value * multiple;
