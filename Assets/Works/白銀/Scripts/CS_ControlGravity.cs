@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CS_ControlGravity : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0.0f, 100.0f)]
-    float m_yVel;
+    [SerializeField, CustomLabel("èdóÕÇÃã≠Ç≥")]
+    [Range(0.1f, 100.0f)]
+    float m_strength;
 
     Rigidbody m_rigidBody;
     Vector3 m_gravity;
@@ -18,7 +18,7 @@ public class CS_ControlGravity : MonoBehaviour
     void Start()
     {
         m_rigidBody = GetComponent<Rigidbody>();
-        m_gravity = new Vector3(0.0f, -m_yVel, 0.0f);
+        m_gravity = new Vector3(0.0f, -m_strength, 0.0f);
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public class CS_ControlGravity : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
-        m_gravity = new Vector3(0.0f, -m_yVel, 0.0f);
+        m_gravity = new Vector3(0.0f, -m_strength, 0.0f);
     }
 
     /// <summary>
