@@ -24,15 +24,14 @@ public class Data
 
 public class CS_NotesManager : MonoBehaviour
 {
-    int m_noteNum;      // ノーツの総数
+    public int m_noteNum;          // ノーツの総数
 
     [SerializeField, CustomLabel("曲名")]
-    string m_songName;    // 曲名変数
+    string m_songName;      // 曲名変数
 
     public List<int> m_laneNum = new List<int>();                 // 何番レーンにノーツが落ちるか
     public List<int> m_noteType = new List<int>();                // 何ノーツか(ロングかどうか)
     public List<float> m_notesTime = new List<float>();           // ノーツが判定線と重なる時間
-
 
     void OnEnable()
     {
@@ -58,7 +57,7 @@ public class CS_NotesManager : MonoBehaviour
             float beatSec = kankaku * (float)inputJson.notes[i].LPB;
             
             // ノーツの降ってくる時間
-            float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + inputJson.offset + 0.01f;
+            float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + inputJson.offset;
             
             m_notesTime.Add(time);
             m_laneNum.Add(inputJson.notes[i].block);
