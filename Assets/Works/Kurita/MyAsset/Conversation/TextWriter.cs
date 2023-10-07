@@ -14,7 +14,7 @@ public class TextWriter : MonoBehaviour
     // クリック待ちのコルーチン
     IEnumerator Skip()
     {
-        while (_conversationEvent.playing) yield return 0;
+        while (_conversationEvent._playing) yield return 0;
         while (!_conversationEvent.IsClicked()) yield return 0;
     }
 

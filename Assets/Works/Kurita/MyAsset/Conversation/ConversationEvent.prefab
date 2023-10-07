@@ -117,10 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a52ad94b03b9e4580048b126c38c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 4776319642836732816}
-  conversationText: {fileID: 9054225919660120327}
-  playing: 0
-  textSpeed: 0.1
+  _nameText: {fileID: 4776319642836732816}
+  _conversationText: {fileID: 9054225919660120327}
+  _playing: 0
+  _textSpeed: 0.1
 --- !u!1 &4249966302293182952
 GameObject:
   m_ObjectHideFlags: 0

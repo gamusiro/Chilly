@@ -7,11 +7,11 @@ public class ConversationEvent : MonoBehaviour
 {
     // nameText:喋っている人の名前
     // talkText:喋っている内容やナレーション
-    [SerializeField] private TMPro.TextMeshProUGUI nameText;
-    [SerializeField] private TMPro.TextMeshProUGUI conversationText;
+    [SerializeField] private TMPro.TextMeshProUGUI _nameText;
+    [SerializeField] private TMPro.TextMeshProUGUI _conversationText;
 
-    [SerializeField] public bool playing = false;
-    [SerializeField] private float textSpeed = 0.1f;
+    [SerializeField] public bool _playing = false;
+    [SerializeField] private float _textSpeed = 0.1f;
 
     // クリックで次のページを表示させるための関数
     public bool IsClicked()
@@ -25,20 +25,20 @@ public class ConversationEvent : MonoBehaviour
     // ナレーション用のテキストを生成する関数
     public void DrawText(string text)
     {
-        nameText.text = "";
+        _nameText.text = "";
         StartCoroutine("CoDrawText", text);
     }
     // 通常会話用のテキストを生成する関数
     public void DrawText(string name, string text)
     {
-        nameText.text = name + "\n";
+        _nameText.text = name + "\n";
         StartCoroutine("CoDrawText", "「" + text + "」");
     }
 
     // テキストを一文字ずつ出力
     IEnumerator CoDrawText(string text)
     {
-        playing = true;
+        _playing = true;
         float time = 0;
         while (true)
         {
@@ -48,12 +48,12 @@ public class ConversationEvent : MonoBehaviour
             // クリックされると一気に表示
             if (IsClicked()) break;
 
-            int len = Mathf.FloorToInt(time / textSpeed);
+            int len = Mathf.FloorToInt(time / _textSpeed);
             if (len > text.Length) break;
-            conversationText.text = text.Substring(0, len);
+            _conversationText.text = text.Substring(0, len);
         }
-        conversationText.text = text;
+        _conversationText.text = text;
         yield return 0;
-        playing = false;
+        _playing = false;
     }
 }
