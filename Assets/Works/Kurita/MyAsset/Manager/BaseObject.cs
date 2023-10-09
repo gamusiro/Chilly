@@ -13,4 +13,11 @@ public class BaseObject : MonoBehaviour
     {
    
     }
+
+    public void SetThisObjectToBaseManager()
+    {
+        GameObject baseManagerObject = GameObject.Find("BaseManager");
+        BaseManager baseManagerCS = baseManagerObject.GetComponent<BaseManager>();
+        baseManagerCS.SetObject(this.gameObject);
+    }
 }

@@ -5,8 +5,11 @@ Unity-Excel-Importer-Maker-master
 ・オーディオスペクトラム
 https://github.com/keijiro/unity-audio-spectrum
 
-・テスト音楽
+・テスト音楽(Dova)
 https://dova-s.jp/bgm/play19617.html
+
+・テスト音楽(Pixabay)
+https://pixabay.com/ja/music/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=149592%22%3EPixabay
 
 ・会話イベント参考資料
 https://www.midnightunity.net/textmeshpro-japanese-font/
@@ -14,3 +17,8 @@ https://gist.github.com/kgsi/ed2f1c5696a2211c1fd1e1e198c96ee4?h=1
 
 ・Googleフォント
 https://fonts.google.com/specimen/Kosugi+Maru?subset=japanese&noto.script=Jpan
+
+・スピーカーイラスト
+MONOICOON
+https://icooon-mono.com/14947-%e3%82%b9%e3%83%94%e3%83%bc%e3%82%ab%e3%83%bc%e3%81%ae%e7%84%a1%e6%96%99%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3/
+

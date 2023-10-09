@@ -22,16 +22,16 @@ public class Data
     public Note[] notes;
 }
 
-public class CS_NotesManager : MonoBehaviour
+public class NotesManager : BaseObject
 {
-    public int m_noteNum;          // ノーツの総数
+    [Header("読み込むJsonデータ")]
+    [SerializeField]　protected string m_songName;
 
-    [SerializeField, CustomLabel("曲名")]
-    string m_songName;      // 曲名変数
+    [NonSerialized] protected int m_noteNum;         　　　　　　　 　　　　 // ノーツの総数
+    [NonSerialized] protected List<int> m_laneNum = new List<int>();         // 何番レーンにノーツが落ちるか
+    [NonSerialized] protected List<int> m_noteType = new List<int>();        // 何ノーツか(ロングかどうか)
+    [NonSerialized] protected List<float> m_notesTime = new List<float>();   // ノーツが判定線と重なる時間
 
-    public List<int> m_laneNum = new List<int>();                 // 何番レーンにノーツが落ちるか
-    public List<int> m_noteType = new List<int>();                // 何ノーツか(ロングかどうか)
-    public List<float> m_notesTime = new List<float>();           // ノーツが判定線と重なる時間
 
     void OnEnable()
     {

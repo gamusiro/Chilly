@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class SmallEnemy : Enemy
 {
-    [Header("スポーン地点")]
-    [SerializeField] private Transform _spawnTransform;
-    [Header("移動開始時間(スポーンしてから計測)")]
-    [SerializeField] private Transform _startTime;
-    [Header("存在する時間(移動開始してから計測)")]
-    [SerializeField] private Transform _lifeTime;
+    private Vector3 _velocity = new Vector3();
+    private bool _first = new bool();
+    private bool _isMoving = new bool();
 
-
-    public override void Initialized()
+    public void Initialized(Vector3 velocity)
     {
+        //移動ベクトルを決める
+        _velocity = velocity;
+
         //各パーツの角度を決める
         foreach (var transformEyes in _transformEyes)
         {
@@ -28,13 +27,19 @@ public class SmallEnemy : Enemy
         //その他変数
         _standardMouthScale = _transformMouth.localScale;//口の標準の大きさ
         _frameHit = 999.0f;//ヒットフレーム
-     }
+        _first = true;
+        _isMoving = false;
+    }
 
     public override void Updated()
     {
-        HitAnimation();
-        Eyes();
-        Mouth();
+        if (_first)
+        {
+            HitAnimation();
+            Eyes();
+            Mouth();
+            Move();
+        }
     }
 
     private new void Eyes()
@@ -47,5 +52,21 @@ public class SmallEnemy : Enemy
             addValue *= AddValue(0.5f, 1.0f);
             _transformEyes[i].position = _transformEyesStandardPosition[i].position + addValue;
         }
+    }
+
+    private void Move()
+    {
+        if (_isMoving)
+            transform.position += _velocity * Time.deltaTime;
+    }
+
+    public void StartMoving()
+    {
+        _isMoving = true;
+    }
+
+    public void Destroy()
+    {
+        Destroy(this.gameObject);
     }
 }
