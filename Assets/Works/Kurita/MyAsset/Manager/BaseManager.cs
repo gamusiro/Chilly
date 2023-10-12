@@ -20,8 +20,6 @@ public class BaseManager : MonoBehaviour
         {
             baseObject.Initialized();
         }
-
-        Debug.Log(_baseObject.Count);
     }
 
     //スクリプトからインスタンスを追加

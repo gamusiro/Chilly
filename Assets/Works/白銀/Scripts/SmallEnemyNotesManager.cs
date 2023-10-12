@@ -42,12 +42,15 @@ public class SmallEnemyNotesManager : NotesManager
         switch(m_noteType[i])
         {
             case 0:
+                //生成する
                 CreateSmallEnemy();
                 break;
             case 1:
+                //移動開始(スタート)
                 StartMoveSmallEnemy();
                 break;
             case 2:
+                //消滅
                 DestroySmallEnemy();
                 break;
         }
