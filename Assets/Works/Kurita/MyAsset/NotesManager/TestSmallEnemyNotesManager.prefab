@@ -209,6 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_songName: SmallEnemyNotes
+  m_noteNum: 0
+  m_notesTimesList: []
+  _audioSourceCS: {fileID: 0}
   _smallEnemyObject: {fileID: 5349433586715368046, guid: 2f9c93f5d2810bf4c98ac1df43038f0d, type: 3}
   _spawnTransformList:
   - {fileID: 2356181667880921151}
