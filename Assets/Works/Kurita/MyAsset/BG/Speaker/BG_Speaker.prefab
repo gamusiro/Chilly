@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1798465369200406596}
   - component: {fileID: 3348103837491716690}
   - component: {fileID: 3739065589846001791}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite_SpeakerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 520428433365540328}
   - component: {fileID: 3520946997359391848}
   - component: {fileID: 7645484938771055613}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite_Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 8084667121445531758}
   - component: {fileID: 2304051261009075970}
   - component: {fileID: 8711484183880593095}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5072406011095139050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4745396623498825772}
   - component: {fileID: 2279017017474386287}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_Speaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 521191912064251076}
   - component: {fileID: 5449212999963947168}
   - component: {fileID: 7674487827567200452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite_SpeakerCircle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,15 +22,21 @@ public class Data
     public Note[] notes;
 }
 
+[Serializable]
+public class NotesTime
+{
+   public int m_laneNum;// 何番レーンにノーツが落ちるか
+   public int m_noteType;// 何ノーツか(ロングかどうか)
+   public float m_noteTime;// ノーツが判定線と重なる時間
+}
+
 public class NotesManager : BaseObject
 {
     [Header("読み込むJsonデータ")]
     [SerializeField]　protected string m_songName;
 
-    [NonSerialized] protected int m_noteNum;         　　　　　　　 　　　　 // ノーツの総数
-    [NonSerialized] protected List<int> m_laneNum = new List<int>();         // 何番レーンにノーツが落ちるか
-    [NonSerialized] protected List<int> m_noteType = new List<int>();        // 何ノーツか(ロングかどうか)
-    [NonSerialized] protected List<float> m_notesTime = new List<float>();   // ノーツが判定線と重なる時間
+    [SerializeField] protected int m_noteNum;// ノーツの総数
+    [SerializeField] protected List<NotesTime> m_notesTimesList = new List<NotesTime>();
 
 
     void OnEnable()
@@ -59,9 +65,14 @@ public class NotesManager : BaseObject
             // ノーツの降ってくる時間
             float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + inputJson.offset;
             
-            m_notesTime.Add(time);
-            m_laneNum.Add(inputJson.notes[i].block);
-            m_noteType.Add(inputJson.notes[i].type);
+            //ノーツの情報を追加
+            NotesTime notesTime = new NotesTime();
+            notesTime.m_laneNum = inputJson.notes[i].block;
+            notesTime.m_noteType = inputJson.notes[i].type;
+            notesTime.m_noteTime = time;
+            m_notesTimesList.Add(notesTime);
         }
+        //ソート
+        m_notesTimesList.Sort((a, b) => a.m_noteTime.CompareTo(b.m_noteTime)) ;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SmallEnemyNotesManager : NotesManager
 {
+    [Header("音楽を読み込む")]
+    [SerializeField] private AudioSource _audioSourceCS; 
+
     [Header("小さい敵の生成スクリプト")]
     [Header("1.生成したいプレハブ")]
     [SerializeField] private GameObject _smallEnemyObject;
@@ -19,45 +22,54 @@ public class SmallEnemyNotesManager : NotesManager
     private int _startIndex = 0;//管理する敵のインデックス
     private int _destroyIndex = 0;//管理する敵のインデックス
 
+    private int _index = 0;
+
     public override void Initialized()
     {
-        // 時間と攻撃タイプ等を選択して、指定秒数後に実行する処理を登録しておく
-        for (int i = 0; i < m_noteNum; ++i)
-        {
-            StartCoroutine(Control(i));
-        }
-
         //管理する敵のインデックスを更新
         _spawnIndex = 0;
         _startIndex = 0;
         _destroyIndex = 0;
+
+        _index = 0;
     }
 
-    //ノーツのタイプ
-    private IEnumerator Control(int i)
+    private void Update()
     {
-        yield return new WaitForSeconds(m_notesTime[i]);
 
-        // ノーツのタイプによって演出を変える
-        switch(m_noteType[i])
+        for (int i = _index; i < m_notesTimesList.Count; i++)
         {
-            case 0:
-                //生成する
-                CreateSmallEnemy();
+            NotesTime notesTime = m_notesTimesList[_index];
+
+            if (_audioSourceCS.time >= notesTime.m_noteTime) //時間内であれば
+            {
+                _index++;
+                // ノーツのタイプによって演出を変える
+                switch (notesTime.m_noteType)
+                {
+                    case 0:
+                        //生成する
+                        CreateSmallEnemy();
+                        break;
+                    case 1:
+                        //移動開始(スタート)
+                        StartMoveSmallEnemy();
+                        break;
+                    case 2:
+                        //消滅
+                        DestroySmallEnemy();
+                        break;
+                }
+            }
+            else//制限時間外
+            {
                 break;
-            case 1:
-                //移動開始(スタート)
-                StartMoveSmallEnemy();
-                break;
-            case 2:
-                //消滅
-                DestroySmallEnemy();
-                break;
+            }
         }
     }
 
-    //小さい敵の生成
-    void CreateSmallEnemy()
+//小さい敵の生成
+void CreateSmallEnemy()
     {
         //エラー文
         if (_spawnTransformList.Count <= _spawnIndex || _spawnTransformList[_spawnIndex] == null) 
