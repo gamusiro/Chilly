@@ -12,24 +12,37 @@ public class CS_Player : MonoBehaviour
     [SerializeField, CustomLabel("ジャンプの強さ")]
     float m_jumpVel = 5.0f;
 
+    [SerializeField, CustomLabel("カメラオブジェクト")]
+    GameObject m_cameraObject;
+
     IA_Player m_inputActions;   // 入力
     Rigidbody m_rigidbody;      // 剛体
-    bool m_isFlying;
+    bool m_isFlying;            // 飛んで埼玉
 
-    // Start is called before the first frame update
+    bool m_isDamaging;          // ダメージ処理
+
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
     void Start()
     {
         m_inputActions = new IA_Player();
         m_inputActions.Enable();
 
         m_rigidbody = GetComponent<Rigidbody>();
+
+        m_isFlying = false;
+        m_isDamaging = false;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// 更新処理
+    /// </summary>
     void Update()
     {
         PlayerMove();
         PlayerJump();
+        PlayerDamage();
     }
 
     /// <summary>
@@ -38,7 +51,16 @@ public class CS_Player : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        m_isFlying = true;
+        m_isFlying = false;
+    }
+
+    /// <summary>
+    /// 敵と接触したら
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        m_isDamaging = true;
     }
 
     /// <summary>
@@ -53,7 +75,8 @@ public class CS_Player : MonoBehaviour
         Vector3 curPos = transform.position;
 
         // 次の移動位置計算 ※カメラの向きを反転してるため、横入力の値を反転させる
-        Vector3 dirVec = new Vector3(inputVec.x * -1.0f, 0.0f, 0.0f);
+        Vector3 dirCam = m_cameraObject.transform.right;
+        Vector3 dirVec = new Vector3(inputVec.x * dirCam.x, 0.0f, 0.0f);
         Vector3 nexPos = curPos + dirVec * m_moveVel * Time.deltaTime;
 
         transform.position = nexPos;
@@ -64,10 +87,22 @@ public class CS_Player : MonoBehaviour
     /// </summary>
     void PlayerJump()
     {
-        if (m_inputActions.Player.Jump.triggered && m_isFlying)
+        if (m_inputActions.Player.Jump.triggered && !m_isFlying)
         {
             m_rigidbody.AddForce(Vector3.up * m_jumpVel, ForceMode.Impulse);
-            m_isFlying = false;
+            m_isFlying = true;
+        }
+    }
+
+    /// <summary>
+    /// プレイヤーのダメージ
+    /// </summary>
+    void PlayerDamage()
+    {
+        if(m_isDamaging)
+        {
+            m_isDamaging = false;
+            Debug.Log("ぶつかる");
         }
     }
 }

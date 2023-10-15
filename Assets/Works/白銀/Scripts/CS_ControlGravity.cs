@@ -6,7 +6,7 @@ using UnityEngine;
 public class CS_ControlGravity : MonoBehaviour
 {
     [SerializeField, CustomLabel("èdóÕÇÃã≠Ç≥")]
-    [Range(0.1f, 100.0f)]
+    [Range(1.0f, 1000.0f)]
     float m_strength;
 
     Rigidbody m_rigidBody;
