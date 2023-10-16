@@ -17,8 +17,8 @@ TagManager:
   - House
   - SmallEnemy
   - Speaker
-  - 
-  - 
+  - WorldTransformSprite
+  - Player
   - 
   - 
   - 

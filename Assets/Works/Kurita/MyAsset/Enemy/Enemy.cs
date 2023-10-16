@@ -114,7 +114,6 @@ public class Enemy : BaseObject
 
     protected void HitAnimation()
     {
-
         //êFïœçX
         ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
         colorOverLifetime.enabled = true;
@@ -142,5 +141,4 @@ public class Enemy : BaseObject
         else
             return value;
     }
-
 }
