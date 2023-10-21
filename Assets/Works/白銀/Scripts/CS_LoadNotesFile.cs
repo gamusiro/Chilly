@@ -46,7 +46,7 @@ public class CS_LoadNotesFile : MonoBehaviour
         {
             float kankaku = 60.0f / (inputJson.BPM * (float)inputJson.notes[i].LPB);
             float beatSec = kankaku * (float)inputJson.notes[i].LPB;
-            float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + inputJson.offset + 0.01f;
+            float time = (beatSec * inputJson.notes[i].num / (float)inputJson.notes[i].LPB) + inputJson.offset;
 
             PerNoteInfo info = new PerNoteInfo();
             info.time = time;

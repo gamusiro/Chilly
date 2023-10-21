@@ -11,7 +11,8 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     [SerializeField, CustomLabel("基準にするオーディオデータ")]
     AudioSource m_audioSource;
 
-    int m_destroyCount;   // 破棄したデータの数
+    float m_frontMoveVel;   // 前進速度
+    int m_destroyCount;     // 破棄したデータの数
 
 
     /// <summary>
@@ -19,6 +20,7 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     /// </summary>
     void Start()
     {
+        m_frontMoveVel = gameObject.transform.parent.gameObject.GetComponent<CS_MoveController>().GetMoveVel();
         m_destroyCount = 0;
 
         // ノーツデータの読み込み
@@ -61,6 +63,8 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
         createPos.x = (2 - noteInfo.lane) * 10.0f;
         createPos.y = m_negativePieceObject.transform.position.y;
         createPos.z = gameObject.transform.position.z;
+
+        Vector3 setVel = new Vector3(0.0f, 0.0f, -(gameObject.transform.localPosition.z));
 
         // オブジェクトの生成処理
         GameObject obj = Instantiate(m_negativePieceObject, createPos, Quaternion.identity);
