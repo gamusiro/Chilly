@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CS_MoveController : MonoBehaviour
+public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
 {
     [SerializeField, CustomLabel("前進速度")]
     float m_moveVel;
 
     Vector3 m_vecVel;
+
+    private GameObject m_player;
+    private GameObject m_enemy;
+    private GameObject m_camera;
 
     /// <summary>
     /// 初期化処理
@@ -15,6 +19,13 @@ public class CS_MoveController : MonoBehaviour
     void Start()
     {
         m_vecVel = new Vector3(0.0f, 0.0f, m_moveVel);
+
+        m_player = gameObject.transform.GetChild(0).gameObject;
+        m_enemy = gameObject.transform.GetChild(1).gameObject;
+        m_camera = gameObject.transform.GetChild(2).gameObject;
+
+        if (m_player == null)
+            Debug.Log("オブジェクトなんかねぇ");
     }
 
     /// <summary>
@@ -32,5 +43,20 @@ public class CS_MoveController : MonoBehaviour
     public float GetMoveVel()
     {
         return m_moveVel;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return m_player;
+    }
+
+    public GameObject GetEnemy()
+    {
+        return m_enemy;
+    }
+
+    public GameObject GetCamera()
+    {
+        return m_camera;
     }
 }

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class CS_SmallEnemy02Manager : CS_LoadNotesFile
+public class CS_StaticObject : CS_LoadNotesFile
 {
     [SerializeField, CustomLabel("生成する敵オブジェクト")]
     GameObject m_negativePieceObject;
@@ -11,9 +10,12 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     [SerializeField, CustomLabel("基準にするオーディオデータ")]
     AudioSource m_audioSource;
 
+    [SerializeField, CustomLabel("オブジェクトの生成数")]
+    [Range(5, 20)]
+    int m_createCount;
+
     float m_frontMoveVel;   // 前進速度
     int m_destroyCount;     // 破棄したデータの数
-
 
     /// <summary>
     /// 初期化処理
@@ -25,6 +27,10 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
 
         // ノーツデータの読み込み
         this.Load();
+
+        // オブジェクトの生成処理
+        for (int i = m_destroyCount; i < m_createCount; ++i)
+            CreateGameObject(i);
     }
 
     /// <summary>
@@ -62,12 +68,10 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
 
         createPos.x = (2 - noteInfo.lane) * 10.0f;
         createPos.y = m_negativePieceObject.transform.position.y;
-        createPos.z = gameObject.transform.position.z;
-
-        Vector3 setVel = new Vector3(0.0f, 0.0f, -(gameObject.transform.localPosition.z));
+        createPos.z = (m_frontMoveVel * noteInfo.time) * -1.0f;
 
         // オブジェクトの生成処理
         GameObject obj = Instantiate(m_negativePieceObject, createPos, Quaternion.identity);
-        obj.GetComponent<CS_NegativePiece>().SetVelocity(setVel, 10.0f);
+        obj.GetComponent<CS_NegativePiece>().SetVelocity(Vector3.zero, 10.0f);
     }
 }
