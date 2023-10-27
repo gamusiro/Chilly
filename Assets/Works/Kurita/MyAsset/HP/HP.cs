@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HP : MonoBehaviour
 {
-    [SerializeField] private MaterialSO _spriteList;//spriteList
-    [SerializeField] private MeshRenderer _meshRenderer;//表示画像
+    [SerializeField] private SpriteSO _spriteList;//spriteList
+    [SerializeField] private Image _image;//表示画像
     [SerializeField] private int _hp;
 
     //フェードアニメーション系
@@ -17,10 +17,9 @@ public class HP : MonoBehaviour
 
     private void Start()
     {
+        _hp = _spriteList.sprite.Count;
         _animeFlag = false;
         _curflashNum = 0;
-        _meshRenderer.material = _spriteList.Material[_hp-1];
-
     }
 
     private void Update()
@@ -63,7 +62,7 @@ public class HP : MonoBehaviour
             }
             else 
             {
-            _meshRenderer.material = _spriteList.Material[_hp-1];
+            _image.sprite = _spriteList.sprite[_hp];
             
             }
         }
