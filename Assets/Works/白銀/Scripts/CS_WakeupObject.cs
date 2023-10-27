@@ -52,9 +52,9 @@ public class CS_WakeupObject : CS_LoadNotesFile
 
             // この条件が真であれば、ベクトルに力を加える
             PerNoteInfo noteInfo = m_perNoteInfos[i];
-            if (noteInfo.time <= m_audioSource.time)
+            if (noteInfo.time  <= m_audioSource.time)
             {
-                m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(0.0f, -100.0f, 0.0f), 5.0f);
+                m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(0.0f, -(100.0f + m_frontMoveVel), 0.0f), 5.0f);
 
                 // 破棄数を増やす
                 m_destroyCount++;
@@ -74,7 +74,6 @@ public class CS_WakeupObject : CS_LoadNotesFile
     {
         Vector3 createPos = Vector3.zero;
 
-        // ノーツデータのレーン番号の種類が2つだけ
         PerNoteInfo noteInfo = m_perNoteInfos[index];
 
         createPos.x = (2 - noteInfo.lane) * 30.0f;

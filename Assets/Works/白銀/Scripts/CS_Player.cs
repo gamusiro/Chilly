@@ -71,6 +71,7 @@ public class CS_Player : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
+            Debug.Log("“G‚Æ‚Ô‚Â‚©‚Á‚½");
         }
     }
 }
