@@ -18,7 +18,7 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     /// </summary>
     void Start()
     {
-        m_vecVel = new Vector3(0.0f, 0.0f, m_moveVel);
+        m_vecVel = Vector3.zero;
 
         m_player = gameObject.transform.GetChild(0).gameObject;
         m_enemy = gameObject.transform.GetChild(1).gameObject;
@@ -55,5 +55,10 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     public GameObject GetCamera()
     {
         return m_camera;
+    }
+
+    public void MoveStart()
+    {
+        m_vecVel = new Vector3(0.0f, 0.0f, m_moveVel);
     }
 }
