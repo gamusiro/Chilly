@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class CS_HeartPiece : MonoBehaviour
 {
-    [SerializeReference]
     GameObject m_enemyObject;
-
-    [SerializeReference]
     GameObject m_cameraObject;
 
     Vector3 m_rootRight;
@@ -51,6 +48,30 @@ public class CS_HeartPiece : MonoBehaviour
     /// <summary>
     /// 衝突したら
     /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            gameObject.transform.parent = other.gameObject.transform.parent;
+
+            // 経由するルートを確定する
+            if (gameObject.transform.position.x > 0)
+                m_useRoot = m_rootRight;
+            else
+                m_useRoot = m_rootLeft;
+
+            m_getted = true;
+            gameObject.transform.localPosition = other.gameObject.transform.localPosition;
+
+            m_enemyObject = CS_MoveController.Instance.GetEnemy();
+            m_cameraObject = CS_MoveController.Instance.GetCamera();
+        }
+    }
+
+    /// <summary>
+    /// 衝突した
+    /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
@@ -66,6 +87,9 @@ public class CS_HeartPiece : MonoBehaviour
 
             m_getted = true;
             gameObject.transform.localPosition = collision.gameObject.transform.localPosition;
+
+            m_enemyObject = CS_MoveController.Instance.GetEnemy();
+            m_cameraObject = CS_MoveController.Instance.GetCamera();
         }
     }
 }

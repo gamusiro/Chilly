@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class CS_NegativePiece : MonoBehaviour
 {
     Vector3 m_velocity;
+    GameObject m_player;
+
+    private void Start()
+    {
+        m_player = CS_MoveController.Instance.GetPlayer();
+    }
 
     /// <summary>
     /// XVˆ—
