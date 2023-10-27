@@ -66,7 +66,9 @@ public class CS_StaticObject : CS_LoadNotesFile
         Vector3 createPos = Vector3.zero;
         PerNoteInfo noteInfo = m_perNoteInfos[index];
 
-        createPos.x = (2 - noteInfo.lane) * 10.0f;
+        const float stride = 30.0f;
+
+        createPos.x = (2 - noteInfo.lane) * stride;
         createPos.y = m_negativePieceObject.transform.position.y;
         createPos.z = (m_frontMoveVel * noteInfo.time) * -1.0f;
 

@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class CS_SmallEnemy02Manager : CS_LoadNotesFile
+public class CS_WakeupObject : CS_LoadNotesFile
 {
     [SerializeField, CustomLabel("生成する敵オブジェクト")]
     GameObject m_negativePieceObject;
@@ -11,8 +11,14 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     [SerializeField, CustomLabel("基準にするオーディオデータ")]
     AudioSource m_audioSource;
 
-    [SerializeField, CustomLabel("ストライド")]
-    float m_stride;
+    [SerializeField, CustomLabel("オブジェクトの生成数")]
+    [Range(5, 20)]
+    int m_createCount;
+
+    [SerializeField, CustomLabel("オフセット")]
+    public float m_offset;
+
+    List<GameObject> m_gameObjects = new List<GameObject>();
 
     float m_frontMoveVel;   // 前進速度
     int m_destroyCount;     // 破棄したデータの数
@@ -28,6 +34,10 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
 
         // ノーツデータの読み込み
         this.Load();
+
+        // オブジェクトの生成処理
+        for (int i = m_destroyCount; i < m_createCount; ++i)
+            CreateGameObject(i);
     }
 
     /// <summary>
@@ -35,22 +45,24 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     /// </summary>
     void Update()
     {
-        for (int i = m_destroyCount; i < m_perNoteInfos.Count; ++i)
+        for (int i = m_destroyCount; i < m_destroyCount + m_createCount; ++i)
         {
             if (i >= m_perNoteInfos.Count)
                 break;
 
-            // 一秒前に生成し、プレイヤーのいる位置でタイミングが重なるようにする
+            // この条件が真であれば、ベクトルに力を加える
             PerNoteInfo noteInfo = m_perNoteInfos[i];
-            if ((noteInfo.time - 1.0f) <= m_audioSource.time)
+            if (noteInfo.time <= m_audioSource.time)
             {
-                CreateGameObject(i);
+                m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(0.0f, -100.0f, 0.0f), 5.0f);
 
-                // 破棄データを増やす
+                // 破棄数を増やす
                 m_destroyCount++;
+
+                // 新たなオブジェクトの生成を行う
+                if (m_perNoteInfos.Count > m_gameObjects.Count)
+                    CreateGameObject(m_gameObjects.Count);
             }
-            else
-                break;
         }
     }
 
@@ -61,16 +73,16 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     void CreateGameObject(int index)
     {
         Vector3 createPos = Vector3.zero;
+
+        // ノーツデータのレーン番号の種類が2つだけ
         PerNoteInfo noteInfo = m_perNoteInfos[index];
 
-        createPos.x = (2 - noteInfo.lane) * m_stride;
-        createPos.y = m_negativePieceObject.transform.position.y;
-        createPos.z = gameObject.transform.position.z;
-
-        Vector3 setVel = new Vector3(0.0f, 0.0f, -(gameObject.transform.localPosition.z + m_frontMoveVel));
+        createPos.x = (2 - noteInfo.lane) * 30.0f;
+        createPos.y = 100.0f;
+        createPos.z = (m_frontMoveVel * noteInfo.time + m_offset) * -1.0f;
 
         // オブジェクトの生成処理
         GameObject obj = Instantiate(m_negativePieceObject, createPos, Quaternion.identity);
-        obj.GetComponent<CS_NegativePiece>().SetVelocity(setVel, 10.0f);
+        m_gameObjects.Add(obj);
     }
 }

@@ -66,4 +66,11 @@ public class CS_Player : MonoBehaviour
     {
         m_isFlying = false;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+        }
+    }
 }

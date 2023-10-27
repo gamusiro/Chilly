@@ -23,9 +23,6 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
         m_player = gameObject.transform.GetChild(0).gameObject;
         m_enemy = gameObject.transform.GetChild(1).gameObject;
         m_camera = gameObject.transform.GetChild(2).gameObject;
-
-        if (m_player == null)
-            Debug.Log("オブジェクトなんかねぇ");
     }
 
     /// <summary>

@@ -55,9 +55,9 @@ public class CS_SmallEnemy01Manager : CS_LoadNotesFile
             if (noteInfo.time <= m_audioSource.time)
             {
                 if (noteInfo.lane == 0) // ç∂(Å[ç¿ïW)
-                    m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3( 50.0f, 0.0f, -m_frontMoveVel), 5.0f);
+                    m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3( 50.0f, 0.0f, 0.0f), 5.0f);
                 else                                                                           
-                    m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(-50.0f, 0.0f, -m_frontMoveVel), 5.0f);
+                    m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(-50.0f, 0.0f, 0.0f), 5.0f);
 
                 // îjä¸êîÇëùÇ‚Ç∑
                 m_destroyCount++;

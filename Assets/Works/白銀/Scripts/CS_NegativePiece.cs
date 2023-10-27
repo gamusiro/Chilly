@@ -9,6 +9,7 @@ public class CS_NegativePiece : MonoBehaviour
 {
     Vector3 m_velocity;
     GameObject m_player;
+    bool m_clap;
 
     private void Start()
     {
@@ -21,6 +22,26 @@ public class CS_NegativePiece : MonoBehaviour
     void Update()
     {
         transform.position += m_velocity * Time.deltaTime;
+
+        if(m_clap)
+        {
+            if(m_velocity.z >= 0.0)
+            {
+                if (transform.position.z >= m_player.transform.position.z)
+                {
+                    gameObject.GetComponent<AudioSource>().Play();
+                    m_clap = false;
+                }
+            }
+            else
+            {
+                if (transform.position.z <= m_player.transform.position.z)
+                {
+                    gameObject.GetComponent<AudioSource>().Play();
+                    m_clap = false;
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -29,6 +50,7 @@ public class CS_NegativePiece : MonoBehaviour
     public void SetVelocity(Vector3 vel, float destroyTime)
     {
         m_velocity = vel;
+        m_clap = true;
         Destroy(gameObject, destroyTime);
     }
 }
