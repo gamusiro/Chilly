@@ -322,13 +322,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5648415428650933524, guid: 5d4525feb3a9f8845af8d8047afc352c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2134882480}
-    - targetCorrespondingSourceObject: {fileID: 5648415428650933524, guid: 5d4525feb3a9f8845af8d8047afc352c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2134882479}
-    - targetCorrespondingSourceObject: {fileID: 5648415428650933524, guid: 5d4525feb3a9f8845af8d8047afc352c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2134882485}
     - targetCorrespondingSourceObject: {fileID: 5648415428650933524, guid: 5d4525feb3a9f8845af8d8047afc352c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2134882490}
@@ -788,39 +782,6 @@ MonoBehaviour:
   m_negativePieceObject: {fileID: 270884841887256026, guid: af7fad8f644a140428cef0f1751d247f, type: 3}
   m_audioSource: {fileID: 1497431333}
   m_stride: 30
---- !u!114 &2134882480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134882473}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcadb2cc6af4954ab67fd2f8a03e80c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_jsonFileName: WeMadeIt_NegativePieceVer01
-  m_negativePieceObject: {fileID: 270884841887256026, guid: 29ef92f44d100ee42bf5ddd460c25bf4, type: 3}
-  m_audioSource: {fileID: 1497431333}
-  m_createCount: 10
-  m_offset: -40
---- !u!114 &2134882485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134882473}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d47d3093b7c4a946a5f3fbc256f2f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_jsonFileName: WeMadeIt_NegativePieceVer03
-  m_negativePieceObject: {fileID: 270884841887256026, guid: 29ef92f44d100ee42bf5ddd460c25bf4, type: 3}
-  m_audioSource: {fileID: 1497431333}
-  m_createCount: 10
 --- !u!114 &2134882490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,6 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_jsonFileName: WeMadeIt_NegativePieceVer03
   m_negativePieceObject: {fileID: 270884841887256026, guid: 29ef92f44d100ee42bf5ddd460c25bf4, type: 3}
+  m_shadowObject: {fileID: 6798499787823551911, guid: 669c206df94e48c44a7b8e9feb42128b, type: 3}
   m_audioSource: {fileID: 1497431333}
   m_createCount: 10
   m_offset: 0

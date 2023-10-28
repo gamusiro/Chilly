@@ -8,6 +8,9 @@ public class CS_WakeupObject : CS_LoadNotesFile
     [SerializeField, CustomLabel("生成する敵オブジェクト")]
     GameObject m_negativePieceObject;
 
+    [SerializeField, CustomLabel("生成する影オブジェクト")]
+    GameObject m_shadowObject;
+
     [SerializeField, CustomLabel("基準にするオーディオデータ")]
     AudioSource m_audioSource;
 
@@ -19,6 +22,7 @@ public class CS_WakeupObject : CS_LoadNotesFile
     public float m_offset;
 
     List<GameObject> m_gameObjects = new List<GameObject>();
+    List<GameObject> m_shadowObjects = new List<GameObject>();
 
     float m_frontMoveVel;   // 前進速度
     int m_destroyCount;     // 破棄したデータの数
@@ -55,6 +59,7 @@ public class CS_WakeupObject : CS_LoadNotesFile
             if ((noteInfo.time - 1.0f)  <= m_audioSource.time)
             {
                 m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(0.0f, -(100.0f), 0.0f), 5.0f);
+                m_shadowObjects[i].GetComponent<CS_Shadow>().SetWork();
 
                 // 破棄数を増やす
                 m_destroyCount++;
@@ -76,12 +81,19 @@ public class CS_WakeupObject : CS_LoadNotesFile
 
         PerNoteInfo noteInfo = m_perNoteInfos[index];
 
-        createPos.x = (2 - noteInfo.lane) * 30.0f;
+        const float stride = 30.0f;
+
+        createPos.x = (2 - noteInfo.lane) * stride;
         createPos.y = 100.0f;
         createPos.z = (m_frontMoveVel * noteInfo.time + m_offset) * -1.0f;  // ノーツのタイミング
 
         // オブジェクトの生成処理
         GameObject obj = Instantiate(m_negativePieceObject, createPos, Quaternion.identity);
         m_gameObjects.Add(obj);
+
+        // 影オブジェクト生成
+        createPos.y = 0.01f;
+        GameObject sdw = Instantiate(m_shadowObject, createPos, Quaternion.identity);
+        m_shadowObjects.Add(sdw);
     }
 }
