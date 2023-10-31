@@ -7,13 +7,22 @@ using UnityEngine;
 
 public class CS_NegativePiece : MonoBehaviour
 {
-    Vector3 m_velocity;
     GameObject m_player;
+    Rigidbody m_rigidBody;
     bool m_clap;
 
+    /// <summary>
+    /// èâä˙âªèàóù
+    /// </summary>
     private void Start()
     {
+        
+    }
+
+    private void Awake()
+    {
         m_player = CS_MoveController.Instance.GetPlayer();
+        m_rigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
     /// <summary>
@@ -21,11 +30,9 @@ public class CS_NegativePiece : MonoBehaviour
     /// </summary>
     void Update()
     {
-        transform.position += m_velocity * Time.deltaTime;
-
         if(m_clap)
         {
-            if(m_velocity.z >= 0.0)
+            if(m_rigidBody.velocity.z >= 0.0)
             {
                 if (transform.position.z >= m_player.transform.position.z)
                 {
@@ -49,7 +56,7 @@ public class CS_NegativePiece : MonoBehaviour
     /// </summary>
     public void SetVelocity(Vector3 vel, float destroyTime)
     {
-        m_velocity = vel;
+        m_rigidBody.velocity = vel;
         m_clap = true;
         Destroy(gameObject, destroyTime);
     }

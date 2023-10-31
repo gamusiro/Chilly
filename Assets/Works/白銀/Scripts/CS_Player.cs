@@ -65,11 +65,8 @@ public class CS_Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         m_isFlying = false;
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("“G‚Æ‚Ô‚Â‚©‚Á‚½");
         }

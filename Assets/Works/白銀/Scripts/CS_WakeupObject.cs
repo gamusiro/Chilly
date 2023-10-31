@@ -58,7 +58,7 @@ public class CS_WakeupObject : CS_LoadNotesFile
             PerNoteInfo noteInfo = m_perNoteInfos[i];
             if ((noteInfo.time - 1.0f)  <= m_audioSource.time)
             {
-                m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(0.0f, -(100.0f), 0.0f), 5.0f);
+                m_gameObjects[i].GetComponent<CS_NegativePiece>().SetVelocity(new Vector3(0.0f, -(100.0f), 0.0f), 2.0f);
                 m_shadowObjects[i].GetComponent<CS_Shadow>().SetWork();
 
                 // ”jŠü”‚ğ‘‚â‚·

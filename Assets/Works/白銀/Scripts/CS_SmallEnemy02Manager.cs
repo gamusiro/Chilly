@@ -71,6 +71,6 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
 
         // オブジェクトの生成処理
         GameObject obj = Instantiate(m_negativePieceObject, createPos, Quaternion.identity);
-        obj.GetComponent<CS_NegativePiece>().SetVelocity(setVel, 10.0f);
+        obj.GetComponent<CS_NegativePiece>().SetVelocity(setVel, 2.0f);
     }
 }
