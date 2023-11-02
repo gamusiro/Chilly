@@ -2,101 +2,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : BaseObject
+public class Enemy : MonoBehaviour
 {
     //目の動き関するもの
-    [SerializeField] protected List<Transform> _transformEyes;
-    [SerializeField] protected List<Transform> _transformEyesStandardPosition;//目の標準位置
-
-    protected List<float> _radianEyesRotate = new();//目の回転角度
-    protected List<float> _radianEyesCircleMotion = new();//目の円運動の角度
+    private enum Eye   
+    {
+        Left,
+        Right
+    }
+    [SerializeField] protected List<Transform> _eyeTransform = new List<Transform>();
+    protected List<float> _eyeRadian = new List<float>();//回転角度
 
     //口に関するもの
-    [SerializeField] protected Transform _transformMouth;
-    [SerializeField] protected Transform _transformMouthStandardPosition;//口の標準の位置
-
-    protected Vector3 _standardMouthScale = new Vector3();//口の標準の大きさ
-    protected float _radianMouthRescale = new();//口の大きさ変更の角度
-    protected float _radianMouthRotate;//口の回転角度
-    protected float _radianMouthCircleMotion;//口の円運動の角度
+    [SerializeField] protected Transform _mouthTransform;
+    protected float _MouthScaleeRadian;//口の大きさ変更を決定する値
+    protected Vector3 _standardMouthScale;
 
     //体のパーティクルに関するもの
     [SerializeField] protected ParticleSystem _particleSystem;
-     protected float _frameHit = new();//ヒットしてからのフレーム
+     protected float _frameHit;//ヒットしてからのフレーム
 
     [SerializeField] protected Gradient _gradientOriginal;//元の色
     [SerializeField] protected Gradient _gradientHit;//ヒット時の色
+    [SerializeField] protected Color _defeatColor;//倒したときの色
 
-    public override void Initialized()
+    //状態
+    private bool _defeated;
+
+    public void Start()
     {
-        //各パーツの角度を決める
-        foreach (var transformEyes in _transformEyes)
-        {
-            float radian = Random.Range(0.0f, 2.0f) * Mathf.PI;
-            _radianEyesRotate.Add(radian);
-            _radianEyesCircleMotion.Add(radian);
-        }
-        _radianMouthRotate = Random.Range(0.0f, 2.0f) * Mathf.PI;
-        _radianMouthCircleMotion = Random.Range(0.0f, 2.0f) * Mathf.PI;
-        _radianMouthRescale = Random.Range(0.0f, 2.0f) * Mathf.PI;
+        //目と口のラジアン
+        _eyeTransform[(int)Eye.Left].eulerAngles = new Vector3(0.0f, 0.0f, 45.0f);
+        _eyeTransform[(int)Eye.Right].eulerAngles = new Vector3(0.0f, 0.0f, 225.0f);
+        _MouthScaleeRadian = 0.0f;
+        _standardMouthScale = _mouthTransform.localScale;
 
         //その他変数
-        _standardMouthScale = _transformMouth.localScale;//口の標準の大きさ
         _frameHit = 999.0f;//ヒットフレーム
+        _defeated = false;
     }
 
-    public override void Updated()
+    public void Update()
     {
-        HitAnimation();
+        if (!_defeated)
+        {
+            HitAnimation();
+        }
         Eyes();
         Mouth();
+        //ChangeColor();
     }
 
-    //プラスとマイナスを交互に出力する。
-    protected float AlternatingPlusAndMinus(int index)
-    {
-        if (index % 2 == 0)
-            return 1.0f;
-        else
-            return -1.0f;
-    }
 
     //目の動き
     protected void Eyes()
     {
-        for (int i = 0; i < _transformEyes.Count; i++)
-        {
-            //円運動
-            _radianEyesCircleMotion[i] +=  AddValue(AlternatingPlusAndMinus(i) * 0.04f, 20.0f);
-            Vector3 addValue = new Vector3(Mathf.Sin(_radianEyesCircleMotion[i]), Mathf.Cos(_radianEyesCircleMotion[i]), 0.0f);
-            addValue *= AddValue(0.5f,1.0f);
-            _transformEyes[i].position = _transformEyesStandardPosition[i].position + addValue;
-
-            //回転
-            _transformEyes[i].Rotate(0.0f, 0.0f, AddValue(AlternatingPlusAndMinus(i) * 4.0f, 5.0f));
-        }
+        float speed = 1.0f;
+        _eyeTransform[(int)Eye.Left].Rotate(0.0f, 0.0f, speed);
+        _eyeTransform[(int)Eye.Right].Rotate(0.0f, 0.0f, -speed); 
     }
 
     //口の動き
     protected void Mouth()
     {
-        //円運動
-        _radianMouthCircleMotion += AddValue(0.01f, 1.0f);
-        Vector3 addValue = new Vector3(Mathf.Sin(_radianMouthCircleMotion), Mathf.Cos(_radianMouthCircleMotion), 0.0f);
-        addValue *= 0.5f;
-        _transformMouth.position = _transformMouthStandardPosition.position + addValue;
-
-        //回転
-        _radianMouthRotate += AddValue(0.03f, 1.0f);
-        Vector3 eulerAngle = _transformMouth.eulerAngles;
-        eulerAngle.z = Mathf.Sin(_radianMouthRotate) * 13.0f;
-        _transformMouth.eulerAngles = eulerAngle;
-
         //ぱくぱく
-        _radianMouthRescale += AddValue(0.01f, 6.0f);
-        Vector3 addScale = Vector3.zero;
-        addScale.y = Mathf.Sin(Mathf.Cos(_radianMouthRescale * 3.0f) * 6.0f) * 4.0f;
-        _transformMouth.localScale = _standardMouthScale + addScale;
+        float speed = 0.02f;
+        float cosRange = 6.0f;
+        float sinRangege = _standardMouthScale.y * 0.5f;
+
+        _MouthScaleeRadian += speed;
+        Vector3 addValue = Vector3.zero;
+        addValue.y = Mathf.Sin(Mathf.Cos(_MouthScaleeRadian) * cosRange) * sinRangege;
+        _mouthTransform.localScale = _standardMouthScale + addValue;
     }
 
     //当たり判定
@@ -117,7 +94,7 @@ public class Enemy : BaseObject
         //色変更
         ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
         colorOverLifetime.enabled = true;
-        Gradient gradient = new();
+        Gradient gradient;
         gradient = _gradientOriginal;
 
         //ヒットアニメーションが作動する時間
@@ -134,11 +111,22 @@ public class Enemy : BaseObject
         colorOverLifetime.color = gradient;
     }
 
-    protected float AddValue(float value,float multiple)
+    private void ChangeColor()
     {
-        if (_frameHit < 10.0f)
-            return value * multiple;
-        else
-            return value;
+        //色変更
+        ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
+        colorOverLifetime.enabled = true;
+        colorOverLifetime.color = _gradientHit;
+
+
+        ParticleSystem.MainModule main = _particleSystem.main;
+        main.startColor = _defeatColor;
+        _frameHit = 0;
+    }
+
+    //---アニメーターからの呼び出し---
+    [SerializeField] public void ChangeColorByAnimator()
+    {
+        _defeated = true;
     }
 }
