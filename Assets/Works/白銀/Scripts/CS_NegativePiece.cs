@@ -30,25 +30,25 @@ public class CS_NegativePiece : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(m_clap)
-        {
-            if(m_rigidBody.velocity.z >= 0.0)
-            {
-                if (transform.position.z >= m_player.transform.position.z)
-                {
-                    gameObject.GetComponent<AudioSource>().Play();
-                    m_clap = false;
-                }
-            }
-            else
-            {
-                if (transform.position.z <= m_player.transform.position.z)
-                {
-                    gameObject.GetComponent<AudioSource>().Play();
-                    m_clap = false;
-                }
-            }
-        }
+        //if(m_clap)
+        //{
+        //    if(m_rigidBody.velocity.z >= 0.0)
+        //    {
+        //        if (transform.position.z >= m_player.transform.position.z)
+        //        {
+        //            gameObject.GetComponent<AudioSource>().Play();
+        //            m_clap = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (transform.position.z <= m_player.transform.position.z)
+        //        {
+        //            gameObject.GetComponent<AudioSource>().Play();
+        //            m_clap = false;
+        //        }
+        //    }
+        //}
     }
 
     /// <summary>
