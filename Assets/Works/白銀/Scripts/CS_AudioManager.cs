@@ -21,14 +21,13 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     [SerializeField, Header("‰¹Œ¹ƒf[ƒ^")]
     List<AudioPack> m_listPack = new List<AudioPack>();
 
-    Dictionary<string, AudioSource> m_dictAudio;
+    Dictionary<string, AudioSource> m_dictAudio = new Dictionary<string, AudioSource>();
 
     /// <summary>
     /// ‰Šú‰»ˆ—
     /// </summary>
     private void Start()
     {
-        m_dictAudio = new Dictionary<string, AudioSource>();
         //m_bgmSource = new AudioSource();
         //m_bgmSource = gameObject.AddComponent<AudioSource>();
     }
