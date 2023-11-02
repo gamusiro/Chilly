@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - enabled: 0
     path: Assets/Works/Kurita/MyAsset/Scene/TitleScene 1.unity
 =======
+=======
+  - enabled: 1
+    path: Assets/Works/Kurita/MyAsset/Scene/LastScene.unity
+    guid: 4e779e2aad6b88443ad4470abb97a855
+>>>>>>> 2b16b2e6903f8833484bf63d4ffb8c98d4f84c3b
   - enabled: 1
     path: Assets/Works/Kurita/MyAsset/Scene/LastScene.unity
 >>>>>>> 2b16b2e6903f8833484bf63d4ffb8c98d4f84c3b
