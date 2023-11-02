@@ -4,25 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - enabled: 0
-    path: Assets/Works/Kurita/MyAsset/Scene/TitleScene 1.unity
-=======
-=======
-  - enabled: 1
-    path: Assets/Works/Kurita/MyAsset/Scene/LastScene.unity
-    guid: 4e779e2aad6b88443ad4470abb97a855
->>>>>>> 2b16b2e6903f8833484bf63d4ffb8c98d4f84c3b
-  - enabled: 1
-    path: Assets/Works/Kurita/MyAsset/Scene/LastScene.unity
->>>>>>> 2b16b2e6903f8833484bf63d4ffb8c98d4f84c3b
-    guid: 4e779e2aad6b88443ad4470abb97a855
-  - enabled: 0
-    path: Assets/Works/Kurita/MyAsset/Scene/Scene_Test.unity
-    guid: e50b3dbfa9f9b854186f493f34610523
-  - enabled: 1
-    path: "Assets/Works/\u767D\u9280/Scenes/Scene_03.unity"
-    guid: c38a33541bb9ee64196e4e343a9f14e6
+  m_Scenes: []
   m_configObjects: {}
