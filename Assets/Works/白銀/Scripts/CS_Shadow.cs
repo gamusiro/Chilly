@@ -17,7 +17,7 @@ public class CS_Shadow : MonoBehaviour
     void Start()
     {
         startedScale = transform.localScale;
-        targetScale = new Vector3(1.5f, 1.5f, 1.5f);
+        targetScale = new Vector3(2.0f, 2.0f, 2.0f);
         m_work = 0.0f;
 
         m_run = false;

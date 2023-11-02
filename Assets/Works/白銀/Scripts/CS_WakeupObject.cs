@@ -11,15 +11,14 @@ public class CS_WakeupObject : CS_LoadNotesFile
     [SerializeField, CustomLabel("生成する影オブジェクト")]
     GameObject m_shadowObject;
 
-    [SerializeField, CustomLabel("基準にするオーディオデータ")]
-    AudioSource m_audioSource;
-
     [SerializeField, CustomLabel("オブジェクトの生成数")]
     [Range(5, 20)]
     int m_createCount;
 
     [SerializeField, CustomLabel("オフセット")]
     public float m_offset;
+
+    AudioSource m_audioSource;
 
     List<GameObject> m_gameObjects = new List<GameObject>();
     List<GameObject> m_shadowObjects = new List<GameObject>();
@@ -35,6 +34,9 @@ public class CS_WakeupObject : CS_LoadNotesFile
     {
         m_frontMoveVel = gameObject.transform.parent.gameObject.GetComponent<CS_MoveController>().GetMoveVel();
         m_destroyCount = 0;
+
+        // 音源データの取得
+        m_audioSource = CS_AudioManager.Instance.GetAudioSource("MainBGM");
 
         // ノーツデータの読み込み
         this.Load();

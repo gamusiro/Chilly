@@ -20,9 +20,9 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     {
         m_vecVel = Vector3.zero;
 
-        m_player = gameObject.transform.GetChild(0).gameObject;
-        m_enemy = gameObject.transform.GetChild(1).gameObject;
-        m_camera = gameObject.transform.GetChild(2).gameObject;
+        m_player    = gameObject.transform.GetChild(0).gameObject;
+        m_enemy     = gameObject.transform.GetChild(1).gameObject;
+        m_camera    = gameObject.transform.GetChild(2).gameObject;
     }
 
     /// <summary>

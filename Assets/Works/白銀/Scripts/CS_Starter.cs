@@ -7,19 +7,18 @@ public class CS_Starter : MonoBehaviour
     [SerializeField]
     GameObject m_MoveObject;
 
-    [SerializeField]
-    AudioSource m_sourceVoice;
-
-
     // Start is called before the first frame update
     void Start()
     {
-        Invoke(nameof(GameStart), 3.0f);
+        // Ç±Ç±Ç≈âΩïbÇ©ë“ÇΩÇ»Ç¢Ç∆ÅAéÄÇ 
+        Invoke(nameof(GameStart), 1.0f);
+        //GameStart();
     }
 
     void GameStart()
     {
-        m_MoveObject.GetComponent<CS_MoveController>().MoveStart();
-        m_sourceVoice.Play();
+        CS_MoveController.Instance.MoveStart();
+        CS_AudioManager.Instance.PlayAudio("MainBGM");
+        Destroy(gameObject);
     }
 }

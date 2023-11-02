@@ -8,12 +8,10 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     [SerializeField, CustomLabel("生成する敵オブジェクト")]
     GameObject m_negativePieceObject;
 
-    [SerializeField, CustomLabel("基準にするオーディオデータ")]
-    AudioSource m_audioSource;
-
     [SerializeField, CustomLabel("ストライド")]
     float m_stride;
 
+    AudioSource m_audioSource;
     float m_frontMoveVel;   // 前進速度
     int m_destroyCount;     // 破棄したデータの数
 
@@ -25,6 +23,8 @@ public class CS_SmallEnemy02Manager : CS_LoadNotesFile
     {
         m_frontMoveVel = gameObject.transform.parent.gameObject.GetComponent<CS_MoveController>().GetMoveVel();
         m_destroyCount = 0;
+
+        m_audioSource = CS_AudioManager.Instance.GetAudioSource("MainBGM");
 
         // ノーツデータの読み込み
         this.Load();
