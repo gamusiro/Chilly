@@ -4,28 +4,50 @@ using UnityEngine;
 
 public class FallingFloorManager : MonoBehaviour
 {
-    [SerializeField] GameObject _fallingFloorLane;
-    private List<FallingFloorLane> _fallingFloorLaneList = new List<FallingFloorLane>();
-    private float _index;
+    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Transform _fallingFloorCubeTransform;
+    [SerializeField] private GameObject _fallingFloorLanePrefab;
 
-    private void Start()
+    private Vector3 _standardPosition;
+    void Start()
     {
-        //全てのレーンを取得する
-        for (int i = 0; i < _fallingFloorLane.transform.childCount; i++)
-        {
-            Transform lane = _fallingFloorLane.transform.GetChild(i);
-            _fallingFloorLaneList.Add(lane.GetComponent<FallingFloorLane>());
-        }
-        _index = 0.0f;
+        _standardPosition = _playerTransform.position;
     }
 
-    private void Update()
+    void Update()
     {
-        Debug.Log(_index);
-        //取得したレーン順に処理を開始していく
-        if ((int)_index < _fallingFloorLaneList.Count)
-            _fallingFloorLaneList[(int)_index].SetFallFlag();
+        CreateObject("z", _playerTransform.position.z, _standardPosition.z, _fallingFloorCubeTransform.localScale.z);
+    }
 
-        _index += Time.deltaTime*10.0f;
+    private void CreateObject(string direction, float playerPosition, float standardPosition, float fallingObjectScale)
+    {
+        //プレイヤーと基準点間の距離を求める
+        float distance = Mathf.Abs(playerPosition - standardPosition);
+
+        //落下オブジェクトひとつ分移動したらそこを基準点とする。
+        if (distance >= fallingObjectScale)
+        {
+            float nextStandardPosition = 0.0f;//次の基準点
+            nextStandardPosition = standardPosition - fallingObjectScale * 2.0f;
+
+                if (playerPosition < standardPosition)
+                {  
+                    if (direction == "x")
+                        _standardPosition.x = nextStandardPosition;
+                    if (direction == "z")
+                        _standardPosition.z = nextStandardPosition;
+                }
+
+                if (playerPosition > standardPosition)
+                {
+                    if (direction == "x")
+                        _standardPosition.x = nextStandardPosition;
+                    if (direction == "z")
+                        _standardPosition.z = nextStandardPosition;
+                }
+
+            Instantiate(_fallingFloorLanePrefab, _standardPosition, Quaternion.identity, this.transform);
+            
+        }
     }
 }

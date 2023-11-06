@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
     //–Ú‚Ì“®‚«
     protected void Eyes()
     {
-        float speed = 1.0f;
+        float speed = 2.0f;
         _eyeTransform[(int)Eye.Left].Rotate(0.0f, 0.0f, speed);
         _eyeTransform[(int)Eye.Right].Rotate(0.0f, 0.0f, -speed); 
     }
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
     protected void Mouth()
     {
         //‚Ï‚­‚Ï‚­
-        float speed = 0.02f;
+        float speed = 0.04f;
         float cosRange = 6.0f;
         float sinRangege = _standardMouthScale.y * 0.5f;
 
