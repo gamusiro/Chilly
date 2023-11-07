@@ -26,7 +26,7 @@ public abstract class CS_SingletonMonoBehaviour<T> : MonoBehaviour where T : Mon
                 // 見つからなかった場合
                 if (!instance)
                 {
-                    Debug.LogError(t + " がアタッチされているオブジェクトがありません");
+                    //Debug.LogError(t + " がアタッチされているオブジェクトがありません");
                     return null;
                 }
             }

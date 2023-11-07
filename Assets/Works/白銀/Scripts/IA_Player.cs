@@ -136,6 +136,45 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Title"",
+            ""id"": ""86fdf6b1-b545-49f8-9ddb-29a6816da82c"",
+            ""actions"": [
+                {
+                    ""name"": ""ToGameScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""5649a849-3882-43c1-ad9e-d8c27fdb6dd3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4473708a-496b-4463-82cc-fd58f8b00007"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToGameScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7be3778d-a8aa-4050-b69c-645f7968e832"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToGameScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -144,6 +183,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // Title
+        m_Title = asset.FindActionMap("Title", throwIfNotFound: true);
+        m_Title_ToGameScene = m_Title.FindAction("ToGameScene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -255,9 +297,59 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Title
+    private readonly InputActionMap m_Title;
+    private List<ITitleActions> m_TitleActionsCallbackInterfaces = new List<ITitleActions>();
+    private readonly InputAction m_Title_ToGameScene;
+    public struct TitleActions
+    {
+        private @IA_Player m_Wrapper;
+        public TitleActions(@IA_Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ToGameScene => m_Wrapper.m_Title_ToGameScene;
+        public InputActionMap Get() { return m_Wrapper.m_Title; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TitleActions set) { return set.Get(); }
+        public void AddCallbacks(ITitleActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TitleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TitleActionsCallbackInterfaces.Add(instance);
+            @ToGameScene.started += instance.OnToGameScene;
+            @ToGameScene.performed += instance.OnToGameScene;
+            @ToGameScene.canceled += instance.OnToGameScene;
+        }
+
+        private void UnregisterCallbacks(ITitleActions instance)
+        {
+            @ToGameScene.started -= instance.OnToGameScene;
+            @ToGameScene.performed -= instance.OnToGameScene;
+            @ToGameScene.canceled -= instance.OnToGameScene;
+        }
+
+        public void RemoveCallbacks(ITitleActions instance)
+        {
+            if (m_Wrapper.m_TitleActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITitleActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TitleActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TitleActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TitleActions @Title => new TitleActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface ITitleActions
+    {
+        void OnToGameScene(InputAction.CallbackContext context);
     }
 }

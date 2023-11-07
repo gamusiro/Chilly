@@ -20,6 +20,13 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
 
     private Dictionary<string, AudioSource> m_dictAudioSource = new Dictionary<string, AudioSource>();
 
+    public float audioTime;
+
+    private void Update()
+    {
+        audioTime = m_dictAudioSource["GameAudio"].time;
+    }
+
 
     /// <summary>
     /// オーディオデータのインデックスを取得する

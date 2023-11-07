@@ -19,6 +19,11 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
     [Range(20.0f, 100.0f)]
     int m_numMax = 20;
 
+    // ’n–Ê‚É—‚¿‚Ä‚©‚çA”jŠü‚·‚é‚Ü‚Å‚Ì•b”w’è
+    [SerializeField, CustomLabel("Õ“ËŒã‚©‚ç”jŠü‚Ü‚Å‚ÌŠÔ")]
+    [Range(0.0f, 5.0f)]
+    float m_graceTime = 0.0f;
+
     #endregion
 
     #region “à•”—p•Ï”
@@ -87,7 +92,7 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         createPos.y = 0.1f;
         GameObject sdw = Instantiate(m_shadowObject, createPos, Quaternion.identity);
 
-        Destroy(obj, time);
-        Destroy(sdw, time);
+        Destroy(obj, time + m_graceTime);
+        Destroy(sdw, time + m_graceTime);
     }
 }
