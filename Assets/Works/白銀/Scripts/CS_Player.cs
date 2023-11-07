@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class CS_Player : MonoBehaviour
 {
+    #region インスペクタ用変数
+
+    // プレイヤーの横移動速度
     [SerializeField, CustomLabel("横移動のスピード")]
     float m_side;
 
+    // ジャンプ力
     [SerializeField, CustomLabel("ジャンプ力")]
     float m_jump;
 
+    // 疑似重力
     [SerializeField, Header("重力影響度")]
     [Range(1.0f, 1000.0f)]
     float m_gravity;
 
+    #endregion
+
+    #region 内部用変数
+
+    // InputSystem
     IA_Player m_inputAction;
+    
+    // リジッドボディ
     Rigidbody m_rigidBody;
+
+    // ジャンプ中かどうかのフラグ
     bool m_isFlying;
+
+    #endregion
 
     /// <summary>
     /// 初期化処理
