@@ -21,7 +21,7 @@ TagManager:
   - WorldTransformSprite
   - Player
   - FallObject
-  - 
+  - FallingFloor
   - 
   - 
   - 

@@ -46,8 +46,7 @@ public class FallingFloorManager : MonoBehaviour
                         _standardPosition.z = nextStandardPosition;
                 }
 
-            Instantiate(_fallingFloorLanePrefab, _standardPosition, Quaternion.identity, this.transform);
-            
+            Instantiate(_fallingFloorLanePrefab, _standardPosition, Quaternion.identity, this.transform);      
         }
     }
 }

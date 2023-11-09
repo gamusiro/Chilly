@@ -31,7 +31,9 @@ public class CubeSpectrum : MonoBehaviour
             //スペクトラムのレベル＊スケールをYスケールに置き換える
             localScale.y = spectrum.Levels[i] * scale;
             cube.localScale = localScale;
-            cube.position = _standardCubePosition[i] + localScale * 0.5f;
+            Vector3 position = cube.position;
+            position.x = _standardCubePosition[i].x - localScale.x * 0.5f;
+            cube.position = position;
 
             i++;
         }
