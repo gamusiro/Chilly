@@ -32,7 +32,7 @@ public class CS_GameStarter : MonoBehaviour
     void GameStart()
     {
         CS_AudioManager.Instance.PlayAudio("GameAudio");
-        CS_MoveController.Instance.MoveStart();
+        CS_MoveController.MoveStart();
         Destroy(gameObject);
     }
 }

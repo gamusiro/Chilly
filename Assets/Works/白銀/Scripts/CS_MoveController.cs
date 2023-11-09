@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
+public class CS_MoveController : MonoBehaviour
 {
     #region インスペクタ用変数
 
@@ -16,23 +16,28 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
 
     #region 内部用変数
 
+    static float m_getMoveVel;
+
     // 速度ベクトル
-    Vector3 m_vecVel;
+    static Vector3 m_vecVel;
 
     // 子オブジェクト管理
-    Dictionary<string, GameObject> m_children = new Dictionary<string, GameObject>();
+    static Dictionary<string, GameObject> m_children = new Dictionary<string, GameObject>();
     
     // 仮想カメラオブジェクト
-    Dictionary<string, GameObject> m_cameraList = new Dictionary<string, GameObject>();
+    static Dictionary<string, GameObject> m_cameraList = new Dictionary<string, GameObject>();
+
+    // 使用中の仮想カメラ
+    static GameObject m_usingVirtualCamera;
 
     #endregion
 
     /// <summary>
     /// 初期化処理
     /// </summary>
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
+        m_getMoveVel = m_moveVel;
 
         m_vecVel = Vector3.zero;
 
@@ -54,6 +59,8 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
 
             m_cameraList.Add(cam.gameObject.name, cam.gameObject);
         }
+
+        m_usingVirtualCamera = GetVirtualCamera("Front");
     }
 
     /// <summary>
@@ -68,9 +75,9 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     /// 移動速度の取得
     /// </summary>
     /// <returns></returns>
-    public float GetMoveVel()
+    static public float GetMoveVel()
     {
-        return m_moveVel;
+        return m_getMoveVel;
     }
 
     /// <summary>
@@ -78,7 +85,7 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
-    public GameObject GetObject(string name)
+    static public GameObject GetObject(string name)
     {
         if(!m_children.ContainsKey(name))
         {
@@ -94,7 +101,7 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
-    public GameObject GetVirtualCamera(string name)
+    static public GameObject GetVirtualCamera(string name)
     {
         if (!m_cameraList.ContainsKey(name))
         {
@@ -106,10 +113,29 @@ public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
     }
 
     /// <summary>
+    /// 使用中のカメラオブジェクト
+    /// </summary>
+    /// <returns></returns>
+    static public GameObject GetUsingCamera()
+    {
+        return m_usingVirtualCamera;
+    }
+
+    /// <summary>
+    /// 使用する仮想カメラの設定
+    /// </summary>
+    static public void SetVirtualCamera(string name)
+    {
+        m_usingVirtualCamera.GetComponent<CinemachineVirtualCamera>().Priority = 0;
+        m_usingVirtualCamera = GetVirtualCamera(name);
+        m_usingVirtualCamera.GetComponent<CinemachineVirtualCamera>().Priority = 5;
+    }
+
+    /// <summary>
     /// 移動スタート
     /// </summary>
-    public void MoveStart()
+    static public void MoveStart()
     {
-        m_vecVel = new Vector3(0.0f, 0.0f, -m_moveVel);
+        m_vecVel = new Vector3(0.0f, 0.0f, -m_getMoveVel);
     }
 }

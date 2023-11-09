@@ -83,7 +83,7 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
 
         createPos.x = -60.0f + m_perNoteInfos[m_createCount].lane * 30.0f;
         createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);
-        createPos.z = m_perNoteInfos[m_createCount].time * CS_MoveController.Instance.GetMoveVel() * -1.0f;
+        createPos.z = m_perNoteInfos[m_createCount].time * CS_MoveController.GetMoveVel() * -1.0f;
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         m_gameObjects[index] = obj;

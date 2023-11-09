@@ -47,7 +47,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         // 読み込み処理
         this.Load();
 
-        m_cameraObject = CS_MoveController.Instance.GetVirtualCamera("Front");
+        m_cameraObject = CS_MoveController.GetVirtualCamera("Front");
 
         // テスト用オブジェクト生成
         for (int i = 0; i < m_numMax; ++i)
@@ -97,7 +97,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         Vector3 createPos = Vector3.zero;
         createPos.x = -60.0f + m_perNoteInfos[index].lane * 30.0f;
         createPos.y = 2.5f;
-        createPos.z = (m_perNoteInfos[index].time - m_offset) * CS_MoveController.Instance.GetMoveVel();
+        createPos.z = (m_perNoteInfos[index].time - m_offset) * CS_MoveController.GetMoveVel();
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         obj.AddComponent<CS_EnemyAttackNotes>();

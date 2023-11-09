@@ -46,7 +46,7 @@ public class FallingFloorCube : MonoBehaviour
             case Phase.Destroy://濃淡を薄くする
                 if (ChangeAlpha(0.5f, 0.0f) >= 1.0f)
                 {
-                    Debug.Log("オブジェクトが消えました");
+                    //Debug.Log("オブジェクトが消えました");
                     Destroy(this.gameObject);
                 }
                 break;
