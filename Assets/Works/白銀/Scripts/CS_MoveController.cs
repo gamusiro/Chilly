@@ -23,12 +23,6 @@ public class CS_MoveController : MonoBehaviour
 
     // 子オブジェクト管理
     static Dictionary<string, GameObject> m_children = new Dictionary<string, GameObject>();
-    
-    // 仮想カメラオブジェクト
-    static Dictionary<string, GameObject> m_cameraList = new Dictionary<string, GameObject>();
-
-    // 使用中の仮想カメラ
-    static GameObject m_usingVirtualCamera;
 
     #endregion
 
@@ -49,18 +43,6 @@ public class CS_MoveController : MonoBehaviour
             GameObject obj = gameObject.transform.GetChild(i).gameObject;
             m_children.Add(obj.name, obj);
         }
-
-        // カメラから仮想カメラのゲームオブジェクトを取得する
-        foreach (CinemachineVirtualCamera cam in m_children["Camera"].GetComponentsInChildren<CinemachineVirtualCamera>())
-        {
-            // 自分自身の場合は処理をスキップする
-            if (cam.gameObject == gameObject) 
-                continue;
-
-            m_cameraList.Add(cam.gameObject.name, cam.gameObject);
-        }
-
-        m_usingVirtualCamera = GetVirtualCamera("Front");
     }
 
     /// <summary>
@@ -101,35 +83,6 @@ public class CS_MoveController : MonoBehaviour
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
-    static public GameObject GetVirtualCamera(string name)
-    {
-        if (!m_cameraList.ContainsKey(name))
-        {
-            Debug.Log(name + "のオブジェクトは存在しません");
-            return null;
-        }
-
-        return m_cameraList[name];
-    }
-
-    /// <summary>
-    /// 使用中のカメラオブジェクト
-    /// </summary>
-    /// <returns></returns>
-    static public GameObject GetUsingCamera()
-    {
-        return m_usingVirtualCamera;
-    }
-
-    /// <summary>
-    /// 使用する仮想カメラの設定
-    /// </summary>
-    static public void SetVirtualCamera(string name)
-    {
-        m_usingVirtualCamera.GetComponent<CinemachineVirtualCamera>().Priority = 0;
-        m_usingVirtualCamera = GetVirtualCamera(name);
-        m_usingVirtualCamera.GetComponent<CinemachineVirtualCamera>().Priority = 5;
-    }
 
     /// <summary>
     /// 移動スタート

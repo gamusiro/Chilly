@@ -295,6 +295,8 @@ GameObject:
   - component: {fileID: 5462050435640330430}
   - component: {fileID: 5539858732674969476}
   - component: {fileID: 6435234156102201649}
+  - component: {fileID: 2183168845222220269}
+  - component: {fileID: 4612153788497681061}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -468,6 +470,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2183168845222220269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315418226557182676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ca3d75e28e6f2489ad43f36702158e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_jsonFileName: WeMadeIt_Fall
+  m_perNoteInfos: []
+  m_createObject: {fileID: 270884841887256026, guid: af7fad8f644a140428cef0f1751d247f, type: 3}
+  m_shadowObject: {fileID: 6798499787823551911, guid: 669c206df94e48c44a7b8e9feb42128b, type: 3}
+  m_numMax: 60
+  m_graceTime: 0.5
+--- !u!114 &4612153788497681061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315418226557182676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a0fff6840b57747bf3f1beddc75765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_jsonFileName: WeMadeIt_Jump
+  m_perNoteInfos: []
+  m_createObject: {fileID: 270884841887256026, guid: af7fad8f644a140428cef0f1751d247f, type: 3}
+  m_numMax: 20
+  m_offset: 0.6
 --- !u!1 &6921713626719493524
 GameObject:
   m_ObjectHideFlags: 0

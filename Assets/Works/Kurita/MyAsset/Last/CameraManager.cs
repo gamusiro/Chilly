@@ -48,7 +48,7 @@ public abstract class CameraManager : MonoBehaviour
         _phaseIndex = 0;
 
         //BGMの情報を取得する
-        _audioSource = CS_AudioManager.Instance.GetAudioSource("MainBGM");
+        _audioSource = CS_AudioManager.Instance.GetAudioSource("GameAudio");
     }
 
     //n秒後に次のフェーズに遷る
@@ -70,5 +70,10 @@ public abstract class CameraManager : MonoBehaviour
         _virtualCamera[_cameraIndex].Priority = 0;
         _cameraIndex++;
         _virtualCamera[_cameraIndex].Priority = 1;
+    }
+
+    public GameObject GetCurCamera()
+    {
+        return _virtualCamera[_cameraIndex].gameObject;
     }
 }

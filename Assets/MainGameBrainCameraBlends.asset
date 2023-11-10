@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MainGameBrainCameraBlends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: VirtulaCamera
-    m_To: VirtulaCamera (1)
+  - m_From: VirtulaCamera1
+    m_To: VirtulaCamera2
     m_Blend:
       m_Style: 1
       m_Time: 7

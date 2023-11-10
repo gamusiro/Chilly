@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CS_HeartPiece : MonoBehaviour
 {
+    //åªç›égópíÜÇÃÉJÉÅÉâÇÃèÓïÒ
+    [SerializeField] private MainGameCameraManager m_mainGameCameraManager;
+
     GameObject m_enemyObject;
     GameObject m_cameraObject;
 
@@ -65,7 +68,7 @@ public class CS_HeartPiece : MonoBehaviour
             gameObject.transform.localPosition = other.gameObject.transform.localPosition;
 
             m_enemyObject = CS_MoveController.GetObject("Enemy");
-            m_cameraObject = CS_MoveController.GetVirtualCamera("Front");
+            m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
     }
 
@@ -89,7 +92,7 @@ public class CS_HeartPiece : MonoBehaviour
             gameObject.transform.localPosition = collision.gameObject.transform.localPosition;
 
             m_enemyObject = CS_MoveController.GetObject("Enemy");
-            m_cameraObject = CS_MoveController.GetVirtualCamera("Front");
+            m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
     }
 }

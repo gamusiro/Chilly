@@ -5,6 +5,8 @@ using UnityEngine;
 public class CS_Player : MonoBehaviour
 {
     #region インスペクタ用変数
+    //現在使用中のカメラの情報
+    [SerializeField] private MainGameCameraManager m_mainGameCameraManager;
 
     // プレイヤーの横移動速度
     [SerializeField, CustomLabel("横移動のスピード")]
@@ -63,7 +65,7 @@ public class CS_Player : MonoBehaviour
         m_rigidBody = GetComponent<Rigidbody>();
         m_material = gameObject.transform.GetChild(0).GetComponent<Renderer>().material;
 
-        m_mainVirtualCamera = CS_MoveController.GetUsingCamera();
+        m_mainVirtualCamera = m_mainGameCameraManager.GetCurCamera();
         m_isFlying = false;
         m_damaged = false;
     }
@@ -151,7 +153,7 @@ public class CS_Player : MonoBehaviour
     /// </summary>
     public void SetUsingCamera()
     {
-        m_mainVirtualCamera = CS_MoveController.GetUsingCamera();
+        m_mainVirtualCamera =  m_mainGameCameraManager.GetCurCamera();
     }
 
     /// <summary>

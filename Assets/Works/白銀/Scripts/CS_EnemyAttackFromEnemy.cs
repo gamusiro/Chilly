@@ -28,7 +28,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     List<GameObject> m_gameObjects;
 
     // カメラのオブジェクト
-    GameObject m_cameraObject;
+    [SerializeField] private GameObject m_cameraObject;
 
     // 破棄したデータのカウント
     int m_numDestroy;
@@ -46,8 +46,6 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 
         // 読み込み処理
         this.Load();
-
-        m_cameraObject = CS_MoveController.GetVirtualCamera("Front");
 
         // テスト用オブジェクト生成
         for (int i = 0; i < m_numMax; ++i)

@@ -57,7 +57,6 @@ public class CS_ChangeCameraTimes : MonoBehaviour
             // İ’è‚µ‚½ƒf[ƒ^
             if (m_list[m_index].m_time <= m_audioSource.time)
             {
-                CS_MoveController.SetVirtualCamera(m_list[m_index].m_name);
                 CS_MoveController.GetObject("Player").GetComponent<CS_Player>().SetUsingCamera();
                 m_index++;
             }
