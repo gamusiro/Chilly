@@ -35,7 +35,13 @@ public class FallingFloorCube : ChangeMeshRenderAlpha
                 _phase = Phase.Destroy;
                 break;
             case Phase.Destroy://濃淡を薄くする
+<<<<<<< HEAD
                 if (ChangeAlpha(0.5f, 0.0f,0.8f) >= 1.0f)
+=======
+                if (ChangeAlpha(0.5f, 0.0f) >= 1.0f)
+                {
+                    //Debug.Log("オブジェクトが消えました");
+>>>>>>> gamusiro_09
                     Destroy(this.gameObject);
                 break;
         }

@@ -1,64 +1,141 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CS_MoveController : CS_SingletonMonoBehaviour<CS_MoveController>
+public class CS_MoveController : MonoBehaviour
 {
+    #region インスペクタ用変数
+
+    // プレイヤーの進む速度
     [SerializeField, CustomLabel("前進速度")]
     float m_moveVel;
 
-    Vector3 m_vecVel;
+    #endregion
 
-    private GameObject m_player;
-    private GameObject m_enemy;
-    private GameObject m_camera;
+
+    #region 内部用変数
+
+    static float m_getMoveVel;
+
+    // 速度ベクトル
+    static Vector3 m_vecVel;
+
+    // 子オブジェクト管理
+    static Dictionary<string, GameObject> m_children = new Dictionary<string, GameObject>();
+    
+    // 仮想カメラオブジェクト
+    static Dictionary<string, GameObject> m_cameraList = new Dictionary<string, GameObject>();
+
+    // 使用中の仮想カメラ
+    static GameObject m_usingVirtualCamera;
+
+    #endregion
 
     /// <summary>
     /// 初期化処理
     /// </summary>
-    void Start()
+    void Awake()
     {
+        m_getMoveVel = m_moveVel;
+
         m_vecVel = Vector3.zero;
 
-        m_player    = gameObject.transform.GetChild(0).gameObject;
-        m_enemy     = gameObject.transform.GetChild(1).gameObject;
-        m_camera    = gameObject.transform.GetChild(2).gameObject;
+        // 子オブジェクト取得
+        int count = gameObject.transform.childCount;
+
+        for(int i = 0; i < count; ++i)
+        {
+            GameObject obj = gameObject.transform.GetChild(i).gameObject;
+            m_children.Add(obj.name, obj);
+        }
+
+        // カメラから仮想カメラのゲームオブジェクトを取得する
+        foreach (CinemachineVirtualCamera cam in m_children["Camera"].GetComponentsInChildren<CinemachineVirtualCamera>())
+        {
+            // 自分自身の場合は処理をスキップする
+            if (cam.gameObject == gameObject) 
+                continue;
+
+            m_cameraList.Add(cam.gameObject.name, cam.gameObject);
+        }
+
+        m_usingVirtualCamera = GetVirtualCamera("Front");
     }
 
     /// <summary>
     /// 更新処理
     /// </summary>
-    void Update()
+    private void FixedUpdate()
     {
-        transform.position -= m_vecVel * Time.deltaTime;
+        transform.position = m_vecVel * CS_AudioManager.Instance.GetAudioSource("GameAudio").time;
     }
 
     /// <summary>
     /// 移動速度の取得
     /// </summary>
     /// <returns></returns>
-    public float GetMoveVel()
+    static public float GetMoveVel()
     {
-        return m_moveVel;
+        return m_getMoveVel;
     }
 
-    public GameObject GetPlayer()
+    /// <summary>
+    /// 子オブジェクトの取得
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    static public GameObject GetObject(string name)
     {
-        return m_player;
+        if(!m_children.ContainsKey(name))
+        {
+            Debug.Log(name + "のオブジェクトは存在しません");
+            return null;
+        }
+
+        return m_children[name];
     }
 
-    public GameObject GetEnemy()
+    /// <summary>
+    /// 子オブジェクトの取得
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    static public GameObject GetVirtualCamera(string name)
     {
-        return m_enemy;
+        if (!m_cameraList.ContainsKey(name))
+        {
+            Debug.Log(name + "のオブジェクトは存在しません");
+            return null;
+        }
+
+        return m_cameraList[name];
     }
 
-    public GameObject GetCamera()
+    /// <summary>
+    /// 使用中のカメラオブジェクト
+    /// </summary>
+    /// <returns></returns>
+    static public GameObject GetUsingCamera()
     {
-        return m_camera;
+        return m_usingVirtualCamera;
     }
 
-    public void MoveStart()
+    /// <summary>
+    /// 使用する仮想カメラの設定
+    /// </summary>
+    static public void SetVirtualCamera(string name)
     {
-        m_vecVel = new Vector3(0.0f, 0.0f, m_moveVel);
+        m_usingVirtualCamera.GetComponent<CinemachineVirtualCamera>().Priority = 0;
+        m_usingVirtualCamera = GetVirtualCamera(name);
+        m_usingVirtualCamera.GetComponent<CinemachineVirtualCamera>().Priority = 5;
+    }
+
+    /// <summary>
+    /// 移動スタート
+    /// </summary>
+    static public void MoveStart()
+    {
+        m_vecVel = new Vector3(0.0f, 0.0f, -m_getMoveVel);
     }
 }

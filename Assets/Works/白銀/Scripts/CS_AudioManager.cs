@@ -1,17 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 [Serializable]
 public class AudioPack
 {
-    public string       m_label = "";    // 呼び出し名
-    public AudioClip    m_clip = null;     // オーディオクリップ
-    public float        m_volume = 1.0f;   // 個々のボリューム設定
+    public string m_label = "";       // 呼び出し名
+    public AudioClip m_clip = null;      // オーディオクリップ
+    public float m_volume = 1.0f;    // 個々のボリューム設定
 }
 
 
@@ -21,16 +18,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     [SerializeField, Header("音源データ")]
     List<AudioPack> m_listPack = new List<AudioPack>();
 
-    Dictionary<string, AudioSource> m_dictAudio = new Dictionary<string, AudioSource>();
-
-    /// <summary>
-    /// 初期化処理
-    /// </summary>
-    private void Start()
-    {
-        //m_bgmSource = new AudioSource();
-        //m_bgmSource = gameObject.AddComponent<AudioSource>();
-    }
+    private Dictionary<string, AudioSource> m_dictAudioSource = new Dictionary<string, AudioSource>();
 
 
     /// <summary>
@@ -43,9 +31,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         for (int i = 0; i < m_listPack.Count; ++i)
         {
             if (m_listPack[i].m_label.Equals(labelName))
-            {
                 return i;
-            }
         }
 
         return -1;
@@ -57,49 +43,44 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <param name="index"></param>
     public void PlayAudio(string labelName)
     {
-        // オーディオデータの情報を取得
-        int index = GetListIndex(labelName);
+        // データがなければ
+        if (!m_dictAudioSource.ContainsKey(labelName))
+            RegisterDictionary(labelName);
 
-        // 無効な値
-        if (index < 0 || index >= m_listPack.Count)
-            return;
-
-        // オーディオソースがあるかどうか
-        if (!m_dictAudio.ContainsKey(labelName))
-        {
-            AudioSource source = new AudioSource();
-            source = gameObject.AddComponent<AudioSource>();
-            m_dictAudio.Add(labelName, source);
-        }
-
-        // クリップがなければ
-        if(m_dictAudio[labelName].clip == null)
-        {
-            m_dictAudio[labelName].clip = m_listPack[index].m_clip;
-            m_dictAudio[labelName].volume = m_listPack[index].m_volume;
-        }
-
-        // 再生されていなければ、再生する
-        if (!m_dictAudio[labelName].isPlaying)
-        {
-            m_dictAudio[labelName].Play();
-        }
+        // 再生処理
+        m_dictAudioSource[labelName].Play();
     }
 
     /// <summary>
-    /// オーディオデータの取得
+    /// オーディオソースの取得
     /// </summary>
     /// <param name="labelName"></param>
     /// <returns></returns>
     public AudioSource GetAudioSource(string labelName)
     {
-        if (!m_dictAudio.ContainsKey(labelName))
-        {
-            AudioSource source = new AudioSource();
-            source = gameObject.AddComponent<AudioSource>();
-            m_dictAudio.Add(labelName, source);
-        }
+        if (!m_dictAudioSource.ContainsKey(labelName))
+            RegisterDictionary(labelName);
 
-        return m_dictAudio[labelName];
+        return m_dictAudioSource[labelName];
+    }
+
+    /// <summary>
+    /// ディクショナリに登録する処理
+    /// </summary>
+    void RegisterDictionary(string labelName)
+    {
+        int index = GetListIndex(labelName);
+
+        // 不当な値
+        if (index < 0)
+            return;
+
+        AudioSource source  = new AudioSource();
+        source = gameObject.AddComponent<AudioSource>();
+        source.playOnAwake  = false;
+        source.clip         = m_listPack[index].m_clip;
+        source.volume       = m_listPack[index].m_volume;
+
+        m_dictAudioSource.Add(labelName, source);
     }
 }

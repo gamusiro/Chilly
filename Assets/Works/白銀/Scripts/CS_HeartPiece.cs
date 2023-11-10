@@ -64,8 +64,8 @@ public class CS_HeartPiece : MonoBehaviour
             m_getted = true;
             gameObject.transform.localPosition = other.gameObject.transform.localPosition;
 
-            m_enemyObject = CS_MoveController.Instance.GetEnemy();
-            m_cameraObject = CS_MoveController.Instance.GetCamera();
+            m_enemyObject = CS_MoveController.GetObject("Enemy");
+            m_cameraObject = CS_MoveController.GetVirtualCamera("Front");
         }
     }
 
@@ -88,8 +88,8 @@ public class CS_HeartPiece : MonoBehaviour
             m_getted = true;
             gameObject.transform.localPosition = collision.gameObject.transform.localPosition;
 
-            m_enemyObject = CS_MoveController.Instance.GetEnemy();
-            m_cameraObject = CS_MoveController.Instance.GetCamera();
+            m_enemyObject = CS_MoveController.GetObject("Enemy");
+            m_cameraObject = CS_MoveController.GetVirtualCamera("Front");
         }
     }
 }

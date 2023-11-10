@@ -44,6 +44,15 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlideL"",
+                    ""type"": ""Button"",
+                    ""id"": ""a7d3673d-f47c-40a8-94cc-a19ae73ed623"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,67 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2342ec1f-5607-45c8-a71d-78205011dd4f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d72b6fb-c44a-4313-bb04-3d7a2c643a11"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Title"",
+            ""id"": ""86fdf6b1-b545-49f8-9ddb-29a6816da82c"",
+            ""actions"": [
+                {
+                    ""name"": ""ToGameScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""5649a849-3882-43c1-ad9e-d8c27fdb6dd3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4473708a-496b-4463-82cc-fd58f8b00007"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToGameScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7be3778d-a8aa-4050-b69c-645f7968e832"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToGameScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -144,6 +214,10 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_SlideL = m_Player.FindAction("SlideL", throwIfNotFound: true);
+        // Title
+        m_Title = asset.FindActionMap("Title", throwIfNotFound: true);
+        m_Title_ToGameScene = m_Title.FindAction("ToGameScene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,12 +281,14 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_SlideL;
     public struct PlayerActions
     {
         private @IA_Player m_Wrapper;
         public PlayerActions(@IA_Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @SlideL => m_Wrapper.m_Player_SlideL;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -228,6 +304,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @SlideL.started += instance.OnSlideL;
+            @SlideL.performed += instance.OnSlideL;
+            @SlideL.canceled += instance.OnSlideL;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -238,6 +317,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @SlideL.started -= instance.OnSlideL;
+            @SlideL.performed -= instance.OnSlideL;
+            @SlideL.canceled -= instance.OnSlideL;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -255,9 +337,60 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Title
+    private readonly InputActionMap m_Title;
+    private List<ITitleActions> m_TitleActionsCallbackInterfaces = new List<ITitleActions>();
+    private readonly InputAction m_Title_ToGameScene;
+    public struct TitleActions
+    {
+        private @IA_Player m_Wrapper;
+        public TitleActions(@IA_Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ToGameScene => m_Wrapper.m_Title_ToGameScene;
+        public InputActionMap Get() { return m_Wrapper.m_Title; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TitleActions set) { return set.Get(); }
+        public void AddCallbacks(ITitleActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TitleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TitleActionsCallbackInterfaces.Add(instance);
+            @ToGameScene.started += instance.OnToGameScene;
+            @ToGameScene.performed += instance.OnToGameScene;
+            @ToGameScene.canceled += instance.OnToGameScene;
+        }
+
+        private void UnregisterCallbacks(ITitleActions instance)
+        {
+            @ToGameScene.started -= instance.OnToGameScene;
+            @ToGameScene.performed -= instance.OnToGameScene;
+            @ToGameScene.canceled -= instance.OnToGameScene;
+        }
+
+        public void RemoveCallbacks(ITitleActions instance)
+        {
+            if (m_Wrapper.m_TitleActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITitleActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TitleActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TitleActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TitleActions @Title => new TitleActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnSlideL(InputAction.CallbackContext context);
+    }
+    public interface ITitleActions
+    {
+        void OnToGameScene(InputAction.CallbackContext context);
     }
 }

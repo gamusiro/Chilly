@@ -35,7 +35,7 @@ public class CS_LoadNotesFile : MonoBehaviour
     [SerializeField, CustomLabel("ノーツファイル名")]
     protected string m_jsonFileName;
 
-    protected List<PerNoteInfo> m_perNoteInfos = new List<PerNoteInfo>();
+    public List<PerNoteInfo> m_perNoteInfos = new List<PerNoteInfo>();
 
     public void Load()
     {

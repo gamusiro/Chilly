@@ -15,17 +15,21 @@ MonoBehaviour:
   m_Children:
   - {fileID: 3}
   - {fileID: 5}
-  - {fileID: 13}
+  - {fileID: 14}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1755.4287
-    height: 956.8572
+    width: 1536
+    height: 722.8
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 42857
+=======
+  controlID: 98
+>>>>>>> gamusiro_09
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -34,11 +38,11 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_EditorHideFlags: 1
   m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
@@ -46,10 +50,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 283.4286
     y: 72.571434
     width: 923.1428
     height: 515
+=======
+    x: 252.8
+    y: 73.6
+    width: 751.60004
+    height: 460.6
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -66,7 +77,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 1537, y: 864.5}
+=======
+  m_TargetSize: {x: 1920, y: 1080}
+>>>>>>> gamusiro_09
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -75,16 +90,23 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -439.14288
     m_HBaseRangeMax: 439.14288
     m_VBaseRangeMin: -247.00002
     m_VBaseRangeMax: 247.00002
+=======
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
+>>>>>>> gamusiro_09
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -102,16 +124,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 923.1428
       height: 494
     m_Scale: {x: 0.99999994, y: 0.99999994}
     m_Translation: {x: 461.5714, y: 247}
+=======
+      width: 751.60004
+      height: 439.6
+    m_Scale: {x: 0.48932293, y: 0.48932293}
+    m_Translation: {x: 375.80002, y: 219.8}
+>>>>>>> gamusiro_09
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -461.57144
       y: -247.00002
       width: 923.1429
@@ -119,9 +149,18 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.99999994
   m_LastWindowPixelSize: {x: 1615.5, y: 901.25}
+=======
+      x: -768
+      y: -449.1921
+      width: 1536
+      height: 898.3842
+    m_MinimalGUI: 1
+  m_defaultScale: 0.48932293
+  m_LastWindowPixelSize: {x: 939.50006, y: 575.75}
+>>>>>>> gamusiro_09
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 00000000000000000000
+  m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
 --- !u!114 &3
@@ -141,10 +180,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 283.42856
     height: 956.8572
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
+=======
+    width: 252.8
+    height: 722.8
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+>>>>>>> gamusiro_09
   m_ActualView: {fileID: 4}
   m_Panes:
   - {fileID: 4}
@@ -171,9 +217,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 72.571434
     width: 282.42856
     height: 935.8572
+=======
+    y: 73.6
+    width: 251.8
+    height: 701.8
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -189,7 +241,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 36eed2ff54afddff5e1ddfffd882dfff9af0dfff9ef0dfffd8f1dfffdcf1dfffeaf1dfffecf1dfffcc2de1ff3eb9e1ff42b9e1ff50b9e1ff52b9e1ff8038e2ff50e8e3ff54e8e3ff70e8e3ffb619e4ffba19e4ffd219e4ffd619e4ffda19e4ffde19e4ffa6ebe4ffaeebe4ffb6ebe4ffc2ebe4ffcaebe4ffceebe4ffdeebe4ffe2ebe4ffe6ebe4ffeaebe4ffeeebe4fff2ebe4ff28f5e4ffd8f0e9ffca08eaffd608eaffe208eaffe608eaffea08eafff208eafffa08eaff0e09eaff1209eaff2a09eaff2e09eaff3209eaff3609eaff3809eaff9ca2eaffaa3cebffa4c7fbffacd9fbffe0d9fbffe4d9fbffe8d9fbffcceefbffdceefbfff4eefbff0ceffbff10effbff14effbff18effbff4a01fcffe4faffff7a6300004eb7010070ba0100242e0400b8be0500dac10500
+=======
+      m_ExpandedIDs: 06a7fefff6a7feff5070ffffe4fafffff4ffffff70610000d6410100
+>>>>>>> gamusiro_09
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -227,9 +283,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 6}
-  - {fileID: 10}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 283.42856
     y: 0
     width: 925.1428
@@ -238,6 +295,16 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
   controlID: 42806
+=======
+    x: 252.8
+    y: 0
+    width: 753.60004
+    height: 722.8
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 51
+>>>>>>> gamusiro_09
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,9 +322,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 925.1428
     height: 536
   m_MinSize: {x: 102, y: 121}
+=======
+    width: 753.60004
+    height: 481.6
+  m_MinSize: {x: 202, y: 221}
+>>>>>>> gamusiro_09
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
@@ -265,6 +338,7 @@ MonoBehaviour:
   - {fileID: 2}
   - {fileID: 8}
   - {fileID: 9}
+  - {fileID: 10}
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &7
@@ -287,10 +361,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 342.28574
     y: 72.571434
     width: 1071.7144
     height: 697.8571
+=======
+    x: 252.8
+    y: 73.6
+    width: 751.60004
+    height: 460.6
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -305,7 +386,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -171, y: -26}
+      snapOffset: {x: -171, y: -26.400024}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
@@ -526,9 +607,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 25.142857}
+      snapOffset: {x: -232, y: -204}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
+      snapCorner: 3
       id: Scene View/Particles
       index: 6
       layout: 4
@@ -623,9 +704,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -36.36674, y: 13.995944, z: -82.981895}
     speed: 2
     m_Value: {x: -36.36674, y: 13.995944, z: -82.981895}
+=======
+    m_Target: {x: 8.710319, y: -1.7730634, z: -18.622803}
+    speed: 2
+    m_Value: {x: 8.710319, y: -1.7730634, z: -18.622803}
+>>>>>>> gamusiro_09
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -636,7 +723,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -671,6 +758,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.056766856, y: 0.23903902, z: -0.013997168, w: -0.9692525}
     speed: 2
     m_Value: {x: -0.056766618, y: 0.23903802, z: -0.01399711, w: -0.9692485}
@@ -678,13 +766,27 @@ MonoBehaviour:
     m_Target: 6.6044106
     speed: 2
     m_Value: 6.6044106
+=======
+    m_Target: {x: -0.048222154, y: -0.9511543, z: 0.23277378, w: -0.19706349}
+    speed: 2
+    m_Value: {x: -0.048221253, y: -0.95113647, z: 0.23276943, w: -0.1970598}
+  m_Size:
+    m_Target: 27.3748
+    speed: 2
+    m_Value: 27.3748
+>>>>>>> gamusiro_09
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
+<<<<<<< HEAD
     m_Speed: 1.1804098
     m_SpeedNormalized: 0.5899999
+=======
+    m_Speed: 1.0005
+    m_SpeedNormalized: 0.5
+>>>>>>> gamusiro_09
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -695,7 +797,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.3693057, y: 0.015885264, z: -0.006321322, w: -0.9291768}
+  m_LastSceneViewRotation: {x: -0.13555169, y: -0.42015895, z: 0.06363486, w: -0.895021}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -722,10 +824,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 342.28574
     y: 72.571434
     width: 936.2857
     height: 575.5714
+=======
+    x: 252.8
+    y: 73.6
+    width: 849.2
+    height: 460.6
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -741,11 +850,8 @@ MonoBehaviour:
     - {fileID: 6234551129726726174, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
     - {fileID: 6792273362780519264, guid: d5a7e33492865fe47b5dad472d00b279, type: 2}
     - {fileID: 3085130894894959911, guid: 9e1f895ac2a41d1489f47999d1fed68a, type: 2}
-    - {fileID: -4217940145303618720, guid: 0fa2b26ca6d39ce488de0612f462c45d, type: 2}
-    - {fileID: 2026359591171880835, guid: 844ff112e53fef440a5947a4721228a1, type: 2}
-    - {fileID: -5568761391658986105, guid: 4a5fa9233a0971d4e9e7230491a187f3, type: 2}
-    - {fileID: 6009596797080223288, guid: a306f0644ff9e9a49bf7490339e36dc2, type: 2}
     m_ValueSerializationHelper:
+<<<<<<< HEAD
     - e00: 0.61096686
       e01: 0
       e02: 0
@@ -794,14 +900,16 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+=======
+>>>>>>> gamusiro_09
     - e00: 1
       e01: 0
       e02: 0
-      e03: -119
+      e03: -17.857178
       e10: 0
       e11: 1
       e12: 0
-      e13: 226
+      e13: 193.85715
       e20: 0
       e21: 0
       e22: 1
@@ -810,14 +918,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.80030084
+    - e00: 1
       e01: 0
       e02: 0
-      e03: -25.015045
+      e03: -17.857178
       e10: 0
-      e11: 0.80030084
+      e11: 1
       e12: 0
-      e13: 220.83157
+      e13: 193.85715
       e20: 0
       e21: 0
       e22: 1
@@ -826,30 +934,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.80030084
+    - e00: 1
       e01: 0
       e02: 0
-      e03: -25.015015
+      e03: -17.857178
       e10: 0
-      e11: 0.80030084
+      e11: 1
       e12: 0
-      e13: 222.54587
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.63669175
-      e01: 0
-      e02: 0
-      e03: -16.834564
-      e10: 0
-      e11: 0.63669175
-      e12: 0
-      e13: 230.94284
+      e13: 203.85715
       e20: 0
       e21: 0
       e22: 1
@@ -894,10 +986,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 342.28574
     y: 72.571434
     width: 936.2857
     height: 575.5714
+=======
+    x: 211.2
+    y: 73.6
+    width: 893.99994
+    height: 460.6
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -910,8 +1009,46 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: -2348486
+=======
+  m_LastSelectedObjectID: -88316
+>>>>>>> gamusiro_09
 --- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12111, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 455, y: 354}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Asset Store
+    m_Image: {fileID: -7444545952099596278, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 252.8
+    y: 73.6
+    width: 849.2
+    height: 460.6
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -927,18 +1064,27 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 536
     width: 925.1428
     height: 420.85718
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 12}
+=======
+    y: 481.6
+    width: 753.60004
+    height: 241.19998
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 13}
+>>>>>>> gamusiro_09
   m_Panes:
-  - {fileID: 11}
   - {fileID: 12}
+  - {fileID: 13}
   m_Selected: 1
   m_LastSelected: 0
---- !u!114 &11
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -958,10 +1104,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 283.4286
     y: 608.5715
     width: 923.1428
     height: 399.85718
+=======
+    x: 252.8
+    y: 555.2
+    width: 751.60004
+    height: 220.19998
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -972,7 +1125,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &12
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -992,10 +1145,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 283.4286
     y: 608.5715
     width: 923.1428
     height: 399.85718
+=======
+    x: 252.8
+    y: 555.2
+    width: 751.60004
+    height: 220.19998
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1017,14 +1177,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Prefab/BG
+=======
+    - "Assets/Works/\u767D\u9280/Prefab"
+>>>>>>> gamusiro_09
     m_Globs: []
     m_OriginalText: view
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
-  m_StartGridSize: 50
+  m_StartGridSize: 96
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Prefab/BG
   m_LastFoldersGridSize: 50
   m_LastProjectPath: C:\Users\ALTO\Documents\CProgramming\TH425_Project2
@@ -1035,6 +1200,18 @@ MonoBehaviour:
     m_SelectedIDs: 5c0c0100
     m_LastClickedID: 68700
     m_ExpandedIDs: 00000000887500008a7500008c7500008e75000090750000927500009475000096750000987500009a7500009c7500009e750000a075000000ca9a3b
+=======
+  - "Assets/Works/\u767D\u9280/Prefab"
+  m_LastFoldersGridSize: 96
+  m_LastProjectPath: C:\Users\Gamus\source\TH425
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 779.80005}
+    m_SelectedIDs: e4630000
+    m_LastClickedID: 25572
+    m_ExpandedIDs: 00000000326300003463000036630000386300003a6300003c6300003e6300004063000042630000446300004663000000ca9a3b
+>>>>>>> gamusiro_09
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1050,7 +1227,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1062,7 +1239,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000887500008a7500008c7500008e75000090750000927500009475000096750000987500009a7500009c7500009e750000a075000000ca9a3b
+=======
+    m_ExpandedIDs: 00000000326300003463000036630000386300003a6300003c6300003e63000040630000426300004463000046630000
+>>>>>>> gamusiro_09
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1087,10 +1268,15 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 72100100
     m_LastClickedInstanceID: 69746
+=======
+    m_SelectedInstanceIDs: 14a3feff
+    m_LastClickedInstanceID: -89324
+>>>>>>> gamusiro_09
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c0000b890060084950100000000006666000036230100a698000060c90000
+    m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c98000000000000508901001c7e0000928c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1106,7 +1292,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1114,11 +1300,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 50
+    m_ScrollPosition: {x: 0, y: 97.80002}
+    m_GridSize: 96
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 204
---- !u!114 &13
+  m_DirectoriesAreaWidth: 182.59998
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1133,6 +1319,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1208.5714
     y: 0
     width: 546.8573
@@ -1140,11 +1327,20 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
+=======
+    x: 1006.4
+    y: 0
+    width: 529.6
+    height: 722.8
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 15}
+>>>>>>> gamusiro_09
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &14
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1164,10 +1360,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1208.5715
     y: 72.571434
     width: 545.8573
     height: 935.8572
+=======
+    x: 1006.4
+    y: 73.6
+    width: 528.6
+    height: 701.8
+>>>>>>> gamusiro_09
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1185,7 +1388,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: -89324
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
