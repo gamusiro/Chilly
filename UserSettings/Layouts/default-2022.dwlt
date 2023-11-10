@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1755.4287
     height: 1006.8572
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,8 +44,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1755.4286
-    height: 1006.8571
+    width: 1755.4287
+    height: 1006.8572
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1755.4286
+    width: 1755.4287
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 986.8571
-    width: 1755.4286
+    y: 986.8572
+    width: 1755.4287
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -115,16 +115,20 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1755.4286
-    height: 956.8571
+    width: 1755.4287
+    height: 956.8572
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   controlID: 113
 =======
   controlID: 110
 >>>>>>> gamusiro_08
+=======
+  controlID: 43182
+>>>>>>> origin/feature/kurita/view
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,10 +147,17 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 361.14285
     height: 956.8571
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+    width: 229.14285
+    height: 956.8572
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> origin/feature/kurita/view
   m_ActualView: {fileID: 12}
 =======
     width: 211.2
@@ -176,8 +187,9 @@ MonoBehaviour:
   - {fileID: 9}
   m_Position:
     serializedVersion: 2
-    x: 361.14285
+    x: 229.14285
     y: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 850.8572
     height: 956.8571
@@ -193,6 +205,14 @@ MonoBehaviour:
   vertical: 1
   controlID: 40
 >>>>>>> gamusiro_08
+=======
+    width: 841.14294
+    height: 956.8572
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 43107
+>>>>>>> origin/feature/kurita/view
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -211,8 +231,13 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 850.8572
     height: 642.8571
+=======
+    width: 841.14294
+    height: 815.4286
+>>>>>>> origin/feature/kurita/view
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 11}
@@ -229,7 +254,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 15}
   m_Selected: 1
-  m_LastSelected: 0
+  m_LastSelected: 3
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,6 +272,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 642.8571
     width: 850.8572
     height: 314
@@ -255,6 +281,11 @@ MonoBehaviour:
     width: 1024.8
     height: 241.19998
 >>>>>>> gamusiro_08
+=======
+    y: 815.4286
+    width: 841.14294
+    height: 141.42859
+>>>>>>> origin/feature/kurita/view
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 17}
@@ -279,12 +310,16 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1212
+=======
+    x: 1070.2858
+>>>>>>> origin/feature/kurita/view
     y: 0
-    width: 543.4286
-    height: 956.8571
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+    width: 685.14294
+    height: 956.8572
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
 =======
     x: 1236
@@ -320,6 +355,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 361.14288
     y: 72.571434
     width: 848.8572
@@ -330,6 +366,12 @@ MonoBehaviour:
     width: 1022.80005
     height: 460.6
 >>>>>>> gamusiro_08
+=======
+    x: 229.14287
+    y: 72.571434
+    width: 839.14294
+    height: 794.4286
+>>>>>>> origin/feature/kurita/view
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -346,7 +388,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1485.5, y: 836}
+  m_TargetSize: {x: 1468.5001, y: 826}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -361,10 +403,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -424.4286
-    m_HBaseRangeMax: 424.4286
-    m_VBaseRangeMin: -238.85715
-    m_VBaseRangeMax: 238.85715
+    m_HBaseRangeMin: -419.57147
+    m_HBaseRangeMax: 419.57147
+    m_VBaseRangeMin: -236.00002
+    m_VBaseRangeMax: 236.00002
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -383,6 +425,7 @@ MonoBehaviour:
       x: 0
       y: 21
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 848.8572
       height: 600.8571
     m_Scale: {x: 1, y: 1}
@@ -393,12 +436,19 @@ MonoBehaviour:
     m_Scale: {x: 0.5087963, y: 0.5087963}
     m_Translation: {x: 511.40002, y: 219.8}
 >>>>>>> gamusiro_08
+=======
+      width: 839.14294
+      height: 773.4286
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 419.57147, y: 386.7143}
+>>>>>>> origin/feature/kurita/view
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
       x: -424.4286
       y: -300.42856
@@ -416,6 +466,15 @@ MonoBehaviour:
   m_defaultScale: 0.5087963
   m_LastWindowPixelSize: {x: 1278.5, y: 575.75}
 >>>>>>> gamusiro_08
+=======
+      x: -419.57147
+      y: -386.7143
+      width: 839.14294
+      height: 773.4286
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1468.5001, y: 1390.25}
+>>>>>>> origin/feature/kurita/view
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -443,8 +502,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 72.571434
-    width: 360.14285
-    height: 935.8571
+    width: 228.14285
+    height: 935.8572
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -459,6 +518,7 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: 44ff0100
       m_LastClickedID: 130884
       m_ExpandedIDs: e45febff8867ebff0272ebff1657ffff3858ffff4058ffff685dffff785dffff1a62ffffe2faffffe4faffffe8d30000
@@ -467,6 +527,11 @@ MonoBehaviour:
       m_LastClickedID: 26388
       m_ExpandedIDs: 1a99ffff00a1ffffdafaffff
 >>>>>>> gamusiro_08
+=======
+      m_SelectedIDs: 3c601a00
+      m_LastClickedID: 1728572
+      m_ExpandedIDs: b23f76ff6cab76ff70ab76ff74ab76ff82ab76ff84ab76ff32297bff9cf38bff82c1d2ff36eed2ff54afddff5e1ddfffd882dfff9af0dfff9ef0dfffd8f1dfffdcf1dfffeaf1dfffecf1dfffcc2de1ff3eb9e1ff42b9e1ff50b9e1ff52b9e1ff8038e2ff50e8e3ff54e8e3ff70e8e3ffb619e4ffba19e4ffd219e4ffd619e4ffda19e4ffde19e4ffa6ebe4ffaeebe4ffb6ebe4ffc2ebe4ffcaebe4ffceebe4ffdeebe4ffe2ebe4ffe6ebe4ffeaebe4ffeeebe4fff2ebe4ff28f5e4ffd8f0e9ffca08eaffd608eaffe208eaffe608eaffea08eafff208eafffa08eaff0e09eaff1209eaff2a09eaff2e09eaff3209eaff3609eaff3809eaff9ca2eaffaa3cebffa4c7fbffacd9fbffe0d9fbffe4d9fbffe8d9fbffcceefbffdceefbfff4eefbff0ceffbff10effbff14effbff18effbff4a01fcffe4fafffff4ffffff7a6300004eb7010070ba0100242e0400b8be0500dac10500fccf0a00d2d00a0096d10a002cd20a0096601a002c611a00
+>>>>>>> origin/feature/kurita/view
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -511,6 +576,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 361.14288
     y: 72.571434
     width: 848.8572
@@ -521,6 +587,12 @@ MonoBehaviour:
     width: 1022.80005
     height: 460.6
 >>>>>>> gamusiro_08
+=======
+    x: 283.4286
+    y: 72.571434
+    width: 923.1428
+    height: 515
+>>>>>>> origin/feature/kurita/view
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -854,6 +926,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 4.5104628, y: -43.77849, z: -37.465164}
     speed: 2
     m_Value: {x: 4.5104628, y: -43.77849, z: -37.465164}
@@ -862,6 +935,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 60.542618, y: -8.035333, z: 201.74988}
 >>>>>>> gamusiro_08
+=======
+    m_Target: {x: 7.0253115, y: 2.1648, z: -42.066437}
+    speed: 2
+    m_Value: {x: 7.0253115, y: 2.1648, z: -42.066437}
+>>>>>>> origin/feature/kurita/view
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -908,12 +986,17 @@ MonoBehaviour:
     m_gridOpacity: 0.5
   m_Rotation:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: -0.71875423, y: 0.060859185, z: -0.06344597, w: -0.6897036}
+=======
+    m_Target: {x: 0.09005918, y: 0.34632587, z: -0.033438068, w: 0.93319017}
+>>>>>>> origin/feature/kurita/view
     speed: 2
-    m_Value: {x: -0.7187442, y: 0.060858335, z: -0.063445084, w: -0.689694}
+    m_Value: {x: 0.09005854, y: 0.3463234, z: -0.03343783, w: 0.9331835}
   m_Size:
-    m_Target: 47.683506
+    m_Target: 16.144781
     speed: 2
+<<<<<<< HEAD
     m_Value: 47.683506
 =======
     m_Target: {x: -0.028605392, y: -0.117582195, z: 0.0033889608, w: -0.99265003}
@@ -924,13 +1007,16 @@ MonoBehaviour:
     speed: 2
     m_Value: 123.81838
 >>>>>>> gamusiro_08
+=======
+    m_Value: 16.144781
+>>>>>>> origin/feature/kurita/view
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.1204399
-    m_SpeedNormalized: 0.55999994
+    m_Speed: 1.1804098
+    m_SpeedNormalized: 0.5899999
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -969,6 +1055,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 361.14288
     y: 72.571434
     width: 848.8572
@@ -979,6 +1066,12 @@ MonoBehaviour:
     width: 1022.80005
     height: 460.6
 >>>>>>> gamusiro_08
+=======
+    x: 602.28577
+    y: 72.571434
+    width: 1051.1428
+    height: 885.8571
+>>>>>>> origin/feature/kurita/view
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1006,7 +1099,7 @@ MonoBehaviour:
       e10: 0
       e11: 0.61096686
       e12: 0
-      e13: 233.3867
+      e13: 233.38672
       e20: 0
       e21: 0
       e22: 1
@@ -1095,14 +1188,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.63669175
+    - e00: 0.7822556
       e01: 0
       e02: 0
-      e03: -16.834564
+      e03: -24.112762
       e10: 0
-      e11: 0.63669175
+      e11: 0.7822556
       e12: 0
-      e13: 230.94284
+      e13: 163.68573
       e20: 0
       e21: 0
       e22: 1
@@ -1112,9 +1205,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: a306f0644ff9e9a49bf7490339e36dc2, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 6234551129726726174, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
+  - m_Target: {fileID: 6009596797080223288, guid: a306f0644ff9e9a49bf7490339e36dc2, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1124,7 +1217,7 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_CurrentEditor: 1
+  m_CurrentEditor: 0
   m_LayerEditor:
     m_SelectedLayerIndex: 0
 --- !u!114 &15
@@ -1147,10 +1240,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 361.14288
+    x: 602.28577
     y: 72.571434
-    width: 848.8572
-    height: 621.8571
+    width: 1051.1428
+    height: 885.8571
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1163,7 +1256,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -43246
+  m_LastSelectedObjectID: -9000292
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1184,10 +1277,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 361.14288
-    y: 715.4286
-    width: 848.8572
-    height: 293.00006
+    x: 283.4286
+    y: 608.5715
+    width: 923.1428
+    height: 399.85718
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1219,6 +1312,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 361.14288
     y: 715.4286
     width: 848.8572
@@ -1229,6 +1323,12 @@ MonoBehaviour:
     width: 1022.80005
     height: 220.19998
 >>>>>>> gamusiro_08
+=======
+    x: 229.14287
+    y: 888.00006
+    width: 839.14294
+    height: 120.42859
+>>>>>>> origin/feature/kurita/view
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1240,7 +1340,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: view
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1251,24 +1351,33 @@ MonoBehaviour:
     m_SearchArea: 1
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Works/Kurita/MyAsset/PieceOfHeart
 =======
     - "Assets/Works/\u767D\u9280/Prefab"
 >>>>>>> gamusiro_08
+=======
+    - Assets/Works/Kurita/MyAsset/Player/Materials
+>>>>>>> origin/feature/kurita/view
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: view
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Assets/Works/Kurita/MyAsset/PieceOfHeart
+=======
+  - Assets/Works/Kurita/MyAsset/Player/Materials
+>>>>>>> origin/feature/kurita/view
   m_LastFoldersGridSize: 50
   m_LastProjectPath: C:\Users\ALTO\Documents\CProgramming\TH425_Project2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 639}
     m_SelectedIDs: b0d10000
     m_LastClickedID: 53680
@@ -1285,6 +1394,12 @@ MonoBehaviour:
     m_LastClickedID: 25420
     m_ExpandedIDs: 00000000d2620000d4620000d6620000d8620000da620000dc6200003c63000040630000e4630000e8630000ec6300007e65000000ca9a3b
 >>>>>>> gamusiro_08
+=======
+    scrollPos: {x: 0, y: 671}
+    m_SelectedIDs: e40c0100
+    m_LastClickedID: 68836
+    m_ExpandedIDs: 00000000887500008a7500008c7500008e75000090750000927500009475000096750000987500009a7500009c7500009e750000a0750000700c0100740c01009c0c010000ca9a3b
+>>>>>>> origin/feature/kurita/view
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Camera
@@ -1313,10 +1428,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000f6d00000f8d00000fad00000fcd00000fed0000000d1000002d1000004d1000006d1000008d100000ad100000cd100000ed10000
 =======
     m_ExpandedIDs: 00000000d2620000d4620000d6620000d8620000da620000dc620000
 >>>>>>> gamusiro_08
+=======
+    m_ExpandedIDs: 00000000887500008a7500008c7500008e75000090750000927500009475000096750000987500009a7500009c7500009e750000a075000000ca9a3b
+>>>>>>> origin/feature/kurita/view
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1403,6 +1522,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1212
     y: 72.571434
     width: 542.4286
@@ -1413,6 +1533,12 @@ MonoBehaviour:
     width: 299
     height: 701.8
 >>>>>>> gamusiro_08
+=======
+    x: 1070.2858
+    y: 72.571434
+    width: 684.14294
+    height: 935.8572
+>>>>>>> origin/feature/kurita/view
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
