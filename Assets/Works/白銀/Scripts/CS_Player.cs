@@ -50,7 +50,7 @@ public class CS_Player : MonoBehaviour
     bool m_damaged;
 
     // êF
-    float m_degree = 0.0f;
+    float m_degree;
 
     #endregion
 
@@ -68,6 +68,7 @@ public class CS_Player : MonoBehaviour
         m_mainVirtualCamera = m_mainGameCameraManager.GetCurCamera();
         m_isFlying = false;
         m_damaged = false;
+        m_degree = 0.0f;
     }
 
     /// <summary>
@@ -96,7 +97,7 @@ public class CS_Player : MonoBehaviour
         // ÉWÉÉÉìÉv
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
-            //CS_AudioManager.Instance.PlayAudio("Jump");
+            CS_AudioManager.Instance.PlayAudio("Jump");
 
             m_isFlying = true;
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
@@ -122,8 +123,10 @@ public class CS_Player : MonoBehaviour
         // Ç‘Ç¬Ç©Ç¡ÇƒÇ¢ÇΩÇÁ
         if(m_damaged)
         {
+            float c = Mathf.Cos(m_degree);
+
             Color color = m_material.color;
-            color.r = Mathf.Cos(m_degree);
+            color.r = c; color.g = c; color.b = c;
             m_material.color = color;
         }
     }

@@ -12,8 +12,8 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 
     // オブジェクトの生成数
     [SerializeField, CustomLabel("オブジェクトの生成数")]
-    [Range(5.0f, 20.0f)]
-    int m_numMax = 5;
+    [Range(20.0f, 60.0f)]
+    int m_numMax = 20;
 
     // ジャンプタイミングに合わせてオフセットを持たせる
     [SerializeField, CustomLabel("オフセット")]
@@ -82,7 +82,6 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
                 if (m_gameObjects.Count < m_perNoteInfos.Count)
                     CreateGameObject(m_gameObjects.Count);
             }
-
         }
     }
 
@@ -92,6 +91,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     /// <param name="index"></param>
     void CreateGameObject(int index)
     {
+        // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = -60.0f + m_perNoteInfos[index].lane * 30.0f;
         createPos.y = 2.5f;

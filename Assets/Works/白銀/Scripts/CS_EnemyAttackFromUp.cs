@@ -29,7 +29,8 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
     #region 内部用変数
 
     // ゲームオブジェクト管理用
-    GameObject[] m_gameObjects;
+    GameObject[] m_fallObjects;
+    GameObject[] m_shadowObjects;
 
     int m_createCount;
 
@@ -41,7 +42,9 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
     /// </summary>
     private void Start()
     {
-        m_gameObjects = new GameObject[m_numMax];
+        m_fallObjects = new GameObject[m_numMax];
+        m_shadowObjects = new GameObject[m_numMax];
+
         m_createCount = 0;
 
         // 読み込み処理
@@ -53,10 +56,13 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
     /// </summary>
     void FixedUpdate()
     {
+        if (!CS_MoveController.IsMoving())
+            return;
+
         // 全てをループする
         for(int i = 0; i < m_numMax; ++i)
         {
-            if (m_gameObjects[i] == null)
+            if (m_fallObjects[i] == null)
                 CreateGameObject(i);
         }
     }
@@ -70,22 +76,35 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         if (m_createCount >= m_perNoteInfos.Count)
             return;
 
+        // こころのかけらだったら無視する
+        PerNoteInfo info = m_perNoteInfos[m_createCount];
+        if (info.type == 2)
+        {
+            m_createCount++;
+            return;
+        }
+
+        // 生成する座標を出す
         Vector3 createPos = Vector3.zero;
+        float time = info.time - CS_AudioManager.Instance.TimeBGM;
 
-        float time = m_perNoteInfos[m_createCount].time - CS_AudioManager.Instance.TimeBGM;
-
-        createPos.x = -60.0f + m_perNoteInfos[m_createCount].lane * 30.0f;
+        createPos.x = -60.0f + info.lane * 30.0f;
         createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);
-        createPos.z = m_perNoteInfos[m_createCount].time * CS_MoveController.GetMoveVel() * -1.0f;
+        createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
-        GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
-        m_gameObjects[index] = obj;
-        m_createCount++;
-
+        // 落ちるオブジェクトの変数を生成
+        GameObject fall = Instantiate(m_createObject, createPos, Quaternion.identity);
+        
+        // 影オブジェクトの影を生成
         createPos.y = 0.1f;
         GameObject sdw = Instantiate(m_shadowObject, createPos, Quaternion.identity);
 
-        Destroy(obj, time + m_graceTime);
+        m_fallObjects[index] = fall;
+        m_shadowObjects[index] = sdw;
+
+        Destroy(fall, time + m_graceTime);
         Destroy(sdw, time + m_graceTime);
+
+        m_createCount++;
     }
 }

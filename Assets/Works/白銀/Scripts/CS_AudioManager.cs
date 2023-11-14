@@ -93,7 +93,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <summary>
     /// XVˆ—
     /// </summary>
-    protected void FixedUpdate()
+    protected void Update()
     {
         m_currentlyTime = m_bgmSource.time;
     }

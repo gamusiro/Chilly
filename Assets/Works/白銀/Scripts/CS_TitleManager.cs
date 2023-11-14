@@ -65,11 +65,12 @@ public class CS_TitleManager : MonoBehaviour
         if (m_inputAction.Title.ToGameScene.triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Jump");
-            m_fade.FadeOut(m_setFadeTime, () => { CS_AudioManager.Instance.MasterVolume = 0.0f; });
-        }
-
-        if (m_fade.GetRange() >= 1.0f)
-            SceneManager.LoadScene(m_sceneName);
+            m_fade.FadeOut(m_setFadeTime, () => 
+            { 
+                CS_AudioManager.Instance.MasterVolume = 0.0f;
+                SceneManager.LoadScene(m_sceneName);
+            });
+        } 
     }
 
     /// <summary>

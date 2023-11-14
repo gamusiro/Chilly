@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class CS_FallObject : MonoBehaviour
 {
-    AudioSource m_clapSound;
-
     /// <summary>
     /// èâä˙âªèàóù
     /// </summary>
     void Start()
     {
-        m_clapSound = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -28,6 +25,6 @@ public class CS_FallObject : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        m_clapSound.Play();
+        CS_AudioManager.Instance.PlayAudio("Clap");
     }
 }

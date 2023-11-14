@@ -33,6 +33,8 @@ public class CS_MoveController : MonoBehaviour
     {
         m_getMoveVel = m_moveVel;
 
+        m_vecVel = Vector3.zero;
+
         // 子オブジェクト取得
         int count = gameObject.transform.childCount;
 
@@ -87,6 +89,11 @@ public class CS_MoveController : MonoBehaviour
     /// </summary>
     static public void MoveStart()
     {
-        m_vecVel = new Vector3(0.0f, 0.0f, -m_getMoveVel);
+        m_vecVel.z = -m_getMoveVel;
+    }
+
+    static public bool IsMoving()
+    {
+        return m_vecVel != Vector3.zero;
     }
 }

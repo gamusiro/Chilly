@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CS_GameManager : MonoBehaviour
 {
@@ -25,9 +27,8 @@ public class CS_GameManager : MonoBehaviour
             () => { 
                 CS_AudioManager.Instance.MasterVolume = 1.0f;
                 CS_MoveController.MoveStart();
+                CS_AudioManager.Instance.PlayAudio("GameAudio", true);
             });
-
-        CS_AudioManager.Instance.PlayAudio("GameAudio", true);
     }
 
     /// <summary>
@@ -35,5 +36,43 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        Fade.STATE state = m_fade.GetState();
+
+        if (state == Fade.STATE.NONE)
+            StateNone();
+        else if (state == Fade.STATE.IN)
+            StateIn();
+        else
+            StateOut();
+    }
+
+    /// <summary>
+    /// フェード状態ではないとき
+    /// </summary>
+    void StateNone()
+    {
+        if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM - 1.0f)
+        {
+            m_fade.FadeOut(m_setFadeTime, 
+                () => {
+                    CS_AudioManager.Instance.MasterVolume = 0.0f;
+                    SceneManager.LoadScene("Title");
+                });
+        }
+    }
+
+    /// <summary>
+    /// フェードイン(音量の変更を行う)
+    /// </summary>
+    void StateIn()
+    {
+        float vol = 1.0f - m_fade.GetRange();
+        CS_AudioManager.Instance.MasterVolume = (vol);
+    }
+
+    void StateOut()
+    {
+        float vol = 1.0f - m_fade.GetRange();
+        CS_AudioManager.Instance.MasterVolume = (vol);
     }
 }
