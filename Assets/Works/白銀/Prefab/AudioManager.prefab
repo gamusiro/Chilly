@@ -47,7 +47,7 @@ MonoBehaviour:
   m_listPack:
   - m_label: GameAudio
     m_clip: {fileID: 8300000, guid: 766efc0ae62bbb54eb43f58f49f93594, type: 3}
-    m_volume: 0.1
+    m_volume: 1
   - m_label: Jump
     m_clip: {fileID: 8300000, guid: baf7e59b9a14fd446905a3be8f5ce0a7, type: 3}
     m_volume: 1
