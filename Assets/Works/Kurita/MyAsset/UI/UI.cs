@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class UI : ChangeMeshRenderAlpha
 {
-    private float _time = 0.0f;
-
     private void Start()
     {
         Init();

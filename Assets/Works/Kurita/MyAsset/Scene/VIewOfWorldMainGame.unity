@@ -135,26 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
-    - target: {fileID: 2011447458578465471, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
-      propertyPath: m_listPack.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2011447458578465471, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
-      propertyPath: m_listPack.Array.data[1].m_clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a5073c3476ffb5c4989efbbd873f86cf, type: 3}
-    - target: {fileID: 2011447458578465471, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
-      propertyPath: m_listPack.Array.data[1].m_label
-      value: Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 2011447458578465471, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
-      propertyPath: m_listPack.Array.data[1].m_volume
+    - target: {fileID: 3858126234860651262, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5263437267814173644, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
-      propertyPath: m_createObject
-      value: 
-      objectReference: {fileID: 270884841887256026, guid: 241a5009f2754ac4eabb9c926b440cae, type: 3}
     - target: {fileID: 6380118171163782613, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -193,6 +177,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6380118171163782613, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230310006359009178, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
