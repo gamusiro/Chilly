@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MainGameCameraManager : AbstructAnimationManager
+public class MainGameCameraManager : AbstructCameraPhaseManager
 {
     //フェーズの設定
     protected new enum Phase { Stay, Up, Max };

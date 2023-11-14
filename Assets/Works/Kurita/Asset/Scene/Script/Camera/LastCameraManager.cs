@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class LastCameraManager : AbstructAnimationManager
+public class LastCameraManager : AbstructCameraPhaseManager
 {
     //フェーズの設定
     protected new enum Phase { Wait,BellAttack, BellAttackaaaa, Max };

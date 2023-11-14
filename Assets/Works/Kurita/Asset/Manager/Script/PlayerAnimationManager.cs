@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimationManager : AbstructAnimationManager
+public class PlayerAnimationManager : AbstructBasePhaseManager
 {
     //[Header("ƒvƒŒƒCƒ„[")]
     //[SerializeField] private GameObject _player;
