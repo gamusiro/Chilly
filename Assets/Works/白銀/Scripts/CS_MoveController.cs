@@ -22,7 +22,7 @@ public class CS_MoveController : MonoBehaviour
     static Vector3 m_vecVel;
 
     // 子オブジェクト管理
-    static Dictionary<string, GameObject> m_children = new Dictionary<string, GameObject>();
+    static Dictionary<string, GameObject> m_children;
 
     #endregion
 
@@ -36,6 +36,7 @@ public class CS_MoveController : MonoBehaviour
         m_vecVel = Vector3.zero;
 
         // 子オブジェクト取得
+        m_children = new Dictionary<string, GameObject>();
         int count = gameObject.transform.childCount;
 
         for(int i = 0; i < count; ++i)

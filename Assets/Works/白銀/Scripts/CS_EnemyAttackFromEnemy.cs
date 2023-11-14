@@ -25,13 +25,13 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     #region 内部用変数
 
     // ゲームオブジェクト管理用
-    List<GameObject> m_gameObjects;
+    GameObject[] m_objects;
 
     // カメラのオブジェクト
     [SerializeField] private GameObject m_cameraObject;
 
-    // 破棄したデータのカウント
-    int m_numDestroy;
+    // 生成したデータのカウント
+    int m_createCount;
 
     #endregion
 
@@ -41,15 +41,11 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     /// </summary>
     private void Start()
     {
-        m_gameObjects = new List<GameObject>();
-        m_numDestroy = 0;
+        m_objects = new GameObject[m_numMax];
+        
 
         // 読み込み処理
         this.Load();
-
-        // テスト用オブジェクト生成
-        for (int i = 0; i < m_numMax; ++i)
-            CreateGameObject(i);
     }
 
     /// <summary>
@@ -57,31 +53,14 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     /// </summary>
     void FixedUpdate()
     {
-        // 作業用変数
-        int numDestroy = m_numDestroy;
+        if (!CS_MoveController.IsMoving())
+            return;
 
-        for (int i = numDestroy; i < numDestroy + m_numMax; ++i)
+        // 全てをループする
+        for (int i = 0; i < m_numMax; ++i)
         {
-            // ノーツカウントよりデータが多ければ
-            if (i >= m_perNoteInfos.Count)
-                break;                          // 探索終了
-
-            if (m_gameObjects[i] == null)
-                continue;
-
-            // ゲームオブジェクトのポジションがムーブオブジェクトの座標より大きくなったら
-            if (m_gameObjects[i].transform.position.z < m_cameraObject.gameObject.transform.position.z)
-            {
-                // 対象のオブジェクトを破棄する
-                Destroy(m_gameObjects[i]);
-
-                // 破棄数を増やす
-                m_numDestroy++;
-
-                // 次のオブジェクトの生成
-                if (m_gameObjects.Count < m_perNoteInfos.Count)
-                    CreateGameObject(m_gameObjects.Count);
-            }
+            if (m_objects[i] == null)
+                CreateGameObject(i);
         }
     }
 
@@ -91,16 +70,24 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     /// <param name="index"></param>
     void CreateGameObject(int index)
     {
+        if (m_createCount >= m_perNoteInfos.Count)
+            return;
+
+        PerNoteInfo info = m_perNoteInfos[m_createCount];
+
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
-        createPos.x = -60.0f + m_perNoteInfos[index].lane * 30.0f;
+        createPos.x = -60.0f + info.lane * 30.0f;
         createPos.y = 2.5f;
-        createPos.z = (m_perNoteInfos[index].time - m_offset) * CS_MoveController.GetMoveVel();
+        createPos.z = (info.time - m_offset) * CS_MoveController.GetMoveVel();
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         obj.AddComponent<CS_EnemyAttackNotes>();
-        obj.GetComponent<CS_EnemyAttackNotes>().m_perfTime = m_perNoteInfos[index].time;
+        obj.GetComponent<CS_EnemyAttackNotes>().m_perfTime = info.time;
 
-        m_gameObjects.Add(obj);
+        Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
+        m_createCount++;
+
+        m_objects[index] = obj;
     }
 }

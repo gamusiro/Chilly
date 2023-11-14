@@ -137,7 +137,8 @@ public class CS_Player : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        m_isFlying = false;
+        if (collision.gameObject.tag == "Field")
+            m_isFlying = false;
 
         // ダメージを受け付ける状態か
         if (!m_damaged)

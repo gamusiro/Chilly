@@ -78,11 +78,6 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
 
         // ‚±‚±‚ë‚Ì‚©‚¯‚ç‚¾‚Á‚½‚ç–³‹‚·‚é
         PerNoteInfo info = m_perNoteInfos[m_createCount];
-        if (info.type == 2)
-        {
-            m_createCount++;
-            return;
-        }
 
         // ¶¬‚·‚éÀ•W‚ğo‚·
         Vector3 createPos = Vector3.zero;

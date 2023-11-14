@@ -64,7 +64,6 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         if (m_createCount >= m_perNoteInfos.Count)
             return;
 
-        // こころのかけらだったら無視する
         PerNoteInfo info = m_perNoteInfos[m_createCount];
 
         // 生成ポジションの指定
@@ -75,6 +74,8 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         m_objects[index] = obj;
+
+        Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
 
         m_createCount++;
     }

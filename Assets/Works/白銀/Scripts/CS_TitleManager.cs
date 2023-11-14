@@ -68,6 +68,7 @@ public class CS_TitleManager : MonoBehaviour
             m_fade.FadeOut(m_setFadeTime, () => 
             { 
                 CS_AudioManager.Instance.MasterVolume = 0.0f;
+                CS_AudioManager.Instance.StopBGM();
                 SceneManager.LoadScene(m_sceneName);
             });
         } 

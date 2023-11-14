@@ -16,6 +16,10 @@ public class CS_GameManager : MonoBehaviour
     [SerializeField, CustomLabel("フェード時間")]
     float m_setFadeTime;
 
+    // フェード
+    [SerializeField, CustomLabel("次のシーン名")]
+    string m_nextSceneName;
+
     #endregion
 
     /// <summary>
@@ -51,12 +55,13 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void StateNone()
     {
-        if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM - 1.0f)
+        if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM - m_setFadeTime)
         {
             m_fade.FadeOut(m_setFadeTime, 
                 () => {
                     CS_AudioManager.Instance.MasterVolume = 0.0f;
-                    SceneManager.LoadScene("Title");
+                    CS_AudioManager.Instance.StopBGM();
+                    SceneManager.LoadScene(m_nextSceneName);
                 });
         }
     }

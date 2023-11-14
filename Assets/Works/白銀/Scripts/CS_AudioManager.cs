@@ -147,6 +147,15 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     }
 
     /// <summary>
+    /// オーディオを再生する
+    /// </summary>
+    /// <param name="index"></param>
+    public void StopBGM()
+    {
+        m_bgmSource.Stop();
+    }
+
+    /// <summary>
     /// インデックスを取得する(BGM)
     /// </summary>
     /// <param name="labelName"></param>
