@@ -31,14 +31,11 @@ public class CS_GameFinisher : MonoBehaviour
 
     #endregion
 
-    AudioSource m_audioSource;
-
     /// <summary>
     /// ‰Šú‰»ˆ—
     /// </summary>
     void Start()
     {
-        m_audioSource = CS_AudioManager.Instance.GetAudioSource("GameAudio");
         m_fadeRun = false;
     }
 
@@ -47,7 +44,7 @@ public class CS_GameFinisher : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (m_audioSource.time >= m_audioSource.clip.length)
+        if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM)
         {
             if (!m_fadeRun)
             {

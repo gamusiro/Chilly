@@ -33,8 +33,6 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
 
     int m_createCount;
 
-    AudioSource m_audioSource;
-
     #endregion
 
 
@@ -44,8 +42,6 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
     private void Start()
     {
         m_gameObjects = new GameObject[m_numMax];
-        m_audioSource = CS_AudioManager.Instance.GetAudioSource("GameAudio");
-
         m_createCount = 0;
 
         // 読み込み処理
@@ -55,11 +51,8 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
     /// <summary>
     /// 更新処理
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
-        if (!m_audioSource.isPlaying)
-            return;
-
         // 全てをループする
         for(int i = 0; i < m_numMax; ++i)
         {
@@ -79,7 +72,7 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
 
         Vector3 createPos = Vector3.zero;
 
-        float time = m_perNoteInfos[m_createCount].time - m_audioSource.time;
+        float time = m_perNoteInfos[m_createCount].time - CS_AudioManager.Instance.TimeBGM;
 
         createPos.x = -60.0f + m_perNoteInfos[m_createCount].lane * 30.0f;
         createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);

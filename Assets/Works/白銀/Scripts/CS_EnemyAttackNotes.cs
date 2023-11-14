@@ -9,9 +9,6 @@ public class CS_EnemyAttackNotes : MonoBehaviour
     // 指定位置ポジション
     Vector3 m_targetPosition;
 
-    // オーディオソース
-    AudioSource m_audioSource;
-
     // タイミング
     public float m_perfTime;
     
@@ -26,9 +23,6 @@ public class CS_EnemyAttackNotes : MonoBehaviour
         // 生成されたときの現在ポジションを取得
         m_targetPosition = transform.position;
         m_targetPosition.z *= -1.0f;
-
-        // オーディオソースの取得
-        m_audioSource = CS_AudioManager.Instance.GetAudioSource("GameAudio");
     }
 
     /// <summary>
@@ -37,7 +31,7 @@ public class CS_EnemyAttackNotes : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 setPosition = m_targetPosition;
-        setPosition.z += 400.0f * 1.0f * (m_perfTime - m_audioSource.time);
+        setPosition.z += 400.0f * 1.0f * (m_perfTime - CS_AudioManager.Instance.TimeBGM);
 
         transform.position = setPosition;
     }

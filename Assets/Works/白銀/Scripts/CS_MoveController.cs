@@ -29,11 +29,9 @@ public class CS_MoveController : MonoBehaviour
     /// <summary>
     /// 初期化処理
     /// </summary>
-    void Awake()
+    void Start()
     {
         m_getMoveVel = m_moveVel;
-
-        m_vecVel = Vector3.zero;
 
         // 子オブジェクト取得
         int count = gameObject.transform.childCount;
@@ -50,7 +48,7 @@ public class CS_MoveController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        transform.position = m_vecVel * CS_AudioManager.Instance.m_currentlyTime;
+        transform.position = m_vecVel * CS_AudioManager.Instance.TimeBGM;
     }
 
     /// <summary>

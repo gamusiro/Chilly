@@ -36,11 +36,11 @@ public class CS_ChangeCameraTimes : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_audioSource = CS_AudioManager.Instance.GetAudioSource("GameAudio");
+        //m_audioSource = CS_AudioManager.Instance.GetAudioSource("GameAudio");
 
         // ゴール地点のデータを最後に入れる
         ChangeTimeData finish = new ChangeTimeData();
-        finish.m_time = m_audioSource.clip.length;
+        finish.m_time = CS_AudioManager.Instance.LengthBGM;
         finish.m_name = "Back";
         m_list.Add(finish);
 

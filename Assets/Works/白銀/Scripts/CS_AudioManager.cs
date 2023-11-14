@@ -44,10 +44,18 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     #region 公開用変数
 
     // BGMの時間(現在時間)
-    public float m_currentlyTime;
+    private float m_currentlyTime;
+    public float TimeBGM
+    {
+        get { return m_currentlyTime; }
+    }
 
     // BGMの長さ
-    public float m_audioLength;
+    private float m_audioLength;
+    public float LengthBGM
+    {
+        get { return m_audioLength; }
+    }
 
     /// <summary>
     /// トータルのボリューム
@@ -168,16 +176,5 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         }
 
         return -1;
-    }
-
-
-    /// <summary>
-    /// オーディオソースの取得
-    /// </summary>
-    /// <param name="labelName"></param>
-    /// <returns></returns>
-    public AudioSource GetAudioSource(string labelName)
-    {
-        return null;
     }
 }

@@ -465,54 +465,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_bgmPack.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.data[0].m_clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a5073c3476ffb5c4989efbbd873f86cf, type: 3}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.data[1].m_clip
-      value: 
-      objectReference: {fileID: 8300000, guid: baf7e59b9a14fd446905a3be8f5ce0a7, type: 3}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_bgmPack.Array.data[0].m_clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 766efc0ae62bbb54eb43f58f49f93594, type: 3}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.data[0].m_label
-      value: Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.data[1].m_label
-      value: Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_bgmPack.Array.data[0].m_label
-      value: TitleAudio
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.data[0].m_volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_sePack.Array.data[1].m_volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_bgmPack.Array.data[0].m_volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307689075758796917, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
-      propertyPath: m_listPack.Array.data[0].m_volume
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8341354319799552063, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
       propertyPath: m_Name
       value: AudioManager

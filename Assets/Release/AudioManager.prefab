@@ -44,13 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f843720e9aa01da4781d5b0794763423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listPack:
+  m_bgmPack:
   - m_label: TitleAudio
     m_clip: {fileID: 8300000, guid: 7ccb7beded8b17947bbf6b4d6bf03cda, type: 3}
-    m_volume: 1
+    m_volume: 0.2
   - m_label: GameAudio
     m_clip: {fileID: 8300000, guid: 766efc0ae62bbb54eb43f58f49f93594, type: 3}
+    m_volume: 0.2
+  m_sePack:
+  - m_label: Clap
+    m_clip: {fileID: 8300000, guid: a5073c3476ffb5c4989efbbd873f86cf, type: 3}
     m_volume: 0.1
   - m_label: Jump
     m_clip: {fileID: 8300000, guid: baf7e59b9a14fd446905a3be8f5ce0a7, type: 3}
-    m_volume: 1
+    m_volume: 0.1

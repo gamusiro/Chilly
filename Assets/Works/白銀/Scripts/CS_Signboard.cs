@@ -47,7 +47,7 @@ public class CS_Signboard : MonoBehaviour
     {
         if (m_usedCount < m_boardDatasList.Count)
         {
-            if (m_boardDatasList[m_usedCount].m_displayTime.x <= CS_AudioManager.Instance.m_currentlyTime)
+            if (m_boardDatasList[m_usedCount].m_displayTime.x <= CS_AudioManager.Instance.TimeBGM)
             {
                 // 指定した時間になったらテクスチャの張替
                 Renderer renderer = gameObject.GetComponent<Renderer>();
@@ -56,7 +56,7 @@ public class CS_Signboard : MonoBehaviour
                 renderer.material = m_boardDatasList[m_usedCount].m_material;
             }
 
-            if (m_boardDatasList[m_usedCount].m_displayTime.y <= CS_AudioManager.Instance.m_currentlyTime)
+            if (m_boardDatasList[m_usedCount].m_displayTime.y <= CS_AudioManager.Instance.TimeBGM)
             {
                 m_usedCount++;
             }

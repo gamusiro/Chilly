@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CS_GameStarter : MonoBehaviour
+public class CS_GameManager : MonoBehaviour
 {
     #region インスペクタ用変数
 
@@ -21,18 +21,19 @@ public class CS_GameStarter : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_fade.FadeOut(m_setFadeTime);
-        Invoke(nameof(GameStart), m_setFadeTime);
-        //GameStart();
+        m_fade.FadeIn(m_setFadeTime, 
+            () => { 
+                CS_AudioManager.Instance.MasterVolume = 1.0f;
+                CS_MoveController.MoveStart();
+            });
+
+        CS_AudioManager.Instance.PlayAudio("GameAudio", true);
     }
 
     /// <summary>
-    /// ゲームスタート
+    /// 更新処理
     /// </summary>
-    void GameStart()
+    private void FixedUpdate()
     {
-        CS_AudioManager.Instance.PlayAudio("GameAudio");
-        CS_MoveController.MoveStart();
-        Destroy(gameObject);
     }
 }
