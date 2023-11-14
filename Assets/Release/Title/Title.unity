@@ -425,6 +425,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1328036101058930966, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
+      propertyPath: m_sePack.Array.data[0].m_volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328036101058930966, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
+      propertyPath: m_sePack.Array.data[1].m_volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328036101058930966, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
+      propertyPath: m_bgmPack.Array.data[0].m_volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328036101058930966, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
+      propertyPath: m_bgmPack.Array.data[1].m_volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1724021515713868118, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
       propertyPath: m_Name
       value: AudioManager

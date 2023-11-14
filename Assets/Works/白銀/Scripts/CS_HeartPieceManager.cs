@@ -48,8 +48,11 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         if (!CS_MoveController.IsMoving())
             return;
 
-        for(int i = 0; i < m_numMax; ++i)
-            CreateGameObject(i);
+        for (int i = 0; i < m_numMax; ++i)
+        {
+            if (m_objects[i] == null)
+                CreateGameObject(i);
+        }
     }
 
     /// <summary>
@@ -63,22 +66,16 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
 
         // こころのかけらだったら無視する
         PerNoteInfo info = m_perNoteInfos[m_createCount];
-        if (info.type == 1)
-        {
-            m_createCount++;
-            return;
-        }
 
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = -60.0f + info.lane * 30.0f;
-        createPos.y = 2.5f;
-        createPos.z = info.time * CS_MoveController.GetMoveVel();
+        createPos.y = 5.0f;
+        createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
-        obj.AddComponent<CS_EnemyAttackNotes>();
-        obj.GetComponent<CS_EnemyAttackNotes>().m_perfTime = info.time;
-
         m_objects[index] = obj;
+
+        m_createCount++;
     }
 }
