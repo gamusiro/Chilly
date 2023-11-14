@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_listPack:
+  - m_label: TitleAudio
+    m_clip: {fileID: 8300000, guid: 7ccb7beded8b17947bbf6b4d6bf03cda, type: 3}
+    m_volume: 1
   - m_label: GameAudio
     m_clip: {fileID: 8300000, guid: 766efc0ae62bbb54eb43f58f49f93594, type: 3}
     m_volume: 0.1

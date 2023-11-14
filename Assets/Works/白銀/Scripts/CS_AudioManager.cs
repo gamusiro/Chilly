@@ -15,22 +15,139 @@ public class AudioPack
 
 public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
 {
-    [SerializeField, Header("音源データ")]
-    List<AudioPack> m_listPack = new List<AudioPack>();
+    #region インスペクタ用変数
 
-    private Dictionary<string, AudioSource> m_dictAudioSource = new Dictionary<string, AudioSource>();
+    // BGMデータ
+    [SerializeField, Header("BGMデータ")]
+    List<AudioPack> m_bgmPack = new List<AudioPack>();
 
+    // SEデータ
+    [SerializeField, Header("SEデータ")]
+    List<AudioPack> m_sePack = new List<AudioPack>();
+
+    #endregion
+
+    #region 内部変数用
+
+    // BGM用のオーディオソース
+    AudioSource m_bgmSource;
+
+    // SE用オーディオソース
+    AudioSource[] m_seSources;
+
+    const int c_sePlayNum = 5;
+    int m_bgmCurrentIndex = 0;
+    int m_seSourceIndex = 0;
+
+    #endregion
+
+    #region 公開用変数
+
+    // BGMの時間(現在時間)
+    public float m_currentlyTime;
+
+    // BGMの長さ
+    public float m_audioLength;
 
     /// <summary>
-    /// オーディオデータのインデックスを取得する
+    /// トータルのボリューム
     /// </summary>
-    /// <param name="labelName">ラベル名</param>
-    /// <returns></returns>
-    private int GetListIndex(string labelName)
+    private float m_masterVolume;
+    public float MasterVolume
     {
-        for (int i = 0; i < m_listPack.Count; ++i)
+        set 
         {
-            if (m_listPack[i].m_label.Equals(labelName))
+            m_masterVolume = Mathf.Clamp01(value);
+            m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * m_masterVolume;
+        }
+        get { return m_masterVolume; }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
+    protected override void Awake()
+    {
+        base.Awake();
+
+        // BGM用のコンポーネント生成
+        m_bgmSource = new AudioSource();
+        m_bgmSource = gameObject.AddComponent<AudioSource>();
+
+        // SE用のコンポーネント生成
+        m_seSources = new AudioSource[c_sePlayNum];
+        for(int i = 0; i < c_sePlayNum; ++i)
+            m_seSources[i] = gameObject.AddComponent<AudioSource>();
+    }
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    protected void FixedUpdate()
+    {
+        m_currentlyTime = m_bgmSource.time;
+    }
+
+    /// <summary>
+    /// オーディオを再生する
+    /// </summary>
+    /// <param name="index"></param>
+    public void PlayAudio(string labelName, bool bgm = false)
+    {
+        AudioPack pack = null;
+
+        if(bgm)
+        {// BGMの再生であれば
+            int index = GetBGMIndex(labelName);
+            if (index < 0)
+            {
+                Debug.LogError(labelName + "のBGMは存在していません");
+                return;
+            }
+
+            m_bgmCurrentIndex = index;
+            pack = m_bgmPack[index];
+
+            // BGMの長さを取得
+            m_audioLength = pack.m_clip.length;
+
+            // BGMデータをソースにセットする
+            m_bgmSource.playOnAwake = false;
+            m_bgmSource.clip = pack.m_clip;
+            m_bgmSource.volume = pack.m_volume * m_masterVolume;
+            m_bgmSource.Play();
+        }
+        else
+        {// SEの再生であれば
+            int index = GetSEIndex(labelName);
+            if (index < 0)
+            {
+                Debug.LogError(labelName + "のSEは存在していません");
+                return;
+            }
+
+            pack = m_sePack[index];
+
+            // SEデータをソースにセットする
+            m_seSources[m_seSourceIndex].playOnAwake = false;
+            m_seSources[m_seSourceIndex].PlayOneShot(pack.m_clip, pack.m_volume * m_masterVolume);
+
+            m_seSourceIndex = (m_seSourceIndex + 1) % c_sePlayNum;
+        }
+    }
+
+    /// <summary>
+    /// インデックスを取得する(BGM)
+    /// </summary>
+    /// <param name="labelName"></param>
+    /// <returns></returns>
+    private int GetBGMIndex(string labelName)
+    {
+        for (int i = 0;i < m_bgmPack.Count; ++i) 
+        {
+            if (m_bgmPack[i].m_label == labelName)
                 return i;
         }
 
@@ -38,18 +155,21 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     }
 
     /// <summary>
-    /// オーディオを再生する
+    /// インデックスを取得する(SE)
     /// </summary>
-    /// <param name="index"></param>
-    public void PlayAudio(string labelName)
+    /// <param name="labelName"></param>
+    /// <returns></returns>
+    private int GetSEIndex(string labelName)
     {
-        // データがなければ
-        if (!m_dictAudioSource.ContainsKey(labelName))
-            RegisterDictionary(labelName);
+        for (int i = 0; i < m_sePack.Count; ++i)
+        {
+            if (m_sePack[i].m_label == labelName)
+                return i;
+        }
 
-        // 再生処理
-        m_dictAudioSource[labelName].Play();
+        return -1;
     }
+
 
     /// <summary>
     /// オーディオソースの取得
@@ -58,29 +178,6 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <returns></returns>
     public AudioSource GetAudioSource(string labelName)
     {
-        if (!m_dictAudioSource.ContainsKey(labelName))
-            RegisterDictionary(labelName);
-
-        return m_dictAudioSource[labelName];
-    }
-
-    /// <summary>
-    /// ディクショナリに登録する処理
-    /// </summary>
-    void RegisterDictionary(string labelName)
-    {
-        int index = GetListIndex(labelName);
-
-        // 不当な値
-        if (index < 0)
-            return;
-
-        AudioSource source  = new AudioSource();
-        source = gameObject.AddComponent<AudioSource>();
-        source.playOnAwake  = false;
-        source.clip         = m_listPack[index].m_clip;
-        source.volume       = m_listPack[index].m_volume;
-
-        m_dictAudioSource.Add(labelName, source);
+        return null;
     }
 }

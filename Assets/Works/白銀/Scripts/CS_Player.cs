@@ -96,7 +96,7 @@ public class CS_Player : MonoBehaviour
         // ƒWƒƒƒ“ƒv
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
-            CS_AudioManager.Instance.PlayAudio("Jump");
+            //CS_AudioManager.Instance.PlayAudio("Jump");
 
             m_isFlying = true;
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);

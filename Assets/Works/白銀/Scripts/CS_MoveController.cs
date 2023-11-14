@@ -50,7 +50,7 @@ public class CS_MoveController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        transform.position = m_vecVel * CS_AudioManager.Instance.GetAudioSource("GameAudio").time;
+        transform.position = m_vecVel * CS_AudioManager.Instance.m_currentlyTime;
     }
 
     /// <summary>

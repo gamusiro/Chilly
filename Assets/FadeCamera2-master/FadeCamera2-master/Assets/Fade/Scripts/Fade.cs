@@ -7,6 +7,16 @@ public class Fade : MonoBehaviour
     IFade fade;
     [SerializeField] bool startFade;
 
+    STATE m_state;
+
+    public enum STATE
+    {
+        NONE,
+        IN,
+        OUT
+    }
+
+
     void Start()
     {
         Init();
@@ -30,7 +40,7 @@ public class Fade : MonoBehaviour
         fade.Range = cutoutRange;
     }
 
-    IEnumerator FadeoutCoroutine(float time, System.Action action)
+    IEnumerator FadeInCoroutine(float time, System.Action action)
     {
         float endTime = Time.timeSinceLevelLoad + time * (cutoutRange);
 
@@ -44,6 +54,7 @@ public class Fade : MonoBehaviour
         }
         cutoutRange = 0;
         fade.Range = cutoutRange;
+        m_state = STATE.NONE;
 
         if (action != null)
         {
@@ -51,7 +62,7 @@ public class Fade : MonoBehaviour
         }
     }
 
-    IEnumerator FadeinCoroutine(float time, System.Action action)
+    IEnumerator FadeOutCoroutine(float time, System.Action action)
     {
         float endTime = Time.timeSinceLevelLoad + time * (1 - cutoutRange);
 
@@ -65,6 +76,7 @@ public class Fade : MonoBehaviour
         }
         cutoutRange = 1;
         fade.Range = cutoutRange;
+        m_state = STATE.NONE;
 
         if (action != null)
         {
@@ -72,10 +84,25 @@ public class Fade : MonoBehaviour
         }
     }
 
+    public Coroutine FadeIn(float time, System.Action action)
+    {
+        m_state = STATE.IN;
+
+        StopAllCoroutines();
+        return StartCoroutine(FadeInCoroutine(time, action));
+    }
+
+    public Coroutine FadeIn(float time)
+    {
+        return FadeIn(time, null);
+    }
+
     public Coroutine FadeOut(float time, System.Action action)
     {
+        m_state = STATE.OUT;
+
         StopAllCoroutines();
-        return StartCoroutine(FadeoutCoroutine(time, action));
+        return StartCoroutine(FadeOutCoroutine(time, action));
     }
 
     public Coroutine FadeOut(float time)
@@ -83,14 +110,13 @@ public class Fade : MonoBehaviour
         return FadeOut(time, null);
     }
 
-    public Coroutine FadeIn(float time, System.Action action)
+    public STATE GetState()
     {
-        StopAllCoroutines();
-        return StartCoroutine(FadeinCoroutine(time, action));
+        return m_state;
     }
 
-    public Coroutine FadeIn(float time)
+    public float GetRange()
     {
-        return FadeIn(time, null);
+        return fade.Range;
     }
 }
