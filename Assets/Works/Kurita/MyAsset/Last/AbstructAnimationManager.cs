@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public abstract class CameraManager : MonoBehaviour
+public abstract class AbstructAnimationManager : MonoBehaviour
 {
     //バーチャルカメラの設定
     [SerializeField] protected List<CinemachineVirtualCamera> _virtualCamera = new List<CinemachineVirtualCamera>();

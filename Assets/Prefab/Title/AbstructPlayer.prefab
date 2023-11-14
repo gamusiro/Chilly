@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5591921599918514027}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Rightear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5132859857840830744}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8593381000839885890}
   m_Layer: 0
-  m_Name: TitlePlayer
+  m_Name: AbstructPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,9 +93,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8537741000762346352}
-  - {fileID: 4477142617764931972}
-  - {fileID: 7250417281168590921}
-  - {fileID: 1538032574054754966}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 160, z: 0}
 --- !u!1 &369067872182435213
@@ -107,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8689534808213381844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_LeftUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3736971876181050067}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Lefttear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436105788064492944}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Rightjoint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8231839810129464431}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9010860712548969124}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2441576354614545521}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_LeftUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7776127899657884864}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Righttoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6812961386196447188}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8250268791360828762}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7270606817483841098}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1800444738492031693}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_RightUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481797894346803919}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4672765221588219154}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4052824141231281494}
   - component: {fileID: 5125859983687575946}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: mesh_Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3635864984277280327}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Leftjoint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7861376015392889867}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1091826516724346557}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Leftear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6326389274897452870}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_LeftUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9196295609019717190}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_RightUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6570869183659602063}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7233156154086270891}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,13 +867,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586565779034691932}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20207766, y: 0.77908033, z: -0.31176758, w: 0.5049747}
-  m_LocalPosition: {x: -10, y: 7.11, z: 5}
-  m_LocalScale: {x: 17.88, y: 17.88, z: 17.88}
+  m_LocalRotation: {x: 0.3824039, y: 0.03530462, z: -0.014623651, w: 0.9232048}
+  m_LocalPosition: {x: 0.013184655, y: 0.20314288, z: -0.17953126}
+  m_LocalScale: {x: 0.5108571, y: 0.5108572, z: 0.51085705}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 8593381000839885890}
-  m_LocalEulerAnglesHint: {x: 43.62, y: 114.1, z: 0}
+  m_Father: {fileID: 8537741000762346352}
+  m_LocalEulerAnglesHint: {x: 43.62, y: 0, z: 0}
 --- !u!108 &4596796484020830923
 Light:
   m_ObjectHideFlags: 0
@@ -888,7 +885,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.36627164, g: 0.7769153, b: 0.9811321, a: 1}
+  m_Color: {r: 0.32856122, g: 0.5694045, b: 0.6886792, a: 1}
   m_Intensity: 30
   m_Range: 10
   m_SpotAngle: 58.303814
@@ -926,7 +923,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4096
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -948,7 +945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4884209464696846404}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3155370282454534966}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_RightUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,8 +1011,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8537741000762346352}
-  m_Layer: 0
-  m_Name: Character_07 (1)
+  m_Layer: 12
+  m_Name: Character_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1037,6 +1034,9 @@ Transform:
   - {fileID: 481797894346803919}
   - {fileID: 3836916193605005327}
   - {fileID: 4052824141231281494}
+  - {fileID: 4477142617764931972}
+  - {fileID: 7250417281168590921}
+  - {fileID: 1538032574054754966}
   m_Father: {fileID: 8593381000839885890}
   m_LocalEulerAnglesHint: {x: 0, y: -4.38, z: 0}
 --- !u!1 &4898464980757142034
@@ -1048,7 +1048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2204905500860009513}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_LeftUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3856235660286807678}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Rightear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3056474053196821487}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Rightear3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1143,7 +1143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6751609496423619592}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Lefttoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1174,7 +1174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5163027408770884221}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_RightUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7040376950430055314}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Rightear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9142854490618264364}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Rightjoint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5616492929672404598}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1303,7 +1303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2571903600766743428}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Rightear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1127390663017108609}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1367,7 +1367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917301202270954387}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Leftear3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7625730325076235218}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Leftear2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1430,7 +1430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1651207894582666148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_Leftjoint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6217082064107975951}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3836916193605005327}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: joint_Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1543,12 +1543,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8278678304074338886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 2, z: 0.77}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.9992696, z: -0, w: -0.038213443}
+  m_LocalPosition: {x: 0.0016801636, y: 0.05714286, z: 0.02193575}
+  m_LocalScale: {x: 0.02857143, y: 0.02857143, z: 0.02857143}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 8593381000839885890}
+  m_Father: {fileID: 8537741000762346352}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1387175251164399837
 MeshFilter:
@@ -1631,7 +1631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4166072299358420393}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control__Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1663,7 +1663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24592157542860258}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: control_Lefttear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1692,35 +1692,47 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8593381000839885890}
+    m_TransformParent: {fileID: 8537741000762346352}
     m_Modifications:
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.037142858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.037142858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.037142858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0016801636
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.05714286
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.77
+      value: 0.02193575
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.038213443
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.9992696
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4508288259367539825, guid: 9bb3a6ebce4ad3e4485c1ccd8f2cad9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

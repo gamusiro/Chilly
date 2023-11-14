@@ -6,7 +6,7 @@ public class AudioPlay : MonoBehaviour
 {
     void Start()
     {
-        CS_AudioManager.Instance.PlayAudio("GameAudio");
+        CS_AudioManager.Instance.PlayAudio("GameAudio",true);
         CS_MoveController.MoveStart();
         Destroy(gameObject);
     }

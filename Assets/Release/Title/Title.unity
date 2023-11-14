@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31286344, g: 0.29348078, b: 0.5139721, a: 1}
+  m_IndirectSpecularColor: {r: 0.31274357, g: 0.29335567, b: 0.5138893, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,34 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4168239311045895683, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4168239311045895683, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4168239311045895683, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4713504890542982711, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4713504890542982711, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9848078
-      objectReference: {fileID: 0}
-    - target: {fileID: 4713504890542982711, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.17364816
-      objectReference: {fileID: 0}
-    - target: {fileID: 4713504890542982711, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 4885775737765863609, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -199,49 +171,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: ShapeModule.m_Scale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: ShapeModule.m_Position.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: InitialModule.startSizeY.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788683396473410783, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      propertyPath: InitialModule.startSizeZ.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
+      propertyPath: m_fade
+      value: 
+      objectReference: {fileID: 418869342}
     - target: {fileID: 9082341865691745296, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7839809597360197455, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9082341865691745296, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 359537278}
-    - targetCorrespondingSourceObject: {fileID: 9082341865691745296, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 359537280}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
 --- !u!1001 &351285827
 PrefabInstance:
@@ -356,56 +297,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
---- !u!1 &359537277 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9082341865691745296, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
-  m_PrefabInstance: {fileID: 294334204}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &359537278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359537277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a85348e3f94a3468802bf7a3fc1fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fade: {fileID: 418869342}
-  m_setFadeTime: 1
-  m_sceneName: Game
---- !u!114 &359537280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359537277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 42fe762c08f27404f883b1970567f60a, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Title
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &418869342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11491604, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
