@@ -19,7 +19,6 @@ public class LastCameraManager : CameraManager
         switch (_phaseIndex)
         {
             case Phase.BellAttack:
-                Debug.Log(_audioSource.time);
                 if (NextPhase(0.0f))
                     NextCamera();
                 break;
