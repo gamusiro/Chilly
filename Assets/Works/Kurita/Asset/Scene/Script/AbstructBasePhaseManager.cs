@@ -9,26 +9,6 @@ public abstract class AbstructBasePhaseManager : MonoBehaviour
     protected enum Phase { Max };
     protected Phase _phaseIndex = Phase.Max;
 
-    void Start()
-    {
-        Init();
-    }
-
-    void Update()
-    {
-        //switch(_phaseIndex)
-        //{
-        //    case Phase.Stay:
-        //        if (NextPhase(50.0f))
-        //            NextCamera();
-        //        break;
-        //    case Phase.ZoomIn:
-        //        if (NextPhase(1.0f))
-        //            NextCamera();
-        //        break;
-        //}
-    }
-
     //èâä˙âª
     protected void Init()
     {
@@ -44,7 +24,5 @@ public abstract class AbstructBasePhaseManager : MonoBehaviour
 
         _phaseIndex++;
         return true;
-
-    
     }
 }
