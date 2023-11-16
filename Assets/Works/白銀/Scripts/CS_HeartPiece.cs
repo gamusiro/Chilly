@@ -6,7 +6,7 @@ using UnityEngine;
 public class CS_HeartPiece : MonoBehaviour
 {
     //Œ»ÝŽg—p’†‚ÌƒJƒƒ‰‚Ìî•ñ
-    [SerializeField] private MainGameCameraManager m_mainGameCameraManager;
+    private MainGameCameraManager m_mainGameCameraManager;
 
     GameObject m_enemyObject;
     GameObject m_cameraObject;
@@ -45,6 +45,9 @@ public class CS_HeartPiece : MonoBehaviour
             Vector3 c = Vector3.Lerp(b, m_enemyObject.transform.localPosition + offset, m_work);
 
             gameObject.transform.localPosition = c;
+
+            if(m_work >= 1.0f)
+                Destroy(gameObject);
         }
     }
 
@@ -94,5 +97,10 @@ public class CS_HeartPiece : MonoBehaviour
             m_enemyObject = CS_MoveController.GetObject("GameEnemy");
             m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
+    }
+
+    public void SetMainGameCameraManager(MainGameCameraManager cameraManager)
+    {
+        m_mainGameCameraManager = cameraManager;
     }
 }

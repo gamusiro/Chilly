@@ -16,6 +16,10 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
     [Range(20.0f, 100.0f)]
     int m_numMax = 20;
 
+    // メインカメラオブジェクト
+    [SerializeField, CustomLabel("カメラマネージャー")]
+    MainGameCameraManager m_cameraManager;
+
     #endregion
 
     #region 内部用変数
@@ -69,10 +73,11 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = -60.0f + info.lane * 30.0f;
-        createPos.y = 5.0f;
+        createPos.y = 4.0f;
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
+        obj.GetComponentInChildren<CS_HeartPiece>().SetMainGameCameraManager(m_cameraManager);
         m_objects[index] = obj;
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);

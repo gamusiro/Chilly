@@ -45,7 +45,7 @@ public class CS_TitleManager : MonoBehaviour
     /// <summary>
     /// XVˆ—
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
         Fade.STATE state = m_fade.GetState();
 

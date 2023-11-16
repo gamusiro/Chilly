@@ -38,7 +38,7 @@ public class CS_GameManager : MonoBehaviour
     /// <summary>
     /// XVˆ—
     /// </summary>
-    private void FixedUpdate()
+    private void Update()
     {
         Fade.STATE state = m_fade.GetState();
 
