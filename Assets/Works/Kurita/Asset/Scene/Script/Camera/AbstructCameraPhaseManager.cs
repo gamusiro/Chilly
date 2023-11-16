@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public abstract class AbstructAnimationManager : MonoBehaviour
+public abstract class AbstructCameraPhaseManager : AbstructBasePhaseManager
 {
     //バーチャルカメラの設定
     [SerializeField] protected List<CinemachineVirtualCamera> _virtualCamera = new List<CinemachineVirtualCamera>();
     protected int _cameraIndex;
 
     //フェーズの設定
-    protected enum Phase { Stay,ZoomIn,Max };
-    protected Phase _phaseIndex = Phase.Stay;
+    protected new enum Phase { Stay,ZoomIn,Max };
+    protected new Phase _phaseIndex = Phase.Stay;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public abstract class AbstructAnimationManager : MonoBehaviour
     }
 
     //初期化
-    protected void Init()
+    protected new void Init()
     {
         //カメラの優先度をリセットする
         foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
@@ -43,16 +43,6 @@ public abstract class AbstructAnimationManager : MonoBehaviour
 
         //フェーズを初期化する
         _phaseIndex = 0;
-    }
-
-    //n秒後に次のフェーズに遷る
-    protected bool NextPhase(float transTime)
-    {
-        if (CS_AudioManager.Instance.TimeBGM < transTime)//遷移時間に達していなければ終了
-            return false;
-
-        _phaseIndex++;
-        return true;
     }
 
     //カメラを切り替える

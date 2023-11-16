@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 43.2
     width: 1536
     height: 772.8
   m_ShowMode: 4
   m_Title: Hierarchy
+=======
+    x: 119.42857
+    y: -1397
+    width: 3440
+    height: 1349
+  m_ShowMode: 4
+  m_Title: Game
+>>>>>>> feature/kurita/lastScene6
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,8 +53,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1536
     height: 772.8
+=======
+    width: 3440
+    height: 1349
+>>>>>>> feature/kurita/lastScene6
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -69,7 +83,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1536
+=======
+    width: 3440
+>>>>>>> feature/kurita/lastScene6
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -90,8 +108,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 752.8
     width: 1536
+=======
+    y: 1329
+    width: 3440
+>>>>>>> feature/kurita/lastScene6
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -115,8 +138,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1536
     height: 722.8
+=======
+    width: 3440
+    height: 1299
+>>>>>>> feature/kurita/lastScene6
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
@@ -138,10 +166,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 272.8
     height: 722.8
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+    width: 899
+    height: 1299
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> feature/kurita/lastScene6
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -164,10 +199,17 @@ MonoBehaviour:
   - {fileID: 9}
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.8
     y: 0
     width: 746.4
     height: 722.8
+=======
+    x: 899
+    y: 0
+    width: 1891
+    height: 1299
+>>>>>>> feature/kurita/lastScene6
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
@@ -189,8 +231,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 746.4
     height: 481.6
+=======
+    width: 1891
+    height: 865
+>>>>>>> feature/kurita/lastScene6
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
@@ -211,23 +258,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 481.6
     width: 746.4
     height: 241.19998
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 17}
+=======
+    y: 865
+    width: 1891
+    height: 434
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 16}
+>>>>>>> feature/kurita/lastScene6
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,10 +299,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1019.2
     y: 0
     width: 516.8
     height: 722.8
+=======
+    x: 2790
+    y: 0
+    width: 650
+    height: 1299
+>>>>>>> feature/kurita/lastScene6
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
@@ -270,14 +333,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.80002
     y: 73.6
     width: 744.4
     height: 460.6
+=======
+    x: 1018.4286
+    y: -1367
+    width: 1889
+    height: 844
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -309,10 +379,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -768
     m_HBaseRangeMax: 768
     m_VBaseRangeMin: -432
     m_VBaseRangeMax: 432
+=======
+    m_HBaseRangeMin: -960
+    m_HBaseRangeMax: 960
+    m_VBaseRangeMin: -540
+    m_VBaseRangeMax: 540
+>>>>>>> feature/kurita/lastScene6
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -330,16 +407,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 744.4
       height: 439.6
     m_Scale: {x: 0.48463544, y: 0.48463544}
     m_Translation: {x: 372.2, y: 219.8}
+=======
+      width: 1889
+      height: 823
+    m_Scale: {x: 1.0927268, y: 1.0927268}
+    m_Translation: {x: 923.6393, y: 392.97556}
+>>>>>>> feature/kurita/lastScene6
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -768
       y: -453.5368
       width: 1536
@@ -347,6 +432,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.48463544
   m_LastWindowPixelSize: {x: 930.5, y: 575.75}
+=======
+      x: -845.2609
+      y: -359.62836
+      width: 1728.7029
+      height: 753.1617
+    m_MinimalGUI: 1
+  m_defaultScale: 0.76203704
+  m_LastWindowPixelSize: {x: 1889, y: 844}
+>>>>>>> feature/kurita/lastScene6
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -368,14 +462,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 73.6
     width: 271.8
     height: 701.8
+=======
+    x: 119.42857
+    y: -1367
+    width: 898
+    height: 1278
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -389,9 +490,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 46a8dbff
       m_LastClickedID: -2381754
       m_ExpandedIDs: 7e7fdbff4aa8dbff4ea8dbff62a8dbff6ca8dbffd64ef4ff44e5f4ffca65ffffe4faffff246100002ed80300
+=======
+      m_SelectedIDs: 1c43f5ff
+      m_LastClickedID: -703716
+      m_ExpandedIDs: 3c42f5ff1843f5ff1c43f5ff5243f5ff42d8f5ff58d8f5ff6ad8f5ff6ed8f5ff70d8f5ff6ee9f5ff147ff6ff167ff6ffa415f7fffa22f7ff1024f7ff16b9f7ff28b9f7ff2cb9f7ff2eb9f7ff9005f8ff3465ffff3c65ffff8c65ffffc865ffffe2faffffe4faffff
+>>>>>>> feature/kurita/lastScene6
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -431,14 +538,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.80002
     y: 73.6
     width: 744.4
     height: 460.6
+=======
+    x: 1018.4286
+    y: -1367
+    width: 1889
+    height: 844
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -453,7 +567,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -171, y: -26.399994}
+      snapOffset: {x: -171, y: -26.399963}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
@@ -771,9 +885,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -0.38168406, y: 12.383433, z: -5509.538}
     speed: 2
     m_Value: {x: 48.008484, y: 46.249554, z: -11.466465}
+=======
+    m_Target: {x: 9.534409, y: 8.307422, z: -52.051453}
+    speed: 2
+    m_Value: {x: 9.534409, y: 8.307422, z: -52.051453}
+>>>>>>> feature/kurita/lastScene6
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -819,6 +939,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.0025676144, y: 0.9965593, z: 0.033786602, w: -0.07578402}
     speed: 2
     m_Value: {x: 0.0014211693, y: 0.93072045, z: 0.0036212415, w: -0.36571085}
@@ -826,6 +947,15 @@ MonoBehaviour:
     m_Target: 27.374805
     speed: 2
     m_Value: 19.772083
+=======
+    m_Target: {x: -0.03751173, y: 0.6567626, z: -0.03273858, w: -0.7524549}
+    speed: 2
+    m_Value: {x: -0.037511647, y: 0.65676117, z: -0.03273851, w: -0.75245327}
+  m_Size:
+    m_Target: 75.54839
+    speed: 2
+    m_Value: 75.54839
+>>>>>>> feature/kurita/lastScene6
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -866,14 +996,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animator
-    m_Image: {fileID: 1711060831702674872, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -1673928668082335149, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.80002
     y: 73.6
     width: 889.2
     height: 460.6
+=======
+    x: 474.28574
+    y: 72.571434
+    width: 854.00006
+    height: 616.7143
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -956,9 +1093,15 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
+<<<<<<< HEAD
   m_AnimatorController: {fileID: 9100000, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
   m_BreadCrumbs:
   - m_Target: {fileID: 6234551129726726174, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
+=======
+  m_AnimatorController: {fileID: 9100000, guid: 7252bdc799c378140aa2e9af0a03b0ca, type: 2}
+  m_BreadCrumbs:
+  - m_Target: {fileID: -8983919251379819956, guid: 7252bdc799c378140aa2e9af0a03b0ca, type: 2}
+>>>>>>> feature/kurita/lastScene6
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -987,14 +1130,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Animation
-    m_Image: {fileID: -3237396543322336831, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.80002
     y: 73.6
     width: 889.2
     height: 460.6
+=======
+    x: 474.28574
+    y: 72.571434
+    width: 854.00006
+    height: 616.7143
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1007,7 +1157,11 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: -39556
+=======
+  m_LastSelectedObjectID: -703716
+>>>>>>> feature/kurita/lastScene6
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1024,14 +1178,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.80002
     y: 555.2
     width: 744.4
     height: 220.19998
+=======
+    x: 1018.4286
+    y: -502
+    width: 1889
+    height: 413
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1058,14 +1219,21 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 272.80002
     y: 555.2
     width: 744.4
     height: 220.19998
+=======
+    x: 1018.4286
+    y: -502
+    width: 1889
+    height: 413
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1087,7 +1255,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Works/Kurita/Asset/BG/Pillar
+=======
+    - Assets/Works/Kurita/Asset/Scene/Script/Player
+>>>>>>> feature/kurita/lastScene6
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1095,16 +1267,27 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Works/Kurita/Asset/BG/Pillar
+=======
+  - Assets/Works/Kurita/Asset/Scene/Script/Player
+>>>>>>> feature/kurita/lastScene6
   m_LastFoldersGridSize: 50
   m_LastProjectPath: C:\Users\Gamus\source\TH425
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 279.80002}
     m_SelectedIDs: 3cd80300
     m_LastClickedID: 251964
     m_ExpandedIDs: 00000000483301004a3301004c3301004e330100b43301003ed8030040d8030000ca9a3b
+=======
+    scrollPos: {x: 0, y: 395}
+    m_SelectedIDs: 54340100
+    m_LastClickedID: 78932
+    m_ExpandedIDs: 000000001e33010020330100223301002433010026330100283301002a3301004634010000ca9a3b
+>>>>>>> feature/kurita/lastScene6
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1132,7 +1315,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000483301004a3301004c3301004e330100
+=======
+    m_ExpandedIDs: 000000001e33010020330100223301002433010026330100283301002a330100
+>>>>>>> feature/kurita/lastScene6
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1157,8 +1344,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+=======
+    m_SelectedInstanceIDs: 6ee0efff
+    m_LastClickedInstanceID: -1056658
+>>>>>>> feature/kurita/lastScene6
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c98000000000000508901001c7e0000928c0000
     m_RenameOverlay:
@@ -1204,14 +1396,21 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1019.2
     y: 73.6
     width: 515.8
     height: 701.8
+=======
+    x: 2909.4285
+    y: -1367
+    width: 649
+    height: 1278
+>>>>>>> feature/kurita/lastScene6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MainGameCameraManager : AbstructAnimationManager
+public class LastCameraPhaseManager : AbstructCameraPhaseManager
 {
     //フェーズの設定
-    protected new enum Phase { Stay, Up, Max };
-    protected new Phase _phaseIndex = Phase.Stay;
+    protected new enum Phase { Wait,BellAttack, BellAttackaaaa, Max };
+    protected new Phase _phaseIndex = Phase.Wait;
 
     void Start()
     {
@@ -18,14 +18,16 @@ public class MainGameCameraManager : AbstructAnimationManager
     {
         switch (_phaseIndex)
         {
-            case Phase.Stay:
-                if (NextPhase(1.0f))
+            case Phase.Wait:
+                if (NextPhase(4.0f))
                     NextCamera();
                 break;
-            case Phase.Up:
-                if (NextPhase(1.0f))
+            case Phase.BellAttack:
+                if (NextPhase(0.0f))
                     NextCamera();
                 break;
         }
     }
 }
+
+
