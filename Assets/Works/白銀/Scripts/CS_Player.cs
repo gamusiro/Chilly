@@ -63,7 +63,7 @@ public class CS_Player : MonoBehaviour
         m_inputAction.Enable();
 
         m_rigidBody = GetComponent<Rigidbody>();
-        m_material = gameObject.transform.GetChild(0).GetComponent<Renderer>().material;
+        m_material = gameObject.transform.GetChild(0).Find("mesh_Character").GetComponent<Renderer>().material;
 
         m_mainVirtualCamera = m_mainGameCameraManager.GetCurCamera();
         m_isFlying = false;
@@ -106,7 +106,8 @@ public class CS_Player : MonoBehaviour
         // ÉXÉâÉCÉhëÄçÏ
         if(m_inputAction.Player.SlideL.triggered)
         {
-            m_rigidBody.AddForce(move * 2.0f, ForceMode.Impulse);
+            CS_AudioManager.Instance.PlayAudio("Jump");
+            m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
         }
     }
 
@@ -145,6 +146,8 @@ public class CS_Player : MonoBehaviour
         {
             if (collision.gameObject.tag == "Enemy")
             {
+                Debug.Log("Ç¢ÇƒÇ•");
+
                 m_damaged = true;
                 m_degree = 0.0f;
                 Invoke(nameof(UnlockInvincibility), m_invalidTime);

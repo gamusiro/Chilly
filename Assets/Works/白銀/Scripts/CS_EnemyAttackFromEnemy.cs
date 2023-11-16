@@ -77,7 +77,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
-        createPos.x = -60.0f + info.lane * 30.0f;
+        createPos.x = -60.0f + info.lane * 50.0f;
         createPos.y = 2.5f;
         createPos.z = (info.time - m_offset) * CS_MoveController.GetMoveVel();
 
