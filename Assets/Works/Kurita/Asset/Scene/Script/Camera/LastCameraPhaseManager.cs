@@ -19,12 +19,13 @@ public class LastCameraPhaseManager : AbstructCameraPhaseManager
         switch (_phaseIndex)
         {
             case Phase.Wait:
-                if (NextPhase(4.0f))
+                if (NextPhase(2.0f))
                     NextCamera();
                 break;
             case Phase.BellAttack:
                 if (NextPhase(0.0f))
-                    NextCamera();
+                    //NextCamera();
+                    ;
                 break;
         }
     }

@@ -6,7 +6,7 @@ public class CS_Player : MonoBehaviour
 {
     #region インスペクタ用変数
     //現在使用中のカメラの情報
-    [SerializeField] private MainGameCameraManager m_mainGameCameraManager;
+    [SerializeField] private GameCameraPhaseManager m_mainGameCameraManager;
 
     // プレイヤーの横移動速度
     [SerializeField, CustomLabel("横移動のスピード")]

@@ -12,11 +12,15 @@ public class Enemy : MonoBehaviour
     }
     [SerializeField] protected List<Transform> _eyeTransform = new List<Transform>();
     protected List<float> _eyeRadian = new List<float>();//回転角度
+    protected float _eyeSpeed;
+    protected float _subEyeSpeed;
 
     //口に関するもの
     [SerializeField] protected Transform _mouthTransform;
-    protected float _MouthScaleeRadian;//口の大きさ変更を決定する値
+    protected float _mouthScaleeRadian;//口の大きさ変更を決定する値
     protected Vector3 _standardMouthScale;
+    protected float _mouthSpeed;
+    protected float _subMouthSpeed;
 
     //体のパーティクルに関するもの
     [SerializeField] protected ParticleSystem _particleSystem;
@@ -34,7 +38,11 @@ public class Enemy : MonoBehaviour
         //目と口のラジアン
         _eyeTransform[(int)Eye.Left].eulerAngles = new Vector3(0.0f, 0.0f, 45.0f);
         _eyeTransform[(int)Eye.Right].eulerAngles = new Vector3(0.0f, 0.0f, 225.0f);
-        _MouthScaleeRadian = 0.0f;
+        _subEyeSpeed = _eyeSpeed = 4.0f;
+        _subEyeSpeed *= 0.1f;
+        _mouthScaleeRadian = 0.0f;
+        _subMouthSpeed = _mouthSpeed = 0.04f;
+        _subMouthSpeed *= 0.1f;
         _standardMouthScale = _mouthTransform.localScale;
 
         //その他変数
@@ -42,7 +50,8 @@ public class Enemy : MonoBehaviour
         _defeated = false;
     }
 
-    public void Update()
+
+    public void FixedUpdate()
     {
         if (!_defeated)
         {
@@ -50,29 +59,25 @@ public class Enemy : MonoBehaviour
         }
         Eyes();
         Mouth();
-        //ChangeColor();
     }
-
 
     //目の動き
     protected void Eyes()
     {
-        float speed = 2.0f;
-        _eyeTransform[(int)Eye.Left].Rotate(0.0f, 0.0f, speed);
-        _eyeTransform[(int)Eye.Right].Rotate(0.0f, 0.0f, -speed); 
+        _eyeTransform[(int)Eye.Left].Rotate(0.0f, 0.0f, _eyeSpeed);
+        _eyeTransform[(int)Eye.Right].Rotate(0.0f, 0.0f, -_eyeSpeed); 
     }
 
     //口の動き
     protected void Mouth()
     {
         //ぱくぱく
-        float speed = 0.04f;
         float cosRange = 6.0f;
         float sinRangege = _standardMouthScale.y * 0.5f;
 
-        _MouthScaleeRadian += speed;
+        _mouthScaleeRadian += _mouthSpeed;
         Vector3 addValue = Vector3.zero;
-        addValue.y = Mathf.Sin(Mathf.Cos(_MouthScaleeRadian) * cosRange) * sinRangege;
+        addValue.y = Mathf.Sin(Mathf.Cos(_mouthScaleeRadian) * cosRange) * sinRangege;
         _mouthTransform.localScale = _standardMouthScale + addValue;
     }
 
@@ -80,7 +85,8 @@ public class Enemy : MonoBehaviour
     protected void OnParticleCollision(GameObject other)
     {
         //インスペクター側でレイヤーの設定済
-           Hit();
+        Hit();
+        SlowSpeed();
     }
 
     //攻撃された判定
@@ -118,7 +124,6 @@ public class Enemy : MonoBehaviour
         colorOverLifetime.enabled = true;
         colorOverLifetime.color = _gradientHit;
 
-
         ParticleSystem.MainModule main = _particleSystem.main;
         main.startColor = _defeatColor;
         _frameHit = 0;
@@ -128,5 +133,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] public void ChangeColorByAnimator()
     {
         _defeated = true;
+    }
+
+    private void SlowSpeed()
+    {
+        _eyeSpeed -= _subEyeSpeed * Time.deltaTime;
+        _eyeSpeed = Mathf.Clamp(_eyeSpeed, 0.0f, _eyeSpeed);
+        _mouthSpeed -= _subMouthSpeed * Time.deltaTime;
+        _mouthSpeed = Mathf.Clamp(_mouthSpeed, 0.0f, _mouthSpeed);
     }
 }
