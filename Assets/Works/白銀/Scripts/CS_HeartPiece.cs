@@ -6,7 +6,7 @@ using UnityEngine;
 public class CS_HeartPiece : MonoBehaviour
 {
     //Œ»İg—p’†‚ÌƒJƒƒ‰‚Ìî•ñ
-    private MainGameCameraManager m_mainGameCameraManager;
+    private GameCameraPhaseManager m_mainGameCameraManager;
 
     GameObject m_enemyObject;
     GameObject m_cameraObject;
@@ -99,7 +99,7 @@ public class CS_HeartPiece : MonoBehaviour
         }
     }
 
-    public void SetMainGameCameraManager(MainGameCameraManager cameraManager)
+    public void SetMainGameCameraManager(GameCameraPhaseManager cameraManager)
     {
         m_mainGameCameraManager = cameraManager;
     }

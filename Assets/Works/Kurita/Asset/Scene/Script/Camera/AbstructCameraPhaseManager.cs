@@ -40,9 +40,6 @@ public abstract class AbstructCameraPhaseManager : AbstructBasePhaseManager
         foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
         _cameraIndex = 0;
         _virtualCamera[_cameraIndex].Priority = 1;
-
-        //フェーズを初期化する
-        _phaseIndex = 0;
     }
 
     //カメラを切り替える

@@ -2,58 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Cysharp.Threading.Tasks;
 
-public class LastPlayerPhaseManager : AbstructPlayerPhaseManager
-{
-    //フェーズの設定
-    protected new enum Phase { Running,Max };
-    protected new Phase _phaseIndex = Phase.Running;
-
+public class LastPlayerPhaseManager : MonoBehaviour
+{    
     //プレイヤー
-    [SerializeField] private GameObject _player;
-    [SerializeField] private LastPlayer _playerCS;
-    private Rigidbody _rigidbody;
-    private float _speed;
+    [SerializeField] private LastPlayeraa _playerCS;
+
+    //エネミー
+    [SerializeField] private Enemy _enemy;
+
+    //ムーブオブジェクト
+    [SerializeField] Transform _moveObjectTransform;
+
+    //音波
+    [SerializeField] private SoundWave _soundWave;
 
     private void Start()
     {
-        Init();
+
     }
 
-    private void Update()
+    private async void FixedUpdate()
     {
-        switch (_phaseIndex)
-        {
-            case Phase.Running://移動
-                Run();
-                if (_playerCS.GetOnJumpRamp())
-                    _rigidbody.AddForce(new Vector3(0.0f,200.0f, 0.0f));
-                break;
-        }
+        MoveObject();
+
+        //ベルに当たったら音波を出す
+        await UniTask.WaitUntil(() => _playerCS.OnBell);
+       // Instantiate(_soundWave);
+        _playerCS.OnBell = false;
     }
 
-    //初期化
-    protected new void Init()
+    private void MoveObject()
     {
-        //フェーズを初期化する
-        _phaseIndex = 0;
-
-        //プレイヤー
-        _rigidbody = _player.GetComponent<Rigidbody>();
-        if (!_rigidbody)
-            Debug.LogWarning("プレイヤーにRigidbodyがありません");
-
-        _playerCS = _player.GetComponent<LastPlayer>();
-        if (!_playerCS)
-            Debug.LogWarning("プレイヤーにLastPlayerがありません");
-
-        _speed = 80.0f;
-    }
-
-    private void Run()
-    {
-        Vector3 velocity = _rigidbody.velocity; ;
-        velocity.z = -_speed;
-        _rigidbody.velocity = velocity;
+        Vector3 position = _moveObjectTransform.transform.position;
+        position.z -= 3.0f;
+        _moveObjectTransform.transform.position = position;
     }
 }
