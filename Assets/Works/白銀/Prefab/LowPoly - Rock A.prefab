@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33092966369005018}
   - component: {fileID: 23445742227598232}
   - component: {fileID: 540475155746049210}
+  - component: {fileID: -6485915626727861921}
   - component: {fileID: 3610880676062452468}
   m_Layer: 13
   m_Name: LowPoly - Rock A
@@ -112,6 +113,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6485915626727861921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927372005322154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e009ccaace2bd4c9ea47834807ba7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &3610880676062452468
 CapsuleCollider:
   m_ObjectHideFlags: 0

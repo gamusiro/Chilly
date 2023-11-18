@@ -10,10 +10,6 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
 
-    // 生成するオブジェクト
-    [SerializeField, CustomLabel("生成オブジェクト")]
-    GameObject m_jumpLineObject;
-
     // オブジェクトの生成数
     [SerializeField, CustomLabel("オブジェクトの生成数")]
     [Range(20.0f, 60.0f)]
@@ -81,7 +77,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
-        createPos.x = -60.0f + info.lane * 30.0f;
+        createPos.x = -60.0f + info.lane * 50.0f;
         createPos.y = 2.5f;
         createPos.z = (info.time - m_offset) * CS_MoveController.GetMoveVel();
 
@@ -89,14 +85,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         obj.AddComponent<CS_EnemyAttackNotes>();
         obj.GetComponent<CS_EnemyAttackNotes>().m_perfTime = info.time;
 
-        // ジャンプタイミング用の線
-        createPos.x = 0.0f;
-        createPos.y = 0.0f;
-        createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
-        GameObject lin = Instantiate(m_jumpLineObject, createPos, Quaternion.identity);
-
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
-        Destroy(lin, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
         m_createCount++;
 
         m_objects[index] = obj;
