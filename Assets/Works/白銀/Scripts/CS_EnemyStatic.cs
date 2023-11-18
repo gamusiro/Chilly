@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
+public class CS_EnemyStatic : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
@@ -10,19 +10,10 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
 
-    // 生成するオブジェクト
-    [SerializeField, CustomLabel("生成オブジェクト")]
-    GameObject m_jumpLineObject;
-
     // オブジェクトの生成数
     [SerializeField, CustomLabel("オブジェクトの生成数")]
     [Range(20.0f, 60.0f)]
     int m_numMax = 20;
-
-    // ジャンプタイミングに合わせてオフセットを持たせる
-    [SerializeField, CustomLabel("オフセット")]
-    [Range(0.0f, 2.0f)]
-    float m_offset = 0.0f;
 
     #endregion
 
@@ -46,7 +37,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     private void Start()
     {
         m_objects = new GameObject[m_numMax];
-        
+
 
         // 読み込み処理
         this.Load();
@@ -82,21 +73,11 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = -60.0f + info.lane * 30.0f;
-        createPos.y = 2.5f;
-        createPos.z = (info.time - m_offset) * CS_MoveController.GetMoveVel();
-
-        GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
-        obj.AddComponent<CS_EnemyAttackNotes>();
-        obj.GetComponent<CS_EnemyAttackNotes>().m_perfTime = info.time;
-
-        // ジャンプタイミング用の線
-        createPos.x = 0.0f;
         createPos.y = 0.0f;
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
-        GameObject lin = Instantiate(m_jumpLineObject, createPos, Quaternion.identity);
+        GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
-        Destroy(lin, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
         m_createCount++;
 
         m_objects[index] = obj;
