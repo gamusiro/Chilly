@@ -11,7 +11,7 @@ public abstract class AbstructCameraPhaseManager : AbstructBasePhaseManager
 
     //フェーズの設定
     protected new enum Phase { Stay,ZoomIn,Max };
-    protected new Phase _phaseIndex = Phase.Stay;
+    private Phase _phaseIndex = Phase.Stay;
 
     void Start()
     {

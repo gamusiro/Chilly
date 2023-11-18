@@ -590,7 +590,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7394566080821980007}
-  - component: {fileID: 7758788501425730534}
   - component: {fileID: 4233665195377703715}
   - component: {fileID: 7230310006359009178}
   - component: {fileID: 3028799485676942932}
@@ -618,21 +617,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6380118171163782613}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7758788501425730534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3041738147627958196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f600a6c18e9a9064b891adfccbb2a0c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _virtualCamera:
-  - {fileID: 5194796816194689891}
-  - {fileID: 6613054759709643174}
 --- !u!20 &4233665195377703715
 Camera:
   m_ObjectHideFlags: 0
@@ -1151,6 +1135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fade: {fileID: 5005954425879799952}
   m_setFadeTime: 1
+  m_nextSceneName: 
 --- !u!1 &8426407407867981727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9019,10 +9004,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2869304241278877141, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
-      propertyPath: m_mainGameCameraManager
-      value: 
-      objectReference: {fileID: 7758788501425730534}
     - target: {fileID: 5027876254441878304, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
       propertyPath: m_Name
       value: MoveObjects
@@ -9032,17 +9013,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
---- !u!114 &6613054759709643174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3534475934156350326, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
-  m_PrefabInstance: {fileID: 7695157967145759440}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7118198167885494841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 577123635804489961, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
@@ -9245,10 +9215,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeartPiece
       objectReference: {fileID: 0}
-    - target: {fileID: 5441537267682873901, guid: 78005cc0a730d6341965a0bdd2c4458c, type: 3}
-      propertyPath: m_mainGameCameraManager
-      value: 
-      objectReference: {fileID: 7758788501425730534}
     - target: {fileID: 7394094191953517289, guid: 78005cc0a730d6341965a0bdd2c4458c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5

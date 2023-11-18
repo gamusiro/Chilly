@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 276028708949700949, guid: 1d2402f4e7dda2f4e8432d2f9b7c0a36, type: 3}
       propertyPath: m_Name
-      value: TitlePlayer Variant
+      value: GamePlayerVariant
       objectReference: {fileID: 0}
     - target: {fileID: 8593381000839885890, guid: 1d2402f4e7dda2f4e8432d2f9b7c0a36, type: 3}
       propertyPath: m_LocalPosition.x

@@ -7,7 +7,7 @@ public abstract class AbstructBasePhaseManager : MonoBehaviour
 {
     //フェーズの設定
     protected enum Phase { Max };
-    protected Phase _phaseIndex = Phase.Max;
+    private Phase _phaseIndex = Phase.Max;
     protected float _time;
 
     //初期化

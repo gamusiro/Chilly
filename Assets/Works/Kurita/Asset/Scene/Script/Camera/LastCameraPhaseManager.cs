@@ -6,8 +6,8 @@ using Cinemachine;
 public class LastCameraPhaseManager : AbstructCameraPhaseManager
 {
     //フェーズの設定
-    protected new enum Phase { Wait,BellAttack, BellAttackaaaa, Max };
-    protected new Phase _phaseIndex = Phase.Wait;
+    protected new enum Phase { Wait,Wait2, BellAttackaaaa, Max };
+    private Phase _phaseIndex = Phase.Wait;
 
     void Start()
     {
@@ -20,12 +20,24 @@ public class LastCameraPhaseManager : AbstructCameraPhaseManager
         {
             case Phase.Wait:
                 if (NextPhase(2.0f))
+                {
+                    _phaseIndex++;
                     NextCamera();
-                break;
-            case Phase.BellAttack:
+                }
+                    break;
+            case Phase.Wait2:
                 if (NextPhase(0.0f))
-                    //NextCamera();
-                    ;
+                {
+                    _phaseIndex++;
+                    NextCamera();
+                }
+                break;
+            case Phase.BellAttackaaaa:
+                if (NextPhase(0.0f))
+                {
+                    _phaseIndex++;
+                    NextCamera();
+                }
                 break;
         }
     }

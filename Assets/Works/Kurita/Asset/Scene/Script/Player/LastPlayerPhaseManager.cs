@@ -26,11 +26,8 @@ public class LastPlayerPhaseManager : MonoBehaviour
     private async void FixedUpdate()
     {
         MoveObject();
+        SoundWave();
 
-        //ƒxƒ‹‚É“–‚½‚Á‚½‚ç‰¹”g‚ðo‚·
-        await UniTask.WaitUntil(() => _playerCS.OnBell);
-       // Instantiate(_soundWave);
-        _playerCS.OnBell = false;
     }
 
     private void MoveObject()
@@ -38,5 +35,13 @@ public class LastPlayerPhaseManager : MonoBehaviour
         Vector3 position = _moveObjectTransform.transform.position;
         position.z -= 3.0f;
         _moveObjectTransform.transform.position = position;
+    }
+
+    private async void SoundWave()
+    {
+        //ƒxƒ‹‚É“–‚½‚Á‚½‚ç‰¹”g‚ðo‚·
+        await UniTask.WaitUntil(() => _playerCS.OnBell);
+        // Instantiate(_soundWave);
+        _playerCS.OnBell = false;
     }
 }

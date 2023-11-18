@@ -7,7 +7,7 @@ public class GameCameraPhaseManager : AbstructCameraPhaseManager
 {
     //フェーズの設定
     protected new enum Phase { Stay, Up, Max };
-    protected new Phase _phaseIndex = Phase.Stay;
+    private Phase _phaseIndex = Phase.Stay;
 
     void Start()
     {
