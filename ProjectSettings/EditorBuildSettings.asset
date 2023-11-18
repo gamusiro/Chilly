@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Release/Title/Re_Title.unity
     guid: d3b4725ebed079d45950e9935fc0414c
   - enabled: 1
-    path: Assets/Release/Game/Re_Game.unity
-    guid: 43fdc88f064850a44beef9ace6394a12
+    path: Assets/Release/Game/Re_Game2.unity
+    guid: 31eab96db3fb4104d9e3cf6c94c73f68
   m_configObjects: {}

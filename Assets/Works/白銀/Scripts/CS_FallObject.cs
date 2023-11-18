@@ -25,6 +25,10 @@ public class CS_FallObject : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        CS_AudioManager.Instance.PlayAudio("Clap");
+        if(collision.gameObject.tag == "Player"
+            || collision.gameObject.tag == "Field")
+        {
+            CS_AudioManager.Instance.PlayAudio("Clap");
+        }
     }
 }

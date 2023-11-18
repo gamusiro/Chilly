@@ -104,7 +104,7 @@ public class CS_Player : MonoBehaviour
         }
 
         // ÉXÉâÉCÉhëÄçÏ
-        if(m_inputAction.Player.SlideL.triggered)
+        if(m_inputAction.Player.Slide.triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Jump");
             m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
