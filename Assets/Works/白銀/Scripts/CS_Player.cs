@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,9 @@ public class CS_Player : MonoBehaviour
     [SerializeField, Header("重力影響度")]
     [Range(1.0f, 1000.0f)]
     float m_gravity;
+
+    [SerializeField, Header("ブレインカメラ")]
+    CinemachineBrain m_brain;
 
     #endregion
 
@@ -76,6 +80,10 @@ public class CS_Player : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // カメラの移動中の場合は操作させない
+        if (m_brain.ActiveBlend != null)
+            return;
+
         Vector2 direction = m_inputAction.Player.Move.ReadValue<Vector2>();
 
         // 移動処理
