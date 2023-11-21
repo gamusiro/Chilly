@@ -91,7 +91,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 
         // ジャンプタイミング用の線
         createPos.x = 0.0f;
-        createPos.y = 0.0f;
+        createPos.y = 2.41f;
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
         GameObject lin = Instantiate(m_jumpLineObject, createPos, Quaternion.identity);
 

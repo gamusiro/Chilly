@@ -77,7 +77,7 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
-        obj.GetComponentInChildren<CS_HeartPiece>().SetMainGameCameraManager(m_cameraManager);
+        // obj.GetComponentInChildren<CS_HeartPiece>().SetMainGameCameraManager(m_cameraManager);
         m_objects[index] = obj;
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);

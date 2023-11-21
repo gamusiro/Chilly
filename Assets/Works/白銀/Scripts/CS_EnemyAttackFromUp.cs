@@ -91,8 +91,9 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         GameObject fall = Instantiate(m_createObject, createPos, Quaternion.identity);
         
         // 影オブジェクトの影を生成
-        createPos.y = 0.1f;
+        createPos.y = 2.41f;
         GameObject sdw = Instantiate(m_shadowObject, createPos, Quaternion.identity);
+        sdw.GetComponent<CS_Shadow>().SetPerfectTime(info.time);
 
         m_fallObjects[index] = fall;
         m_shadowObjects[index] = sdw;
