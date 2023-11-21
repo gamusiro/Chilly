@@ -94,6 +94,7 @@ public class CS_Player : MonoBehaviour
         currentPos += move * Time.deltaTime;
         currentPos.x = Mathf.Clamp(currentPos.x, -c_sideMax, c_sideMax);
 
+        currentPos.y = Mathf.Max(0.0f, currentPos.y);
         transform.position = currentPos;
 
         // Œü‚«‚ğİ’è

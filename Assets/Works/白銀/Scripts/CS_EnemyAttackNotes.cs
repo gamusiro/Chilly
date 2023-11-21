@@ -32,7 +32,6 @@ public class CS_EnemyAttackNotes : MonoBehaviour
     {
         Vector3 setPosition = m_targetPosition;
         setPosition.z += 400.0f * 1.0f * (m_perfTime - CS_AudioManager.Instance.TimeBGM);
-
         transform.position = setPosition;
     }
 }
