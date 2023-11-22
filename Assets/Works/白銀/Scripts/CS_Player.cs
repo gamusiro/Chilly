@@ -26,8 +26,13 @@ public class CS_Player : MonoBehaviour
     [Range(1.0f, 1000.0f)]
     float m_gravity;
 
+    // プレイヤーアニメーション
+    [SerializeField, CustomLabel("アニメータ")]
+    Animator m_animator;
+
     [SerializeField, Header("ブレインカメラ")]
     CinemachineBrain m_brain;
+
 
     #endregion
 
@@ -107,6 +112,7 @@ public class CS_Player : MonoBehaviour
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
             CS_AudioManager.Instance.PlayAudio("Jump");
+            m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
 
             m_isFlying = true;
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
@@ -148,7 +154,11 @@ public class CS_Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Field")
+        {
             m_isFlying = false;
+            m_animator.Play("Running", 0, 0.0f);    // 最初から
+        }
+            
 
         // ダメージを受け付ける状態か
         if (!m_damaged)
