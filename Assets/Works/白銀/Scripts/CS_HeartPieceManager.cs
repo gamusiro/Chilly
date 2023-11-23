@@ -18,7 +18,7 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
 
     // メインカメラオブジェクト
     [SerializeField, CustomLabel("カメラマネージャー")]
-    GameCameraPhaseManager m_cameraManager;
+    CameraPhaseManager m_cameraManager;
 
     #endregion
 

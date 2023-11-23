@@ -97,6 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jump: 30
   _rigidbody: {fileID: 3012401776156508832}
+  m_gravity: 0
+  OnBell: 0
 --- !u!54 &3012401776156508832
 Rigidbody:
   m_ObjectHideFlags: 0

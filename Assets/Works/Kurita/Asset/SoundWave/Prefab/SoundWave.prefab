@@ -473,8 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fc05f76e9db2841be81eee05257aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minScale: {x: 0, y: 0, z: 0}
-  _maxScale: {x: 100, y: 100, z: 100}
+  _maxScale: {x: 1000, y: 1000, z: 1000}
+  _time: 20
   _thisTransform: {fileID: 2805825986091302669}
   _rendererList:
   - {fileID: 6749646342010369991}

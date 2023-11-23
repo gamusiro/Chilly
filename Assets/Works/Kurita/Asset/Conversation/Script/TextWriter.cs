@@ -26,6 +26,5 @@ public class TextWriter : MonoBehaviour
 
         _conversationEvent.DrawText("UÅ@RÅ@MYÅ@SPECIAL");
         yield return StartCoroutine("Skip");
-
     }
 }

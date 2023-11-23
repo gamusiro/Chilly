@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5361751291309389770, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

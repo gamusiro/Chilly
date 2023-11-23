@@ -4905,6 +4905,7 @@ MonoBehaviour:
   _eyeTransform:
   - {fileID: 166519524046696561}
   - {fileID: 5562117282645200960}
+  _extinctionTransform: []
   _mouthTransform: {fileID: 8781947794142917435}
   _particleSystem: {fileID: 9096946596428749175}
   _gradientOriginal:
@@ -4968,6 +4969,9 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
   _defeatColor: {r: 1, g: 0.27897573, b: 0.33269933, a: 1}
+  _disapperEyePrefab: {fileID: 0}
+  _explosionPrefab: {fileID: 0}
+  _explosionPrefab2: {fileID: 0}
 --- !u!65 &4473945914330431059
 BoxCollider:
   m_ObjectHideFlags: 0

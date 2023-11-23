@@ -7,7 +7,7 @@ public abstract class AbstructPlayerPhaseManager : AbstructBasePhaseManager
 {
     //フェーズの設定
     protected new enum Phase { Max };
-    protected new Phase _phaseIndex = Phase.Max;
+    protected Phase _phaseIndex;
 
     //初期化
     protected new void Init()
