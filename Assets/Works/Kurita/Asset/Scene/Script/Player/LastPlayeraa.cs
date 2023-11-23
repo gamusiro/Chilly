@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 
 public class LastPlayeraa : MonoBehaviour
 {
@@ -19,18 +20,23 @@ public class LastPlayeraa : MonoBehaviour
     private bool _onJumpRamp = false;
     public bool OnBell = false;
 
-    private void Update()
-    {
-        Jump();
-    }
-
     private void FixedUpdate()
     {
-        //重力
+        //ジャンプ
+        Jump();
+
+        //移動
+        Move();
+    }
+
+    //移動
+    private void Move()
+    {
         Vector3 force = new Vector3(0.0f, -m_gravity, 0.0f);
         _rigidbody.AddForce(force);
     }
 
+    //ジャンプ処理
     private async void Jump()
     {
         //ジャンプ判定がTrueになったらジャンプ
@@ -39,7 +45,7 @@ public class LastPlayeraa : MonoBehaviour
         _onJumpRamp = false;
     }
 
-    //専用のオブジェクトに触れたらjumpするようにする
+    //フラグ
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "JumpRamp")

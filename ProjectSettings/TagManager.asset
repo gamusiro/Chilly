@@ -26,7 +26,11 @@ TagManager:
   - Player
   - FallObject
   - FallingFloor
+<<<<<<< HEAD
   - SideEnemy
+=======
+  - Friend
+>>>>>>> feature/kurita/lastScene9
   - 
   - 
   - 

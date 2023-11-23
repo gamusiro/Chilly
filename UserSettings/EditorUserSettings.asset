@@ -6,10 +6,17 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+<<<<<<< HEAD
       value: 5305065556505c5d58085f7a15745944414e412f297c71337f7c496ab0b86139
       flags: 0
     RecentlyUsedSceneGuid-1:
       value: 54530102010c500a5f5f0d75127006444f151e282a7d273128714a37b1b6326d
+=======
+      value: 50005107070c5f5f0f5d0a2044720f44124e1d792f2e7033747d1e64b1e66260
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 570151070051510b0b0b557b45210d444f4f1b7f7d2d70642f2f4931bbe5606a
+>>>>>>> feature/kurita/lastScene9
       flags: 0
     RecentlyUsedSceneGuid-2:
       value: 5b535502030c0b0c5c56542012250c4443154f287d2970677d7f4b65b7b0603a

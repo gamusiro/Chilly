@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class Enemy : MonoBehaviour
     protected List<float> _eyeRadian = new List<float>();//回転角度
     protected float _eyeSpeed;
     protected float _subEyeSpeed;
+
+    //光
+    [SerializeField] protected List<Transform> _extinctionTransform = new List<Transform>();
 
     //口に関するもの
     [SerializeField] protected Transform _mouthTransform;
@@ -30,8 +36,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Gradient _gradientHit;//ヒット時の色
     [SerializeField] protected Color _defeatColor;//倒したときの色
 
+    //やられたときの目(Prefab)
+    [SerializeField] protected DisapperEyes _disapperEyePrefab;
+    protected DisapperEyes _disapperEyeInstance = null;
+    [SerializeField] protected GameObject _explosionPrefab;
+    [SerializeField] protected GameObject _explosionPrefab2;
+
     //状態
-    private bool _defeated;
+    private bool _isDisappear;
+    private bool _isExplosion;
 
     public void Start()
     {
@@ -42,21 +55,19 @@ public class Enemy : MonoBehaviour
         _subEyeSpeed *= 0.1f;
         _mouthScaleeRadian = 0.0f;
         _subMouthSpeed = _mouthSpeed = 0.04f;
-        _subMouthSpeed *= 0.1f;
+        _subMouthSpeed *= 0.4f;
         _standardMouthScale = _mouthTransform.localScale;
 
         //その他変数
         _frameHit = 999.0f;//ヒットフレーム
-        _defeated = false;
+        _isDisappear = true;
     }
-
 
     public void FixedUpdate()
     {
-        if (!_defeated)
-        {
+        if (!_isDisappear)
             HitAnimation();
-        }
+      
         Eyes();
         Mouth();
     }
@@ -64,8 +75,8 @@ public class Enemy : MonoBehaviour
     //目の動き
     protected void Eyes()
     {
-        _eyeTransform[(int)Eye.Left].Rotate(0.0f, 0.0f, _eyeSpeed);
-        _eyeTransform[(int)Eye.Right].Rotate(0.0f, 0.0f, -_eyeSpeed); 
+        _eyeTransform[(int)Eye.Left].Rotate(0.0f, 0.0f, _eyeSpeed * 2.0f);
+        _eyeTransform[(int)Eye.Right].Rotate(0.0f, 0.0f, -_eyeSpeed);
     }
 
     //口の動き
@@ -86,7 +97,6 @@ public class Enemy : MonoBehaviour
     {
         //インスペクター側でレイヤーの設定済
         Hit();
-        SlowSpeed();
     }
 
     //攻撃された判定
@@ -117,29 +127,32 @@ public class Enemy : MonoBehaviour
         colorOverLifetime.color = gradient;
     }
 
-    private void ChangeColor()
+    //----倒された時の処理----
+    //やられる
+    public async void Disapper()
     {
-        //色変更
-        ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
-        colorOverLifetime.enabled = true;
-        colorOverLifetime.color = _gradientHit;
+        _disapperEyeInstance = Instantiate(_disapperEyePrefab, this.transform);
 
-        ParticleSystem.MainModule main = _particleSystem.main;
-        main.startColor = _defeatColor;
-        _frameHit = 0;
+        while (true) 
+        {
+            await UniTask.DelayFrame(1);
+
+            //動きを遅くする
+            _eyeSpeed -= _subEyeSpeed * Time.deltaTime;
+            _eyeSpeed = Mathf.Clamp(_eyeSpeed, 0.0f, _eyeSpeed);
+            _mouthSpeed -= _subMouthSpeed * Time.deltaTime;
+            _mouthSpeed = Mathf.Clamp(_mouthSpeed, 0.0f, _mouthSpeed);
+            //やられたときの目の動きと通常の目の動きを合わせる
+            _disapperEyeInstance.SetAngle(_eyeTransform[(int)Eye.Left].eulerAngles, _eyeTransform[(int)Eye.Right].eulerAngles);
+        }
     }
 
-    //---アニメーターからの呼び出し---
-    [SerializeField] public void ChangeColorByAnimator()
+    //爆発
+    public async void Explosion()
     {
-        _defeated = true;
-    }
-
-    private void SlowSpeed()
-    {
-        _eyeSpeed -= _subEyeSpeed * Time.deltaTime;
-        _eyeSpeed = Mathf.Clamp(_eyeSpeed, 0.0f, _eyeSpeed);
-        _mouthSpeed -= _subMouthSpeed * Time.deltaTime;
-        _mouthSpeed = Mathf.Clamp(_mouthSpeed, 0.0f, _mouthSpeed);
+        Instantiate(_explosionPrefab);
+        await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
+        Instantiate(_explosionPrefab2);
+        //Destroy(this.gameObject);
     }
 }

@@ -12,10 +12,9 @@ public abstract class ChangeMeshRenderAlpha : MonoBehaviour
         Destroy,
     }
 
-    [SerializeField] private List<MeshRenderer> _meshRendererList = new List<MeshRenderer>();
+    [SerializeField] protected List<MeshRenderer> _meshRendererList = new List<MeshRenderer>();
     protected Phase _phase;
     protected float _colorComplement;
-
     protected float _time;
 
     protected void Init()
@@ -27,6 +26,11 @@ public abstract class ChangeMeshRenderAlpha : MonoBehaviour
             renderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
         _time = 0.0f;
+    }
+
+    protected virtual void Upd()
+    {
+        
     }
 
     protected float ChangeAlpha(float from, float to,float speed)
