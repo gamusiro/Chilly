@@ -33,6 +33,18 @@ public class CS_Player : MonoBehaviour
     [SerializeField, Header("ブレインカメラ")]
     CinemachineBrain m_brain;
 
+    [Header("パーフェクトタイミング")]
+    // 許容パーフェクトタイミング
+    [SerializeField, CustomLabel("パーフェクトタイミング(秒)")]
+    [Range(0.1f, 1.0f)]
+    float m_perfectTimeRange;
+
+    [SerializeField, CustomLabel("後ろから")]
+    CS_EnemyAttackFromEnemy m_enemyAttackFromEnemy;
+
+    [Header("エフェクトオブジェクト")]
+    [SerializeField, CustomLabel("パーフェクトタイミングエフェクト")]
+    GameObject m_perfectEffectObject;
 
     #endregion
 
@@ -50,6 +62,7 @@ public class CS_Player : MonoBehaviour
     // 使用中のカメラオブジェクト
     GameObject m_mainVirtualCamera;
 
+    // 横幅定数
     const float c_sideMax = 69.0f;
 
     // ジャンプ中かどうかのフラグ
@@ -60,6 +73,20 @@ public class CS_Player : MonoBehaviour
 
     // 色
     float m_degree;
+
+    // 最後にジャンプした時刻
+    float m_timeLastJumped;
+
+    #endregion
+
+    #region 公開用変数
+
+    // ジャンプ中かどうか
+    public float timeLastJumped 
+    { 
+        get { return m_timeLastJumped; }
+    }
+
 
     #endregion
 
@@ -109,11 +136,31 @@ public class CS_Player : MonoBehaviour
         transform.localEulerAngles = rotate;
 
         // ジャンプ
-        if (m_inputAction.Player.Jump.triggered && !m_isFlying)
+        if (GetJumpTrigger() && !m_isFlying)
         {
             CS_AudioManager.Instance.PlayAudio("Jump");
             m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
 
+            float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
+
+            // 後ろからのタイミング
+            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
+            {
+                GameObject obj = Instantiate(m_perfectEffectObject);
+                obj.transform.parent = transform;
+
+                Vector3 localPos = transform.localPosition;
+                localPos.y = 0.0f;
+                obj.transform.localPosition = Vector3.zero;
+                obj.transform.localScale = new Vector3(3.0f, 2.0f, 3.0f);
+
+                // エフェクトの再生
+                foreach (ParticleSystem ps in obj.GetComponentsInChildren<ParticleSystem>())
+                    ps.Play();
+
+                Destroy(obj, 1.0f);
+            }
+                
             m_isFlying = true;
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
         }
@@ -153,20 +200,19 @@ public class CS_Player : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Field")
+        string tag = collision.gameObject.tag;
+
+        if (tag == "Field")
         {
             m_isFlying = false;
             m_animator.Play("Running", 0, 0.0f);    // 最初から
         }
-            
 
         // ダメージを受け付ける状態か
         if (!m_damaged)
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (tag == "Enemy")
             {
-                Debug.Log("いてぇ");
-
                 m_damaged = true;
                 m_degree = 0.0f;
                 Invoke(nameof(UnlockInvincibility), m_invalidTime);
@@ -189,5 +235,10 @@ public class CS_Player : MonoBehaviour
     {
         m_damaged = false;
         m_material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+
+    public bool GetJumpTrigger()
+    {
+        return m_inputAction.Player.Jump.triggered;
     }
 }

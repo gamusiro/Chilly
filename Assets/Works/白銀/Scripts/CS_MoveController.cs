@@ -39,7 +39,7 @@ public class CS_MoveController : MonoBehaviour
         m_children = new Dictionary<string, GameObject>();
         int count = gameObject.transform.childCount;
 
-        for(int i = 0; i < count; ++i)
+        for (int i = 0; i < count; ++i)
         {
             GameObject obj = gameObject.transform.GetChild(i).gameObject;
             m_children.Add(obj.name, obj);
@@ -52,6 +52,14 @@ public class CS_MoveController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = m_vecVel * CS_AudioManager.Instance.TimeBGM;
+    }
+
+    /// <summary>
+    /// XVˆ—
+    /// </summary>
+    private void Update()
+    {
+        
     }
 
     /// <summary>
@@ -97,4 +105,5 @@ public class CS_MoveController : MonoBehaviour
     {
         return m_vecVel != Vector3.zero;
     }
+
 }

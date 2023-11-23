@@ -31,11 +31,11 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     // ゲームオブジェクト管理用
     GameObject[] m_objects;
 
-    // カメラのオブジェクト
-    [SerializeField] private GameObject m_cameraObject;
-
     // 生成したデータのカウント
     int m_createCount;
+
+    // 参照するノーツデータのインデックスを管理
+    int m_refInfoIndex;
 
     #endregion
 
@@ -46,7 +46,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     private void Start()
     {
         m_objects = new GameObject[m_numMax];
-
+        m_refInfoIndex = 0;
 
         // 読み込み処理
         this.Load();
@@ -59,6 +59,12 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
     {
         if (!CS_MoveController.IsMoving())
             return;
+
+        if (m_perNoteInfos[m_refInfoIndex].time <= CS_AudioManager.Instance.TimeBGM)
+        {
+            m_refInfoIndex++;
+            m_refInfoIndex = Mathf.Min(m_refInfoIndex, m_perNoteInfos.Count - 1);
+        }
 
         // 全てをループする
         for (int i = 0; i < m_numMax; ++i)
@@ -81,7 +87,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
-        createPos.x = -60.0f + info.lane * 30.0f;
+        createPos.x = 0.0f;
         createPos.y = 2.5f;
         createPos.z = (info.time - m_offset) * CS_MoveController.GetMoveVel();
 
@@ -100,5 +106,14 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         m_createCount++;
 
         m_objects[index] = obj;
+    }
+
+    /// <summary>
+    /// データセット
+    /// </summary>
+    /// <returns></returns>
+    public float GetPerfectTime()
+    {
+        return m_perNoteInfos[m_refInfoIndex].time;
     }
 }

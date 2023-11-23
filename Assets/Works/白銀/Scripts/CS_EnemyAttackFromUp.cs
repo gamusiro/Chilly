@@ -84,7 +84,7 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         float time = info.time - CS_AudioManager.Instance.TimeBGM;
 
         createPos.x = -60.0f + info.lane * 30.0f;
-        createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);
+        createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);    // 床が高くなったので offset 2.4f
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         // 落ちるオブジェクトの変数を生成

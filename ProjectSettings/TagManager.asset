@@ -9,6 +9,7 @@ TagManager:
   - Field
   - JumpRamp
   - Bell
+  - JumpLine
   layers:
   - Default
   - TransparentFX
