@@ -1,43 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Cinemachine;
+using Cysharp.Threading.Tasks;
+using System;
 
-public class GameCameraPhaseManager : AbstructCameraPhaseManager
+public class GameCameraPhaseManager : CameraPhaseManager
 {
-    //フェーズの設定
-    private int _phaseIndex = 0;
-
-    // 時間の変更
-    [SerializeField, CustomLabel("切り替え時間")]
-    List<float> timeList;
-
-    void Start()
+    private void Start()
     {
-        Init();
-        _phaseIndex = 0;
-    }
+        //カメラの優先度をリセットする
+        foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
+        _cameraIndex = 0;
+        _virtualCamera[_cameraIndex].Priority = 1;
 
-    void Update()
-    {
-        if (_phaseIndex >= timeList.Count)
-            return;
-
-        if (NextPhase(timeList[_phaseIndex]))
+        //カメラの遷移処理
+        while (_cameraIndex < _transTimeList.Count)
         {
-            NextCamera();
-            CS_MoveController.GetObject("Player").GetComponent<CS_Player>().SetUsingCamera();
-            _phaseIndex++;
+            //開始から何秒で切り替わるか
+            if(CS_AudioManager.Instance.TimeBGM < _transTimeList[_cameraIndex])
+                NextCamera();      
         }
-    }
-
-    //n秒後に次のフェーズに遷る
-    protected bool NextPhase(float transTime)
-    {
-        // += Time.deltaTime; 個々を変更
-        if (CS_AudioManager.Instance.TimeBGM < transTime)//遷移時間に達していなければ終了
-            return false;
-
-        return true;
     }
 }

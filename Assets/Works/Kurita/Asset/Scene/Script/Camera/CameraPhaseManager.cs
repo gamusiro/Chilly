@@ -12,7 +12,7 @@ public class CameraPhaseManager : AbstructBasePhaseManager
     protected int _cameraIndex;
 
     //初期化
-    async void Start()
+    private async void Start()
     {
         //カメラの優先度をリセットする
         foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
