@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using System;
 
 public class Enemy : MonoBehaviour
@@ -42,10 +41,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject _explosionPrefab;
     [SerializeField] protected GameObject _explosionPrefab2;
 
-    //状態
-    private bool _isDisappear;
-    private bool _isExplosion;
-
     public void Start()
     {
         //目と口のラジアン
@@ -60,14 +55,11 @@ public class Enemy : MonoBehaviour
 
         //その他変数
         _frameHit = 999.0f;//ヒットフレーム
-        _isDisappear = true;
     }
 
     public void FixedUpdate()
     {
-        if (!_isDisappear)
-            HitAnimation();
-      
+        HitAnimation();
         Eyes();
         Mouth();
     }
@@ -129,7 +121,7 @@ public class Enemy : MonoBehaviour
 
     //----倒された時の処理----
     //やられる
-    public async void Disapper()
+    public async void Disapper(Transform parent)
     {
         _disapperEyeInstance = Instantiate(_disapperEyePrefab, this.transform);
 
@@ -143,16 +135,16 @@ public class Enemy : MonoBehaviour
             _mouthSpeed -= _subMouthSpeed * Time.deltaTime;
             _mouthSpeed = Mathf.Clamp(_mouthSpeed, 0.0f, _mouthSpeed);
             //やられたときの目の動きと通常の目の動きを合わせる
-            _disapperEyeInstance.SetAngle(_eyeTransform[(int)Eye.Left].eulerAngles, _eyeTransform[(int)Eye.Right].eulerAngles);
+            if (_disapperEyeInstance)
+                _disapperEyeInstance.SetAngle(_eyeTransform[(int)Eye.Left].eulerAngles, _eyeTransform[(int)Eye.Right].eulerAngles);
         }
     }
 
     //爆発
-    public async void Explosion()
+    public async void Explosion(Transform parent)
     {
-        Instantiate(_explosionPrefab);
+        Instantiate(_explosionPrefab, parent);
         await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
-        Instantiate(_explosionPrefab2);
-        //Destroy(this.gameObject);
+        Instantiate(_explosionPrefab2, parent);
     }
 }

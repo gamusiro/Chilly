@@ -11,8 +11,6 @@ public class SoundWave : MonoBehaviour
  
     void Start()
     {
-        this.transform.DOScale(_maxScale, _time);
-        //_rendererList[0].material.DOFade(0,);
+        this.transform.DOScale(_maxScale, _time).SetLink(gameObject);
     }
-
 }

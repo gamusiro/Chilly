@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 public class Explosion : MonoBehaviour
 {
@@ -10,6 +11,6 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
-        this.transform.DOScale(_maxScale, _time);
+        this.transform.DOScale(_maxScale, _time).SetLink(gameObject);
     }
 }

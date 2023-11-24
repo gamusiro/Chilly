@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
+using UnityEngine;
 
 public class GameCameraPhaseManager : CameraPhaseManager
 {
@@ -11,10 +12,10 @@ public class GameCameraPhaseManager : CameraPhaseManager
         _virtualCamera[_cameraIndex].Priority = 1;
 
         //ƒJƒƒ‰‚Ì‘JˆÚˆ—
-        while (_cameraIndex < _transTimeList.Count)
+        while (_cameraIndex < _virtualCamera.Count)
         {
             //ŠJn‚©‚ç‰½•b‚ÅØ‚è‘Ö‚í‚é‚©
-            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM < _transTimeList[_cameraIndex]);
+            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM > _transTimeList[_cameraIndex]);
                 NextCamera();      
         }
     }
