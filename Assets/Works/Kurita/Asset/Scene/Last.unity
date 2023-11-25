@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConversationEvent
       objectReference: {fileID: 0}
+    - target: {fileID: 3031714244880724965, guid: d5879aaecf5010c4282376f7cf4fa8fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3176986623626795233, guid: d5879aaecf5010c4282376f7cf4fa8fd, type: 3}
       propertyPath: m_SizeDelta.x
       value: 350
@@ -318,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1536107048301118160, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -48
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 2229232431866419690, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: m_Name
