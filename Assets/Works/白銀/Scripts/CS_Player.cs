@@ -6,8 +6,10 @@ using UnityEngine;
 public class CS_Player : MonoBehaviour
 {
     #region インスペクタ用変数
-    //現在使用中のカメラの情報
-    [SerializeField] private CameraPhaseManager m_mainGameCameraManager;
+
+    // プレイヤーの影座標
+    [SerializeField, CustomLabel("プレイヤーの影座標")]
+    Transform m_shadowTransform;
 
     // プレイヤーの横移動速度
     [SerializeField, CustomLabel("横移動のスピード")]
@@ -32,6 +34,10 @@ public class CS_Player : MonoBehaviour
 
     [SerializeField, Header("ブレインカメラ")]
     CinemachineBrain m_brain;
+
+    //現在使用中のカメラの情報
+    [SerializeField, CustomLabel("カメラマネージャー")] 
+    CameraPhaseManager m_mainGameCameraManager;
 
     [Header("パーフェクトタイミング")]
     // 許容パーフェクトタイミング
@@ -171,6 +177,11 @@ public class CS_Player : MonoBehaviour
             CS_AudioManager.Instance.PlayAudio("Jump");
             m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
         }
+
+        // 影の座標を更新
+        Vector3 pos = transform.localPosition;
+        pos.y = 0.0f;
+        m_shadowTransform.localPosition = pos;
     }
 
     /// <summary>
