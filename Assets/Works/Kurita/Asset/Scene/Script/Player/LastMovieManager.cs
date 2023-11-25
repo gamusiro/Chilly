@@ -33,7 +33,8 @@ public class LastMovieManager : MonoBehaviour
         MoveObject();
 
         await UniTask.WaitUntil(() => _playerCS.OnBell);
-        this.SoundWave();
+        Instantiate(_soundWave, _playerCS.transform.position, Quaternion.identity, _phase1.transform);
+        _playerCS.OnBell = false;
 
         await UniTask.Delay(TimeSpan.FromSeconds(4.0f));
         _enemy.Disapper(_phase1.transform);
@@ -46,7 +47,7 @@ public class LastMovieManager : MonoBehaviour
         Instantiate(_phase2);
 
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-        Instantiate(_friendPrefab, new Vector3(0.0f, 200.0f, 0.0f), Quaternion.identity);
+        Instantiate(_friendPrefab, new Vector3(0.0f, 450.0f, 30.0f), Quaternion.identity);
     }
 
     private void FixedUpdate()
@@ -70,13 +71,5 @@ public class LastMovieManager : MonoBehaviour
             _moveObjectTransform.transform.position = position;
             await UniTask.DelayFrame(1);
         }
-    }
-
-    //âπîg
-    private void SoundWave()
-    {
-        //ÉxÉãÇ…ìñÇΩÇ¡ÇΩÇÁâπîgÇèoÇ∑
-        Instantiate(_soundWave, _playerCS.transform.position, Quaternion.identity);
-        _playerCS.OnBell = false;
     }
 }

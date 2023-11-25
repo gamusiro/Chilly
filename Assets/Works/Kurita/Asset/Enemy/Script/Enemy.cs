@@ -144,7 +144,7 @@ public class Enemy : MonoBehaviour
     public async void Explosion(Transform parent)
     {
         Instantiate(_explosionPrefab, parent);
-        await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         Instantiate(_explosionPrefab2, parent);
     }
 }

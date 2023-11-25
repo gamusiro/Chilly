@@ -59,3 +59,10 @@ crashlytics-build.properties
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# 文字フォント
+*.KosugiMaru-Regular SDF.asset
+*.KosugiMaru-Regular SDF.asset.meta
+*.KosugiMaru-Regular.ttf
+*.KosugiMaru-Regular.ttf.meta
+
