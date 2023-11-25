@@ -29,6 +29,10 @@ public class CS_Player : MonoBehaviour
     float m_gravity;
 
     // プレイヤーアニメーション
+    [SerializeField, CustomLabel("ダメージ処理")]
+    HP m_hp;
+
+    // プレイヤーアニメーション
     [SerializeField, CustomLabel("アニメータ")]
     Animator m_animator;
 
@@ -225,6 +229,7 @@ public class CS_Player : MonoBehaviour
             if (tag == "Enemy")
             {
                 m_damaged = true;
+                m_hp.Hit();
                 m_degree = 0.0f;
                 Invoke(nameof(UnlockInvincibility), m_invalidTime);
             }

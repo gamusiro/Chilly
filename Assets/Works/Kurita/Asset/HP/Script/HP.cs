@@ -25,10 +25,10 @@ public class HP : MonoBehaviour
 
     private void Update()
     {
-        
+        HitAnimation();
     }
 
-    private void Hit()
+    public void Hit()
     {
         //‘Ì—Í‚ðŒ¸‚ç‚·
         _hp--;
@@ -63,7 +63,7 @@ public class HP : MonoBehaviour
             }
             else 
             {
-            _meshRenderer.material = _spriteList.Material[_hp-1];
+                _meshRenderer.material = _spriteList.Material[_hp-1];
             
             }
         }
