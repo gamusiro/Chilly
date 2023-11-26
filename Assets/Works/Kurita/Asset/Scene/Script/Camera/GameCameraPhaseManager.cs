@@ -19,4 +19,18 @@ public class GameCameraPhaseManager : CameraPhaseManager
                 NextCamera();      
         }
     }
+
+    //ƒJƒƒ‰‚ğØ‚è‘Ö‚¦‚é
+    protected new void NextCamera()
+    {
+        if (_cameraIndex + 1 >= _virtualCamera.Count)
+            return;
+
+        _virtualCamera[_cameraIndex].Priority = 0;
+        _cameraIndex++;
+        _virtualCamera[_cameraIndex].Priority = 1;
+
+        // ‘€ìƒJƒƒ‰‚Ìİ’è
+        CS_MoveController.GetObject("Player").GetComponent<CS_Player>().SetUsingCamera();
+    }
 }

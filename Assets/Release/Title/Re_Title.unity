@@ -188,6 +188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3731642404412850969, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a5bd37c98c28c949ba35d8626990aee, type: 2}
     - target: {fileID: 4885775737765863609, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -228,6 +232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5556739967852546219, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a5bd37c98c28c949ba35d8626990aee, type: 2}
     - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_fade
       value: 
@@ -238,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_sceneName
-      value: Re_Game2
+      value: Re_Game3
       objectReference: {fileID: 0}
     - target: {fileID: 9082341865691745296, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_Name

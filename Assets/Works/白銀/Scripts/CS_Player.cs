@@ -6,8 +6,10 @@ using UnityEngine;
 public class CS_Player : MonoBehaviour
 {
     #region インスペクタ用変数
-    //現在使用中のカメラの情報
-    [SerializeField] private CameraPhaseManager m_mainGameCameraManager;
+
+    // プレイヤーの影座標
+    [SerializeField, CustomLabel("プレイヤーの影座標")]
+    Transform m_shadowTransform;
 
     // プレイヤーの横移動速度
     [SerializeField, CustomLabel("横移動のスピード")]
@@ -27,11 +29,19 @@ public class CS_Player : MonoBehaviour
     float m_gravity;
 
     // プレイヤーアニメーション
+    [SerializeField, CustomLabel("ダメージ処理")]
+    HP m_hp;
+
+    // プレイヤーアニメーション
     [SerializeField, CustomLabel("アニメータ")]
     Animator m_animator;
 
     [SerializeField, Header("ブレインカメラ")]
     CinemachineBrain m_brain;
+
+    //現在使用中のカメラの情報
+    [SerializeField, CustomLabel("カメラマネージャー")] 
+    CameraPhaseManager m_mainGameCameraManager;
 
     [Header("パーフェクトタイミング")]
     // 許容パーフェクトタイミング
@@ -170,7 +180,17 @@ public class CS_Player : MonoBehaviour
         {
             CS_AudioManager.Instance.PlayAudio("Jump");
             m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
+
+            if(direction.x > 0.0f)
+                m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+            else if (direction.x < 0.0f)
+                m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
         }
+
+        // 影の座標を更新
+        Vector3 pos = transform.localPosition;
+        pos.y = 0.0f;
+        m_shadowTransform.localPosition = pos;
     }
 
     /// <summary>
@@ -214,6 +234,7 @@ public class CS_Player : MonoBehaviour
             if (tag == "Enemy")
             {
                 m_damaged = true;
+                m_hp.Hit();
                 m_degree = 0.0f;
                 Invoke(nameof(UnlockInvincibility), m_invalidTime);
             }

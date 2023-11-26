@@ -20,12 +20,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1755.4286
     height: 956.8571
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 36694
+=======
+    width: 1536
+    height: 722.8
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 230
+>>>>>>> gamusiro_18
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -46,10 +55,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 328
     y: 72.571434
     width: 827.71423
     height: 649.2857
+=======
+    x: 277.6
+    y: 73.6
+    width: 922.80005
+    height: 371.8
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -81,17 +97,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -548.5715
-    m_HBaseRangeMax: 548.5715
-    m_VBaseRangeMin: -308.57144
-    m_VBaseRangeMax: 308.57144
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -102,16 +118,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 827.71423
       height: 628.2857
     m_Scale: {x: 0.75442696, y: 0.75442696}
     m_Translation: {x: 413.85712, y: 314.14285}
+=======
+      width: 922.80005
+      height: 350.8
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 461.40002, y: 175.4}
+>>>>>>> gamusiro_18
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -548.5715
       y: -416.3993
       width: 1097.143
@@ -119,6 +143,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.75442696
   m_LastWindowPixelSize: {x: 1448.4999, y: 1136.25}
+=======
+      x: -461.40002
+      y: -175.4
+      width: 922.80005
+      height: 350.8
+    m_MinimalGUI: 1
+  m_defaultScale: 0.4060185
+  m_LastWindowPixelSize: {x: 1153.5, y: 464.75}
+>>>>>>> gamusiro_18
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -141,8 +174,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 328
     height: 956.8571
+=======
+    width: 277.6
+    height: 722.8
+>>>>>>> gamusiro_18
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 4}
@@ -171,9 +209,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 72.571434
     width: 327
     height: 935.8571
+=======
+    y: 73.6
+    width: 276.6
+    height: 701.8
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -189,7 +233,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: 9a72efffc05af9ff2ed6f9ff46d6f9ff4ad6f9ff4cd6f9ff6c5ffaffd6e7faff1c70fbff587fffffe2faffffe4faffff
+=======
+      m_ExpandedIDs: 9c71ffffb271ffff8a72ffff9272ffff9472ffffe4faffff
+>>>>>>> gamusiro_18
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -230,6 +278,7 @@ MonoBehaviour:
   - {fileID: 10}
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 328
     y: 0
     width: 829.71423
@@ -238,6 +287,16 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
   controlID: 36637
+=======
+    x: 277.6
+    y: 0
+    width: 924.80005
+    height: 722.8
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 143
+>>>>>>> gamusiro_18
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,8 +314,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 829.71423
     height: 670.2857
+=======
+    width: 924.80005
+    height: 392.8
+>>>>>>> gamusiro_18
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
@@ -266,7 +330,7 @@ MonoBehaviour:
   - {fileID: 8}
   - {fileID: 9}
   m_Selected: 1
-  m_LastSelected: 0
+  m_LastSelected: 3
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -287,10 +351,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 328
     y: 72.571434
     width: 827.71423
     height: 649.2857
+=======
+    x: 277.6
+    y: 73.6
+    width: 922.80005
+    height: 371.8
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -306,7 +377,11 @@ MonoBehaviour:
       collapsed: 0
       displayed: 1
       snapOffset: {x: -171, y: -26.399963}
+<<<<<<< HEAD
       snapOffsetDelta: {x: 0, y: 0}
+=======
+      snapOffsetDelta: {x: 0, y: -0.000030517578}
+>>>>>>> gamusiro_18
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -623,9 +698,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 0, y: 0, z: -8.6}
     speed: 2
     m_Value: {x: 0, y: 0, z: -8.6}
+=======
+    m_Target: {x: -4.779184, y: 19.626787, z: -74.23455}
+    speed: 2
+    m_Value: {x: -4.779184, y: 19.626787, z: -74.23455}
+>>>>>>> gamusiro_18
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -671,6 +752,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.24276376, y: -0.07673818, z: 0.01926871, w: 0.96685755}
     speed: 2
     m_Value: {x: 0.24276283, y: -0.07673789, z: 0.019268638, w: 0.96685386}
@@ -678,6 +760,15 @@ MonoBehaviour:
     m_Target: 121.24355
     speed: 2
     m_Value: 121.24355
+=======
+    m_Target: {x: -0.12733978, y: 0.04372499, z: -0.0056269993, w: -0.9908938}
+    speed: 2
+    m_Value: {x: -0.12733792, y: 0.04372435, z: -0.005626917, w: -0.99087924}
+  m_Size:
+    m_Target: 21.590313
+    speed: 2
+    m_Value: 21.590313
+>>>>>>> gamusiro_18
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -722,10 +813,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 474.28574
     y: 72.571434
     width: 854.00006
     height: 616.7143
+=======
+    x: 277.6
+    y: 73.6
+    width: 922.80005
+    height: 371.8
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -742,15 +840,19 @@ MonoBehaviour:
     - {fileID: 6792273362780519264, guid: d5a7e33492865fe47b5dad472d00b279, type: 2}
     - {fileID: 3085130894894959911, guid: 9e1f895ac2a41d1489f47999d1fed68a, type: 2}
     - {fileID: 6009596797080223288, guid: a306f0644ff9e9a49bf7490339e36dc2, type: 2}
+<<<<<<< HEAD
+=======
+    - {fileID: 8661223504661673515, guid: 876a46036a807814095db9f11c640188, type: 2}
+>>>>>>> gamusiro_18
     m_ValueSerializationHelper:
-    - e00: 0.8453103
+    - e00: 0.5191262
       e01: 0
       e02: 0
-      e03: -27.265503
+      e03: 119.77815
       e10: 0
-      e11: 0.8453103
+      e11: 0.5191262
       e12: 0
-      e13: 204.32611
+      e13: 206.9014
       e20: 0
       e21: 0
       e22: 1
@@ -807,10 +909,33 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+<<<<<<< HEAD
   m_PreviewAnimator: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
   m_BreadCrumbs:
   - m_Target: {fileID: 6234551129726726174, guid: cffb2bad1d77d2848992bccc2d35a1be, type: 2}
+=======
+    - e00: 0.78189474
+      e01: 0
+      e02: 0
+      e03: -6.0947623
+      e10: 0
+      e11: 0.78189474
+      e12: 0
+      e13: -37.974747
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_PreviewAnimator: {fileID: 0}
+  m_AnimatorController: {fileID: 9100000, guid: 876a46036a807814095db9f11c640188, type: 2}
+  m_BreadCrumbs:
+  - m_Target: {fileID: 8661223504661673515, guid: 876a46036a807814095db9f11c640188, type: 2}
+>>>>>>> gamusiro_18
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -843,10 +968,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 444.57144
-    y: 72.571434
-    width: 836.28577
-    height: 491
+    x: 277.6
+    y: 73.6
+    width: 922.80005
+    height: 371.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -859,7 +984,11 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: -404094
+=======
+  m_LastSelectedObjectID: -1336
+>>>>>>> gamusiro_18
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -876,11 +1005,19 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 670.2857
     width: 829.71423
     height: 286.5714
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
+=======
+    y: 392.8
+    width: 924.80005
+    height: 330
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+>>>>>>> gamusiro_18
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 11}
@@ -907,10 +1044,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 328
     y: 742.8572
     width: 827.71423
     height: 265.5714
+=======
+    x: 277.6
+    y: 466.4
+    width: 922.80005
+    height: 309
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -941,10 +1085,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 328
     y: 742.8572
     width: 827.71423
     height: 265.5714
+=======
+    x: 277.6
+    y: 466.4
+    width: 922.80005
+    height: 309
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -956,7 +1107,11 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
+<<<<<<< HEAD
     m_NameFilter: 
+=======
+    m_NameFilter: ye
+>>>>>>> gamusiro_18
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -966,24 +1121,41 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Works/Kurita/Asset/Friend
     m_Globs: []
     m_OriginalText: 
+=======
+    - Assets/Release/Title
+    m_Globs: []
+    m_OriginalText: ye
+>>>>>>> gamusiro_18
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Works/Kurita/Asset/Friend
+=======
+  - Assets/Release/Title
+>>>>>>> gamusiro_18
   m_LastFoldersGridSize: 50
-  m_LastProjectPath: C:\Users\ALTO\Documents\CProgramming\TH425_Project2
+  m_LastProjectPath: C:\Users\Gamus\source\TH425
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 346.4286}
     m_SelectedIDs: 16200100
     m_LastClickedID: 73750
     m_ExpandedIDs: 00000000d81f0100da1f0100dc1f0100de1f0100e01f0100e21f0100e41f010000ca9a3b
+=======
+    scrollPos: {x: 0, y: 191}
+    m_SelectedIDs: 0c1e0100
+    m_LastClickedID: 73228
+    m_ExpandedIDs: 000000009e1d0100a01d0100a21d0100a41d0100a61d0100a81d0100aa1d0100ac1d0100ae1d0100b01d010000ca9a3b
+>>>>>>> gamusiro_18
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1011,7 +1183,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000d81f0100da1f0100dc1f0100de1f0100e01f0100e21f0100e41f010000ca9a3b
+=======
+    m_ExpandedIDs: 000000009e1d0100a01d0100a21d0100a41d0100a61d0100a81d0100aa1d0100ac1d0100ae1d0100b01d0100
+>>>>>>> gamusiro_18
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1036,10 +1212,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 82d5f9ff
     m_LastClickedInstanceID: -404094
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c000000000000fe200100
+=======
+    m_SelectedInstanceIDs: 9071ffff
+    m_LastClickedInstanceID: -36464
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c000000000000
+>>>>>>> gamusiro_18
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1066,7 +1249,11 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 50
   m_SkipHiddenPackages: 0
+<<<<<<< HEAD
   m_DirectoriesAreaWidth: 50
+=======
+  m_DirectoriesAreaWidth: 222
+>>>>>>> gamusiro_18
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1082,10 +1269,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1157.7142
     y: 0
     width: 597.71436
     height: 956.8571
+=======
+    x: 1202.4
+    y: 0
+    width: 333.59998
+    height: 722.8
+>>>>>>> gamusiro_18
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
@@ -1113,10 +1307,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1157.7144
     y: 72.571434
     width: 596.71436
     height: 935.8571
+=======
+    x: 1202.4
+    y: 73.6
+    width: 332.59998
+    height: 701.8
+>>>>>>> gamusiro_18
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1133,7 +1334,11 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
+<<<<<<< HEAD
   m_LastInspectedObjectInstanceID: -404094
+=======
+  m_LastInspectedObjectInstanceID: -36464
+>>>>>>> gamusiro_18
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - JumpRamp
   - Bell
+=======
+>>>>>>> gamusiro_18
   - Field
   - Enemy
   - JumpLine
@@ -13,11 +16,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - EnemyObject
   - Water
   - UI
+<<<<<<< HEAD
   - Friend
   - Bell
+=======
+  - Field
+  - Player
+>>>>>>> gamusiro_18
   - 
   - 
   - 
