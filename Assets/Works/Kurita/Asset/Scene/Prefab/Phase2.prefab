@@ -2057,14 +2057,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2545394242216807307}
     m_Modifications:
-    - target: {fileID: 3890768362603829684, guid: 41bd600f8c756054c812971775d97349, type: 3}
-      propertyPath: _time
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3890768362603829684, guid: 41bd600f8c756054c812971775d97349, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7530317508815559573, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_Name
       value: Friend
@@ -2079,11 +2071,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571161088290736215, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 550
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 8571161088290736215, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8571161088290736215, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_LocalRotation.w

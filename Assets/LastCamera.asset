@@ -17,7 +17,7 @@ MonoBehaviour:
     m_To: LastVirtulaCamera (1)
     m_Blend:
       m_Style: 1
-      m_Time: 6
+      m_Time: 4
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -127,7 +127,7 @@ MonoBehaviour:
     m_To: LastVirtulaCamera (11)
     m_Blend:
       m_Style: 1
-      m_Time: 12
+      m_Time: 8
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []

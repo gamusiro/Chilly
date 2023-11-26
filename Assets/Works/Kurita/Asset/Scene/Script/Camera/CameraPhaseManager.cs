@@ -22,6 +22,7 @@ public class CameraPhaseManager : AbstructBasePhaseManager
         //ƒJƒƒ‰‚Ì‘JˆÚˆ—
         while (_cameraIndex < _transTimeList.Count)
         {
+            Debug.Log(_cameraIndex);
             await UniTask.Delay(TimeSpan.FromSeconds(_transTimeList[_cameraIndex]));
             NextCamera();
         }
