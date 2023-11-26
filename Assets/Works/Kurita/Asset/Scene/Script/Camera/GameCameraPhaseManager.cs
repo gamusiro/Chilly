@@ -23,7 +23,7 @@ public class GameCameraPhaseManager : CameraPhaseManager
     //ƒJƒƒ‰‚ðØ‚è‘Ö‚¦‚é
     protected new void NextCamera()
     {
-        if (_cameraIndex + 1 >= _virtualCamera.Count - 1)
+        if (_cameraIndex + 1 >= _virtualCamera.Count)
             return;
 
         _virtualCamera[_cameraIndex].Priority = 0;

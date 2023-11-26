@@ -180,6 +180,11 @@ public class CS_Player : MonoBehaviour
         {
             CS_AudioManager.Instance.PlayAudio("Jump");
             m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
+
+            if(direction.x > 0.0f)
+                m_animator.Play("DashL", 0, 0.0f);        // Å‰‚©‚ç—¬‚µ‚½‚¢‚Ì‚Å‚±‚ñ‚ÈŠ´‚¶‚Ìİ’è
+            else if (direction.x < 0.0f)
+                m_animator.Play("DashR", 0, 0.0f);        // Å‰‚©‚ç—¬‚µ‚½‚¢‚Ì‚Å‚±‚ñ‚ÈŠ´‚¶‚Ìİ’è
         }
 
         // ‰e‚ÌÀ•W‚ğXV
