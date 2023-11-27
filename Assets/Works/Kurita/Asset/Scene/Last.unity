@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32097128, g: 0.21131825, b: 0.40435025, a: 1}
+  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: -TEAM 425-
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
-  m_sharedMaterial: {fileID: 3038122157793638741, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -415,8 +415,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: -FIN-
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
-  m_sharedMaterial: {fileID: 3038122157793638741, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0dfcf1af0b5ecaa4c831785704dac4b9, type: 2}
+  m_sharedMaterial: {fileID: 8233819438912809674, guid: 0dfcf1af0b5ecaa4c831785704dac4b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -618,8 +618,8 @@ MonoBehaviour:
   m_text: "GAKUTO SHIROGANE\u3000ALTO KURITA\u3000RYOGA SANADA\nMELISSA AIMI SAITO\u3000CHIKANE
     SUNAKAWA\u3000RUAN JINYAO\nKOSE SEKIGUCHI\u3000KOHEI ISHI\u3000KOICHI SUZUKI"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
-  m_sharedMaterial: {fileID: 3038122157793638741, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -754,8 +754,8 @@ MonoBehaviour:
 
     [We Made It]\nDXYLL'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
-  m_sharedMaterial: {fileID: 3038122157793638741, guid: d06475eb8dbfe8545985ecb6a57d0069, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
