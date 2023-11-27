@@ -11,6 +11,7 @@ public class Transition : MonoBehaviour
 
     private async void Start()
     {
+      //  GameObject game = Instantiate(GameInstance, Vector3.zero, Quaternion.identity);//ゲームシーンを生成
         await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= _transTime);
         Destroy(GameInstance);//ゲームシーンを削除
         Instantiate(LastPrefab, Vector3.zero, Quaternion.identity);//ラストシーンを生成

@@ -52,8 +52,8 @@ public class CS_GameManager : MonoBehaviour
             StateNone();
         else if (state == Fade.STATE.IN)
             StateIn();
-        else
-            StateOut();
+        //else
+          //  StateOut();
     }
 
     /// <summary>

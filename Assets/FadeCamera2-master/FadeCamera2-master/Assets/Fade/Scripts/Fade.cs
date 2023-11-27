@@ -89,6 +89,9 @@ public class Fade : MonoBehaviour
         m_state = STATE.IN;
 
         StopAllCoroutines();
+        if (fade == null)
+            return null;
+
         return StartCoroutine(FadeInCoroutine(time, action));
     }
 
@@ -117,6 +120,14 @@ public class Fade : MonoBehaviour
 
     public float GetRange()
     {
+        if (fade == null) 
+            return 0.0f;
+
         return fade.Range;
+    }
+
+    public void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }
