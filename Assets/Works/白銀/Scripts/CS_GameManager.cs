@@ -27,12 +27,18 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_fade.FadeIn(m_setFadeTime, 
-            () => { 
-                CS_AudioManager.Instance.MasterVolume = 1.0f;
+        //ラストシーンと合わせたい
+        //そのためにはGameを削除する必要あり
+        //コルーチンを途中で止めてしまうためバグが起きる
+        Debug.Log("エラー箇所");
+
+        m_fade.FadeIn(m_setFadeTime,
+          () =>
+          {
+              CS_AudioManager.Instance.MasterVolume = 1.0f;
                 CS_MoveController.MoveStart();
                 CS_AudioManager.Instance.PlayAudio("GameAudio", true);
-            });
+          });
     }
 
     /// <summary>

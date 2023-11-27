@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameCameraPhaseManager : CameraPhaseManager
 {
+    private float _elapsedTime = 0.0f;
+
     private async void Start()
     {
         //カメラの優先度をリセットする
@@ -12,10 +14,11 @@ public class GameCameraPhaseManager : CameraPhaseManager
         _virtualCamera[_cameraIndex].Priority = 1;
 
         //カメラの遷移処理
-        while (_cameraIndex < _virtualCamera.Count)
+        while (_cameraIndex + 1 < _virtualCamera.Count) 
         {
             //開始から何秒で切り替わるか
-            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM > _transTimeList[_cameraIndex]);
+            _elapsedTime += _transTimeList[_cameraIndex];
+            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM > _elapsedTime);
                 NextCamera();      
         }
     }
@@ -23,9 +26,6 @@ public class GameCameraPhaseManager : CameraPhaseManager
     //カメラを切り替える
     protected new void NextCamera()
     {
-        if (_cameraIndex + 1 >= _virtualCamera.Count)
-            return;
-
         _virtualCamera[_cameraIndex].Priority = 0;
         _cameraIndex++;
         _virtualCamera[_cameraIndex].Priority = 1;

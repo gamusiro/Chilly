@@ -63,7 +63,8 @@ public class HP : MonoBehaviour
             }
             else 
             {
-                _meshRenderer.material = _spriteList.Material[_hp-1];
+                if (_hp > 0)
+                    _meshRenderer.material = _spriteList.Material[_hp - 1];
             
             }
         }
