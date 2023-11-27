@@ -25313,6 +25313,7 @@ MonoBehaviour:
   m_perfectTimeRange: 0.198
   m_enemyAttackFromEnemy: {fileID: 7983260751883584986}
   m_perfectEffectObject: {fileID: 7152795781553464957, guid: deb3f02673cd29642bfa1fbf495ea08a, type: 3}
+  m_isFlying: 0
 --- !u!1001 &9096599039533978745
 PrefabInstance:
   m_ObjectHideFlags: 0

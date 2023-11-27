@@ -76,7 +76,7 @@ public class CS_Player : MonoBehaviour
     const float c_sideMax = 69.0f;
 
     // ジャンプ中かどうかのフラグ
-    bool m_isFlying;
+    public bool m_isFlying;
 
     // 衝突したか
     bool m_damaged;
@@ -136,7 +136,7 @@ public class CS_Player : MonoBehaviour
         currentPos += move * Time.deltaTime;
         currentPos.x = Mathf.Clamp(currentPos.x, -c_sideMax, c_sideMax);
 
-        currentPos.y = Mathf.Max(0.0f, currentPos.y);
+        //currentPos.y = Mathf.Max(0.0f, currentPos.y);
         transform.position = currentPos;
 
         // 向きを設定
