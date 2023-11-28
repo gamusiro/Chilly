@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2791824582579515516, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a5bd37c98c28c949ba35d8626990aee, type: 2}
+    - target: {fileID: 6371037505753185230, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a5bd37c98c28c949ba35d8626990aee, type: 2}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
