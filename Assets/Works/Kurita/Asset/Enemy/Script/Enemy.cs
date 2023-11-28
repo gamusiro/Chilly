@@ -17,9 +17,6 @@ public class Enemy : MonoBehaviour
     protected float _eyeSpeed;
     protected float _subEyeSpeed;
 
-    //Œõ
-    [SerializeField] protected List<Transform> _extinctionTransform = new List<Transform>();
-
     //Œû‚ÉŠÖ‚·‚é‚à‚Ì
     [SerializeField] protected Transform _mouthTransform;
     protected float _mouthScaleeRadian;//Œû‚Ì‘å‚«‚³•ÏX‚ğŒˆ’è‚·‚é’l
