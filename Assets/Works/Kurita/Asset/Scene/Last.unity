@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 312359918238149359, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 595200676582402579, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -174,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 2229232431866419690, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: m_Name
       value: Last
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132197339224173610, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: _creditInfoList.Array.data[3].StartTime
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

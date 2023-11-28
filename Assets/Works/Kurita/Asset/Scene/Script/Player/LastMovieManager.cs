@@ -36,40 +36,51 @@ public class LastMovieManager : MonoBehaviour
     {
         MoveObject();
 
+        //ベルがなを鳴らす
         await UniTask.WaitUntil(() => _playerCS.OnBell);
         _bell.SetRing(true);
         Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
         _playerCS.OnBell = false;
 
+        //敵がやられた判定になる
         await UniTask.Delay(TimeSpan.FromSeconds(4.0f));
         _enemy.Disapper(_phase1.transform);
+        //Destroy(_moveObjectTransform.gameObject);
 
+        //爆発後
         await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
         _enemy.Explosion(_phase1.transform);
 
+        //フェーズ1終了,フェーズ2開始
         await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
         _bell.SetRing(false);
         Destroy(_phase1);
         Instantiate(_phase2);
 
+        //友達生成
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
     }
 
     private void FixedUpdate()
     {
-        MoveObject();
+       //MoveObject();
     }
 
     //移動オブジェクト
-    private void MoveObject()
+    private async void MoveObject()
     {
-        //ヌルチェック
-        if (_moveObjectTransform == null)
-            return;
+        while (true)
+        {
+            //ヌルチェック
+            if (_moveObjectTransform == null)
+                return;
 
-        Vector3 position = _moveObjectTransform.localPosition;
-        position.z -= 3.0f;
-        _moveObjectTransform.localPosition = position;
+            Vector3 position = _moveObjectTransform.localPosition;
+            position.z -= 3.0f;
+            _moveObjectTransform.localPosition = position;
+
+            await UniTask.Delay(1);
+        }
     }
 }
