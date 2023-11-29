@@ -21,7 +21,7 @@ public class OpeningMovieManager : MonoBehaviour
 
     private async void Start()
     {
-        //MoveObject();
+        MoveObject();
 
         ////ベルがなを鳴らす
         //await UniTask.WaitUntil(() => _playerCS.OnBell);
@@ -56,14 +56,14 @@ public class OpeningMovieManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-       MoveObject();
+       //MoveObject();
     }
 
     //移動オブジェクト
-    private  void MoveObject()
+    private async void MoveObject()
     {
-      //  while (true)
-        //{
+        while (true)
+        {
             //ヌルチェック
             if (_moveObjectTransform == null)
                 return;
@@ -72,7 +72,7 @@ public class OpeningMovieManager : MonoBehaviour
             position.z -= 3.0f;
             _moveObjectTransform.localPosition = position;
 
-       //     await UniTask.Delay(1);
-        //}
+            await UniTask.WaitForFixedUpdate();
+        }
     }
 }

@@ -14,7 +14,7 @@ public class FallingFloorManager : MonoBehaviour
         _standardPosition = _playerTransform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (_playerTransform && _fallingFloorCubeTransform && _fallingFloorLanePrefab) 
         CreateObject("z", _playerTransform.position.z, _standardPosition.z, _fallingFloorCubeTransform.localScale.z);

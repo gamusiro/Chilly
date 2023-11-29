@@ -12,10 +12,10 @@ public class Credit : MonoBehaviour
 
     private void Start()
     {
-        CreditText();
+        Text();
     }
 
-    private void CreditText()
+    private void Text()
     {
         //ヌルチェック
         if (_creditInfoList.Count == 0)

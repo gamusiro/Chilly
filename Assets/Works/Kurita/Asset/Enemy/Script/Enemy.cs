@@ -7,7 +7,7 @@ using System;
 public class Enemy : MonoBehaviour
 {
     //目の動き関するもの
-    private enum Eye   
+    protected enum Eye
     {
         Left,
         Right
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     //体のパーティクルに関するもの
     [SerializeField] protected ParticleSystem _particleSystem;
-     protected float _frameHit;//ヒットしてからのフレーム
+    protected float _frameHit;//ヒットしてからのフレーム
 
     [SerializeField] protected Gradient _gradientOriginal;//元の色
     [SerializeField] protected Gradient _gradientHit;//ヒット時の色
@@ -37,6 +37,9 @@ public class Enemy : MonoBehaviour
     protected DisapperEyes _disapperEyeInstance = null;
     [SerializeField] protected GameObject _explosionPrefab;
     [SerializeField] protected GameObject _explosionPrefab2;
+
+    //動き
+    [SerializeField] protected Transform _standardPosition;
 
     public void Start()
     {
@@ -52,6 +55,8 @@ public class Enemy : MonoBehaviour
 
         //その他変数
         _frameHit = 999.0f;//ヒットフレーム
+        
+        Move();
     }
 
     public void FixedUpdate()
@@ -59,6 +64,7 @@ public class Enemy : MonoBehaviour
         HitAnimation();
         Eyes();
         Mouth();
+        Move();
     }
 
     //目の動き
@@ -143,5 +149,25 @@ public class Enemy : MonoBehaviour
         Instantiate(_explosionPrefab, parent);
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         Instantiate(_explosionPrefab2, parent);
+    }
+
+    //動き
+    protected void Move()
+    {
+        Debug.Log("a");
+        float speed = 3.0f;
+        float range = 10.0f;
+        Vector3 position = this.transform.position;
+        position.y = _standardPosition.position.y + Mathf.Sin(Time.time* speed) * range;
+        this.transform.position = position;
+
+
+        Vector3 angle = this.transform.eulerAngles;
+        //angle.x = Mathf.Sin(Time.time * speed)*range*0.5f;
+        angle.y = Mathf.Sin(Time.time * speed*0.4f)*range;
+        angle.z = Mathf.Cos(Time.time * speed)*range;
+       // angle = angle.normalized;
+       // angle *= range;
+        this.transform.eulerAngles = angle;
     }
 }
