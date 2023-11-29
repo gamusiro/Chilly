@@ -11,7 +11,7 @@ public class LastMovieManager : MonoBehaviour
     private GameObject _phase1;
 
     //プレイヤー
-    [SerializeField] private LastPlayeraa _playerCS;
+    [SerializeField] private LastPlayer _playerCS;
 
     //エネミー
     [SerializeField] private Enemy _enemy;
@@ -47,7 +47,7 @@ public class LastMovieManager : MonoBehaviour
 
         //敵がやられた判定になる
         await UniTask.Delay(TimeSpan.FromSeconds(4.0f));
-        _enemy.Disapper(_phase1.transform);
+        _enemy.Disapper(_enemy.transform);
         //Destroy(_moveObjectTransform.gameObject);
 
         //爆発後

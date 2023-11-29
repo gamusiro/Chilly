@@ -14,7 +14,7 @@ public class OpeningMovieManager : MonoBehaviour
     [SerializeField] private Enemy _enemy;
 
     //友達のプレハブ
-    [SerializeField] private Friend _friend;
+    [SerializeField] private LastFriend _friend;
 
     ////フェード
     //[SerializeField] private Fade_K _fade;

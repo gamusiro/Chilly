@@ -5,27 +5,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Friend : MonoBehaviour
+public abstract class AbstractFriend : MonoBehaviour
 {
-    [SerializeField] private Vector3 _endPosition;
-    [SerializeField] private float _time;
-    [SerializeField] private GameObject _light;
-
-    private Vector3 standardScale;
+    protected Vector3 standardScale;
 
     private void Start()
     {
-        //ˆÚ“®
-       transform.DOMove(_endPosition, _time).SetLink(gameObject);
-
         //‚Õ‚É‚Õ‚É
         Scale();
-
-        //ƒ‰ƒCƒg
-        Light();
     }
 
-    private async void Scale()
+    protected async void Scale()
     {
         standardScale = transform.localScale;
 
@@ -42,11 +32,5 @@ public class Friend : MonoBehaviour
             int timeSpan = 1;
             await UniTask.Delay(timeSpan);
         }
-    }
-
-    private async void Light()
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
-         _light.transform.DOScale(new Vector3(0.0f, 0.0f, 0.0f), 2.0f).SetLink(gameObject);
     }
 }

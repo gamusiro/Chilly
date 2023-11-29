@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class LastPlayeraa : MonoBehaviour
+public class LastPlayer : MonoBehaviour
 {
     // ジャンプ力
     [SerializeField, CustomLabel("ジャンプ力")]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public abstract class AbstructPlayerPhaseManager : AbstructBasePhaseManager
+public abstract class AbstractPlayerPhaseManager : AbstractBasePhaseManager
 {
     ////フェーズの設定
     //protected new enum Phase { Max };

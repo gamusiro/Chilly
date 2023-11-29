@@ -11,6 +11,7 @@ public class Fade_K : MonoBehaviour
 
     void Start()
     {
+        _fadeImage.gameObject.SetActive(true);
         if (_isClear)
             FadeOut(0.0f);
     }

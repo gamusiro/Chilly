@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public abstract class AbstructBasePhaseManager : MonoBehaviour
+public abstract class AbstractBasePhaseManager : MonoBehaviour
 {
     //‘JˆÚŠJŽnŽžŠÔ
     [SerializeField] protected List<float> _transTimeList;
