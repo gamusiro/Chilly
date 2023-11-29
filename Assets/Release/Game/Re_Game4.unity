@@ -9841,6 +9841,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5569960147056280679, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569960147056280679, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b82421430ddff6745bdc363cb23b041a, type: 2}
     - target: {fileID: 5574958913056226872, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -14408,6 +14416,10 @@ PrefabInstance:
     - target: {fileID: 8088531456014278209, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090416203250564360, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8090870125287901635, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_Layer

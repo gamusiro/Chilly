@@ -56,14 +56,17 @@ MonoBehaviour:
     m_clip: {fileID: 8300000, guid: a5073c3476ffb5c4989efbbd873f86cf, type: 3}
     m_volume: 0.2
   - m_label: Jump
-    m_clip: {fileID: 8300000, guid: 0941f341a09b57b489255195adefe331, type: 3}
+    m_clip: {fileID: 8300000, guid: baf7e59b9a14fd446905a3be8f5ce0a7, type: 3}
     m_volume: 1
   - m_label: PerfectJump
     m_clip: {fileID: 8300000, guid: 240b6035d7f0b504ba459e8393906961, type: 3}
     m_volume: 1
   - m_label: Dash
-    m_clip: {fileID: 8300000, guid: baf7e59b9a14fd446905a3be8f5ce0a7, type: 3}
+    m_clip: {fileID: 8300000, guid: 5a31ccef204583d4aa8c6cb414b23d7f, type: 3}
     m_volume: 1
   - m_label: Damage
-    m_clip: {fileID: 8300000, guid: e107b032dda12af4abd322e4af8e401d, type: 3}
+    m_clip: {fileID: 8300000, guid: dfdb09d5e145eff46a7307cc0bb8b87b, type: 3}
+    m_volume: 1
+  - m_label: Commit
+    m_clip: {fileID: 8300000, guid: 740f3c6bae239ed47b042165f8f77131, type: 3}
     m_volume: 1
