@@ -25,7 +25,6 @@ public class LastMovieManager : MonoBehaviour
     //ベル
     [SerializeField] private Bell _bell;
 
-
     [SerializeField, CustomLabel("フェーズ2オブジェクト")]
     private GameObject _phase2;
 

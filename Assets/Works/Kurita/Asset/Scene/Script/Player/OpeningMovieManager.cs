@@ -11,17 +11,31 @@ public class OpeningMovieManager : MonoBehaviour
     [SerializeField] Transform _moveObjectTransform;
 
     //エネミー
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private ParticleSystem _ateParticle;
 
     //友達のプレハブ
-    [SerializeField] private LastFriend _friend;
+    [SerializeField] private OpeningFriend _friend;
+
+    //吸い込まれる処理(線形補完)
+    [SerializeField] private Transform _friendStartTransform;
+    [SerializeField] private Transform _enemyMouthTransform;
 
     ////フェード
     //[SerializeField] private Fade_K _fade;
 
     private async void Start()
     {
+        //初期化
+        _ateParticle.Stop();
+   
         MoveObject();
+
+        //吸い込み開始
+        await UniTask.Delay(TimeSpan.FromSeconds(18.0f));
+        _ateParticle.Play();
+        await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
+        _friend.Ate(_friend.transform, _enemyMouthTransform);
+
 
         ////ベルがなを鳴らす
         //await UniTask.WaitUntil(() => _playerCS.OnBell);
@@ -51,7 +65,7 @@ public class OpeningMovieManager : MonoBehaviour
         //Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
 
         //  await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-       // _fade.FadeIn(3.0f);
+        // _fade.FadeIn(3.0f);
     }
 
     private void FixedUpdate()
