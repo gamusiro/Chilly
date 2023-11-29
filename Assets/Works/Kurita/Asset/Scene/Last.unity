@@ -156,9 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1993342c2c1ba4785e94614d405598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump: 0
+  _jump: 160
   _rigidbody: {fileID: 1081498100}
-  m_gravity: 0
+  m_gravity: 610
   OnBell: 0
 --- !u!114 &1643586285 stripped
 MonoBehaviour:
@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 2143524954488019402, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: _playerCS
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1081498101}
     - target: {fileID: 2143524954488019402, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: _friendPrefab
       value: 
