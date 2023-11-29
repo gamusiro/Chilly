@@ -6,11 +6,14 @@ using DG.Tweening;
 
 public class OpeningFriend : AbstractFriend
 {
+
     private float _time = 0.0f;
 
     void Start()
     {
         Scale();
+        if (this.transform)
+            return;
     }
 
     //êHÇ◊ÇÁÇÍÇÈ
@@ -18,8 +21,12 @@ public class OpeningFriend : AbstractFriend
     {
         //à⁄ìÆ
         _time = 0.0f;
+       
         while (true)
         {
+            if (this.transform == null) 
+                return;
+
             //ãzÇ¢çûÇ‹ÇÍÇÈ
             this.transform.position = Vector3.Lerp(start.position, end.position, _time * 0.1f);
 
@@ -27,8 +34,9 @@ public class OpeningFriend : AbstractFriend
             float speed = 10.0f;
             this.transform.Rotate(0.0f, 0.0f, speed);
 
-            await UniTask.WaitForFixedUpdate();
+            await UniTask.Delay(1);
             _time += Time.deltaTime;
+            Mathf.Clamp(_time, 0.0f, 1.0f);
         }
     }
 

@@ -2,71 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HP : MonoBehaviour
 {
-    [SerializeField] private MaterialSO _spriteList;//spriteList
-    [SerializeField] private MeshRenderer _meshRenderer;//表示画像
-    [SerializeField] private int _hp;
-
-    //フェードアニメーション系
-    private bool _animeFlag;//アニメーション中かの判定
-    private float _alpha;//α値
-    private float _curflashNum;//現在の点滅回数
-    private const float MAX_FLASH_NUM = 3.0f;//最大の点滅回数
+    [SerializeField] private List<Image> _hpImageList;//表示画像
+    int _hp = 0;//現在の体力
 
     private void Start()
     {
-        _animeFlag = false;
-        _curflashNum = 0;
-        _meshRenderer.material = _spriteList.Material[_hp-1];
+        _hp = _hpImageList.Count - 1;//HPの値を設定する
 
-    }
-
-    private void Update()
-    {
-        HitAnimation();
+       
+        Recover();
     }
 
     public void Hit()
     {
-        //体力を減らす
-        _hp--;
-
-        //やられた判定
-        if (_hp <= 0)
+        //やられていなければ処理を続行
+        if (_hp - 1 < 0)
             return;
 
-        //HP情報を更新
-        SetHitAnimation();
+        //アニメーション
+        float alpha = 0.0f;
+        float time = 1.0f;
+        _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
+
+        //体力を減らす
+        _hp--;
     }
 
-    private void SetHitAnimation()
+    public void Recover()
     {
-        _animeFlag = true;
-        _alpha = 1.0f;
-        _curflashNum = MAX_FLASH_NUM;
-    }
-    private void HitAnimation()
-    {
-        if(_animeFlag)
-        {
-            if (_curflashNum > 0)
-            {
-                _alpha -= 0.1f;
+        //体力が上限になっていなければ処理を続行
+        if (_hp + 1 > _hpImageList.Count - 1) 
+            return;
 
-                if (_alpha <= 0.0f)
-                {
-                    _alpha = 1.0f;
-                    _curflashNum--;
-                }
-            }
-            else 
-            {
-                if (_hp > 0)
-                    _meshRenderer.material = _spriteList.Material[_hp - 1];
-            
-            }
-        }
+        //アニメーション
+        float alpha = 1.0f;
+        float time = 1.0f;
+        _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
+
+        //体力を減らす
+        _hp++;
     }
 }

@@ -33,7 +33,7 @@ public class OpeningMovieManager : MonoBehaviour
         //ãzÇ¢çûÇ›äJén
         await UniTask.Delay(TimeSpan.FromSeconds(18.0f));
         _ateParticle.Play();
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(4.0f));
         _friend.Ate(_friend.transform, _enemyMouthTransform);
 
 

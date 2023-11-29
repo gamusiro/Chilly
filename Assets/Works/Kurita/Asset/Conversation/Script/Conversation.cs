@@ -9,7 +9,6 @@ public class Conversation : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _nameTMP;//名前を表示するTMP
     [SerializeField] private TMPro.TextMeshProUGUI _contentTMP;//会話分を表示するTMP
     [SerializeField] private List<ConversationInfo> _conversationInfoList = new();
-    int _contentIndex = 0;
     private float _time = 0.0f;
 
     private void Start()
