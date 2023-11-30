@@ -251,6 +251,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
+--- !u!114 &1633627840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8812603065108083855, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+  m_PrefabInstance: {fileID: 2897411803780857149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a0fff6840b57747bf3f1beddc75765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1961645391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6380118171163782613, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
@@ -8616,6 +8627,10 @@ PrefabInstance:
       propertyPath: m_hp
       value: 
       objectReference: {fileID: 254332456}
+    - target: {fileID: 4900725827664224187, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_enemyAttackFromEnemy
+      value: 
+      objectReference: {fileID: 1633627840}
     - target: {fileID: 4901232942092176583, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_Layer
       value: 0

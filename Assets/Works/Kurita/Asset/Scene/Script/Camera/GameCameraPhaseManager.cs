@@ -14,7 +14,7 @@ public class GameCameraPhaseManager : CameraPhaseManager
         _virtualCamera[_cameraIndex].Priority = 1;
 
         //ƒJƒƒ‰‚Ì‘JˆÚˆ—
-        while (_cameraIndex + 1 < _virtualCamera.Count) 
+        while (_cameraIndex < _virtualCamera.Count - 1) 
         {
             //ŠJn‚©‚ç‰½•b‚ÅØ‚è‘Ö‚í‚é‚©
             _elapsedTime = _transTimeList[_cameraIndex];
