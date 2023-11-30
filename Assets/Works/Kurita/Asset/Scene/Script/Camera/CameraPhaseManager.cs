@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using Cinemachine;
 
-public class CameraPhaseManager : AbstructBasePhaseManager
+public class CameraPhaseManager : AbstractBasePhaseManager
 {
     //バーチャルカメラの設定
     [SerializeField] protected List<CinemachineVirtualCamera> _virtualCamera = new List<CinemachineVirtualCamera>();
