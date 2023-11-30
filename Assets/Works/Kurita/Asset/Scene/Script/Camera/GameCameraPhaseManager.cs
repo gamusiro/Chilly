@@ -17,7 +17,7 @@ public class GameCameraPhaseManager : CameraPhaseManager
         while (_cameraIndex + 1 < _virtualCamera.Count) 
         {
             //ŠJŽn‚©‚ç‰½•b‚ÅØ‚è‘Ö‚í‚é‚©
-            _elapsedTime += _transTimeList[_cameraIndex];
+            _elapsedTime = _transTimeList[_cameraIndex];
             await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM > _elapsedTime);
                 NextCamera();      
         }
