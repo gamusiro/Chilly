@@ -20,8 +20,8 @@ public class OpeningMovieManager : MonoBehaviour
     [SerializeField] private Transform _friendStartTransform;
     [SerializeField] private Transform _enemyMouthTransform;
 
-    ////フェード
-    //[SerializeField] private Fade_K _fade;
+    //フェード
+    [SerializeField] private Fade_K _fade;
 
     private async void Start()
     {
@@ -33,8 +33,17 @@ public class OpeningMovieManager : MonoBehaviour
         //吸い込み開始
         await UniTask.Delay(TimeSpan.FromSeconds(18.0f));
         _ateParticle.Play();
-        await UniTask.Delay(TimeSpan.FromSeconds(4.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
         _friend.Ate(_friend.transform, _enemyMouthTransform);
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        _fade.FadeIn(0.5f);
+        //Destroy(_friend);
+        await UniTask.Delay(TimeSpan.FromSeconds(3.0f));
+        _fade.FadeOut(2.0f);
+        await UniTask.Delay(TimeSpan.FromSeconds(6.0f));
+        _fade.FadeIn(2.0f);
+        await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
+        //シーン遷移
 
 
         ////ベルがなを鳴らす
