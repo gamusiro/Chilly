@@ -28,7 +28,7 @@ public class CS_FallObject : MonoBehaviour
         if(collision.gameObject.tag == "Player"
             || collision.gameObject.tag == "Field")
         {
-            CS_AudioManager.Instance.PlayAudio("Clap");
+            CS_AudioManager.Instance.PlayAudio("Fall");
         }
     }
 }

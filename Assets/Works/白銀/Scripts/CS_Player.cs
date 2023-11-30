@@ -44,6 +44,7 @@ public class CS_Player : MonoBehaviour
     CameraPhaseManager m_mainGameCameraManager;
 
     [Header("パーフェクトタイミング")]
+
     // 許容パーフェクトタイミング
     [SerializeField, CustomLabel("パーフェクトタイミング(秒)")]
     [Range(0.1f, 1.0f)]
@@ -122,6 +123,11 @@ public class CS_Player : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // 影の座標を更新
+        Vector3 pos = transform.localPosition;
+        pos.y = 0.0f;
+        m_shadowTransform.localPosition = pos;
+
         // カメラの移動中の場合は操作させない
         if (m_brain.ActiveBlend != null)
             return;
@@ -148,12 +154,9 @@ public class CS_Player : MonoBehaviour
         // ジャンプ
         if (GetJumpTrigger() && !m_isFlying)
         {
-            CS_AudioManager.Instance.PlayAudio("Jump");
-            m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
-
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
 
-            // 後ろからのタイミング
+            // 後ろからのタイミング(perfectTiming)
             if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
             {
                 GameObject obj = Instantiate(m_perfectEffectObject);
@@ -168,7 +171,15 @@ public class CS_Player : MonoBehaviour
                 foreach (ParticleSystem ps in obj.GetComponentsInChildren<ParticleSystem>())
                     ps.Play();
 
+                CS_AudioManager.Instance.PlayAudio("PerfectJump");
+
                 Destroy(obj, 1.0f);
+            }
+            else
+            {
+                // 通常ジャンプ
+                CS_AudioManager.Instance.PlayAudio("Jump");
+                m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
             }
                 
             m_isFlying = true;
@@ -176,21 +187,29 @@ public class CS_Player : MonoBehaviour
         }
 
         // スライド操作
-        if(m_inputAction.Player.Slide.triggered)
+        //if(m_inputAction.Player.Slide.triggered)
+        //{
+        //    CS_AudioManager.Instance.PlayAudio("Dash");
+        //    m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
+
+        //    if(direction.x > 0.0f)
+        //        m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+        //    else if (direction.x < 0.0f)
+        //        m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+        //}
+
+        if(m_inputAction.Player.SlideL.triggered)
         {
-            CS_AudioManager.Instance.PlayAudio("Jump");
-            m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
-
-            if(direction.x > 0.0f)
-                m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
-            else if (direction.x < 0.0f)
-                m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+            CS_AudioManager.Instance.PlayAudio("Dash");
+            m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * 2.5f, ForceMode.Impulse);
+            m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
         }
-
-        // 影の座標を更新
-        Vector3 pos = transform.localPosition;
-        pos.y = 0.0f;
-        m_shadowTransform.localPosition = pos;
+        else if(m_inputAction.Player.SlideR.triggered)
+        {
+            CS_AudioManager.Instance.PlayAudio("Dash");
+            m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * 2.5f, ForceMode.Impulse);
+            m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+        }
     }
 
     /// <summary>
@@ -234,6 +253,7 @@ public class CS_Player : MonoBehaviour
             if (tag == "Enemy")
             {
                 m_damaged = true;
+                CS_AudioManager.Instance.PlayAudio("Damage");
                 m_hp.Hit();
                 m_degree = 0.0f;
                 Invoke(nameof(UnlockInvincibility), m_invalidTime);
