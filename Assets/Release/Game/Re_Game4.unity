@@ -15793,6 +15793,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8812603065108083855, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_createObject
+      value: 
+      objectReference: {fileID: 270884841887256026, guid: 51c4c61a246b4a74fad7672e727580d9, type: 3}
+    - target: {fileID: 8812603065108083855, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
+      propertyPath: m_jumpLineObject
+      value: 
+      objectReference: {fileID: 8760808055373060487, guid: 6e7f012483d1fbb48a141d1dfaa546f5, type: 3}
     - target: {fileID: 8819282795249787847, guid: be1fbbc02e3d46e4192c0bd701f33ec2, type: 3}
       propertyPath: m_Layer
       value: 0
