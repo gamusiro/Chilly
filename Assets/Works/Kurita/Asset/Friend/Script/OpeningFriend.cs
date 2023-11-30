@@ -12,8 +12,6 @@ public class OpeningFriend : AbstractFriend
     void Start()
     {
         Scale();
-        if (this.transform)
-            return;
     }
 
     //H‚×‚ç‚ê‚é
