@@ -53,6 +53,24 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlideL"",
+                    ""type"": ""Button"",
+                    ""id"": ""195d42fa-2ee6-41c0-999d-4528d08c2c75"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlideR"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9c650c6-5e38-4ffb-b564-a1320b75b90d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -187,6 +205,28 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Slide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4691d37f-b25b-4e7f-9c42-74b7341af956"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd0951b3-dd59-40da-b69e-9c2821c5b36c"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlideR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -237,6 +277,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Slide = m_Player.FindAction("Slide", throwIfNotFound: true);
+        m_Player_SlideL = m_Player.FindAction("SlideL", throwIfNotFound: true);
+        m_Player_SlideR = m_Player.FindAction("SlideR", throwIfNotFound: true);
         // Title
         m_Title = asset.FindActionMap("Title", throwIfNotFound: true);
         m_Title_ToGameScene = m_Title.FindAction("ToGameScene", throwIfNotFound: true);
@@ -304,6 +346,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Slide;
+    private readonly InputAction m_Player_SlideL;
+    private readonly InputAction m_Player_SlideR;
     public struct PlayerActions
     {
         private @IA_Player m_Wrapper;
@@ -311,6 +355,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Slide => m_Wrapper.m_Player_Slide;
+        public InputAction @SlideL => m_Wrapper.m_Player_SlideL;
+        public InputAction @SlideR => m_Wrapper.m_Player_SlideR;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -329,6 +375,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
+            @SlideL.started += instance.OnSlideL;
+            @SlideL.performed += instance.OnSlideL;
+            @SlideL.canceled += instance.OnSlideL;
+            @SlideR.started += instance.OnSlideR;
+            @SlideR.performed += instance.OnSlideR;
+            @SlideR.canceled += instance.OnSlideR;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -342,6 +394,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
+            @SlideL.started -= instance.OnSlideL;
+            @SlideL.performed -= instance.OnSlideL;
+            @SlideL.canceled -= instance.OnSlideL;
+            @SlideR.started -= instance.OnSlideR;
+            @SlideR.performed -= instance.OnSlideR;
+            @SlideR.canceled -= instance.OnSlideR;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -410,6 +468,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnSlideL(InputAction.CallbackContext context);
+        void OnSlideR(InputAction.CallbackContext context);
     }
     public interface ITitleActions
     {

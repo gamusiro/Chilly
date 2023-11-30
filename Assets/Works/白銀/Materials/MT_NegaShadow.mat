@@ -47,7 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+<<<<<<< HEAD
         m_Texture: {fileID: 2800000, guid: 4e127fd3f19ba6c4f825a8488ce94152, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: db77fc6cf4260094bbdc277c8366f03a, type: 3}
+>>>>>>> gamusiro_19
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -81,6 +85,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
+<<<<<<< HEAD
     - _Color: {r: 1, g: 1, b: 1, a: 0.19607843}
     - _EmissionColor: {r: 6.8392277, g: 3.1983988, b: 5.3247037, a: 1}
+=======
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 5.9921575, g: 5.9921575, b: 5.9921575, a: 1}
+>>>>>>> gamusiro_19
   m_BuildTextureStacks: []
