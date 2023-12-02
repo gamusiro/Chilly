@@ -25283,6 +25283,7 @@ MonoBehaviour:
   m_side: 65
   m_jump: 125
   m_invalidTime: 2
+  m_dashStrength: 0
   m_gravity: 610
   m_hp: {fileID: 0}
   m_animator: {fileID: 5664212165407906346}
