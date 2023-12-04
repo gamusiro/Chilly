@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
 
     //‚â‚ç‚ê‚½‚Æ‚«‚Ì–Ú(Prefab)
     [SerializeField] protected DisapperEyes _disapperEyePrefab;
+    [SerializeField] protected Transform _disapperEyeParent;
     protected DisapperEyes _disapperEyeInstance = null;
     [SerializeField] protected GameObject _explosionPrefab;
     [SerializeField] protected GameObject _explosionPrefab2;
@@ -126,7 +127,7 @@ public class Enemy : MonoBehaviour
     //‚â‚ç‚ê‚é
     public async void Disapper(Transform parent)
     {
-        _disapperEyeInstance = Instantiate(_disapperEyePrefab, this.transform);
+        _disapperEyeInstance = Instantiate(_disapperEyePrefab, _disapperEyeParent);
 
         while (true) 
         {
@@ -146,9 +147,10 @@ public class Enemy : MonoBehaviour
     //”š”­
     public async void Explosion(Transform parent)
     {
-        Instantiate(_explosionPrefab, parent);
+        Vector3 createPosition = _disapperEyeParent.position + new Vector3(0.0f,40.0f,-20.0f);
+        Instantiate(_explosionPrefab, createPosition, Quaternion.identity, parent);
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-        Instantiate(_explosionPrefab2, parent);
+        Instantiate(_explosionPrefab2, createPosition, Quaternion.identity, parent);
     }
 
     //“®‚«
