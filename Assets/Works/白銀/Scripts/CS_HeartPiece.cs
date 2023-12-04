@@ -5,28 +5,12 @@ using UnityEngine;
 
 public class CS_HeartPiece : MonoBehaviour
 {
-    //現在使用中のカメラの情報
-    private CameraPhaseManager m_mainGameCameraManager;
-
-    GameObject m_enemyObject;
-    GameObject m_cameraObject;
-
-    Vector3 m_rootRight;
-    Vector3 m_rootLeft;
-    Vector3 m_useRoot;
-
-    bool m_getted;
-    float m_work;
-
     /// <summary>
     /// 初期化処理
     /// </summary>
     void Start()
     {
-        m_work = 0.0f;
-
-        m_rootRight = new Vector3(200.0f, 100.0f, 0.0f);
-        m_rootLeft = new Vector3(-200.0f, 100.0f, 0.0f);
+        
     }
 
     /// <summary>
@@ -34,21 +18,7 @@ public class CS_HeartPiece : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (m_getted)
-        {
-            m_work += 0.01f;
-
-            Vector3 offset = new Vector3(0.0f, 0.0f, 10.0f);    // エネミーの後ろまで行くようにしたいので
-
-            Vector3 a = Vector3.Lerp(gameObject.transform.localPosition, m_cameraObject.transform.localPosition, m_work);
-            Vector3 b = Vector3.Lerp(a, m_useRoot, m_work);
-            Vector3 c = Vector3.Lerp(b, m_enemyObject.transform.localPosition + offset, m_work);
-
-            gameObject.transform.localPosition = c;
-
-            if(m_work >= 1.0f)
-                Destroy(gameObject);
-        }
+        
     }
 
     /// <summary>
@@ -59,19 +29,7 @@ public class CS_HeartPiece : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            gameObject.transform.parent = other.gameObject.transform.parent;
-
-            // 経由するルートを確定する
-            if (gameObject.transform.position.x > 0)
-                m_useRoot = m_rootRight;
-            else
-                m_useRoot = m_rootLeft;
-
-            m_getted = true;
-            gameObject.transform.localPosition = other.gameObject.transform.localPosition;
-
-            m_enemyObject = CS_MoveController.GetObject("GameEnemy");
-            m_cameraObject = m_mainGameCameraManager.GetCurCamera();
+            Destroy(gameObject);
         }
     }
 
@@ -83,24 +41,7 @@ public class CS_HeartPiece : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameObject.transform.parent = collision.gameObject.transform.parent;
-
-            // 経由するルートを確定する
-            if (gameObject.transform.position.x > 0)
-                m_useRoot = m_rootRight;
-            else
-                m_useRoot = m_rootLeft;
-
-            m_getted = true;
-            gameObject.transform.localPosition = collision.gameObject.transform.localPosition;
-
-            m_enemyObject = CS_MoveController.GetObject("GameEnemy");
-            m_cameraObject = m_mainGameCameraManager.GetCurCamera();
+            Destroy(gameObject);
         }
-    }
-
-    public void SetMainGameCameraManager(CameraPhaseManager cameraManager)
-    {
-        m_mainGameCameraManager = cameraManager;
     }
 }

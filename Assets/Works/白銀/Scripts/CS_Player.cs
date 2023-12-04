@@ -1,4 +1,6 @@
 using Cinemachine;
+using DG.Tweening;
+using DG.Tweening.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +8,8 @@ using UnityEngine;
 public class CS_Player : MonoBehaviour
 {
     #region インスペクタ用変数
+
+    [Header("プレイヤーパラメータ")]
 
     // プレイヤーの影座標
     [SerializeField, CustomLabel("プレイヤーの影座標")]
@@ -22,6 +26,11 @@ public class CS_Player : MonoBehaviour
     // 無敵時間
     [SerializeField, CustomLabel("無敵時間")]
     float m_invalidTime;
+
+    // ダッシュ力
+    [SerializeField, CustomLabel("ダッシュの力")]
+    [Range(2.0f, 10.0f)]
+    float m_dashStrength;
 
     // 疑似重力
     [SerializeField, Header("重力影響度")]
@@ -152,7 +161,7 @@ public class CS_Player : MonoBehaviour
         transform.localEulerAngles = rotate;
 
         // ジャンプ
-        if (GetJumpTrigger() && !m_isFlying)
+        if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
 
@@ -186,28 +195,16 @@ public class CS_Player : MonoBehaviour
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
         }
 
-        // スライド操作
-        //if(m_inputAction.Player.Slide.triggered)
-        //{
-        //    CS_AudioManager.Instance.PlayAudio("Dash");
-        //    m_rigidBody.AddForce(move * 2.5f, ForceMode.Impulse);
-
-        //    if(direction.x > 0.0f)
-        //        m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
-        //    else if (direction.x < 0.0f)
-        //        m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
-        //}
-
         if(m_inputAction.Player.SlideL.triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Dash");
-            m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * 2.5f, ForceMode.Impulse);
+            m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * m_dashStrength, ForceMode.Impulse);
             m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
         }
         else if(m_inputAction.Player.SlideR.triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Dash");
-            m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * 2.5f, ForceMode.Impulse);
+            m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * m_dashStrength, ForceMode.Impulse);
             m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
         }
     }
@@ -262,6 +259,25 @@ public class CS_Player : MonoBehaviour
     }
 
     /// <summary>
+    /// 吹き飛ばしオブジェクトとの接触
+    /// </summary>
+    /// <param name="other"></param>
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Scattering")
+        {
+            if(IsDashing)
+            {
+                Vector3 dir = Vector3.zero;
+                dir.x = m_rigidBody.velocity.x;
+
+                var rb = other.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(dir * 5.0f, ForceMode.Impulse);
+            }
+        }
+    }
+
+    /// <summary>
     /// カメラの設定
     /// </summary>
     public void SetUsingCamera()
@@ -278,8 +294,12 @@ public class CS_Player : MonoBehaviour
         m_material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
-    public bool GetJumpTrigger()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool IsDashing
     {
-        return m_inputAction.Player.Jump.triggered;
+        get { return Mathf.Abs(m_rigidBody.velocity.x) > 0.0f; }
     }
 }

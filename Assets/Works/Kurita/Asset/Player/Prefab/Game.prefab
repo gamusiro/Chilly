@@ -1510,7 +1510,31 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5973997030673418992, guid: d873edc16a1ef0f4086955ae8e8c58cf, type: 3}
   m_PrefabInstance: {fileID: 8444697960083703863}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 6668697433259180899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79b3572f88db4942b269cee7cbc73df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shadowTransform: {fileID: 5548094010163428429}
+  m_side: 65
+  m_jump: 125
+  m_invalidTime: 2
+  m_dashStrength: 0
+  m_gravity: 610
+  m_hp: {fileID: 0}
+  m_animator: {fileID: 5664212165407906346}
+  m_brain: {fileID: 6438246472785503407}
+  m_mainGameCameraManager: {fileID: 2077089009927172026}
+  m_perfectTimeRange: 0.198
+  m_enemyAttackFromEnemy: {fileID: 0}
+  m_perfectEffectObject: {fileID: 7152795781553464957, guid: deb3f02673cd29642bfa1fbf495ea08a, type: 3}
+  m_isFlying: 0
+--- !u!1001 &9096599039533978745
+=======
 --- !u!1001 &8735752788073364896
+>>>>>>> 94dfdd78b92dbf605c487aa6efb8faee26587f24
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
