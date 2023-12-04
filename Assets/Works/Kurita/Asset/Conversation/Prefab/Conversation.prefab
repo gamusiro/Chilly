@@ -119,9 +119,22 @@ MonoBehaviour:
   _nameTMP: {fileID: 6837250666381769146}
   _contentTMP: {fileID: 9221470515435029347}
   _conversationInfoList:
-  - Name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
-    Content: "\u3053\u3093"
-    transTime: 100
+  - Name: ???
+    Content: MATEEEEEEEEE
+    StartTime: 9
+    DisplayTime: 4
+  - Name: TOMODACHI
+    Content: YADAAAAAAAAAAA
+    StartTime: 13.5
+    DisplayTime: 3
+  - Name: ???
+    Content: JA  ITADAKIMASU
+    StartTime: 17
+    DisplayTime: 5
+  - Name: ???
+    Content: TSUGIHA OMAEDA
+    StartTime: 26
+    DisplayTime: 3
 --- !u!1 &5456198608504642369
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -380}
+  m_AnchoredPosition: {x: 385.5, y: -380}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3816084659143445835
@@ -187,10 +200,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u3057\u3083\u3079\u308B\u306A\u3044\u3088\u3046"
+  m_text: Content
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa3693e5816a92844913e333b97b630d, type: 2}
-  m_sharedMaterial: {fileID: -6534909204481534656, guid: aa3693e5816a92844913e333b97b630d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -290,7 +303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: -300}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8703584458422715244
@@ -321,10 +334,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u618E\u60AA\u306E\u304B\u305F\u307E\u308A"
+  m_text: Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa3693e5816a92844913e333b97b630d, type: 2}
-  m_sharedMaterial: {fileID: -6534909204481534656, guid: aa3693e5816a92844913e333b97b630d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

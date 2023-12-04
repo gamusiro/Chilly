@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class Lyric : MonoBehaviour
+public class Lyric : ScreenTextParent
 {
     [SerializeField] private Image _panelImage;//•¶Žš‚ÌŒã‚ë‚Ìƒpƒlƒ‹
     float _alpha = 0.0f;
@@ -51,13 +51,15 @@ public class Lyric : MonoBehaviour
         {
             float alpha = _alpha;
             float time = 0.0f;
-            _panelImage.DOFade(alpha, time);
+            _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
+            TextPanel.Show();
         }
         else
         {
             float alpha = 0.0f;
             float time = 0.0f;
-            _panelImage.DOFade(alpha, time);
+            _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
+            TextPanel.Show();
         }
     }
 }

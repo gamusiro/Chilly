@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using DG.Tweening;
 
-public class Credit : MonoBehaviour
+public class ScreenText : ScreenTextParent
 {
     [SerializeField] private List<CreditInfo> _creditInfoList = new();
     private float _time = 0.0f;

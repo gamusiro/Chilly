@@ -4,7 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 
-public class Conversation : MonoBehaviour
+public class Conversation : ScreenTextParent
 {
     [SerializeField] private TMPro.TextMeshProUGUI _nameTMP;//名前を表示するTMP
     [SerializeField] private TMPro.TextMeshProUGUI _contentTMP;//会話分を表示するTMP
