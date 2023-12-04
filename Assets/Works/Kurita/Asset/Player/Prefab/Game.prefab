@@ -1570,6 +1570,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoveObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 8701972760470185638, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701972760470185638, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
