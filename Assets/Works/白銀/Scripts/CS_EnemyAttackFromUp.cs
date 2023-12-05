@@ -89,6 +89,7 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
 
         // 落ちるオブジェクトの変数を生成
         GameObject fall = Instantiate(m_createObject, createPos, Quaternion.identity);
+        fall.GetComponent<CS_FallObject>().m_perfTime = time;
         
         // 影オブジェクトの影を生成
         createPos.y = 0.01f;

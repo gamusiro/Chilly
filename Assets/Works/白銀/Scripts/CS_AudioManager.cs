@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 [Serializable]
 public class AudioPack
@@ -34,6 +35,9 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
 
     // SE用オーディオソース
     AudioSource[] m_seSources;
+
+    // タイミングを保存
+    Dictionary<string, float> m_times;
 
     const int c_sePlayNum = 5;
     int m_bgmCurrentIndex = 0;
@@ -88,6 +92,8 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         m_seSources = new AudioSource[c_sePlayNum];
         for(int i = 0; i < c_sePlayNum; ++i)
             m_seSources[i] = gameObject.AddComponent<AudioSource>();
+
+        m_times = new Dictionary<string, float>();
     }
 
     /// <summary>
@@ -144,6 +150,27 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
 
             m_seSourceIndex = (m_seSourceIndex + 1) % c_sePlayNum;
         }
+    }
+
+    /// <summary>
+    /// SE用で同じタイミングの音を重複再生しないようにするため
+    /// </summary>
+    /// <param name="label"></param>
+    /// <param name="time"></param>
+    public void PlayAudioMemoryTime(string label, float time)
+    {
+        if (!m_times.ContainsKey(label))
+        {
+            m_times.Add(label, time);
+        }
+        else
+        {
+            if (m_times[label] == time)
+                return;
+        }
+
+        m_times[label] = time;
+        PlayAudio(label, false);
     }
 
     /// <summary>

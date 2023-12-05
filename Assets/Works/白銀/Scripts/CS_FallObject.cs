@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CS_FallObject : MonoBehaviour
 {
+    public float m_perfTime;
+
     /// <summary>
     /// èâä˙âªèàóù
     /// </summary>
@@ -28,7 +30,7 @@ public class CS_FallObject : MonoBehaviour
         if(collision.gameObject.tag == "Player"
             || collision.gameObject.tag == "Field")
         {
-            CS_AudioManager.Instance.PlayAudio("Fall");
+            CS_AudioManager.Instance.PlayAudioMemoryTime("Fall", m_perfTime);
         }
     }
 }
