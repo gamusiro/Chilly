@@ -89,10 +89,13 @@ public class Enemy : MonoBehaviour
     }
 
     //当たり判定
-    protected void OnParticleCollision(GameObject other)
+    private void OnTriggerEnter(Collider other)
     {
-        //インスペクター側でレイヤーの設定済
-        Hit();
+        if (other.gameObject.tag == "HeartNotes")
+        {
+            Hit();
+            Debug.Log("トリガーにヒット");
+        }
     }
 
     //攻撃された判定
@@ -110,7 +113,7 @@ public class Enemy : MonoBehaviour
         gradient = _gradientOriginal;
 
         //ヒットアニメーションが作動する時間
-        if (_frameHit < 10.0f)
+        if (_frameHit < 2.0f)
         {
             _frameHit += Time.deltaTime * 10.0f;
 
@@ -121,6 +124,25 @@ public class Enemy : MonoBehaviour
                 gradient = _gradientOriginal;
         }
         colorOverLifetime.color = gradient;
+
+        ////色変更
+        //ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
+        //colorOverLifetime.enabled = true;
+        //Gradient gradient;
+        //gradient = _gradientOriginal;
+
+        ////ヒットアニメーションが作動する時間
+        //if (_frameHit < 10.0f)
+        //{
+        //    _frameHit += Time.deltaTime * 10.0f;
+
+        //    //点滅させる
+        //    if (((int)_frameHit) % 2 == 0)
+        //        gradient = _gradientHit;
+        //    else
+        //        gradient = _gradientOriginal;
+        //}
+        //colorOverLifetime.color = gradient;
     }
 
     //----倒された時の処理----
@@ -156,20 +178,15 @@ public class Enemy : MonoBehaviour
     //動き
     protected void Move()
     {
-        Debug.Log("a");
         float speed = 3.0f;
         float range = 10.0f;
         Vector3 position = this.transform.position;
         position.y = _standardPosition.position.y + Mathf.Sin(Time.time* speed) * range;
         this.transform.position = position;
 
-
         Vector3 angle = this.transform.eulerAngles;
-        //angle.x = Mathf.Sin(Time.time * speed)*range*0.5f;
         angle.y = Mathf.Sin(Time.time * speed*0.4f)*range;
         angle.z = Mathf.Cos(Time.time * speed)*range;
-       // angle = angle.normalized;
-       // angle *= range;
         this.transform.eulerAngles = angle;
     }
 }

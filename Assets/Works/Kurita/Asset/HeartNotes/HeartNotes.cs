@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class HeartNotes : MonoBehaviour
 {
-    //現在使用中のカメラの情報
     private CameraPhaseManager m_mainGameCameraManager;
+    private CS_Player _player;
 
-    GameObject m_enemyObject;
-    GameObject m_cameraObject;
+    private GameObject m_enemyObject;
+    private GameObject m_cameraObject;
+     
+    private Vector3 m_rootRight;
+    private Vector3 m_rootLeft;
+    private Vector3 m_useRoot;
 
-    Vector3 m_rootRight;
-    Vector3 m_rootLeft;
-    Vector3 m_useRoot;
-
-    bool m_getted;
-    float m_work;
+    private bool m_getted;
+    private float m_work;
 
     /// <summary>
     /// 初期化処理
@@ -36,7 +36,7 @@ public class HeartNotes : MonoBehaviour
     {
         if (m_getted)
         {
-            m_work += 0.01f;
+            m_work += 0.02f;
 
             Vector3 offset = new Vector3(0.0f, 0.0f, 10.0f);    // エネミーの後ろまで行くようにしたいので
 
@@ -55,8 +55,12 @@ public class HeartNotes : MonoBehaviour
     /// 衝突したら
     /// </summary>
     /// <param name="other"></param>
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
+        //プレイヤーがスピンしていなければ返る
+        if (!_player.GetSpin())
+            return;
+
         if (other.gameObject.tag == "Player")
         {
             gameObject.transform.parent = other.gameObject.transform.parent;
@@ -73,14 +77,23 @@ public class HeartNotes : MonoBehaviour
             m_enemyObject = CS_MoveController.GetObject("GameEnemy");
             m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
+
+        if (other.gameObject.tag == "GameEnemy")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     /// <summary>
     /// 衝突した
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
+        //プレイヤーがスピンしていなければ返る
+        if (!_player.GetSpin())
+            return;
+
         if (collision.gameObject.tag == "Player")
         {
             gameObject.transform.parent = collision.gameObject.transform.parent;
@@ -97,10 +110,21 @@ public class HeartNotes : MonoBehaviour
             m_enemyObject = CS_MoveController.GetObject("GameEnemy");
             m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
+
+        if (collision.gameObject.tag == "GameEnemy")
+        {
+            Debug.Log("このオブジェクトは消されました");
+            Destroy(this.gameObject);
+        }
     }
 
     public void SetMainGameCameraManager(CameraPhaseManager cameraManager)
     {
         m_mainGameCameraManager = cameraManager;
+    }    
+    
+    public void SetPlayer(CS_Player player)
+    {
+        _player = player;
     }
 }
