@@ -3,6 +3,7 @@ using DG.Tweening;
 using DG.Tweening.Core;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CS_Player : MonoBehaviour
@@ -182,13 +183,13 @@ public class CS_Player : MonoBehaviour
                 .SetLink(this.gameObject);
             _isRotate = true;
 
-            Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
+            //Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
         }
 
         // ジャンプ
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
-           // float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
+            // float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
 
             //// 後ろからのタイミング(perfectTiming)
             //if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
@@ -215,21 +216,38 @@ public class CS_Player : MonoBehaviour
             //    CS_AudioManager.Instance.PlayAudio("Jump");
             //    m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
             //}
-                
+
             m_isFlying = true;
+            m_rigidBody.constraints = RigidbodyConstraints.None;
+
+            // 回転はしない | Zの値固定
+            m_rigidBody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+
+
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
         }
 
-        if(m_inputAction.Player.SlideL.triggered)
+        Vector3 currentVel = m_rigidBody.velocity;
+        if (m_inputAction.Player.SlideL.triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Dash");
-            m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * m_dashStrength, ForceMode.Impulse);
+
+            // 横移動の速度を止める
+            currentVel.x = 0.0f;
+            m_rigidBody.velocity = currentVel;
+
+            m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f), ForceMode.VelocityChange);
             m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
         }
-        else if(m_inputAction.Player.SlideR.triggered)
+        else if (m_inputAction.Player.SlideR.triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Dash");
-            m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x, 0.0f, 0.0f) * m_dashStrength, ForceMode.Impulse);
+
+            // 横移動の速度を止める
+            currentVel.x = 0.0f;
+            m_rigidBody.velocity = currentVel;
+
+            m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f), ForceMode.VelocityChange);
             m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
         }
     }
@@ -266,8 +284,11 @@ public class CS_Player : MonoBehaviour
         if (tag == "Field")
         {
             m_isFlying = false;
+            m_rigidBody.constraints |= RigidbodyConstraints.FreezePositionY;
             m_animator.Play("Running", 0, 0.0f);    // 最初から
         }
+
+        Debug.Log(tag);
 
         // ダメージを受け付ける状態か
         if (!m_damaged)
