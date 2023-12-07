@@ -67,7 +67,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 186
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -1131,8 +1131,6 @@ Transform:
   - {fileID: 690876402179218278}
   - {fileID: 6704041276679485523}
   - {fileID: 3857996097744220352}
-  - {fileID: 7772751850042085527}
-  - {fileID: 4344249263181870424}
   - {fileID: 2145409605089905518}
   - {fileID: 6127766710382121391}
   - {fileID: 4053254634934646129}
@@ -7188,7 +7186,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7772751850042085527}
   m_Father: {fileID: 7007513885460811262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3652083883311395978
@@ -7978,7 +7977,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7007513885460811262}
+  m_Father: {fileID: 7772751850042085527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8746889009073999483
 MeshFilter:
@@ -8439,6 +8438,7 @@ MonoBehaviour:
   - {fileID: 4412094488351319529}
   - {fileID: 7344076919902859034}
   - {fileID: 4412094488351319529}
+  _player: {fileID: 6507343208830028189}
 --- !u!1 &4989833136554163735
 GameObject:
   m_ObjectHideFlags: 0
@@ -10643,7 +10643,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6011862504326321993}
-  m_Father: {fileID: 7007513885460811262}
+  - {fileID: 4344249263181870424}
+  m_Father: {fileID: 3857996097744220352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5443567255036937658
 Rigidbody:
@@ -10718,6 +10719,7 @@ MonoBehaviour:
   m_brain: {fileID: 4860011021048108540}
   m_mainGameCameraManager: {fileID: 5787186835757619923}
   m_perfectTimeRange: 0.198
+  _spinEffectPrefab: {fileID: 0}
   m_perfectEffectObject: {fileID: 7152795781553464957, guid: deb3f02673cd29642bfa1fbf495ea08a, type: 3}
   _playerModel: {fileID: 6465569013431668570}
   m_isFlying: 0
@@ -11203,8 +11205,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8368384751799480597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: -0, z: -0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 100, z: -200}
+  m_LocalRotation: {x: 0.09311542, y: -0.37298977, z: 0.11192683, w: -0.9163408}
+  m_LocalPosition: {x: -1322, y: -5088, z: -1905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

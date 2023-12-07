@@ -37,8 +37,8 @@ public class OpeningMovieManager : MonoBehaviour
         _friend.Ate(_friend.transform, _enemyMouthTransform);
         await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         _fade.FadeIn(0.5f);
-        //Destroy(_friend);
         await UniTask.Delay(TimeSpan.FromSeconds(3.0f));
+        Destroy(_friend);
         _fade.FadeOut(2.0f);
         await UniTask.Delay(TimeSpan.FromSeconds(6.0f));
         _fade.FadeIn(2.0f);

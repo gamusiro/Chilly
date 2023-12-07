@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameCameraPhaseManager : CameraPhaseManager
 {
+    [SerializeField] private CS_Player _player;
     private float _elapsedTime = 0.0f;
 
     private async void Start()
@@ -31,6 +32,6 @@ public class GameCameraPhaseManager : CameraPhaseManager
         _virtualCamera[_cameraIndex].Priority = 1;
 
         // ‘€ìƒJƒƒ‰‚Ìİ’è
-        CS_MoveController.GetObject("Player").GetComponent<CS_Player>().SetUsingCamera();
+        _player.SetUsingCamera();
     }
 }

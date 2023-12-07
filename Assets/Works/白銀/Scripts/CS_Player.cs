@@ -59,6 +59,9 @@ public class CS_Player : MonoBehaviour
     [Range(0.1f, 1.0f)]
     float m_perfectTimeRange;
 
+    [Header("スピンエフェクト")]
+    [SerializeField] private SpinEffect _spinEffectPrefab;
+
    // [SerializeField, CustomLabel("後ろから")]
    // CS_EnemyAttackFromEnemy m_enemyAttackFromEnemy;
 
@@ -168,14 +171,18 @@ public class CS_Player : MonoBehaviour
 
         transform.localEulerAngles = rotate;
 
+        //スピン
         if (Input.GetKeyDown(KeyCode.V))
         {
-            Vector3 modelRotate = _playerModel.transform.eulerAngles;
-            modelRotate.y = 360+180;
-            _playerModel.transform.DORotate(modelRotate, 3.0f, RotateMode.FastBeyond360)
+            _playerModel.transform.DOComplete();
+            Vector3 modelRotate = Vector3.zero;
+            modelRotate.y = 360.0f+180.0f;
+            var tweener=_playerModel.transform.DOLocalRotate(modelRotate, 0.5f, RotateMode.FastBeyond360)
                 .OnComplete(() => _isRotate = false)
                 .SetLink(this.gameObject);
             _isRotate = true;
+
+            Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
         }
 
         // ジャンプ

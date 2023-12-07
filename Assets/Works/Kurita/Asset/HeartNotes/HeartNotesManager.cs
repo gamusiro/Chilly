@@ -29,7 +29,7 @@ public class HeartNotesManager : CS_LoadNotesFile
             createPos.x = -60.0f + info.lane * 30.0f;
             float time = info.time - CS_AudioManager.Instance.TimeBGM;
             createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);
-            createPos.y = 1.0f;
+            createPos.y = 11.0f;
             createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f - 10.0f;//(è≠ÇµéËëOÇ…íuÇ≠)
 
             //ê∂ê¨Ç∑ÇÈ

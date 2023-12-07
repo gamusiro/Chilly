@@ -32,7 +32,7 @@ public class Lyric : ScreenTextParent
         _alpha = _panelImage.color.a;//濃くしたときの色
         float alpha = 0.0f;
         float time = 0.0f;
-        _panelImage.DOFade(alpha, time) ;
+        _panelImage.DOFade(alpha, time).SetLink(this.gameObject) ;
 
         //会話開始
         foreach (var conversationInfo in _conversationInfoList) { Draw(conversationInfo); }
@@ -52,14 +52,14 @@ public class Lyric : ScreenTextParent
             float alpha = _alpha;
             float time = 0.0f;
             _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
-            TextPanel.Show();
+            //TextPanel.Show();
         }
         else
         {
             float alpha = 0.0f;
             float time = 0.0f;
             _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
-            TextPanel.Show();
+            //TextPanel.Show();
         }
     }
 }

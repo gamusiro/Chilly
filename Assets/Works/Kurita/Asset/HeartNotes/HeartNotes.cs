@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
+using Cysharp.Threading.Tasks;
 
 public class HeartNotes : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class HeartNotes : MonoBehaviour
 
     private bool m_getted;
     private float m_work;
+    private float _time;
+    private bool _canFade;
+
+    [SerializeField] private MeshRenderer _renderer; 
 
     /// <summary>
     /// 初期化処理
@@ -24,7 +30,9 @@ public class HeartNotes : MonoBehaviour
     void Start()
     {
         m_work = 0.0f;
-
+        _time = 0.0f;
+        _canFade = true;
+        m_getted = false;
         m_rootRight = new Vector3(200.0f, 100.0f, 0.0f);
         m_rootLeft = new Vector3(-200.0f, 100.0f, 0.0f);
     }
@@ -46,8 +54,24 @@ public class HeartNotes : MonoBehaviour
 
             gameObject.transform.localPosition = c;
 
-            if(m_work >= 1.0f)
+            if (m_work >= 1.0f)
                 Destroy(gameObject);
+        }
+        else
+        {
+            //n秒後にフェード開始
+            if (_time > 2.0f && _canFade)
+            {
+                _canFade = false;
+                _renderer.material.DOFade(0.0f, 1.0f)
+                    .OnComplete(() => { Destroy(this.gameObject);})
+                    .SetLink(this.gameObject);
+            }
+            else
+            {
+                float speed = 1.0f;
+                _time += Time.deltaTime * speed;
+            }
         }
     }
 
@@ -57,29 +81,33 @@ public class HeartNotes : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {
-        //プレイヤーがスピンしていなければ返る
-        if (!_player.GetSpin())
-            return;
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    //プレイヤーがスピンしていなければ返る
+        //    if (!_player.GetSpin())
+        //        return;
 
-        if (other.gameObject.tag == "Player")
-        {
-            gameObject.transform.parent = other.gameObject.transform.parent;
+        //    gameObject.transform.parent = other.gameObject.transform.parent;
 
-            // 経由するルートを確定する
-            if (gameObject.transform.position.x > 0)
-                m_useRoot = m_rootRight;
-            else
-                m_useRoot = m_rootLeft;
+        //    // 経由するルートを確定する
+        //    if (gameObject.transform.position.x > 0)
+        //        m_useRoot = m_rootRight;
+        //    else
+        //        m_useRoot = m_rootLeft;
 
-            m_getted = true;
-            gameObject.transform.localPosition = other.gameObject.transform.localPosition;
+        //    m_getted = true;
+        //    gameObject.transform.localPosition = other.gameObject.transform.localPosition;
 
-            m_enemyObject = CS_MoveController.GetObject("GameEnemy");
-            m_cameraObject = m_mainGameCameraManager.GetCurCamera();
-        }
+        //    m_enemyObject = CS_MoveController.GetObject("GameEnemy");
+        //    m_cameraObject = m_mainGameCameraManager.GetCurCamera();
+        //}
 
         if (other.gameObject.tag == "GameEnemy")
         {
+            float time = 0.3f;
+            float alpha = 1.0f;
+            m_cameraObject.transform.DOShakePosition(time, new Vector3(alpha, alpha, alpha));
+            m_cameraObject.transform.DOShakeRotation(time, new Vector3(alpha, alpha, alpha));
             Destroy(this.gameObject);
         }
     }
@@ -90,12 +118,12 @@ public class HeartNotes : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionStay(Collision collision)
     {
-        //プレイヤーがスピンしていなければ返る
-        if (!_player.GetSpin())
-            return;
-
         if (collision.gameObject.tag == "Player")
         {
+            //プレイヤーがスピンしていなければ終了
+            if (!_player.GetSpin())
+                goto end;
+
             gameObject.transform.parent = collision.gameObject.transform.parent;
 
             // 経由するルートを確定する
@@ -110,12 +138,17 @@ public class HeartNotes : MonoBehaviour
             m_enemyObject = CS_MoveController.GetObject("GameEnemy");
             m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
+    end:;
 
-        if (collision.gameObject.tag == "GameEnemy")
-        {
-            Debug.Log("このオブジェクトは消されました");
-            Destroy(this.gameObject);
-        }
+        //if (collision.gameObject.tag == "GameEnemy")
+        //{
+        //    float time = 0.3f;
+        //    m_cameraObject.transform.DOShakePosition(time, new Vector3(1.0f, 1.0f, 1.0f));
+        //    m_cameraObject.transform.DOShakeRotation(time, new Vector3(1.0f, 1.0f, 1.0f));
+
+        //    //setolinkをこのオブjレクト以外にする
+        //    Destroy(this.gameObject);
+        //}
     }
 
     public void SetMainGameCameraManager(CameraPhaseManager cameraManager)

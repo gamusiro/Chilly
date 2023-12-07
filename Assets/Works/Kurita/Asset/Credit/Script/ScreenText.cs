@@ -4,9 +4,11 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class ScreenText : ScreenTextParent
 {
+    [SerializeField] private TextPanel _textPanel;
     [SerializeField] private List<CreditInfo> _creditInfoList = new();
     private float _time = 0.0f;
 
@@ -40,12 +42,16 @@ public class ScreenText : ScreenTextParent
         //文字のフェードイン
         await UniTask.WaitUntil(() => _time > creditInfo.StartTime);
         alpha = 1.0f;
-        creditInfo.TMP.DOFade(alpha, fadeTime).SetLink(gameObject);
+        creditInfo.TMP.DOFade(alpha, fadeTime)
+            .SetLink(gameObject);
+        _textPanel.Show();//テキストパネルの表示
 
         //文字のフェードアウト
         await UniTask.WaitUntil(() => _time > creditInfo.StartTime + creditInfo.DisplayTime);
         alpha = 0.0f;
-        creditInfo.TMP.DOFade(alpha, fadeTime).SetLink(gameObject);
+        creditInfo.TMP.DOFade(alpha, fadeTime)
+            .OnComplete(_textPanel.Hide)
+            .SetLink(gameObject);
     }
 
     private void FixedUpdate()

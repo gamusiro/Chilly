@@ -6,24 +6,24 @@ using DG.Tweening;
 
 public class TextPanel : MonoBehaviour
 {
-    [SerializeField] private static Image _panelImage;
+    [SerializeField] private Image _panelImage;
 
     void Start()
     {
         Hide();
     }
 
-    public static void Show()
+    public void Show()
     {
-        float alpha = 1.0f;
-        float time = 0.0f;
-        _panelImage.DOFade(alpha, time);
+        float alpha = 0.2f;
+        float time = 1.0f;
+        _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
     }
 
-    public static void Hide()
+    public void Hide()
     {
         float alpha = 0.0f;
-        float time = 0.0f;
-        _panelImage.DOFade(alpha, time);
+        float time = 1.0f;
+        _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
     }
 }
