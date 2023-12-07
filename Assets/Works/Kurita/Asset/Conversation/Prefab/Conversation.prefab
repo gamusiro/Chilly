@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263774648237917559}
+  - component: {fileID: 7104650003273261549}
   - component: {fileID: 8332902919028366279}
   - component: {fileID: 4615300408198053903}
   - component: {fileID: 7093364375700406459}
-  - component: {fileID: 7104650003273261549}
   m_Layer: 5
   m_Name: Conversation
   m_TagString: Untagged
@@ -41,6 +41,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &7104650003273261549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425890542201134432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5039b51716312754f9138793df26a6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameTMP: {fileID: 6837250666381769146}
+  _contentTMP: {fileID: 9221470515435029347}
+  _conversationInfoList:
+  - Name: ???
+    Content: MATEEEEEEEEE
+    StartTime: 9
+    DisplayTime: 4
+  - Name: TOMODACHI
+    Content: YADAAAAAAAAAAA
+    StartTime: 13.5
+    DisplayTime: 3
+  - Name: ???
+    Content: JA  ITADAKIMASU
+    StartTime: 17
+    DisplayTime: 5
+  - Name: ???
+    Content: TSUGIHA OMAEDA
+    StartTime: 26
+    DisplayTime: 3
 --- !u!223 &8332902919028366279
 Canvas:
   m_ObjectHideFlags: 0
@@ -104,37 +135,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7104650003273261549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425890542201134432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5039b51716312754f9138793df26a6b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nameTMP: {fileID: 6837250666381769146}
-  _contentTMP: {fileID: 9221470515435029347}
-  _conversationInfoList:
-  - Name: ???
-    Content: MATEEEEEEEEE
-    StartTime: 9
-    DisplayTime: 4
-  - Name: TOMODACHI
-    Content: YADAAAAAAAAAAA
-    StartTime: 13.5
-    DisplayTime: 3
-  - Name: ???
-    Content: JA  ITADAKIMASU
-    StartTime: 17
-    DisplayTime: 5
-  - Name: ???
-    Content: TSUGIHA OMAEDA
-    StartTime: 26
-    DisplayTime: 3
 --- !u!1 &5456198608504642369
 GameObject:
   m_ObjectHideFlags: 0

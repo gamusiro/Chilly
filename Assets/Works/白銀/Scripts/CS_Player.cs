@@ -59,12 +59,19 @@ public class CS_Player : MonoBehaviour
     [Range(0.1f, 1.0f)]
     float m_perfectTimeRange;
 
-    [SerializeField, CustomLabel("後ろから")]
-    CS_EnemyAttackFromEnemy m_enemyAttackFromEnemy;
+    [Header("スピンエフェクト")]
+    [SerializeField] private SpinEffect _spinEffectPrefab;
+
+   // [SerializeField, CustomLabel("後ろから")]
+   // CS_EnemyAttackFromEnemy m_enemyAttackFromEnemy;
 
     [Header("エフェクトオブジェクト")]
     [SerializeField, CustomLabel("パーフェクトタイミングエフェクト")]
     GameObject m_perfectEffectObject;
+
+    [Header("プレイヤーモデル")]
+    [SerializeField, CustomLabel("プレイヤーモデル")]
+    private GameObject _playerModel;
 
     #endregion
 
@@ -97,6 +104,9 @@ public class CS_Player : MonoBehaviour
     // 最後にジャンプした時刻
     float m_timeLastJumped;
 
+    //回転フラグ
+    private bool _isRotate;
+
     #endregion
 
     #region 公開用変数
@@ -125,6 +135,7 @@ public class CS_Player : MonoBehaviour
         m_isFlying = false;
         m_damaged = false;
         m_degree = 0.0f;
+        _isRotate = false;
     }
 
     /// <summary>
@@ -160,36 +171,50 @@ public class CS_Player : MonoBehaviour
 
         transform.localEulerAngles = rotate;
 
+        //スピン
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            _playerModel.transform.DOComplete();
+            Vector3 modelRotate = Vector3.zero;
+            modelRotate.y = 360.0f+180.0f;
+            var tweener=_playerModel.transform.DOLocalRotate(modelRotate, 0.5f, RotateMode.FastBeyond360)
+                .OnComplete(() => _isRotate = false)
+                .SetLink(this.gameObject);
+            _isRotate = true;
+
+            Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
+        }
+
         // ジャンプ
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
-            float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
+           // float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
 
-            // 後ろからのタイミング(perfectTiming)
-            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
-            {
-                GameObject obj = Instantiate(m_perfectEffectObject);
-                obj.transform.parent = transform;
+            //// 後ろからのタイミング(perfectTiming)
+            //if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
+            //{
+            //    GameObject obj = Instantiate(m_perfectEffectObject);
+            //    obj.transform.parent = transform;
 
-                Vector3 localPos = transform.localPosition;
-                localPos.y = 0.0f;
-                obj.transform.localPosition = Vector3.zero;
-                obj.transform.localScale = new Vector3(3.0f, 2.0f, 3.0f);
+            //    Vector3 localPos = transform.localPosition;
+            //    localPos.y = 0.0f;
+            //    obj.transform.localPosition = Vector3.zero;
+            //    obj.transform.localScale = new Vector3(3.0f, 2.0f, 3.0f);
 
-                // エフェクトの再生
-                foreach (ParticleSystem ps in obj.GetComponentsInChildren<ParticleSystem>())
-                    ps.Play();
+            //    // エフェクトの再生
+            //    foreach (ParticleSystem ps in obj.GetComponentsInChildren<ParticleSystem>())
+            //        ps.Play();
 
-                CS_AudioManager.Instance.PlayAudio("PerfectJump");
+            //    CS_AudioManager.Instance.PlayAudio("PerfectJump");
 
-                Destroy(obj, 1.0f);
-            }
-            else
-            {
-                // 通常ジャンプ
-                CS_AudioManager.Instance.PlayAudio("Jump");
-                m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
-            }
+            //    Destroy(obj, 1.0f);
+            //}
+            //else
+            //{
+            //    // 通常ジャンプ
+            //    CS_AudioManager.Instance.PlayAudio("Jump");
+            //    m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+            //}
                 
             m_isFlying = true;
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
@@ -301,5 +326,10 @@ public class CS_Player : MonoBehaviour
     public bool IsDashing
     {
         get { return Mathf.Abs(m_rigidBody.velocity.x) > 0.0f; }
+    }
+
+    public bool GetSpin()
+    {
+        return _isRotate;
     }
 }

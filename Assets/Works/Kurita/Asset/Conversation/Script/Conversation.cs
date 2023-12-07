@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class Conversation : ScreenTextParent
 {
+    [SerializeField] private TextPanel _textPanel;
     [SerializeField] private TMPro.TextMeshProUGUI _nameTMP;//名前を表示するTMP
     [SerializeField] private TMPro.TextMeshProUGUI _contentTMP;//会話分を表示するTMP
     [SerializeField] private List<ConversationInfo> _conversationInfoList = new();
@@ -35,16 +36,12 @@ public class Conversation : ScreenTextParent
 
     private async void Draw(ConversationInfo conversationInfo)
     {
-        ////経過時間
-        //await UniTask.WaitForFixedUpdate();
-        //_time += Time.deltaTime;
-
-        //文字の表示を開始
+        //指定した時間まで待機
         await UniTask.WaitUntil(() => _time > conversationInfo.StartTime);
 
-        //名前の表示
-        _nameTMP.text = conversationInfo.Name;
+        _textPanel.Show();//テキストパネルの表示
 
+        _nameTMP.text = conversationInfo.Name;//名前の表示
 
         //会話文の表示
         float timeSpan = 0.5f;
@@ -52,32 +49,22 @@ public class Conversation : ScreenTextParent
         string content = conversationInfo.Content;
         int len = 0;
 
-        //文字の表示
         while (len <= content.Length)
         {
-            //文字を表示する
             _contentTMP.text = content.Substring(0, len);
             len++;
 
             //n秒ごとに文字が表示されていく
             timeSpan = 1.0f / content.Length;
             await UniTask.Delay(TimeSpan.FromSeconds(timeSpan));
-
-            Debug.Log("aa");
         }
 
-        //これあまりよろしくない。
-        while (true)
-        {
-            //文字を表示し終わる
-            if (_time > conversationInfo.StartTime + conversationInfo.DisplayTime)
-            {
-                _nameTMP.text = null;
-                _contentTMP.text = null;
-                return;
-            }
-            await UniTask.WaitForFixedUpdate();
-        }
+        //表示の終了
+        await UniTask.WaitUntil(()=> _time > conversationInfo.StartTime + conversationInfo.DisplayTime);
+        _nameTMP.text = null;
+        _contentTMP.text = null;
+
+        _textPanel.Show();//テキストパネルの非表示
     }
 
     private void FixedUpdate()
@@ -88,7 +75,7 @@ public class Conversation : ScreenTextParent
 
 //会話情報リスト
 [Serializable]
-public class ConversationInfo
+public class ConversationInfo 
 {
     [CustomLabel("名前")]
     public string Name;

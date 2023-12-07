@@ -22,7 +22,7 @@ public abstract class AbstractFriend : MonoBehaviour
         while (true)
         {
             float speed = 10.0f;
-            float range = 0.2f;
+            float range = 0.04f;
             Vector3 scale;
             scale.x = standardScale.x + Mathf.Sin(Time.time * speed) * range;
             scale.y = standardScale.y + Mathf.Cos(Time.time * speed) * range;

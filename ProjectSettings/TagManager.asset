@@ -10,6 +10,8 @@ TagManager:
   - Bell
   - JumpRamp
   - Scattering
+  - GameEnemy
+  - HeartNotes
   layers:
   - Default
   - TransparentFX
