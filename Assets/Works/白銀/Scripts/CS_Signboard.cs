@@ -5,14 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-[Serializable]
-class SignBoardData
-{
-    public Material m_material;
-    public float    m_changeTime;
-}
-
-
 public class CS_Signboard : MonoBehaviour
 {
     // ステート状態
@@ -29,14 +21,18 @@ public class CS_Signboard : MonoBehaviour
     [SerializeField, CustomLabel("初期スケール")]
     Vector3 m_startScale;
 
+    // 最期スケール
+    [SerializeField, CustomLabel("最期スケール")]
+    Vector3 m_endScale;
+
     // 破棄するまでの時間
     [SerializeField, CustomLabel("消える時間")]
     [Range(1.0f, 10.0f)]
     float m_workOffTime;
 
-    // 看板用マテリアルデータ
-    [SerializeField, CustomLabel("チュートリアル看板データ")]
-    List<SignBoardData> m_boardDatasList;
+    // 看板が大きくなるタイミング
+    [SerializeField, CustomLabel("看板のスケール変更開始時間")]
+    float m_setTime = 8.0f;
 
     #endregion
 
@@ -45,9 +41,6 @@ public class CS_Signboard : MonoBehaviour
     // 遅延タイム
     const float c_delayTime = 1.0f;
 
-    // 使用したデータの数
-    int m_usedCount;
-
     // ワーク変数
     float m_tmp;
     float m_rad;
@@ -55,14 +48,9 @@ public class CS_Signboard : MonoBehaviour
     // 初期位置を取得
     Vector3 m_originLocalPosition;
 
-    // 初期スケールを取得
-    Vector3 m_baseScale;
-
     // ステート状態
     STATE m_state;
-
-    // レンダラーの取得
-    Renderer m_renderer;
+    bool m_startChange;
 
     #endregion
 
@@ -74,32 +62,20 @@ public class CS_Signboard : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_usedCount = 0;
-
-        // 看板データがなければ即座に破棄
-        if(m_boardDatasList.Count == 0)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        // レンダラーの取得
-        m_renderer = transform.Find("Screen").gameObject.GetComponent<Renderer>();
-        m_renderer.material = m_boardDatasList[0].m_material;
-
         // ローカル座標を取得
         m_originLocalPosition = transform.localPosition;
 
         // スケールの取得・変更
-        m_baseScale = transform.localScale;
         transform.localScale = m_startScale;
+
+        Debug.Log(m_startScale);
 
         // 補間変数
         m_rad = 0.0f;
         m_tmp = 0.0f;
 
         // 状態を呼び出すまで
-        Invoke(nameof(SetStateExpand), 8.0f);
+        Invoke(nameof(SetStateExpand), m_setTime);
     }
 
     /// <summary>
@@ -107,27 +83,6 @@ public class CS_Signboard : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // 縮小中なら戻る
-        if (m_state == STATE.SHRINK)
-            return;
-
-        // 現在のオーディオタイムを取得
-        float currentlyAudioTime = CS_AudioManager.Instance.TimeBGM;
-
-        // マテリアルを切り替えるタイミングであれば
-        if(currentlyAudioTime >= m_boardDatasList[m_usedCount].m_changeTime)
-        {
-            // シュリンクを呼び出す
-            if ((m_usedCount + 1) >= m_boardDatasList.Count)
-            {
-                SetStateShrink();
-                return;
-            }
-
-            // マテリアルを変更
-            m_renderer.material = m_boardDatasList[m_usedCount].m_material;
-            m_usedCount++;
-        }
     }
 
     /// <summary>
@@ -146,9 +101,9 @@ public class CS_Signboard : MonoBehaviour
 
                     // スケールの計算
                     Vector3 localScale = transform.localScale;
-                    localScale.x = Mathf.Lerp(m_startScale.x, m_baseScale.x, Mathf.Clamp01(m_tmp - c_delayTime));
-                    localScale.y = Mathf.Lerp(m_startScale.y, m_baseScale.y, Mathf.Clamp01(m_tmp));
-                    localScale.z = Mathf.Lerp(m_startScale.z, m_baseScale.z, Mathf.Clamp01(m_tmp - c_delayTime));
+                    localScale.x = Mathf.Lerp(m_startScale.x, m_endScale.x, Mathf.Clamp01(m_tmp - c_delayTime));
+                    localScale.y = Mathf.Lerp(m_startScale.y, m_endScale.y, Mathf.Clamp01(m_tmp));
+                    localScale.z = Mathf.Lerp(m_startScale.z, m_endScale.z, Mathf.Clamp01(m_tmp - c_delayTime));
 
                     // スケールの設定
                     transform.localScale = localScale;
@@ -164,7 +119,7 @@ public class CS_Signboard : MonoBehaviour
                     m_tmp += Time.deltaTime;
 
                     // スケールの計算
-                    Vector3 perScale = m_baseScale / m_workOffTime;
+                    Vector3 perScale = m_endScale / m_workOffTime;
 
                     // スケールの設定
                     transform.localScale = perScale * (m_workOffTime - m_tmp);
@@ -196,14 +151,23 @@ public class CS_Signboard : MonoBehaviour
     {
         m_tmp = 0.0f;
         m_state = STATE.EXPAND;
+        m_startChange = true;
+
+        // 縦に広がるのがわかるように少しだけ高さを与える
+        m_startScale.x = 0.01f;
     }
 
     /// <summary>
     /// 状態を切り替える
     /// </summary>
-    void SetStateShrink()
+    public void SetStateShrink()
     {
         m_tmp = 0.0f;
         m_state = STATE.SHRINK;
+    }
+
+    public bool StartTutorial()
+    {
+        return (m_state == STATE.NONE) && m_startChange;
     }
 }
