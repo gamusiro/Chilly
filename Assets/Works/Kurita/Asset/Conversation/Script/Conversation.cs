@@ -31,10 +31,10 @@ public class Conversation : ScreenTextParent
         _contentTMP.text = null;
 
         //会話開始
-        foreach (var conversationInfo in _conversationInfoList) { Draw(conversationInfo); }
+        foreach (var conversationInfo in _conversationInfoList) { Display(conversationInfo); }
     }
 
-    private async void Draw(ConversationInfo conversationInfo)
+    private async void Display(ConversationInfo conversationInfo)
     {
         //指定した時間まで待機
         await UniTask.WaitUntil(() => _time > conversationInfo.StartTime);

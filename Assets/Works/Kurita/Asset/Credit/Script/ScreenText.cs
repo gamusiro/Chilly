@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class ScreenText : ScreenTextParent
 {
     [SerializeField] private TextPanel _textPanel;
-    [SerializeField] private List<CreditInfo> _creditInfoList = new();
+    [SerializeField] private TMPro.TextMeshProUGUI _contentTMP;//文字を表示するTMP
+    [SerializeField] private List<ScreenTextInfo> _screenTextInfoList = new();
     private float _time = 0.0f;
 
     private void Start()
@@ -20,7 +21,7 @@ public class ScreenText : ScreenTextParent
     private void Text()
     {
         //ヌルチェック
-        if (_creditInfoList.Count == 0)
+        if (_screenTextInfoList.Count == 0)
         {
             Debug.LogWarning("クレジットリストが空です");
             return;
@@ -28,29 +29,30 @@ public class ScreenText : ScreenTextParent
 
         //初期化
         float alpha = 0.0f;
-        foreach (var creditInfo in _creditInfoList){ creditInfo.TMP.alpha = alpha; }
+        foreach (var screenText in _screenTextInfoList){ _contentTMP.alpha = alpha; }
 
         //クレジット表示
-        foreach (var creditInfo in _creditInfoList){ Draw(creditInfo); }
+        foreach (var screenText in _screenTextInfoList){ Display(screenText); }
     }
 
-    private async void Draw(CreditInfo creditInfo)
+    private async void Display(ScreenTextInfo screenText)
     {
         float fadeTime = 0.5f;
         float alpha;
 
         //文字のフェードイン
-        await UniTask.WaitUntil(() => _time > creditInfo.StartTime);
-        alpha = 1.0f;
-        creditInfo.TMP.DOFade(alpha, fadeTime)
+        await UniTask.WaitUntil(() => _time > screenText.StartTime);
+        _contentTMP.text = screenText.Content;//表示内容を更新
+        alpha = 1.0f;//フェードの設定
+        _contentTMP.DOFade(alpha, fadeTime)
             .SetLink(gameObject);
         _textPanel.Show();//テキストパネルの表示
 
         //文字のフェードアウト
-        await UniTask.WaitUntil(() => _time > creditInfo.StartTime + creditInfo.DisplayTime);
+        await UniTask.WaitUntil(() => _time > screenText.StartTime + screenText.DisplayTime);
         alpha = 0.0f;
-        creditInfo.TMP.DOFade(alpha, fadeTime)
-            .OnComplete(_textPanel.Hide)
+        _contentTMP.DOFade(alpha, fadeTime)
+           // .OnComplete(_textPanel.Hide)
             .SetLink(gameObject);
     }
 
@@ -62,12 +64,14 @@ public class ScreenText : ScreenTextParent
 
 //会話情報リスト
 [Serializable]
-public class CreditInfo
+public class ScreenTextInfo
 {
-    [CustomLabel("文字を表示するTMP")]
-    public TMPro.TextMeshProUGUI TMP;
+    [CustomLabel("表示内容"), TextArea]
+    public string Content;
     [CustomLabel("表示開始時間")]//(Instance生成から計測)
     public float StartTime;
     [CustomLabel("表示時間")]
     public float DisplayTime;
 }
+
+//インスタンシエイト
