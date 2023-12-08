@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class OpeningFriend : AbstractFriend
 {
-
     private float _time = 0.0f;
 
     void Start()
@@ -19,12 +19,9 @@ public class OpeningFriend : AbstractFriend
     {
         //à⁄ìÆ
         _time = 0.0f;
-       
-        while (true)
-        {
-            if (this.transform == null) 
-                return;
 
+        while (true) 
+        {
             //ãzÇ¢çûÇ‹ÇÍÇÈ
             this.transform.position = Vector3.Lerp(start.position, end.position, _time * 0.1f);
 
@@ -35,6 +32,13 @@ public class OpeningFriend : AbstractFriend
             await UniTask.Delay(1);
             _time += Time.deltaTime;
             Mathf.Clamp(_time, 0.0f, 1.0f);
+
+            if (_destroyFlag == true)
+            {
+                if (this.gameObject)
+                    Destroy(this.gameObject);
+                return;
+            }
         }
     }
 

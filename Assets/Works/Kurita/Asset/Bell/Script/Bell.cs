@@ -10,16 +10,19 @@ public class Bell : MonoBehaviour
     [SerializeField] private GameObject _root;
     private bool RingFlag = false;
     private float radian = 0.0f;
+    [SerializeField] private AudioClip SE;
+    private AudioSource _audioSource;
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         Ring();
     }
 
     private async void Ring()
     {
         await UniTask.WaitUntil(() => RingFlag);
-
+        _audioSource.PlayOneShot(SE);
         while (true)
         {
             //ƒxƒ‹‚ð—h‚ç‚·

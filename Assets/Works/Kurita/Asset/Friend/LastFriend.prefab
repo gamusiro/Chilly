@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4499900680660657840, guid: 41bd600f8c756054c812971775d97349, type: 3}
+      propertyPath: m_Name
+      value: Light
+      objectReference: {fileID: 0}
     - target: {fileID: 7530317508815559573, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_Name
-      value: LastFriend Variant
+      value: LastFriend
       objectReference: {fileID: 0}
     - target: {fileID: 8571161088290736215, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_LocalPosition.x

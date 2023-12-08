@@ -14,7 +14,8 @@ public class LastFriend : AbstractFriend
     private void Start()
     {
         //ˆÚ“®
-        transform.DOMove(_endPosition, _time).SetLink(gameObject);
+        transform.DOMove(_endPosition, _time)
+            .SetLink(gameObject);
 
         //‚Õ‚É‚Õ‚É
         Scale();
@@ -26,6 +27,7 @@ public class LastFriend : AbstractFriend
     protected async void Light()
     {
         await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
-        _light.transform.DOScale(new Vector3(0.0f, 0.0f, 0.0f), 2.0f).SetLink(gameObject);
+        _light.transform.DOScale(new Vector3(0.0f, 0.0f, 0.0f), 2.0f)
+            .SetLink(gameObject);
     }
 }

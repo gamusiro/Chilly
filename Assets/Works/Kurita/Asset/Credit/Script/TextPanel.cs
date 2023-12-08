@@ -10,12 +10,14 @@ public class TextPanel : MonoBehaviour
 
     void Start()
     {
-        Hide();
+        float alpha = 0.0f;
+        float time = 0.0f;
+        _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
     }
 
     public void Show()
     {
-        float alpha = 0.2f;
+        float alpha = 120.0f / 255.0f;
         float time = 1.0f;
         _panelImage.DOFade(alpha, time).SetLink(this.gameObject);
     }

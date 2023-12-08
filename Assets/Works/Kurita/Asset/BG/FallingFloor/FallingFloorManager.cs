@@ -16,8 +16,8 @@ public class FallingFloorManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_playerTransform && _fallingFloorCubeTransform && _fallingFloorLanePrefab) 
-        CreateObject("z", _playerTransform.position.z, _standardPosition.z, _fallingFloorCubeTransform.localScale.z);
+        if (_playerTransform && _fallingFloorCubeTransform && _fallingFloorLanePrefab)
+            CreateObject("z", _playerTransform.position.z, _standardPosition.z, _fallingFloorCubeTransform.localScale.z);
     }
 
     private void CreateObject(string direction, float playerPosition, float standardPosition, float fallingObjectScale)

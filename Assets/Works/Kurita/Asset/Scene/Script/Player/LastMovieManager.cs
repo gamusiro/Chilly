@@ -64,9 +64,6 @@ public class LastMovieManager : MonoBehaviour
         //óFíBê∂ê¨
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
-
-        //  await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
-       // _fade.FadeIn(3.0f);
     }
 
     private void FixedUpdate()
