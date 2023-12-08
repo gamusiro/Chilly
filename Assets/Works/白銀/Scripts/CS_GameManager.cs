@@ -32,12 +32,13 @@ public class CS_GameManager : MonoBehaviour
         //コルーチンを途中で止めてしまうためバグが起きる
         //Debug.Log("エラー箇所");
 
+        CS_AudioManager.Instance.PlayAudio("GameAudio", true);
+
         m_fade.FadeIn(m_setFadeTime,
           () =>
           {
               CS_AudioManager.Instance.MasterVolume = 1.0f;
-                CS_MoveController.MoveStart();
-                CS_AudioManager.Instance.PlayAudio("GameAudio", true);
+              CS_MoveController.MoveStart();
           });
     }
 
@@ -52,8 +53,6 @@ public class CS_GameManager : MonoBehaviour
             StateNone();
         else if (state == Fade.STATE.IN)
             StateIn();
-        //else
-          //  StateOut();
     }
 
     /// <summary>
@@ -76,12 +75,6 @@ public class CS_GameManager : MonoBehaviour
     /// フェードイン(音量の変更を行う)
     /// </summary>
     void StateIn()
-    {
-        float vol = 1.0f - m_fade.GetRange();
-        CS_AudioManager.Instance.MasterVolume = (vol);
-    }
-
-    void StateOut()
     {
         float vol = 1.0f - m_fade.GetRange();
         CS_AudioManager.Instance.MasterVolume = (vol);

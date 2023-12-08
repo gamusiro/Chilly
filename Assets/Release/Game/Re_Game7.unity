@@ -653,6 +653,22 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 8.975023
       objectReference: {fileID: 0}
+    - target: {fileID: 2945650570644449522, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945650570644449522, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: cutoutRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945650570644449522, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: maskTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 49598f91f8e481142a01124880f0ebde, type: 3}
+    - target: {fileID: 2945650570644452844, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: startFade
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3689706842553092772, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Sprite
       value: 

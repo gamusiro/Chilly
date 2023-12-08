@@ -22,7 +22,7 @@ public class OpeningMovieManager : MonoBehaviour
     [SerializeField] private Transform _enemyMouthTransform;
 
     //フェード
-    [SerializeField] private Fade _fade;
+    [SerializeField] private Fade_K _fade;
     [SerializeField] string _sceneName;
 
     private async void Start()
