@@ -20,11 +20,10 @@ public abstract class AbstractFriend : MonoBehaviour
     protected async void Scale()
     {
         var token = this.GetCancellationTokenOnDestroy();
-  
 
         standardScale = transform.localScale;
 
-        while (true)
+        while (_destroyFlag == false)
         {
             float speed = 10.0f;
             float range = 0.2f;
@@ -32,22 +31,28 @@ public abstract class AbstractFriend : MonoBehaviour
             scale.x = standardScale.x + Mathf.Sin(Time.time * speed) * range;
             scale.y = standardScale.y + Mathf.Cos(Time.time * speed) * range;
             scale.z = standardScale.z + Mathf.Sin(Time.time * speed) * range;
-            transform.localScale = scale;
+
+            if (_destroyFlag == false)
+                transform.localScale = scale;
 
             int timeSpan = 1;
-            await UniTask.Delay(timeSpan);
+            await UniTask.Delay(timeSpan, cancellationToken:token);
+
 
             if (_destroyFlag == true)
             {
                 if (this.gameObject)
+                {
                     Destroy(this.gameObject);
-                return;
+                    return;
+                }
             }
         }
     }
 
     public void SetDestroy()
     {
+        Debug.Log("ƒJƒ‚ƒ“");
         _destroyFlag = true;
     }
 }

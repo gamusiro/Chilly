@@ -17,7 +17,6 @@ public class TitleEnemy : Enemy
     //“®‚«
     protected new void Move()
     {
-        Debug.Log("a");
         float speed = 3.0f;
         float range = 3.0f;
         Vector3 position = this.transform.position;

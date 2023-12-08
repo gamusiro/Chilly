@@ -40,6 +40,10 @@ public class LastMovieManager : MonoBehaviour
     {
         //MoveObject();
 
+        CS_AudioManager.Instance.PlayAudio("Explosion", true);
+        CS_AudioManager.Instance.MasterVolume = 1.0f;
+        //_fade.FadeOut(0.5f);
+
         //ÉxÉãÇ™Ç»Çñ¬ÇÁÇ∑
         await UniTask.WaitUntil(() => _playerCS.OnBell);
         _bell.SetRing(true);
@@ -60,7 +64,16 @@ public class LastMovieManager : MonoBehaviour
         _bell.SetRing(false);
         Destroy(_phase1);
         Instantiate(_phase2);
+
+   
+
         _fade.FadeIn(0.0f);
+
+        CS_AudioManager.Instance.MasterVolume = 0.0f;
+        CS_AudioManager.Instance.StopBGM();
+        CS_AudioManager.Instance.PlayAudio("Rescue", true);
+        CS_AudioManager.Instance.MasterVolume = 1.0f;
+
         _fade.FadeOut(1.0f);
 
         //óFíBê∂ê¨
@@ -68,7 +81,13 @@ public class LastMovieManager : MonoBehaviour
         Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
 
         await UniTask.Delay(TimeSpan.FromSeconds(22.0f));
+        CS_AudioManager.Instance.MasterVolume = 0.0f;
+        CS_AudioManager.Instance.StopBGM();
         SceneManager.LoadScene(_nextScene);
+    }
+
+    private void Update()
+    {
     }
 
     private void FixedUpdate()
