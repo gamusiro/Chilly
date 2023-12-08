@@ -101,8 +101,6 @@ public class CS_TitleManager : MonoBehaviour
                     // ここは無駄な機能なので時間あるとき実装
                     //m_menuTakePanel.SetActive(true);
                     //MenuTakeUpdate();
-
-                    
                     break;
             }
         } 
@@ -145,9 +143,9 @@ public class CS_TitleManager : MonoBehaviour
     /// </summary>
     void FirstTakeUpdate()
     {
-        m_take = TAKE.MENU;
-        m_firstTakePanel.SetActive(false);
-        m_menuTakePanel.SetActive(true);
+        //m_take = TAKE.MENU;
+        //m_firstTakePanel.SetActive(false);
+        //m_menuTakePanel.SetActive(true);
 
         // 今はゲームシーンに直移動
         NextScene();

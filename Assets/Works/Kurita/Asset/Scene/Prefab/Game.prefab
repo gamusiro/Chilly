@@ -1710,10 +1710,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_endScale: {x: 0, y: 0, z: 0}
   m_workOffTime: 2
-  m_boardDatasList:
-  - m_material: {fileID: 2100000, guid: f515e5afd80c0e24784327fb944e8e39, type: 2}
-    m_changeTime: 14
+  m_setTime: 8
 --- !u!1 &2740175089984470735
 GameObject:
   m_ObjectHideFlags: 0
