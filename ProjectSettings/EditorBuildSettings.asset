@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Release/Title/Re_Title.unity
-    guid: d3b4725ebed079d45950e9935fc0414c
-  - enabled: 0
-    path: Assets/Release/Game/Re_Game4.unity
-    guid: 4096967f8924bd84899d60cec7450215
+  - enabled: 1
+    path: Assets/Release/Title/Re_Title1.unity
+    guid: c43e7bf106a3c8a4bb3591bc23d0e348
+  - enabled: 1
+    path: Assets/Release/Opening/Re_Opening.unity
+    guid: f35645ee02d89474c955e6891fa51262
+  - enabled: 1
+    path: Assets/Release/Game/Re_Game7.unity
+    guid: acd5d2920a18bca4c89d52f4243d33c6
+  - enabled: 1
+    path: Assets/Release/Ending/Re_Ending.unity
+    guid: 86a589c972bbdda4c8d0429a9593c6c7
   m_configObjects: {}

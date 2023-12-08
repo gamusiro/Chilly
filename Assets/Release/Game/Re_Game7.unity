@@ -693,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Priority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4588240131919820404, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -849,6 +853,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1423320757, guid: a7458ab0d20f4714d82e744548259b59, type: 3}
+    - target: {fileID: 6866188887831853807, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_nextSceneName
+      value: Re_Ending
+      objectReference: {fileID: 0}
     - target: {fileID: 7045144039237818124, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5

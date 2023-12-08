@@ -230,6 +230,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
+      propertyPath: m_sceneName
+      value: Re_Opening
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_menuTakePanel
       value: 
       objectReference: {fileID: 1046630045}

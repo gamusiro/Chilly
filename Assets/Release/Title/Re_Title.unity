@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1328036101058930966, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
+      propertyPath: m_sePack.Array.data[5].m_volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1724021515713868118, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -258,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_sceneName
-      value: Re_Game4
+      value: Re_Opening
       objectReference: {fileID: 0}
     - target: {fileID: 7794121249346724646, guid: ec7ff78e88986e24391c727eb3db117d, type: 3}
       propertyPath: m_menuTakePanel

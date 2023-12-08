@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using System;
+using UnityEngine.SceneManagement;
 
 public class OpeningMovieManager : MonoBehaviour
 {
@@ -22,9 +23,13 @@ public class OpeningMovieManager : MonoBehaviour
 
     //フェード
     [SerializeField] private Fade_K _fade;
+    [SerializeField] string _sceneName;
 
     private async void Start()
     {
+        CS_AudioManager.Instance.MasterVolume = 1.0f;
+        CS_AudioManager.Instance.PlayAudio("Opening", true);
+
         //初期化
         _ateParticle.Stop();
    
@@ -44,8 +49,10 @@ public class OpeningMovieManager : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(6.0f));
         _fade.FadeIn(2.0f);
         await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
-        //シーン遷移
 
+        //シーン遷移
+        CS_AudioManager.Instance.StopBGM();
+        SceneManager.LoadScene(_sceneName);
 
         ////ベルがなを鳴らす
         //await UniTask.WaitUntil(() => _playerCS.OnBell);

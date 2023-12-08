@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using Cysharp.Threading.Tasks;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LastMovieManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class LastMovieManager : MonoBehaviour
 
     //フェード
     [SerializeField] private Fade_K _fade;
+    [SerializeField] string _nextScene; 
 
     private async void Start()
     {
@@ -64,6 +66,9 @@ public class LastMovieManager : MonoBehaviour
         //友達生成
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
         Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(22.0f));
+        SceneManager.LoadScene(_nextScene);
     }
 
     private void FixedUpdate()

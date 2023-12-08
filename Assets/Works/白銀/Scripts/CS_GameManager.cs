@@ -30,7 +30,7 @@ public class CS_GameManager : MonoBehaviour
         //ラストシーンと合わせたい
         //そのためにはGameを削除する必要あり
         //コルーチンを途中で止めてしまうためバグが起きる
-        Debug.Log("エラー箇所");
+        //Debug.Log("エラー箇所");
 
         m_fade.FadeIn(m_setFadeTime,
           () =>
