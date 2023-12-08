@@ -4,7 +4,7 @@ using UnityEngine.Assertions;
 
 public class Fade : MonoBehaviour
 {
-    IFade fade;
+    [SerializeField] FadeImage fade;
     [SerializeField] bool startFade;
 
     STATE m_state;
@@ -15,7 +15,6 @@ public class Fade : MonoBehaviour
         IN,
         OUT
     }
-
 
     void Start()
     {
@@ -31,14 +30,13 @@ public class Fade : MonoBehaviour
         {
             cutoutRange = 1;
         }
-        fade = GetComponent<IFade>();
     }
 
-    void OnValidate()
-    {
-        Init();
-        fade.Range = cutoutRange;
-    }
+    //void OnValidate()
+    //{
+    //    Init();
+    //    fade.Range = cutoutRange;
+    //}
 
     IEnumerator FadeInCoroutine(float time, System.Action action)
     {
@@ -87,11 +85,16 @@ public class Fade : MonoBehaviour
     public Coroutine FadeIn(float time, System.Action action)
     {
         m_state = STATE.IN;
+        
 
         StopAllCoroutines();
         if (fade == null)
+        {
+            Debug.Log("フェードがないよ～:" + time);
             return null;
-
+        }
+            
+        Debug.Log("スタートフェード");
         return StartCoroutine(FadeInCoroutine(time, action));
     }
 

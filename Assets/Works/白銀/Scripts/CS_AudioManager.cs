@@ -131,6 +131,8 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmSource.playOnAwake = false;
             m_bgmSource.clip = pack.m_clip;
             m_bgmSource.volume = pack.m_volume * m_masterVolume;
+
+            Debug.Log("çƒê∂äJén");
             m_bgmSource.Play();
         }
         else
