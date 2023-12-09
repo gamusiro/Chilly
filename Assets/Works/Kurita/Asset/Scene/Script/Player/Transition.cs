@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 
 public class Transition : MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class Transition : MonoBehaviour
 
     private async void Start()
     {
-      //  GameObject game = Instantiate(GameInstance, Vector3.zero, Quaternion.identity);//ゲームシーンを生成
-        await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= _transTime);
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
+        await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= _transTime, cancellationToken: token);
         Destroy(GameInstance);//ゲームシーンを削除
         Instantiate(LastPrefab, Vector3.zero, Quaternion.identity);//ラストシーンを生成
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
+using System.Threading;
 
 public class Bell : MonoBehaviour
 {
@@ -21,7 +22,10 @@ public class Bell : MonoBehaviour
 
     private async void Ring()
     {
-        await UniTask.WaitUntil(() => RingFlag);
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
+        await UniTask.WaitUntil(() => RingFlag, cancellationToken: token);
         _audioSource.PlayOneShot(SE);
         while (true)
         {
@@ -33,7 +37,7 @@ public class Bell : MonoBehaviour
             _root.transform.eulerAngles = rotate;
 
             int timeSpan = 1;
-            await UniTask.Delay(timeSpan);
+            await UniTask.Delay(timeSpan, cancellationToken: token);
 
             //íEèo
             if (RingFlag)

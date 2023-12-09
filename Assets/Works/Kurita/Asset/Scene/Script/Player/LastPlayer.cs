@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 
 public class LastPlayer : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class LastPlayer : MonoBehaviour
     private bool _onJumpRamp = false;
     public bool OnBell = false;
 
-    private void FixedUpdate()
+    private void Start()
     {
         //ジャンプ
         Jump();
@@ -29,17 +30,25 @@ public class LastPlayer : MonoBehaviour
     }
 
     //移動
-    private void Move()
+    private async void Move()
     {
-        Vector3 force = new Vector3(0.0f, -m_gravity, 0.0f);
-        _rigidbody.AddForce(force);
+        while (true)
+        {
+            Vector3 force = new Vector3(0.0f, -m_gravity, 0.0f);
+            _rigidbody.AddForce(force);
+
+            await UniTask.WaitForFixedUpdate();
+        }
     }
 
     //ジャンプ処理
     private async void Jump()
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //ジャンプ判定がTrueになったらジャンプ
-        await UniTask.WaitUntil(() => _onJumpRamp);
+        await UniTask.WaitUntil(() => _onJumpRamp, cancellationToken: token);
         _rigidbody.AddForce(new Vector3(0, _jump, 0), ForceMode.Impulse);
         _onJumpRamp = false;
     }

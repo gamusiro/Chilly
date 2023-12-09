@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.UI;
+using System.Threading;
 
 public class ScreenText : ScreenTextParent
 {
@@ -37,11 +38,14 @@ public class ScreenText : ScreenTextParent
 
     private async void Display(ScreenTextInfo screenText)
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         float fadeTime = 0.5f;
         float alpha;
 
         //文字のフェードイン
-        await UniTask.WaitUntil(() => _time > screenText.StartTime);
+        await UniTask.WaitUntil(() => _time > screenText.StartTime, cancellationToken: token);
         _contentTMP.text = screenText.Content;//表示内容を更新
         alpha = 1.0f;//フェードの設定
         _contentTMP.DOFade(alpha, fadeTime)
@@ -49,7 +53,7 @@ public class ScreenText : ScreenTextParent
         _textPanel.Show();//テキストパネルの表示
 
         //文字のフェードアウト
-        await UniTask.WaitUntil(() => _time > screenText.StartTime + screenText.DisplayTime);
+        await UniTask.WaitUntil(() => _time > screenText.StartTime + screenText.DisplayTime, cancellationToken: token);
         alpha = 0.0f;
         _contentTMP.DOFade(alpha, fadeTime)
            // .OnComplete(_textPanel.Hide)

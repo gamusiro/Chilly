@@ -5,6 +5,7 @@ using Cinemachine;
 using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class LastMovieManager : MonoBehaviour
 {
@@ -38,34 +39,33 @@ public class LastMovieManager : MonoBehaviour
 
     private async void Start()
     {
-        //MoveObject();
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
 
         CS_AudioManager.Instance.PlayAudio("Explosion", true);
         CS_AudioManager.Instance.MasterVolume = 1.0f;
         //_fade.FadeOut(0.5f);
 
         //ベルがなを鳴らす
-        await UniTask.WaitUntil(() => _playerCS.OnBell);
+        await UniTask.WaitUntil(() => _playerCS.OnBell, cancellationToken: token);
         _bell.SetRing(true);
         Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
         _playerCS.OnBell = false;
 
         //敵がやられた判定になる
-        await UniTask.Delay(TimeSpan.FromSeconds(4.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(4.0f), cancellationToken: token);
         _enemy.Disapper(_enemy.transform);
         //Destroy(_moveObjectTransform.gameObject);
 
         //爆発後
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(5.0f), cancellationToken: token);
         _enemy.Explosion(_phase1.transform);
 
         //フェーズ1終了,フェーズ2開始
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(5.0f), cancellationToken: token);
         _bell.SetRing(false);
         Destroy(_phase1);
         Instantiate(_phase2);
-
-   
 
         _fade.FadeIn(0.0f);
 
@@ -77,10 +77,10 @@ public class LastMovieManager : MonoBehaviour
         _fade.FadeOut(1.0f);
 
         //友達生成
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: token);
         Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
 
-        await UniTask.Delay(TimeSpan.FromSeconds(22.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(22.0f), cancellationToken: token);
         CS_AudioManager.Instance.MasterVolume = 0.0f;
         CS_AudioManager.Instance.StopBGM();
         SceneManager.LoadScene(_nextScene);

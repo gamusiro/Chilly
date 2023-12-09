@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using System;
+using System.Threading;
 using UnityEngine;
 
 public class GameCameraPhaseManager : CameraPhaseManager
@@ -9,6 +10,9 @@ public class GameCameraPhaseManager : CameraPhaseManager
 
     private async void Start()
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //カメラの優先度をリセットする
         foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
         _cameraIndex = 0;
@@ -19,8 +23,8 @@ public class GameCameraPhaseManager : CameraPhaseManager
         {
             //開始から何秒で切り替わるか
             _elapsedTime = _transTimeList[_cameraIndex];
-            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM > _elapsedTime);
-                NextCamera();      
+            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM > _elapsedTime, cancellationToken: token);
+            NextCamera();      
         }
     }
 

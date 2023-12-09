@@ -4,6 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
 using Cinemachine;
+using System.Threading;
 
 public class CameraPhaseManager : AbstractBasePhaseManager
 {
@@ -14,6 +15,9 @@ public class CameraPhaseManager : AbstractBasePhaseManager
     //初期化
     private async void Start()
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //カメラの優先度をリセットする
         foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
         _cameraIndex = 0;
@@ -22,8 +26,7 @@ public class CameraPhaseManager : AbstractBasePhaseManager
         //カメラの遷移処理
         while (_cameraIndex < _transTimeList.Count)
         {
-            Debug.Log(_cameraIndex);
-            await UniTask.Delay(TimeSpan.FromSeconds(_transTimeList[_cameraIndex]));
+            await UniTask.Delay(TimeSpan.FromSeconds(_transTimeList[_cameraIndex]), cancellationToken: token);
             NextCamera();
         }
     }

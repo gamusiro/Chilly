@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
+using System.Threading;
 
 public class Enemy : MonoBehaviour
 {
@@ -149,11 +150,14 @@ public class Enemy : MonoBehaviour
     //‚â‚ç‚ê‚é
     public async void Disapper(Transform parent)
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         _disapperEyeInstance = Instantiate(_disapperEyePrefab, _disapperEyeParent);
 
         while (true) 
         {
-            await UniTask.DelayFrame(1);
+            await UniTask.DelayFrame(1, cancellationToken: token);
 
             //“®‚«‚ð’x‚­‚·‚é
             _eyeSpeed -= _subEyeSpeed * Time.deltaTime;
@@ -169,9 +173,12 @@ public class Enemy : MonoBehaviour
     //”š”­
     public async void Explosion(Transform parent)
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         Vector3 createPosition = _disapperEyeParent.position + new Vector3(0.0f,40.0f,-20.0f);
         Instantiate(_explosionPrefab, createPosition, Quaternion.identity, parent);
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: token);
         Instantiate(_explosionPrefab2, createPosition, Quaternion.identity, parent);
     }
 

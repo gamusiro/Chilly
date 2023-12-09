@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Threading;
 
 public class Lyric : ScreenTextParent
 {
@@ -40,8 +41,11 @@ public class Lyric : ScreenTextParent
 
     private async void Draw(LyricInfo luricInfo)
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //文字の表示を開始
-        await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= luricInfo.StartTime);
+        await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= luricInfo.StartTime, cancellationToken: token);
 
         //歌詞の表示
         _lyricTMP.text = luricInfo.Lyric;

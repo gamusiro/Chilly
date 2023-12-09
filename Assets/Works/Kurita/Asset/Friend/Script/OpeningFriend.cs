@@ -4,6 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine.Events;
+using System.Threading;
 
 public class OpeningFriend : AbstractFriend
 {
@@ -17,6 +18,9 @@ public class OpeningFriend : AbstractFriend
     //êHÇ◊ÇÁÇÍÇÈ
     public async void Ate(Transform start, Transform end)//à¯êîÅFÇ«Ç±Ç…å¸Ç©Ç§Ç©
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //à⁄ìÆ
         _time = 0.0f;
 
@@ -29,7 +33,7 @@ public class OpeningFriend : AbstractFriend
             float speed = 10.0f;
             this.transform.Rotate(0.0f, 0.0f, speed);
 
-            await UniTask.Delay(1);
+            await UniTask.Delay(1, cancellationToken: token);
             _time += Time.deltaTime;
             Mathf.Clamp(_time, 0.0f, 1.0f);
 
@@ -44,11 +48,14 @@ public class OpeningFriend : AbstractFriend
 
     private async void Rotate()
     {
-        while(true)
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
+        while (true)
         {
             float speed = 10.0f;
             this.transform.Rotate(0.0f, 0.0f, speed);
-            await UniTask.WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate(cancellationToken: token);
         }
     }
 }

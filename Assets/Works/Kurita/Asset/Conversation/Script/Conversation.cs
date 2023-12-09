@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading;
 
 public class Conversation : ScreenTextParent
 {
@@ -36,8 +37,11 @@ public class Conversation : ScreenTextParent
 
     private async void Display(ConversationInfo conversationInfo)
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //指定した時間まで待機
-        await UniTask.WaitUntil(() => _time > conversationInfo.StartTime);
+        await UniTask.WaitUntil(() => _time > conversationInfo.StartTime, cancellationToken: token);
 
         _textPanel.Show();//テキストパネルの表示
 
@@ -45,7 +49,7 @@ public class Conversation : ScreenTextParent
 
         //会話文の表示
         float timeSpan = 0.5f;
-        await UniTask.Delay(TimeSpan.FromSeconds(timeSpan));
+        await UniTask.Delay(TimeSpan.FromSeconds(timeSpan), cancellationToken: token);
         string content = conversationInfo.Content;
         int len = 0;
 
@@ -56,11 +60,11 @@ public class Conversation : ScreenTextParent
 
             //n秒ごとに文字が表示されていく
             timeSpan = 1.0f / content.Length;
-            await UniTask.Delay(TimeSpan.FromSeconds(timeSpan));
+            await UniTask.Delay(TimeSpan.FromSeconds(timeSpan), cancellationToken: token);
         }
 
         //表示の終了
-        await UniTask.WaitUntil(()=> _time > conversationInfo.StartTime + conversationInfo.DisplayTime);
+        await UniTask.WaitUntil(()=> _time > conversationInfo.StartTime + conversationInfo.DisplayTime, cancellationToken: token);
         _nameTMP.text = null;
         _contentTMP.text = null;
 

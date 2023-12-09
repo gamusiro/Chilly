@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 
 public class HeartNotesManager : CS_LoadNotesFile
 {
@@ -19,10 +20,13 @@ public class HeartNotesManager : CS_LoadNotesFile
 
     private async void HeartNotes()
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         float mae = 2.0f;
         foreach (var info in m_perNoteInfos)
         {
-            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= info.time - mae);
+            await UniTask.WaitUntil(() => CS_AudioManager.Instance.TimeBGM >= info.time - mae, cancellationToken: token);
 
             // ¶¬‚·‚éÀ•W‚ğŒvZ‚·‚é
             Vector3 createPos = Vector3.zero;
