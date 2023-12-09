@@ -131,6 +131,8 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmSource.playOnAwake = false;
             m_bgmSource.clip = pack.m_clip;
             m_bgmSource.volume = pack.m_volume * m_masterVolume;
+
+            Debug.Log("再生開始");
             m_bgmSource.Play();
         }
         else
@@ -159,12 +161,11 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <param name="time"></param>
     public void PlayAudioMemoryTime(string label, float time)
     {
-        if (!m_times.ContainsKey(label))
-        {
+        // データがない場合は追加する
+        if(!m_times.ContainsKey(label))
             m_times.Add(label, time);
-        }
         else
-        {
+        {// データがある場合
             if (m_times[label] == time)
                 return;
         }

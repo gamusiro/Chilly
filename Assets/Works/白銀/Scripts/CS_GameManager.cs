@@ -22,16 +22,12 @@ public class CS_GameManager : MonoBehaviour
 
     #endregion
 
+
     /// <summary>
     /// 初期化処理
     /// </summary>
     void Start()
     {
-        //ラストシーンと合わせたい
-        //そのためにはGameを削除する必要あり
-        //コルーチンを途中で止めてしまうためバグが起きる
-        //Debug.Log("エラー箇所");
-
         CS_AudioManager.Instance.PlayAudio("GameAudio", true);
 
         m_fade.FadeIn(m_setFadeTime,
@@ -76,6 +72,8 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void StateIn()
     {
+        Debug.Log("フェードイン!");
+
         float vol = 1.0f - m_fade.GetRange();
         CS_AudioManager.Instance.MasterVolume = (vol);
     }
