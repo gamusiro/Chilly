@@ -16,7 +16,7 @@ public class Fade : MonoBehaviour
         OUT
     }
 
-    void Start()
+    void Awake()
     {
         Init();
         fade.Range = cutoutRange;
@@ -126,6 +126,7 @@ public class Fade : MonoBehaviour
         if (fade == null) 
             return 0.0f;
 
+        Debug.Log("レンジ:" + fade.Range);
         return fade.Range;
     }
 

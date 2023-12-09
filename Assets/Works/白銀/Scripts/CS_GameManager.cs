@@ -28,9 +28,7 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //ラストシーンと合わせたい
-        //そのためにはGameを削除する必要あり
-        //コルーチンを途中で止めてしまうためバグが起きる
+        CS_AudioManager.Instance.PlayAudio("GameAudio", true);
 
         m_fade.FadeIn(m_setFadeTime,
           () =>
@@ -38,9 +36,6 @@ public class CS_GameManager : MonoBehaviour
               CS_AudioManager.Instance.MasterVolume = 1.0f;
               CS_MoveController.MoveStart();
           });
-
-        Debug.Log("オーディオ再生");
-        CS_AudioManager.Instance.PlayAudio("GameAudio", true);
     }
 
     /// <summary>
@@ -48,10 +43,6 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        //Debug.Log(CS_AudioManager.Instance.TimeBGM);
-        Debug.Log(CS_AudioManager.Instance.TimeBGM);
-        Debug.Log(CS_AudioManager.Instance.TimeBGM);
-
         Fade.STATE state = m_fade.GetState();
 
         if (state == Fade.STATE.NONE)
@@ -81,6 +72,8 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void StateIn()
     {
+        Debug.Log("フェードイン!");
+
         float vol = 1.0f - m_fade.GetRange();
         CS_AudioManager.Instance.MasterVolume = (vol);
     }
