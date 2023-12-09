@@ -5233,7 +5233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveObjectTransform: {fileID: 3282893913510634423}
   _ateParticle: {fileID: 2666816106776915046}
-  _friendPrefab: {fileID: 4197022046109331526}
+  _friendPrefab: {fileID: 2209444307391682798, guid: 882c95efaae327c4d92968ca145ec547, type: 3}
   _friendStartTransform: {fileID: 199302573485063447}
   _enemyMouthTransform: {fileID: 8675100825743324673}
   _fade: {fileID: 4735912063348237047}
@@ -5562,7 +5562,7 @@ Transform:
   m_GameObject: {fileID: 2215302907999412029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2298}
+  m_LocalPosition: {x: 0, y: 0, z: -2292}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5606,7 +5606,7 @@ Transform:
   m_GameObject: {fileID: 2418182545955894189}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03052116, y: 0.48276082, z: -0.21228446, w: 0.8490853}
-  m_LocalPosition: {x: -0.2, y: 13, z: -2313.32}
+  m_LocalPosition: {x: -0.2, y: 13, z: -2307.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7935,17 +7935,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 882c95efaae327c4d92968ca145ec547, type: 3}
---- !u!114 &4197022046109331526 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2209444307391682798, guid: 882c95efaae327c4d92968ca145ec547, type: 3}
-  m_PrefabInstance: {fileID: 2636669240425539752}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 463878b24b2ca444c89ec5b527a75a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8281094772265768589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6231591438648196645, guid: 882c95efaae327c4d92968ca145ec547, type: 3}
