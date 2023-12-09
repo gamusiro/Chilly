@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastEnemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6090525391599060971, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: _explosionPrefab
+      value: 
+      objectReference: {fileID: 8638173304552489046, guid: 37b9d859e3b492c45ac7c06c50e46348, type: 3}
+    - target: {fileID: 6090525391599060971, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: _explosionPrefab2
+      value: 
+      objectReference: {fileID: 8638173304552489046, guid: 985350ed75ee15b4892947ae421cee66, type: 3}
+    - target: {fileID: 6090525391599060971, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: _disapperEyeParent
+      value: 
+      objectReference: {fileID: 5195085066206176515}
+    - target: {fileID: 6090525391599060971, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: _disapperEyePrefab
+      value: 
+      objectReference: {fileID: 3126971381641310424, guid: 77c2436fb5a30f2488769ea6fe5295b3, type: 3}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,8 +68,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5371518452507412959, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+--- !u!4 &5195085066206176515 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1452113512772886369, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+  m_PrefabInstance: {fileID: 6646846702910749282}
+  m_PrefabAsset: {fileID: 0}

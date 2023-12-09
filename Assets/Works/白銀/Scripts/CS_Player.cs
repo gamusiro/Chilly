@@ -328,6 +328,7 @@ public class CS_Player : MonoBehaviour
     /// </summary>
     public void SetUsingCamera()
     {
+        if(m_mainGameCameraManager)
         m_mainVirtualCamera =  m_mainGameCameraManager.GetCurCamera();
     }
 

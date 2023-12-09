@@ -20,6 +20,8 @@ public class LastPlayer : MonoBehaviour
     private bool _onJumpRamp = false;
     public bool OnBell = false;
 
+    private bool _destroyFlag = false;
+
     private void Start()
     {
         //ƒWƒƒƒ“ƒv
@@ -32,7 +34,7 @@ public class LastPlayer : MonoBehaviour
     //ˆÚ“®
     private async void Move()
     {
-        while (true)
+        while (_destroyFlag == false) 
         {
             Vector3 force = new Vector3(0.0f, -m_gravity, 0.0f);
             _rigidbody.AddForce(force);
@@ -61,5 +63,10 @@ public class LastPlayer : MonoBehaviour
 
         if (other.tag == "Bell")
             OnBell = true;
+    }
+
+    private void OnDestroy()
+    {
+        _destroyFlag = true;
     }
 }
