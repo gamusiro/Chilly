@@ -6,40 +6,22 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-<<<<<<< HEAD
-      value: 56520002030d0b5f5c5e0a2412750b44454f1d7e782d72337c2a1c30e7b2656e
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 0502015051000c5e5d5c087a49770844154e4d7f297e7e697c2f1c66b3b2626a
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 0702565252075c5e0f0b0872477a5b44434e4d7a29717f63782f1e63b6b1603b
-      flags: 0
-=======
-      value: 0005070352570f0a5d580d71137b5e4414154b7f757924337f7a1963e7b36060
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 0702565252075c5e0f0b0872477a5b44434e4d7a29717f63782f1e63b6b1603b
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5b54035151505f5f5d085f7245700b44474f41797f7c70357b2c4c61b5b0353c
-      flags: 0
->>>>>>> gamusiro_25
-    RecentlyUsedSceneGuid-3:
       value: 51520c0403010f5d5c5654214025084440154a28792a7f657d714f60e0b3676d
       flags: 0
-    RecentlyUsedSceneGuid-4:
-<<<<<<< HEAD
+    RecentlyUsedSceneGuid-1:
+      value: 54530102010c500a5f5f0d75127006444f151e282a7d273128714a37b1b6326d
+      flags: 0
+    RecentlyUsedSceneGuid-2:
       value: 0005070352570f0a5d580d71137b5e4414154b7f757924337f7a1963e7b36060
-=======
-      value: 0502015051000c5e5d5c087a49770844154e4d7f297e7e697c2f1c66b3b2626a
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 0702565252075c5e0f0b0872477a5b44434e4d7a29717f63782f1e63b6b1603b
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5650060251015e0c08085c2342265d44424f19792f2c73637a781c35b3b06c3c
       flags: 0
     RecentlyUsedSceneGuid-5:
-      value: 02525053010750095d0f5d7a12205e44154f412e797a20647f7d4e37b1b3376e
-      flags: 0
-    RecentlyUsedSceneGuid-6:
       value: 5b0755535d0c0a025a5c0e2014275e44154f1c7a787a7f31747c4460e1b6376f
->>>>>>> gamusiro_25
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
@@ -49,7 +31,7 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 5
+  m_DesiredImportWorkerCount: 3
   m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
