@@ -27,7 +27,6 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        SceneManager.LoadScene(m_nextSceneName);
         //ラストシーンと合わせたい
         //そのためにはGameを削除する必要あり
         //コルーチンを途中で止めてしまうためバグが起きる
