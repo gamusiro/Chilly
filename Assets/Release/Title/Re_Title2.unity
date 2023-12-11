@@ -404,6 +404,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2357029911471894926, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357029911471894926, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357029911471894926, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357029911471894926, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418065191084008336, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418065191084008336, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289546633386658877, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9cce7b94ef484624a8b8ea9edbb1280e, type: 3}
+    - target: {fileID: 5289546633386658877, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8624133525795259507, guid: ccc39b75b37447c488536d03604f6bdd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
