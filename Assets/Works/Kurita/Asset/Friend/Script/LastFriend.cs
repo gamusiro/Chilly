@@ -30,7 +30,7 @@ public class LastFriend : AbstractFriend
         var cts = new CancellationTokenSource();
         CancellationToken token = cts.Token;
 
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f), cancellationToken: token);
+        await UniTask.Delay(TimeSpan.FromSeconds(4.0f), cancellationToken: token);
         _light.transform.DOScale(new Vector3(0.0f, 0.0f, 0.0f), 2.0f)
             .SetLink(gameObject);
     }

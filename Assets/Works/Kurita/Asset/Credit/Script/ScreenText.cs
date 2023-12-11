@@ -13,6 +13,7 @@ public class ScreenText : ScreenTextParent
     [SerializeField] private TMPro.TextMeshProUGUI _contentTMP;//文字を表示するTMP
     [SerializeField] private List<ScreenTextInfo> _screenTextInfoList = new();
     private float _time = 0.0f;
+    private float _standardFontSize;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class ScreenText : ScreenTextParent
         }
 
         //初期化
+        _standardFontSize = _contentTMP.fontSize;
         float alpha = 0.0f;
         foreach (var screenText in _screenTextInfoList){ _contentTMP.alpha = alpha; }
 
@@ -46,17 +48,21 @@ public class ScreenText : ScreenTextParent
 
         //文字のフェードイン
         await UniTask.WaitUntil(() => _time > screenText.StartTime, cancellationToken: token);
+
         _contentTMP.text = screenText.Content;//表示内容を更新
+        _contentTMP.fontSize = screenText.Size;
         alpha = 1.0f;//フェードの設定
         _contentTMP.DOFade(alpha, fadeTime)
             .SetLink(gameObject);
-        _textPanel.Show();//テキストパネルの表示
+
+        if (screenText.ShowPanel)
+            _textPanel.Show();//テキストパネルの表示
 
         //文字のフェードアウト
         await UniTask.WaitUntil(() => _time > screenText.StartTime + screenText.DisplayTime, cancellationToken: token);
         alpha = 0.0f;
         _contentTMP.DOFade(alpha, fadeTime)
-           // .OnComplete(_textPanel.Hide)
+            .OnComplete(_textPanel.Hide)
             .SetLink(gameObject);
     }
 
@@ -76,6 +82,10 @@ public class ScreenTextInfo
     public float StartTime;
     [CustomLabel("表示時間")]
     public float DisplayTime;
+    [CustomLabel("文字サイズ")]
+    public float Size;
+    [CustomLabel("テキストパネルを表示する")]
+    public bool ShowPanel = true; 
 }
 
 //インスタンシエイト

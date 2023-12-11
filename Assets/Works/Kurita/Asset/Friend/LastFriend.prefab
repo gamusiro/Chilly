@@ -5033,6 +5033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e17a6bfa940dd548b98a1afecbb8305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _endPosition: {x: 0, y: 30, z: 30}
-  _time: 5
+  _endPosition: {x: 0, y: 20, z: 30}
+  _time: 4
   _light: {fileID: 2651599967039723215}
