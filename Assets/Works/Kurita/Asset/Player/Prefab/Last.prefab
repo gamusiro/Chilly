@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 187252941420088187}
   serializedVersion: 2
   m_LocalRotation: {x: 0.056163438, y: 0.18031204, z: -0.1660129, w: -0.96787035}
-  m_LocalPosition: {x: 190, y: 17.24, z: -221.37}
+  m_LocalPosition: {x: 190, y: 17.24, z: -80.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1052,14 +1052,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3448517260304465113}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21458794, y: 0.028251048, z: -0.12743226, w: 0.9679437}
-  m_LocalPosition: {x: 0, y: 270, z: -100}
+  m_LocalRotation: {x: 0.15090086, y: 0.2007125, z: -0.15857771, w: 0.9548804}
+  m_LocalPosition: {x: -181.05, y: 270, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3362588377818567323}
   m_Father: {fileID: 3653915957193531357}
-  m_LocalEulerAnglesHint: {x: 25, y: 0, z: -15}
+  m_LocalEulerAnglesHint: {x: 20.6, y: 21, z: -15}
 --- !u!114 &520733093565518135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ Transform:
   m_GameObject: {fileID: 4399006923066198409}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 51.52, z: -100}
+  m_LocalPosition: {x: 0, y: 51.52, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3095,7 +3095,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 55
+  m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -3130,146 +3130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastScreenText
       objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 486
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
     - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: _textPanel
       value: 
       objectReference: {fileID: 6411371140920350179}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[0].Size
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[1].Size
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[2].Size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[3].Size
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[0].Content
-      value: '-MUSIC-
-
-        We Made It
-
-        DXYLL'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[1].Content
-      value: '-TEAM425-
-
-        GAKUTO SHIROGANE   ALTO KURITA   RYOGA SANADA
-
-        MELISSA
-        AIMI SAITO   CHIKANE SUNAKAWA   RUAN JINYAO
-
-        KOSE SEKIGUCHI   KOHE
-        ISHI   KOICHI SUZUKI'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[2].Content
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[3].Content
-      value: FIN
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[0].StartTime
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[1].ShowPanel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[1].StartTime
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[2].ShowPanel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[2].StartTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[3].StartTime
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[0].DisplayTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[1].DisplayTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[2].DisplayTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[3].DisplayTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_text
-      value: 'CONTENT
-
-        CONTENT
-
-        CONTENT'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 7792672947872128568, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3489,10 +3353,6 @@ PrefabInstance:
       propertyPath: _textPanel
       value: 
       objectReference: {fileID: 6411371140920350179}
-    - target: {fileID: 469125305109572126, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
-      propertyPath: _screenTextInfoList.Array.data[0].DisplayTime
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2724422212442867637, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
       propertyPath: m_Name
       value: LastScreenText (1)
@@ -4062,26 +3922,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3743282421193053210}
     m_Modifications:
-    - target: {fileID: 1514741769217818355, guid: bf6311710d7edde4b83df9167b61ba84, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514741769217818355, guid: bf6311710d7edde4b83df9167b61ba84, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514741769217818355, guid: bf6311710d7edde4b83df9167b61ba84, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514741769217818355, guid: bf6311710d7edde4b83df9167b61ba84, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1514741769217818355, guid: bf6311710d7edde4b83df9167b61ba84, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: b3433c4fb6feac344b40e452014fd098, type: 2}
     - target: {fileID: 5145051878478906088, guid: bf6311710d7edde4b83df9167b61ba84, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6108,6 +5948,10 @@ PrefabInstance:
     - target: {fileID: 2688827725082728365, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2729719178894330201, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 9097613482176212571, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
       propertyPath: m_Name

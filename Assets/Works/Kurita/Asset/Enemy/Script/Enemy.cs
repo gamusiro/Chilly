@@ -4,6 +4,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class Enemy : MonoBehaviour
 
     //動き
     [SerializeField] protected Transform _standardPosition;
+    protected float _moveSpeed;
 
     public void Start()
     {
@@ -54,7 +56,7 @@ public class Enemy : MonoBehaviour
         _subMouthSpeed = _mouthSpeed = 0.04f;
         _subMouthSpeed *= 0.4f;
         _standardMouthScale = _mouthTransform.localScale;
-
+        _moveSpeed = 3.0f;
         //その他変数
         _frameHit = 999.0f;//ヒットフレーム
         
@@ -125,25 +127,6 @@ public class Enemy : MonoBehaviour
                 gradient = _gradientOriginal;
         }
         colorOverLifetime.color = gradient;
-
-        ////色変更
-        //ParticleSystem.ColorOverLifetimeModule colorOverLifetime = _particleSystem.colorOverLifetime;
-        //colorOverLifetime.enabled = true;
-        //Gradient gradient;
-        //gradient = _gradientOriginal;
-
-        ////ヒットアニメーションが作動する時間
-        //if (_frameHit < 10.0f)
-        //{
-        //    _frameHit += Time.deltaTime * 10.0f;
-
-        //    //点滅させる
-        //    if (((int)_frameHit) % 2 == 0)
-        //        gradient = _gradientHit;
-        //    else
-        //        gradient = _gradientOriginal;
-        //}
-        //colorOverLifetime.color = gradient;
     }
 
     //----倒された時の処理----
@@ -185,15 +168,14 @@ public class Enemy : MonoBehaviour
     //動き
     protected void Move()
     {
-        float speed = 3.0f;
         float range = 10.0f;
         Vector3 position = this.transform.position;
-        position.y = _standardPosition.position.y + Mathf.Sin(Time.time* speed) * range;
+        position.y = _standardPosition.position.y + Mathf.Sin(Time.time* _moveSpeed) * range;
         this.transform.position = position;
 
         Vector3 angle = this.transform.eulerAngles;
-        angle.y = Mathf.Sin(Time.time * speed*0.4f)*range;
-        angle.z = Mathf.Cos(Time.time * speed)*range;
+        angle.y = Mathf.Sin(Time.time * _moveSpeed * 0.4f)*range;
+        angle.z = Mathf.Cos(Time.time * _moveSpeed) *range;
         this.transform.eulerAngles = angle;
     }
 }

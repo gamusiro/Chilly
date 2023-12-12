@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6225390207121779250, guid: fb2d181ce1ba5bc4dbbb5cfbb77656de, type: 3}
       propertyPath: _screenTextInfoList.Array.data[0].DisplayTime
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6225390207121779250, guid: fb2d181ce1ba5bc4dbbb5cfbb77656de, type: 3}
       propertyPath: _screenTextInfoList.Array.data[1].DisplayTime
