@@ -16,7 +16,7 @@ public class LastMovieManager : MonoBehaviour
     [SerializeField] private LastPlayer _playerCS;
 
     //エネミー
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private LastEnemy _enemy;
 
     //ムーブオブジェクト
     [SerializeField] Transform _moveObjectTransform;

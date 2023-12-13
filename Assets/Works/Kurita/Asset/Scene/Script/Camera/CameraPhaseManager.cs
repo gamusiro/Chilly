@@ -50,10 +50,7 @@ public class CameraPhaseManager : AbstractBasePhaseManager
 
     public void Shake()
     {
-        float time = 0.6f;
-        float range = 20.0f;
-        GetCurCamera().transform.DOShakePosition(time, new Vector3(range, range, range));
-        GetCurCamera().transform.DOShakeRotation(time, new Vector3(range, range, range));
-        Destroy(this.gameObject);
+        var impulseSource = GetComponent<CinemachineImpulseSource>();
+        impulseSource.GenerateImpulse();
     }
 }

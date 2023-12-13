@@ -18,25 +18,19 @@ public class SmallEnemy : Enemy
     private void Start()
     {
         //目と口のラジアン
-        _eyeTransform[(int)Eye.Left].eulerAngles = new Vector3(0.0f, 0.0f, 45.0f);
-        _eyeTransform[(int)Eye.Right].eulerAngles = new Vector3(0.0f, 0.0f, 225.0f);
-        _subEyeSpeed = _eyeSpeed = 4.0f;
-        _subEyeSpeed *= 0.1f;
         _mouthScaleeRadian = 0.0f;
         _subMouthSpeed = _mouthSpeed = 0.04f;
         _subMouthSpeed *= 0.4f;
         _standardMouthScale = _mouthTransform.localScale;
         _moveSpeed = 3.0f;
-        //その他変数
-        _frameHit = 999.0f;//ヒットフレーム
     }
 
     private void FixedUpdate()
     {
-        HitAnimation();
-        Eyes();
         Mouth();
-        Move();
+
+        float range = 5.0f;
+        Move(range);
     }
 
     //プレイヤーにぶつかったら爆発する

@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.45
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -254.79
+      value: -351.7
       objectReference: {fileID: 0}
     - target: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -256,77 +256,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eyeTransform: []
-  _mouthTransform: {fileID: 0}
-  _particleSystem: {fileID: 0}
-  _gradientOriginal:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  _gradientHit:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  _defeatColor: {r: 0, g: 0, b: 0, a: 0}
-  _disapperEyePrefab: {fileID: 0}
-  _disapperEyeParent: {fileID: 0}
-  _explosionPrefab: {fileID: 0}
-  _explosionPrefab2: {fileID: 0}
-  _standardPosition: {fileID: 0}
+  _mouthTransform: {fileID: 7236862996928823590}
+  _standardPosition: {fileID: 2457936762666890964}
   _explosionPrefabA: {fileID: 97280904656272491, guid: afdac2a2aa3f3764ea6c2d7a604f40c7, type: 3}
   _explosionParent: {fileID: 7268751786742833106}
   _cameraPhaseManager: {fileID: 0}
+--- !u!4 &2457936762666890964 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4588435773175841993, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+  m_PrefabInstance: {fileID: 2139559952727241245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7236862996928823590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8781947794142917435, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+  m_PrefabInstance: {fileID: 2139559952727241245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7268751786742833106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}

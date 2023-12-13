@@ -8,7 +8,6 @@ public class TitleEnemy : Enemy
 {
     public new void FixedUpdate()
     {
-        HitAnimation();
         Eyes();
         Mouth();
         Move();
