@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Transform _standardPosition;
     protected float _moveSpeed;
 
-    public void Start()
+    private void Start()
     {
         //目と口のラジアン
         _eyeTransform[(int)Eye.Left].eulerAngles = new Vector3(0.0f, 0.0f, 45.0f);
@@ -59,11 +59,9 @@ public class Enemy : MonoBehaviour
         _moveSpeed = 3.0f;
         //その他変数
         _frameHit = 999.0f;//ヒットフレーム
-        
-        Move();
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         HitAnimation();
         Eyes();

@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using Cinemachine;
 using System.Threading;
+using DG.Tweening;
 
 public class CameraPhaseManager : AbstractBasePhaseManager
 {
@@ -45,5 +46,14 @@ public class CameraPhaseManager : AbstractBasePhaseManager
     public GameObject GetCurCamera()
     {
         return _virtualCamera[_cameraIndex].gameObject;
+    }
+
+    public void Shake()
+    {
+        float time = 0.6f;
+        float range = 20.0f;
+        GetCurCamera().transform.DOShakePosition(time, new Vector3(range, range, range));
+        GetCurCamera().transform.DOShakeRotation(time, new Vector3(range, range, range));
+        Destroy(this.gameObject);
     }
 }

@@ -139,16 +139,6 @@ public class HeartNotes : MonoBehaviour
             m_cameraObject = m_mainGameCameraManager.GetCurCamera();
         }
     end:;
-
-        //if (collision.gameObject.tag == "GameEnemy")
-        //{
-        //    float time = 0.3f;
-        //    m_cameraObject.transform.DOShakePosition(time, new Vector3(1.0f, 1.0f, 1.0f));
-        //    m_cameraObject.transform.DOShakeRotation(time, new Vector3(1.0f, 1.0f, 1.0f));
-
-        //    //setolinkをこのオブjレクト以外にする
-        //    Destroy(this.gameObject);
-        //}
     }
 
     public void SetMainGameCameraManager(CameraPhaseManager cameraManager)
