@@ -88,13 +88,8 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = 0.0f;
-        createPos.y = 2.5f;
-        createPos.z = (info.time - m_offset) * CS_MoveController.GetMoveVel();
-
-        // ジャンプタイミング用の線
-        createPos.x = 0.0f;
         createPos.y = 0.01f;
-        createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
+        createPos.z = (info.time + m_offset) * CS_MoveController.GetMoveVel() * -1.0f;
         GameObject obj = Instantiate(m_jumpLineObject, createPos, Quaternion.identity);
         obj.transform.parent = m_parent;
 

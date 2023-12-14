@@ -60,11 +60,6 @@ public class CS_Player : MonoBehaviour
     [Range(0.1f, 1.0f)]
     float m_perfectTimeRange;
 
-    // 許容パーフェクトタイミング
-    [SerializeField, CustomLabel("パーフェクトタイミングオフセット(秒)")]
-    [Range(0.1f, 1.0f)]
-    float m_perfectTimeOffset;
-
     [Header("スピンエフェクト")]
     [SerializeField] private SpinEffect _spinEffectPrefab;
 
@@ -156,7 +151,10 @@ public class CS_Player : MonoBehaviour
 
         // カメラの移動中の場合は操作させない
         if (m_brain.ActiveBlend != null)
+        {
+            transform.localEulerAngles = Vector3.zero;
             return;
+        }
 
         Vector2 direction = m_inputAction.Player.Move.ReadValue<Vector2>();
 
@@ -206,10 +204,13 @@ public class CS_Player : MonoBehaviour
         // ジャンプ
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
+            // 差分
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
+            Debug.Log(subFromEnemy);
+
 
             // 後ろからのタイミング(perfectTiming)
-            if (subFromEnemy <= m_perfectTimeRange + m_perfectTimeOffset && subFromEnemy > m_perfectTimeOffset)
+            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy >= -m_perfectTimeRange)
             {
                 GameObject obj = Instantiate(m_perfectEffectObject);
                 obj.transform.parent = transform;
@@ -318,8 +319,6 @@ public class CS_Player : MonoBehaviour
     {
         if(m_mainGameCameraManager)
             m_mainVirtualCamera =  m_mainGameCameraManager.GetCurCamera();
-
-        transform.localEulerAngles = Vector3.zero;
     }
 
     /// <summary>

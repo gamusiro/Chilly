@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3463297093256749784, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_offset
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3463297093256749784, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_parent
@@ -627,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 467762198}
     - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4635261179086376726, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Enabled
@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_perfectTimeRange
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_perfectTimeOffset
