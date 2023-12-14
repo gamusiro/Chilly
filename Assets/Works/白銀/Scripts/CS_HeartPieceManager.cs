@@ -7,6 +7,10 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
+    // まとめるオブジェクト
+    [SerializeField, CustomLabel("まとめるオブジェクト")]
+    Transform m_parent;
+
     // 生成するオブジェクト
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
@@ -16,9 +20,9 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
     [Range(20.0f, 100.0f)]
     int m_numMax = 20;
 
-    // メインカメラオブジェクト
-    [SerializeField, CustomLabel("カメラマネージャー")]
-    CameraPhaseManager m_cameraManager;
+    // HP
+    [SerializeField, CustomLabel("HPオブジェクト")]
+    HP m_hp;
 
     #endregion
 
@@ -77,8 +81,9 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
-        // obj.GetComponentInChildren<CS_HeartPiece>().SetMainGameCameraManager(m_cameraManager);
         m_objects[index] = obj;
+        obj.transform.parent = m_parent;
+        obj.GetComponent<CS_HealthHeart>().Initialize(m_hp);
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
 

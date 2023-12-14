@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class CS_EnemyAttackFromSide : CS_LoadNotesFile
+public class CS_SmallEnemyManager : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
@@ -16,13 +17,12 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
 
     // オブジェクトの生成数
     [SerializeField, CustomLabel("オブジェクトの生成数")]
-    [Range(20.0f, 60.0f)]
+    [Range(20.0f, 100.0f)]
     int m_numMax = 20;
 
-    // ジャンプタイミングに合わせてオフセットを持たせる
-    [SerializeField, CustomLabel("オフセット")]
-    [Range(0.0f, 2.0f)]
-    float m_offset = 0.0f;
+    // メインカメラオブジェクト
+    [SerializeField, CustomLabel("カメラマネージャー")]
+    CameraPhaseManager m_cameraManager;
 
     #endregion
 
@@ -31,8 +31,8 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
     // ゲームオブジェクト管理用
     GameObject[] m_objects;
 
-    // 生成したデータのカウント
-    int m_createCount;
+    // 生成数
+    int m_createCount = 0;
 
     #endregion
 
@@ -40,11 +40,11 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
     /// <summary>
     /// 初期化処理
     /// </summary>
-    private void Start()
+    void Start()
     {
         m_objects = new GameObject[m_numMax];
+        m_createCount = 0;
 
-        // 読み込み処理
         this.Load();
     }
 
@@ -56,7 +56,6 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
         if (!CS_MoveController.IsMoving())
             return;
 
-        // 全てをループする
         for (int i = 0; i < m_numMax; ++i)
         {
             if (m_objects[i] == null)
@@ -76,25 +75,18 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
         PerNoteInfo info = m_perNoteInfos[m_createCount];
 
         // 生成ポジションの指定
-        GameObject obj = Instantiate(m_createObject);
-        obj.transform.parent = gameObject.transform.parent;
-        obj.AddComponent<CS_EnemyAttackSideBar>();
+        Vector3 createPos = Vector3.zero;
+        createPos.x = -60.0f + info.lane * 30.0f;
+        createPos.y = 4.0f;
+        createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
+
+        GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
+        m_objects[index] = obj;
         obj.transform.parent = m_parent;
+        obj.GetComponentInChildren<SmallEnemy>().Initialize(m_cameraManager);
 
-        CS_EnemyAttackSideBar bar = obj.GetComponent<CS_EnemyAttackSideBar>();
-        bar.m_perfTime = info.time;
-
-        // 流れてくる方向を決める
-        bool right = false;
-        if(info.type == 1)
-            right = true;
-
-        bar.SetLane(info.lane, m_offset, right);
-
-        Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 1.0f);
+        Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
 
         m_createCount++;
-
-        m_objects[index] = obj;
     }
 }

@@ -63,8 +63,8 @@ public class CS_Player : MonoBehaviour
     [Header("スピンエフェクト")]
     [SerializeField] private SpinEffect _spinEffectPrefab;
 
-   // [SerializeField, CustomLabel("後ろから")]
-   // CS_EnemyAttackFromEnemy m_enemyAttackFromEnemy;
+    [SerializeField, CustomLabel("後ろから")]
+    CS_EnemyAttackFromEnemy m_enemyAttackFromEnemy;
 
     [Header("エフェクトオブジェクト")]
     [SerializeField, CustomLabel("パーフェクトタイミングエフェクト")]
@@ -161,9 +161,22 @@ public class CS_Player : MonoBehaviour
         move.x *= m_mainVirtualCamera.transform.right.x;
 
         currentPos += move * Time.deltaTime;
-        currentPos.x = Mathf.Clamp(currentPos.x, -c_sideMax, c_sideMax);
+        
+        // 左に行き過ぎた場合
+        if(currentPos.x < -c_sideMax)
+        {
+            currentPos.x = -c_sideMax;
+            ResetSideVel(m_rigidBody.velocity);
+        }
 
-        //currentPos.y = Mathf.Max(0.0f, currentPos.y);
+        // 右に行き過ぎた場合
+        if (currentPos.x > c_sideMax)
+        {
+            currentPos.x = c_sideMax;
+            ResetSideVel(m_rigidBody.velocity);
+        }
+
+        // ポジションを設定
         transform.position = currentPos;
 
         // 向きを設定
@@ -173,56 +186,55 @@ public class CS_Player : MonoBehaviour
         transform.localEulerAngles = rotate;
 
         //スピン
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            _playerModel.transform.DOComplete();
-            Vector3 modelRotate = Vector3.zero;
-            modelRotate.y = 360.0f+180.0f;
-            var tweener=_playerModel.transform.DOLocalRotate(modelRotate, 0.5f, RotateMode.FastBeyond360)
-                .OnComplete(() => _isRotate = false)
-                .SetLink(this.gameObject);
-            _isRotate = true;
+        //if (Input.GetKeyDown(KeyCode.V))
+        //{
+        //    _playerModel.transform.DOComplete();
+        //    Vector3 modelRotate = Vector3.zero;
+        //    modelRotate.y = 360.0f+180.0f;
+        //    var tweener=_playerModel.transform.DOLocalRotate(modelRotate, 0.5f, RotateMode.FastBeyond360)
+        //        .OnComplete(() => _isRotate = false)
+        //        .SetLink(this.gameObject);
+        //    _isRotate = true;
 
-            //Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
-        }
+        //    //Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
+        //}
 
         // ジャンプ
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
-            // float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
+            float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
 
-            //// 後ろからのタイミング(perfectTiming)
-            //if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
-            //{
-            //    GameObject obj = Instantiate(m_perfectEffectObject);
-            //    obj.transform.parent = transform;
+            // 後ろからのタイミング(perfectTiming)
+            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
+            {
+                GameObject obj = Instantiate(m_perfectEffectObject);
+                obj.transform.parent = transform;
 
-            //    Vector3 localPos = transform.localPosition;
-            //    localPos.y = 0.0f;
-            //    obj.transform.localPosition = Vector3.zero;
-            //    obj.transform.localScale = new Vector3(3.0f, 2.0f, 3.0f);
+                Vector3 localPos = transform.localPosition;
+                localPos.y = 0.0f;
+                obj.transform.localPosition = Vector3.zero;
+                obj.transform.localScale = new Vector3(3.0f, 2.0f, 3.0f);
 
-            //    // エフェクトの再生
-            //    foreach (ParticleSystem ps in obj.GetComponentsInChildren<ParticleSystem>())
-            //        ps.Play();
+                // エフェクトの再生
+                foreach (ParticleSystem ps in obj.GetComponentsInChildren<ParticleSystem>())
+                    ps.Play();
 
-            //    CS_AudioManager.Instance.PlayAudio("PerfectJump");
+                CS_AudioManager.Instance.PlayAudio("PerfectJump");
 
-            //    Destroy(obj, 1.0f);
-            //}
-            //else
-            //{
-            //    // 通常ジャンプ
-            //    CS_AudioManager.Instance.PlayAudio("Jump");
-            //    m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
-            //}
+                Destroy(obj, 1.0f);
+            }
+            else
+            {
+                // 通常ジャンプ
+                CS_AudioManager.Instance.PlayAudio("Jump");
+                m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+            }
 
             m_isFlying = true;
             m_rigidBody.constraints = RigidbodyConstraints.None;
 
             // 回転はしない | Zの値固定
             m_rigidBody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
-
 
             m_rigidBody.AddForce(new Vector3(0, m_jump, 0), ForceMode.Impulse);
         }
@@ -233,8 +245,7 @@ public class CS_Player : MonoBehaviour
             CS_AudioManager.Instance.PlayAudio("Dash");
 
             // 横移動の速度を止める
-            currentVel.x = 0.0f;
-            m_rigidBody.velocity = currentVel;
+            ResetSideVel(currentVel);
 
             m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f), ForceMode.VelocityChange);
             m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
@@ -244,8 +255,7 @@ public class CS_Player : MonoBehaviour
             CS_AudioManager.Instance.PlayAudio("Dash");
 
             // 横移動の速度を止める
-            currentVel.x = 0.0f;
-            m_rigidBody.velocity = currentVel;
+            ResetSideVel(currentVel);
 
             m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f), ForceMode.VelocityChange);
             m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
@@ -288,38 +298,10 @@ public class CS_Player : MonoBehaviour
             m_animator.Play("Running", 0, 0.0f);    // 最初から
         }
 
-        Debug.Log(tag);
-
         // ダメージを受け付ける状態か
-        if (!m_damaged)
+        if (tag == "Enemy")
         {
-            if (tag == "Enemy")
-            {
-                m_damaged = true;
-                CS_AudioManager.Instance.PlayAudio("Damage");
-                m_hp.Hit();
-                m_degree = 0.0f;
-                Invoke(nameof(UnlockInvincibility), m_invalidTime);
-            }
-        }
-    }
-
-    /// <summary>
-    /// 吹き飛ばしオブジェクトとの接触
-    /// </summary>
-    /// <param name="other"></param>
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Scattering")
-        {
-            if(IsDashing)
-            {
-                Vector3 dir = Vector3.zero;
-                dir.x = m_rigidBody.velocity.x;
-
-                var rb = other.gameObject.GetComponent<Rigidbody>();
-                rb.AddForce(dir * 5.0f, ForceMode.Impulse);
-            }
+            Damage();
         }
     }
 
@@ -341,15 +323,43 @@ public class CS_Player : MonoBehaviour
         m_material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
+    void ResetSideVel(Vector3 vel)
+    {
+        vel.x = 0.0f;
+        m_rigidBody.velocity = vel;
+    }
+
     /// <summary>
-    /// 
+    /// ダッシュしてるか
     /// </summary>
     /// <returns></returns>
     public bool IsDashing
     {
-        get { return Mathf.Abs(m_rigidBody.velocity.x) > 0.0f; }
+        get { return Mathf.Abs(m_rigidBody.velocity.x) > 1.0f; }
     }
 
+    /// <summary>
+    /// ダメージ
+    /// </summary>
+    public void Damage()
+    {
+        if (!m_damaged)
+        {
+            m_damaged = true;
+            CS_AudioManager.Instance.PlayAudio("Damage");
+            m_hp.Hit();
+            m_degree = 0.0f;
+
+            
+
+            Invoke(nameof(UnlockInvincibility), m_invalidTime);
+        }
+    }
+
+    /// <summary>
+    /// スピンしているかどうか
+    /// </summary>
+    /// <returns></returns>
     public bool GetSpin()
     {
         return _isRotate;

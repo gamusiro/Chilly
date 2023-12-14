@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002382943386701923}
-  - component: {fileID: 655289478527786496}
   - component: {fileID: 2487635738320625142}
   - component: {fileID: 5538363560017976353}
+  - component: {fileID: 4468337969866301305}
   m_Layer: 0
   m_Name: HeartNotes
   m_TagString: HeartNotes
@@ -35,19 +35,6 @@ Transform:
   - {fileID: 2035661534116319161}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &655289478527786496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686864403636110997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ccabda29ba3584a8c6b66be1205718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _renderer: {fileID: 1275992450945795940}
 --- !u!54 &2487635738320625142
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -70,7 +57,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -90,12 +77,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 50, y: 20, z: 20}
+  m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4468337969866301305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686864403636110997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e940e128b3e6de040a0eb0166a7b726b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7818885805397129467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,11 +172,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2561120857aca3409054cc13dc60010, type: 3}
---- !u!23 &1275992450945795940 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 9022820467890618271, guid: f2561120857aca3409054cc13dc60010, type: 3}
-  m_PrefabInstance: {fileID: 7818885805397129467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2035661534116319161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8125158208708032322, guid: f2561120857aca3409054cc13dc60010, type: 3}

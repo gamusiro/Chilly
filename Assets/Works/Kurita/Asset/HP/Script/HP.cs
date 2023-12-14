@@ -30,20 +30,24 @@ public class HP : MonoBehaviour
 
         //体力を減らす
         _hp--;
+
+        Debug.Log("ダメージ: " + _hp);
     }
 
     public void Recover()
     {
         //体力が上限になっていなければ処理を続行
-        if (_hp + 1 > _hpImageList.Count - 1) 
+        if (_hp >= _hpImageList.Count - 1)
             return;
+
+        //体力を減らす
+        _hp++;
 
         //アニメーション
         float alpha = 1.0f;
         float time = 1.0f;
         _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
 
-        //体力を減らす
-        _hp++;
+        Debug.Log("回復: " + _hp);
     }
 }

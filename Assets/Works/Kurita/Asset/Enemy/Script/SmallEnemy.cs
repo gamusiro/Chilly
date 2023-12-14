@@ -13,7 +13,12 @@ public class SmallEnemy : Enemy
     [SerializeField] private Transform _explosionParent;
 
     //カメラ
-    [SerializeField] private CameraPhaseManager _cameraPhaseManager;
+    private CameraPhaseManager _cameraPhaseManager;
+
+    public void Initialize(CameraPhaseManager cpm)
+    {
+        _cameraPhaseManager = cpm;
+    }
 
     private void Start()
     {
@@ -36,16 +41,27 @@ public class SmallEnemy : Enemy
     //プレイヤーにぶつかったら爆発する
     private void OnTriggerEnter(Collider other)
     {
+        GameObject obj = other.gameObject;
+
         if (other.tag == "Player")
         {
-            //爆発する
-            Instantiate(_explosionPrefabA, _explosionParent);
+            CS_Player player = obj.GetComponent<CS_Player>();
+            if (player.IsDashing)
+            {
+                //爆発する
+                Instantiate(_explosionPrefabA, _explosionParent);
 
-            //カメラを揺らす
-            _cameraPhaseManager.Shake();
+                //カメラを揺らす
+                _cameraPhaseManager.Shake();
 
-            //自分を消す
-            Destroy(this.gameObject);
+                //自分を消す
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                // ダメージ
+                player.Damage();
+            }
         }
     }
 }
