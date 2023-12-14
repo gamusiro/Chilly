@@ -586,6 +586,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3463297093256749784, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_offset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463297093256749784, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_parent
       value: 
       objectReference: {fileID: 1535927865}
@@ -601,10 +605,30 @@ PrefabInstance:
       propertyPath: m_endScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_startScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_startScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_startScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436858907468018405, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_numMax
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4436858907468018405, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_parent
       value: 
       objectReference: {fileID: 467762198}
+    - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4635261179086376726, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -621,12 +645,20 @@ PrefabInstance:
       propertyPath: startFade
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5443567255036937658, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_dashStrength
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_perfectTimeRange
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_perfectTimeOffset
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}

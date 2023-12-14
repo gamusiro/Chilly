@@ -60,6 +60,11 @@ public class CS_Player : MonoBehaviour
     [Range(0.1f, 1.0f)]
     float m_perfectTimeRange;
 
+    // 許容パーフェクトタイミング
+    [SerializeField, CustomLabel("パーフェクトタイミングオフセット(秒)")]
+    [Range(0.1f, 1.0f)]
+    float m_perfectTimeOffset;
+
     [Header("スピンエフェクト")]
     [SerializeField] private SpinEffect _spinEffectPrefab;
 
@@ -182,7 +187,6 @@ public class CS_Player : MonoBehaviour
         // 向きを設定
         Vector3 rotate = Vector3.zero;
         rotate.y = -30.0f * direction.x * m_mainVirtualCamera.gameObject.transform.right.x;
-
         transform.localEulerAngles = rotate;
 
         //スピン
@@ -205,7 +209,7 @@ public class CS_Player : MonoBehaviour
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
 
             // 後ろからのタイミング(perfectTiming)
-            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy > 0.0f)
+            if (subFromEnemy <= m_perfectTimeRange + m_perfectTimeOffset && subFromEnemy > m_perfectTimeOffset)
             {
                 GameObject obj = Instantiate(m_perfectEffectObject);
                 obj.transform.parent = transform;
@@ -242,23 +246,25 @@ public class CS_Player : MonoBehaviour
         Vector3 currentVel = m_rigidBody.velocity;
         if (m_inputAction.Player.SlideL.triggered)
         {
-            CS_AudioManager.Instance.PlayAudio("Dash");
+            //CS_AudioManager.Instance.PlayAudio("Dash");
 
             // 横移動の速度を止める
             ResetSideVel(currentVel);
 
-            m_rigidBody.AddForce(new Vector3(-m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f), ForceMode.VelocityChange);
-            m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+            Vector3 dir = new Vector3(-m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f);
+            m_rigidBody.AddForce(dir, ForceMode.VelocityChange);
+            DashAnimate(dir);
         }
         else if (m_inputAction.Player.SlideR.triggered)
         {
-            CS_AudioManager.Instance.PlayAudio("Dash");
+            //CS_AudioManager.Instance.PlayAudio("Dash");
 
             // 横移動の速度を止める
             ResetSideVel(currentVel);
 
-            m_rigidBody.AddForce(new Vector3(m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f), ForceMode.VelocityChange);
-            m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+            Vector3 dir = new Vector3(m_side * m_mainVirtualCamera.transform.right.x * m_dashStrength, 0.0f, 0.0f);
+            m_rigidBody.AddForce(dir, ForceMode.VelocityChange);
+            DashAnimate(dir);
         }
     }
 
@@ -273,7 +279,7 @@ public class CS_Player : MonoBehaviour
         m_degree++;
 
         // ぶつかっていたら
-        if(m_damaged)
+        if (m_damaged)
         {
             float c = Mathf.Cos(m_degree);
 
@@ -311,7 +317,9 @@ public class CS_Player : MonoBehaviour
     public void SetUsingCamera()
     {
         if(m_mainGameCameraManager)
-        m_mainVirtualCamera =  m_mainGameCameraManager.GetCurCamera();
+            m_mainVirtualCamera =  m_mainGameCameraManager.GetCurCamera();
+
+        transform.localEulerAngles = Vector3.zero;
     }
 
     /// <summary>
@@ -335,7 +343,10 @@ public class CS_Player : MonoBehaviour
     /// <returns></returns>
     public bool IsDashing
     {
-        get { return Mathf.Abs(m_rigidBody.velocity.x) > 1.0f; }
+        get 
+        {
+            return Mathf.Abs(m_rigidBody.velocity.x) > 1.0f; 
+        }
     }
 
     /// <summary>
@@ -350,8 +361,6 @@ public class CS_Player : MonoBehaviour
             m_hp.Hit();
             m_degree = 0.0f;
 
-            
-
             Invoke(nameof(UnlockInvincibility), m_invalidTime);
         }
     }
@@ -363,5 +372,17 @@ public class CS_Player : MonoBehaviour
     public bool GetSpin()
     {
         return _isRotate;
+    }
+
+    /// <summary>
+    /// ダッシュアニメーションの向きを決める
+    /// </summary>
+    /// <param name="_dir"></param>
+    void DashAnimate(Vector3 _dir)
+    {
+        if (_dir.x > 0.0f)
+            m_animator.Play("DashL", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
+        else
+            m_animator.Play("DashR", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
     }
 }

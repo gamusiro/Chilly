@@ -126,7 +126,7 @@ public class Fade : MonoBehaviour
         if (fade == null) 
             return 0.0f;
 
-        Debug.Log("レンジ:" + fade.Range);
+        //Debug.Log("レンジ:" + fade.Range);
         return fade.Range;
     }
 

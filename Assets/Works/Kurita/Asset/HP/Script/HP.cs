@@ -31,7 +31,7 @@ public class HP : MonoBehaviour
         //体力を減らす
         _hp--;
 
-        Debug.Log("ダメージ: " + _hp);
+        //Debug.Log("ダメージ: " + _hp);
     }
 
     public void Recover()
@@ -48,6 +48,6 @@ public class HP : MonoBehaviour
         float time = 1.0f;
         _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
 
-        Debug.Log("回復: " + _hp);
+        //Debug.Log("回復: " + _hp);
     }
 }

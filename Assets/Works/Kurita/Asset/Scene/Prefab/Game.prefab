@@ -2257,7 +2257,7 @@ PrefabInstance:
     - target: {fileID: 8721363477235672052, guid: 2f274ce12b3ab2842a84c0986929387d, type: 3}
       propertyPath: _heartNotesPrefab
       value: 
-      objectReference: {fileID: 655289478527786496, guid: 7d36231e28efc5f428fd952702521964, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8721363477235672052, guid: 2f274ce12b3ab2842a84c0986929387d, type: 3}
       propertyPath: _cameraPhaseManager
       value: 
@@ -2288,6 +2288,10 @@ PrefabInstance:
       propertyPath: _textPanel
       value: 
       objectReference: {fileID: 3838882829049539334}
+    - target: {fileID: 6925476531397113230, guid: a887955c1ac5757499d5d917123a74a7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7800578626160719626, guid: a887955c1ac5757499d5d917123a74a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

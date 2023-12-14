@@ -132,7 +132,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmSource.clip = pack.m_clip;
             m_bgmSource.volume = pack.m_volume * m_masterVolume;
 
-            Debug.Log("再生開始");
+            //Debug.Log("再生開始");
             m_bgmSource.Play();
         }
         else
@@ -170,6 +170,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
                 return;
         }
 
+        //Debug.Log(label + "再生: " + time);
         m_times[label] = time;
         PlayAudio(label, false);
     }

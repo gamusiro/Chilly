@@ -51,6 +51,8 @@ public class CS_TitleManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        Cursor.visible = false;
+
         CS_AudioManager.Instance.PlayAudio("TitleAudio", true);
 
         m_inputAction = new IA_Player();

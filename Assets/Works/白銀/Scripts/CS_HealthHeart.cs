@@ -16,6 +16,9 @@ public class CS_HealthHeart : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            // ‰¹‚ð–Â‚ç‚·
+            CS_AudioManager.Instance.PlayAudio("Heal");
+
             m_hp.Recover();
             Destroy(gameObject);
         }

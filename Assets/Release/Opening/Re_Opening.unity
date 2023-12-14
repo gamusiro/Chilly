@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32097128, g: 0.21131825, b: 0.40435025, a: 1}
+  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,6 +237,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 962376684569543587, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2260065989966372890, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 2260065989966372890, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 2260065989966372890, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282893913510634423, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2502
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295049317820825563, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3295049317820825563, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3295049317820825563, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392359980373618340, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3392359980373618340, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3392359980373618340, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9004493701433633413, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}

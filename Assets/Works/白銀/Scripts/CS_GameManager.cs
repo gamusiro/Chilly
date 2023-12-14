@@ -72,7 +72,7 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void StateIn()
     {
-        Debug.Log("フェードイン!");
+        //Debug.Log("フェードイン!");
 
         float vol = 1.0f - m_fade.GetRange();
         CS_AudioManager.Instance.MasterVolume = (vol);

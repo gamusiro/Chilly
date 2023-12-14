@@ -79,3 +79,9 @@ MonoBehaviour:
   - m_label: Commit
     m_clip: {fileID: 8300000, guid: 740f3c6bae239ed47b042165f8f77131, type: 3}
     m_volume: 0.2
+  - m_label: DestroySmallEnemy
+    m_clip: {fileID: 8300000, guid: 6f63dec833983384bb4c25037ea5317a, type: 3}
+    m_volume: 0.2
+  - m_label: Heal
+    m_clip: {fileID: 8300000, guid: e080af49517be024985f27e44f28e83a, type: 3}
+    m_volume: 0.2

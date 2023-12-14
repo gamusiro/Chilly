@@ -54,6 +54,9 @@ public class SmallEnemy : Enemy
                 //ƒJƒƒ‰‚ğ—h‚ç‚·
                 _cameraPhaseManager.Shake();
 
+                // ‰¹‚ğ–Â‚ç‚·
+                CS_AudioManager.Instance.PlayAudio("DestroySmallEnemy");
+
                 //©•ª‚ğÁ‚·
                 Destroy(this.gameObject);
             }
