@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phase1: {fileID: 4278217160147577748}
   _playerCS: {fileID: 5406275378422229890}
-  _enemy: {fileID: 8245437537284751595}
+  _enemy: {fileID: 4171736358228160701}
   _moveObjectTransform: {fileID: 1536107048301118160}
   _soundWave: {fileID: 6266803314944984776, guid: 19d9e851cf618d94b82c5700e8a74fa8, type: 3}
   _bell: {fileID: 1122325061754371108}
@@ -5949,10 +5949,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2729719178894330201, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -100
-      objectReference: {fileID: 0}
     - target: {fileID: 9097613482176212571, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
       propertyPath: m_Name
       value: LastEnemy Variant
@@ -5962,19 +5958,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
---- !u!4 &6883395925620452047 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2688827725082728365, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
-  m_PrefabInstance: {fileID: 8851295712965393762}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8245437537284751595 stripped
+--- !u!114 &4171736358228160701 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 629293724945022345, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4842181672343965151, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
   m_PrefabInstance: {fileID: 8851295712965393762}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bbbba94aecd40a43a902270da230323, type: 3}
+  m_Script: {fileID: 11500000, guid: a240aa1c4ff63b94fa57a072fe2ca94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6883395925620452047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2688827725082728365, guid: def652e2576e2f84dabcb4f3a1e30de9, type: 3}
+  m_PrefabInstance: {fileID: 8851295712965393762}
+  m_PrefabAsset: {fileID: 0}
