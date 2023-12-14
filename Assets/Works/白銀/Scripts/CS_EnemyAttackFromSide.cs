@@ -6,10 +6,6 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
-    // まとめるオブジェクト
-    [SerializeField, CustomLabel("まとめるオブジェクト")]
-    Transform m_parent;
-
     // 生成するオブジェクト
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
@@ -79,7 +75,6 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
         GameObject obj = Instantiate(m_createObject);
         obj.transform.parent = gameObject.transform.parent;
         obj.AddComponent<CS_EnemyAttackSideBar>();
-        obj.transform.parent = m_parent;
 
         CS_EnemyAttackSideBar bar = obj.GetComponent<CS_EnemyAttackSideBar>();
         bar.m_perfTime = info.time;

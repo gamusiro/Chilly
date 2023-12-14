@@ -620,6 +620,18 @@ PrefabInstance:
       propertyPath: m_parent
       value: 
       objectReference: {fileID: 1535927865}
+    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_endScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_endScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_endScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4436858907468018405, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_parent
       value: 
@@ -652,6 +664,38 @@ PrefabInstance:
       propertyPath: m_jsonFileName
       value: WeMadeIt_Health
       objectReference: {fileID: 0}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[2].loopCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[2].totalTime
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[2].materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[1].materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1f8b2e78aeb26b44aa275bc707a8948, type: 2}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[2].materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e8dd5005e20376419bf997bcda6e458, type: 2}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[2].materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bfaefe0b8d2119749a74510c017d2c6d, type: 2}
+    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_data.Array.data[2].materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1f8b2e78aeb26b44aa275bc707a8948, type: 2}
     - target: {fileID: 8796158530720522957, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

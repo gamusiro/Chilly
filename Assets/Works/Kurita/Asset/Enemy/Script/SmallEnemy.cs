@@ -49,7 +49,7 @@ public class SmallEnemy : Enemy
             if (player.IsDashing)
             {
                 //”š”­‚·‚é
-                Instantiate(_explosionPrefabA, _explosionParent);
+                Instantiate(_explosionPrefabA, this.transform.position, Quaternion.identity, _explosionParent);
 
                 //ƒJƒƒ‰‚ğ—h‚ç‚·
                 _cameraPhaseManager.Shake();
