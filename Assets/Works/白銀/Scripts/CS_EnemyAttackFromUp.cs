@@ -6,6 +6,10 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
+    // まとめる用の親オブジェクト
+    [SerializeField, CustomLabel("まとめる用の親オブジェクト")]
+    Transform m_parent;
+
     // 生成するオブジェクト
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
@@ -90,11 +94,13 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         // 落ちるオブジェクトの変数を生成
         GameObject fall = Instantiate(m_createObject, createPos, Quaternion.identity);
         fall.GetComponent<CS_FallObject>().m_perfTime = time;
+        fall.transform.parent = m_parent;
         
         // 影オブジェクトの影を生成
         createPos.y = 0.01f;
         GameObject sdw = Instantiate(m_shadowObject, createPos, Quaternion.identity);
         sdw.GetComponent<CS_Shadow>().SetPerfectTime(info.time);
+        sdw.transform.parent = m_parent;
 
         m_fallObjects[index] = fall;
         m_shadowObjects[index] = sdw;

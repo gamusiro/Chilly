@@ -7,6 +7,10 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
+    // まとめる用の親オブジェクト
+    [SerializeField, CustomLabel("まとめる用の親オブジェクト")]
+    Transform m_parent;
+
     // 生成するオブジェクト
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
@@ -79,6 +83,7 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         // obj.GetComponentInChildren<CS_HeartPiece>().SetMainGameCameraManager(m_cameraManager);
         m_objects[index] = obj;
+        obj.transform.parent = m_parent;
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
 

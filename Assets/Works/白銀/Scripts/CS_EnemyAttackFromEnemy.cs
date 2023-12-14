@@ -6,6 +6,10 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
 {
     #region インスペクタ用変数
 
+    // まとめる用の親オブジェクト
+    [SerializeField, CustomLabel("まとめる用の親オブジェクト")]
+    Transform m_parent;
+
     // 生成するオブジェクト
     [SerializeField, CustomLabel("生成オブジェクト")]
     GameObject m_createObject;
@@ -94,12 +98,14 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         obj.AddComponent<CS_EnemyAttackNotes>();
         obj.GetComponent<CS_EnemyAttackNotes>().m_perfTime = info.time;
+        obj.transform.parent = m_parent;
 
         // ジャンプタイミング用の線
         createPos.x = 0.0f;
         createPos.y = 0.01f;
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
         GameObject lin = Instantiate(m_jumpLineObject, createPos, Quaternion.identity);
+        lin.transform.parent = m_parent;
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
         Destroy(lin, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);

@@ -8225,6 +8225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_jsonFileName: WeMadeIt_Fall
   m_perNoteInfos: []
+  m_parent: {fileID: 0}
   m_createObject: {fileID: 283102548337111582, guid: 9c64041090b4c244baf3008e5b82b875, type: 3}
   m_shadowObject: {fileID: 6798499787823551911, guid: d7ba1e4c96763a04f97ea2b9dd95e3ea, type: 3}
   m_numMax: 80
@@ -8243,6 +8244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_jsonFileName: WeMadeIt_Side
   m_perNoteInfos: []
+  m_parent: {fileID: 0}
   m_createObject: {fileID: 6485056924988669389, guid: 30a645f6bd82cfb4880ba6733de12ad2, type: 3}
   m_numMax: 20
   m_offset: 0.6
