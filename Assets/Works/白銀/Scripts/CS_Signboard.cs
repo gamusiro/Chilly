@@ -30,6 +30,10 @@ public class CS_Signboard : MonoBehaviour
     [Range(1.0f, 10.0f)]
     float m_workOffTime;
 
+    // 上下に動く量
+    [SerializeField, CustomLabel("移動量")]
+    float m_amount;
+
     // 看板が大きくなるタイミング
     [SerializeField, CustomLabel("看板のスケール変更開始時間")]
     float m_setTime = 8.0f;
@@ -139,7 +143,7 @@ public class CS_Signboard : MonoBehaviour
     {
         m_rad += Time.deltaTime;
         Vector3 addPosition = Vector3.up;
-        addPosition.y *= Mathf.Cos(m_rad) * 20.0f;
+        addPosition.y *= Mathf.Cos(m_rad) * m_amount;
 
         transform.localPosition = m_originLocalPosition + addPosition;
     }
