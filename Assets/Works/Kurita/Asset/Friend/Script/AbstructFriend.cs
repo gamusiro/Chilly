@@ -42,7 +42,6 @@ public abstract class AbstractFriend : MonoBehaviour
 
     public void SetDestroy()
     {
-        Debug.Log("ƒJƒ‚ƒ“");
         _destroyFlag = true;
     }
 
