@@ -16,9 +16,19 @@ public class CS_GameManager : MonoBehaviour
     [SerializeField, CustomLabel("フェード時間")]
     float m_setFadeTime;
 
+    // HPデータ
+    [SerializeField, CustomLabel("HP")]
+    HP m_hp;
+
     // フェード
-    [SerializeField, CustomLabel("次のシーン名")]
+    [SerializeField, CustomLabel("ゴールのシーン名")]
     string m_nextSceneName;
+
+    // ゲームオーバーシーン
+    [SerializeField, CustomLabel("ゲームオーバーのシーン名")]
+    string m_gameoverSceneName;
+
+
 
     #endregion
 
@@ -56,6 +66,7 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void StateNone()
     {
+        // ゲームクリア時の遷移
         if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM - m_setFadeTime)
         {
             m_fade.FadeOut(m_setFadeTime, 
@@ -63,6 +74,17 @@ public class CS_GameManager : MonoBehaviour
                     CS_AudioManager.Instance.MasterVolume = 0.0f;
                     CS_AudioManager.Instance.StopBGM();
                     SceneManager.LoadScene(m_nextSceneName);
+                });
+        }
+
+        // ゲームオーバー時の遷移
+        if(m_hp.Health <= 0)
+        {
+            m_fade.FadeOut(m_setFadeTime,
+                () => {
+                    CS_AudioManager.Instance.MasterVolume = 0.0f;
+                    CS_AudioManager.Instance.StopBGM();
+                    SceneManager.LoadScene(m_gameoverSceneName);
                 });
         }
     }

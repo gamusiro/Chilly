@@ -9,6 +9,11 @@ public class HP : MonoBehaviour
     [SerializeField] private List<Image> _hpImageList;//•\¦‰æ‘œ
     int _hp = 0;//Œ»İ‚Ì‘Ì—Í
 
+    public int Health
+    {
+        get { return _hp; }
+    }
+
     private void Start()
     {
         _hp = _hpImageList.Count - 1;//HP‚Ì’l‚ğİ’è‚·‚é

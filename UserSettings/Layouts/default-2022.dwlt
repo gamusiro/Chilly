@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 201
+  controlID: 40
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 148
+  controlID: 41
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,8 +248,8 @@ MonoBehaviour:
     y: 0
     width: 376.80005
     height: 722.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -390,9 +390,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 62380200
-      m_LastClickedID: 0
-      m_ExpandedIDs: aef1f4ff02f4f4ffd06ff5ffd26ff5ff80cff5ff82cff5ff22d3fdffc0d5fdff8e51feff9051feff
+      m_SelectedIDs: 427bfeff
+      m_LastClickedID: -99518
+      m_ExpandedIDs: 547bfeffcef9feffd0f9fefffa7bfffffc7bffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -904,7 +904,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -724562
+  m_LastInspectedObjectInstanceID: -99518
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -1196,7 +1196,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - "Assets/Works/\u767D\u9280/Font"
+    - "Assets/Works/\u767D\u9280/Scripts"
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1204,16 +1204,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-  - "Assets/Works/\u767D\u9280/Font"
+  - "Assets/Works/\u767D\u9280/Scripts"
   m_LastFoldersGridSize: 50
   m_LastProjectPath: C:\Users\Gamus\source\TH425
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 935.80005}
-    m_SelectedIDs: 24260000
-    m_LastClickedID: 9764
-    m_ExpandedIDs: 0000000048b902004ab902004eb9020050b9020052b9020054b9020056b9020058b902005ab902005cb902005eb9020060b9020062b9020000ca9a3b
+    scrollPos: {x: 0, y: 931.80005}
+    m_SelectedIDs: b4c10100
+    m_LastClickedID: 115124
+    m_ExpandedIDs: 000000000cc101000ec1010010c1010012c1010014c1010016c1010018c101001ac101001cc101001ec1010020c1010022c1010024c101004ec1010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1241,7 +1241,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000048b902004ab902004cb902004eb9020050b9020052b9020054b9020056b9020058b902005ab902005cb902005eb9020060b9020062b90200
+    m_ExpandedIDs: 000000000cc101000ec1010010c1010012c1010014c1010016c1010018c101001ac101001cc101001ec1010020c1010022c1010024c10100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1293,7 +1293,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 0.40000916}
     m_GridSize: 50
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 254.85715
@@ -1333,7 +1333,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -142470
+  m_LastSelectedObjectID: -99518
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
