@@ -57,11 +57,8 @@ public class Conversation : ScreenTextParent
         //名前の表示
         _nameTMP.text = conversationInfo.Name;
 
-        //アイコンの表示
-        if (conversationInfo.Icon)
-            this.ShowIcon(conversationInfo.Icon);
-        else
-            this.HideIcon();
+        //アイコンの表示位置を設定
+        ShowIcon(conversationInfo, token);
 
         //会話文の表示
         float timeSpan = 0.5f;
@@ -88,18 +85,40 @@ public class Conversation : ScreenTextParent
         _textPanel.Show();//テキストパネルの非表示
     }
 
-    private void FixedUpdate()
+    private async void ShowIcon(ConversationInfo conversationInfo, CancellationToken token)
     {
-        _time += Time.deltaTime;
-    }
+        //アイコンが設定されていなければリターン
+        if (conversationInfo.Icon == null)
+        {
+            this.HideIcon();
+            return;
+        }
 
-    private void ShowIcon(Sprite sprite)
-    {
-        _icon.sprite = sprite;
+        //アイコンの表示位置はTMPの情報をもとに設定する。
+        //TMPの情報更新にはラグがあるので待機する。
+        await UniTask.WaitUntil(() => _nameTMP.text.Length == _nameTMP.textInfo.characterCount);
+
+        //スプライトを設定する
+        _icon.sprite = conversationInfo.Icon;
         float alpha = 1.0f;
         float time = 0.0f;
         _icon.material.DOFade(alpha, time)
             .SetLink(this.gameObject);
+
+        //座標を設定する
+        float half = 0.5f;
+        float correct = 50.0f;
+        Vector3 position = Vector3.zero;
+        position += _nameTMP.transform.position;
+        position += _nameTMP.textInfo.characterInfo[0].topLeft * half;
+        position += _nameTMP.textInfo.characterInfo[0].bottomRight * half;
+        position.x -= correct;
+        _icon.transform.position = position;
+    }
+
+    private void FixedUpdate()
+    {
+        _time += Time.deltaTime;
     }
 
     private void HideIcon()
