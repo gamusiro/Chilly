@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Works/白銀/Font.meta
 guid: 33535c0672c587548859860c0599bc95
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 489252b21c5741449a7a2573a04689f3
+NativeFormatImporter:
+>>>>>>> 62c1db211fcab556432092d592960a40bc555479:Assets/EnemyExplosion2.mat.meta
   externalObjects: {}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
