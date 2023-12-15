@@ -4,13 +4,19 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class Conversation : ScreenTextParent
 {
+    public enum IconList { Player, Friend, Enemy }
+
     [SerializeField] private TextPanel _textPanel;
     [SerializeField] private TMPro.TextMeshProUGUI _nameTMP;//名前を表示するTMP
     [SerializeField] private TMPro.TextMeshProUGUI _contentTMP;//会話分を表示するTMP
+    [SerializeField] private Image _icon;
     [SerializeField] private List<ConversationInfo> _conversationInfoList = new();
+
     private float _time = 0.0f;
 
     private void Start()
@@ -30,6 +36,7 @@ public class Conversation : ScreenTextParent
         //初期化
         _nameTMP.text = null;
         _contentTMP.text = null;
+        this.HideIcon();
 
         //会話開始
         foreach (var conversationInfo in _conversationInfoList) { Display(conversationInfo); }
@@ -37,15 +44,24 @@ public class Conversation : ScreenTextParent
 
     private async void Display(ConversationInfo conversationInfo)
     {
+        //キャンセル
         var cts = new CancellationTokenSource();
         CancellationToken token = cts.Token;
 
         //指定した時間まで待機
         await UniTask.WaitUntil(() => _time > conversationInfo.StartTime, cancellationToken: token);
 
-        _textPanel.Show();//テキストパネルの表示
+        //テキストパネルの表示
+        _textPanel.Show();
 
-        _nameTMP.text = conversationInfo.Name;//名前の表示
+        //名前の表示
+        _nameTMP.text = conversationInfo.Name;
+
+        //アイコンの表示
+        if (conversationInfo.Icon)
+            this.ShowIcon(conversationInfo.Icon);
+        else
+            this.HideIcon();
 
         //会話文の表示
         float timeSpan = 0.5f;
@@ -67,6 +83,7 @@ public class Conversation : ScreenTextParent
         await UniTask.WaitUntil(()=> _time > conversationInfo.StartTime + conversationInfo.DisplayTime, cancellationToken: token);
         _nameTMP.text = null;
         _contentTMP.text = null;
+        this.HideIcon();
 
         _textPanel.Show();//テキストパネルの非表示
     }
@@ -74,6 +91,23 @@ public class Conversation : ScreenTextParent
     private void FixedUpdate()
     {
         _time += Time.deltaTime;
+    }
+
+    private void ShowIcon(Sprite sprite)
+    {
+        _icon.sprite = sprite;
+        float alpha = 1.0f;
+        float time = 0.0f;
+        _icon.material.DOFade(alpha, time)
+            .SetLink(this.gameObject);
+    }
+
+    private void HideIcon()
+    {
+        float alpha = 0.0f;
+        float time = 0.0f;
+        _icon.material.DOFade(alpha, time)
+            .SetLink(this.gameObject);
     }
 }
 
@@ -89,4 +123,6 @@ public class ConversationInfo
     public float StartTime;
     [CustomLabel("表示時間")]
     public float DisplayTime;
+    [CustomLabel("アイコン")]
+    public Sprite Icon;
 }
