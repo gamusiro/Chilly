@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 3463297093256749784, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_offset
+      value: 0.125
+      objectReference: {fileID: 0}
     - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_amount
       value: 10

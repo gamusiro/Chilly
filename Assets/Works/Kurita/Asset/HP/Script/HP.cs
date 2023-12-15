@@ -8,16 +8,17 @@ public class HP : MonoBehaviour
 {
     [SerializeField] private List<Image> _hpImageList;//表示画像
     int _hp = 0;//現在の体力
+    bool _isAlive;
 
-    public int Health
+    public bool Die
     {
-        get { return _hp; }
+        get { return !_isAlive; }
     }
 
     private void Start()
     {
         _hp = _hpImageList.Count - 1;//HPの値を設定する
-
+        _isAlive = true;
        
         Recover();
     }
@@ -26,7 +27,10 @@ public class HP : MonoBehaviour
     {
         //やられていなければ処理を続行
         if (_hp - 1 < 0)
+        {
+            _isAlive = false;
             return;
+        }
 
         //アニメーション
         float alpha = 0.0f;

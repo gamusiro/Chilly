@@ -78,7 +78,7 @@ public class CS_GameManager : MonoBehaviour
         }
 
         // ゲームオーバー時の遷移
-        if(m_hp.Health <= 0)
+        if(m_hp.Die)
         {
             m_fade.FadeOut(m_setFadeTime,
                 () => {
