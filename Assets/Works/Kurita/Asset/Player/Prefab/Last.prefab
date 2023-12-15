@@ -2756,11 +2756,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -3130,10 +3130,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastScreenText
       objectReference: {fileID: 0}
+    - target: {fileID: 1337235545735399395, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: _textPanel
       value: 
       objectReference: {fileID: 6411371140920350179}
+    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Size
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[1].Size
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: m_text
+      value: 'CONTENT
+
+        CONTENT
+
+        CONTENT
+
+        CONTENT'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7792672947872128568, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3353,9 +3383,21 @@ PrefabInstance:
       propertyPath: _textPanel
       value: 
       objectReference: {fileID: 6411371140920350179}
+    - target: {fileID: 469125305109572126, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Size
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2724422212442867637, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
       propertyPath: m_Name
       value: LastScreenText (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942230978228913060, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942230978228913060, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5245374408350941472, guid: 8edd6adc3aff23f42be5998691088131, type: 3}
       propertyPath: m_Pivot.x
@@ -3517,6 +3559,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3743282421193053210}
     m_Modifications:
+    - target: {fileID: 3302391670738306924, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302391670738306924, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516054697345086536, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516054697345086536, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516054697345086536, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516054697345086536, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: b3433c4fb6feac344b40e452014fd098, type: 2}
     - target: {fileID: 6334739283696953722, guid: b190fcd1095afa941b32f9bc10054122, type: 3}
       propertyPath: m_Name
       value: TextPanelManager

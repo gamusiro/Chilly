@@ -5427,7 +5427,7 @@ Transform:
   m_GameObject: {fileID: 2215302907999412029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2844}
+  m_LocalPosition: {x: 0, y: 0, z: -2850}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7729,26 +7729,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8289201032421373273, guid: c33ad6f12c5d61e479591b718f32a192, type: 3}
-      propertyPath: m_Color.a
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289201032421373273, guid: c33ad6f12c5d61e479591b718f32a192, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289201032421373273, guid: c33ad6f12c5d61e479591b718f32a192, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289201032421373273, guid: c33ad6f12c5d61e479591b718f32a192, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289201032421373273, guid: c33ad6f12c5d61e479591b718f32a192, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 67ee98dadb0185449b0f2b4c8b9369ec, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

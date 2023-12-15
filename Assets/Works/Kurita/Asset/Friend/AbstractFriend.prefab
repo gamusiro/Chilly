@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8571161088290736215}
   m_Layer: 8
-  m_Name: AbstructFriend
+  m_Name: AbstractFriend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
