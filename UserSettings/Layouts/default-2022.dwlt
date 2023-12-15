@@ -15,11 +15,11 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 43.2
-    width: 1536
-    height: 772.8
+    y: 42.285717
+    width: 1755.4287
+    height: 1006.8572
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,13 +44,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1536
-    height: 772.8
-=======
     width: 1755.4286
     height: 1006.8571
->>>>>>> feature/kurita/etcFix8
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -74,11 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1536
-=======
     width: 1755.4286
->>>>>>> feature/kurita/etcFix8
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -99,13 +90,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 752.8
-    width: 1536
-=======
     y: 986.8571
     width: 1755.4286
->>>>>>> feature/kurita/etcFix8
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -129,21 +115,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-<<<<<<< HEAD
-    width: 1536
-    height: 722.8
-  m_MinSize: {x: 300, y: 100}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-  controlID: 40
-=======
     width: 1755.4286
     height: 956.8571
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 103
->>>>>>> feature/kurita/etcFix8
+  controlID: 128
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,17 +138,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 335.2
-    height: 722.8
+    width: 192.57143
+    height: 956.8571
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-=======
-    width: 258.85715
-    height: 956.8571
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
->>>>>>> feature/kurita/etcFix8
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -194,25 +164,14 @@ MonoBehaviour:
   - {fileID: 9}
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 335.2
+    x: 192.57143
     y: 0
-    width: 823.99994
-    height: 722.8
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 8096, y: 16192}
-  vertical: 1
-  controlID: 41
-=======
-    x: 258.85715
-    y: 0
-    width: 1057.7142
+    width: 1083.4286
     height: 956.8571
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 50
->>>>>>> feature/kurita/etcFix8
+  controlID: 40
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -230,24 +189,16 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 823.99994
-    height: 397.6
+    width: 1083.4286
+    height: 619.4286
   m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-=======
-    width: 1057.7142
-    height: 462.2857
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
->>>>>>> feature/kurita/etcFix8
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 13}
   - {fileID: 11}
   - {fileID: 14}
   - {fileID: 15}
-<<<<<<< HEAD
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &9
@@ -266,9 +217,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 397.6
-    width: 823.99994
-    height: 325.19998
+    y: 619.4286
+    width: 1083.4286
+    height: 337.42853
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 17}
@@ -278,38 +229,6 @@ MonoBehaviour:
   - {fileID: 18}
   m_Selected: 1
   m_LastSelected: 0
-=======
-  m_Selected: 1
-  m_LastSelected: 0
---- !u!114 &9
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
-  m_EditorClassIdentifier: 
-  m_Children: []
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 462.2857
-    width: 1057.7142
-    height: 494.5714
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 16}
-  m_Panes:
-  - {fileID: 16}
-  - {fileID: 17}
-  - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 1
->>>>>>> feature/kurita/etcFix8
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -325,16 +244,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 1159.2
-=======
-    x: 1316.5714
->>>>>>> feature/kurita/etcFix8
+    x: 1276
     y: 0
-    width: 438.85718
+    width: 479.4286
     height: 956.8571
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -360,17 +275,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 335.2
-    y: 73.6
-    width: 821.99994
-    height: 376.6
-=======
-    x: 258.85715
+    x: 192.57144
     y: 72.571434
-    width: 1055.7142
-    height: 441.2857
->>>>>>> feature/kurita/etcFix8
+    width: 1081.4286
+    height: 598.4286
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -387,11 +295,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-<<<<<<< HEAD
-  m_TargetSize: {x: 790, y: 444.5}
-=======
-  m_TargetSize: {x: 1308, y: 735.5}
->>>>>>> feature/kurita/etcFix8
+  m_TargetSize: {x: 1796, y: 1010.5}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -406,24 +310,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-<<<<<<< HEAD
-    m_HBaseRangeMin: -316
-    m_HBaseRangeMax: 316
-    m_VBaseRangeMin: -177.8
-    m_VBaseRangeMax: 177.8
-=======
-    m_HBaseRangeMin: -373.7143
-    m_HBaseRangeMax: 373.7143
-    m_VBaseRangeMin: -210.14287
-    m_VBaseRangeMax: 210.14287
->>>>>>> feature/kurita/etcFix8
+    m_HBaseRangeMin: -513.1429
+    m_HBaseRangeMax: 513.1429
+    m_VBaseRangeMin: -288.7143
+    m_VBaseRangeMax: 288.7143
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -434,40 +331,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-<<<<<<< HEAD
-      width: 821.99994
-      height: 355.6
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 410.99997, y: 177.8}
-=======
-      width: 1055.7142
-      height: 420.2857
-    m_Scale: {x: 0.9999999, y: 0.99999994}
-    m_Translation: {x: 527.8571, y: 210.14285}
->>>>>>> feature/kurita/etcFix8
+      width: 1081.4286
+      height: 577.4286
+    m_Scale: {x: 1.0608996, y: 1.0608999}
+    m_Translation: {x: 540.7143, y: 288.71426}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-<<<<<<< HEAD
-      x: -410.99997
-      y: -177.8
-      width: 821.99994
-      height: 355.6
+      x: -509.67526
+      y: -272.14093
+      width: 1019.3505
+      height: 544.2819
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1027.4999, y: 470.75}
-=======
-      x: -527.8572
-      y: -210.14287
-      width: 1055.7144
-      height: 420.28574
-    m_MinimalGUI: 1
-  m_defaultScale: 0.99999994
-  m_LastWindowPixelSize: {x: 1847.4999, y: 772.25}
->>>>>>> feature/kurita/etcFix8
+  m_LastWindowPixelSize: {x: 1892.5, y: 1047.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -494,15 +374,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-    y: 73.6
-    width: 334.2
-    height: 701.8
-=======
     y: 72.571434
-    width: 257.85715
+    width: 191.57143
     height: 935.8571
->>>>>>> feature/kurita/etcFix8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -516,15 +390,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
-      m_SelectedIDs: 587cffff
-      m_LastClickedID: -33704
-      m_ExpandedIDs: 5c7cffff087fffffd6faffffd8faffff
-=======
-      m_SelectedIDs: 
+      m_SelectedIDs: 88aceeff
       m_LastClickedID: 0
-      m_ExpandedIDs: ee9fffff14a0ffffe2faffffe4faffff
->>>>>>> feature/kurita/etcFix8
+      m_ExpandedIDs: d666e7fff266e7fff466e7fffe69e8ff78e8e8ff7ae8e8ffc2e9e8ff62fae8ff5a10e9ffbc3ce9ffb083ecffe483ecffb8deecffbcdeecffbedeecff54efecff360bedff7854edffec5dedff166cedffba7eeeff6685eeffdecceeff3473f2ff3673f2ff705cfaffae5cfaffd05cfaffd45cfaffe85cfaff82b5faff34b6faff5cb6faff5eb6faffb0cafaffccfaffffdcfaffffe0faffffe2faffffb65a010064c00600eec20600ec340800
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -568,17 +436,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 335.2
-    y: 73.6
-    width: 821.99994
-    height: 376.6
-=======
-    x: 258.85715
+    x: 192.57144
     y: 72.571434
-    width: 1055.7142
-    height: 441.2857
->>>>>>> feature/kurita/etcFix8
+    width: 1081.4286
+    height: 598.4286
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -924,15 +785,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< HEAD
-    m_Target: {x: -6.9736, y: 54.807064, z: -139.3682}
+    m_Target: {x: -1.6082877, y: -1.6513536, z: 1.0663534}
     speed: 2
-    m_Value: {x: -6.9736, y: 54.807064, z: -139.3682}
-=======
-    m_Target: {x: 114.15848, y: 1.4162769, z: -0.59547424}
-    speed: 2
-    m_Value: {x: 114.15848, y: 1.4162769, z: -0.59547424}
->>>>>>> feature/kurita/etcFix8
+    m_Value: {x: -1.6082877, y: -1.6513536, z: 1.0663534}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -943,7 +798,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -978,23 +833,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-<<<<<<< HEAD
-    m_Target: {x: -0.006301152, y: -0.051878344, z: 0.00032731466, w: -0.99863464}
+    m_Target: {x: -0.27135125, y: 0.558537, z: -0.19997245, w: -0.75790286}
     speed: 2
-    m_Value: {x: -0.006301145, y: -0.05187829, z: 0.0003273143, w: -0.99863356}
+    m_Value: {x: -0.27135116, y: 0.5585368, z: -0.19997238, w: -0.75790256}
   m_Size:
-    m_Target: 23.975021
+    m_Target: 2.3742085
     speed: 2
-    m_Value: 23.975021
-=======
-    m_Target: {x: -0.081205584, y: -0.01883912, z: 0.0015352014, w: -0.9965187}
-    speed: 2
-    m_Value: {x: -0.08120555, y: -0.018839112, z: 0.0015352007, w: -0.9965182}
-  m_Size:
-    m_Target: 284.10468
-    speed: 2
-    m_Value: 284.10468
->>>>>>> feature/kurita/etcFix8
+    m_Value: 2.3742085
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1059,11 +904,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-<<<<<<< HEAD
-  m_LastInspectedObjectInstanceID: -33718
-=======
-  m_LastInspectedObjectInstanceID: -24600
->>>>>>> feature/kurita/etcFix8
+  m_LastInspectedObjectInstanceID: -1135480
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -1313,17 +1154,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 335.2
-    y: 471.2
-    width: 821.99994
-    height: 304.19998
-=======
-    x: 258.85715
-    y: 534.8572
-    width: 1055.7142
-    height: 473.5714
->>>>>>> feature/kurita/etcFix8
+    x: 192.57144
+    y: 692.00006
+    width: 1081.4286
+    height: 316.42853
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1354,17 +1188,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 335.2
-    y: 471.2
-    width: 821.99994
-    height: 304.19998
-=======
-    x: 258.85715
-    y: 534.8572
-    width: 1055.7142
-    height: 473.5714
->>>>>>> feature/kurita/etcFix8
+    x: 192.57144
+    y: 692.00006
+    width: 1081.4286
+    height: 316.42853
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1386,11 +1213,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-<<<<<<< HEAD
-    - "Assets/Works/\u767D\u9280/Scripts"
-=======
-    - Assets/Texture
->>>>>>> feature/kurita/etcFix8
+    - Assets/Works/Kurita/Asset/GameOver
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1398,27 +1221,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-<<<<<<< HEAD
-  - "Assets/Works/\u767D\u9280/Scripts"
-=======
-  - Assets/Texture
->>>>>>> feature/kurita/etcFix8
+  - Assets/Works/Kurita/Asset/GameOver
   m_LastFoldersGridSize: 50
-  m_LastProjectPath: C:\Users\Gamus\source\TH425
+  m_LastProjectPath: C:\Users\ALTO\Documents\CProgramming\TH425_Project2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-<<<<<<< HEAD
-    scrollPos: {x: 0, y: 931.80005}
-    m_SelectedIDs: e2660100
-    m_LastClickedID: 91874
-    m_ExpandedIDs: 0000000036660100386601003a6601003c6601003e66010040660100426601004466010046660100486601004a6601004c6601004e66010000ca9a3b
-=======
-    scrollPos: {x: 0, y: 335}
-    m_SelectedIDs: 481c0100
-    m_LastClickedID: 72776
-    m_ExpandedIDs: 00000000001c0100021c0100041c0100061c0100081c01000a1c01000c1c01000e1c0100101c0100121c0100141c0100161c0100181c01001a1c01001c1c01007a1c010000ca9a3b
->>>>>>> feature/kurita/etcFix8
+    scrollPos: {x: 0, y: 911}
+    m_SelectedIDs: f4bf0600
+    m_LastClickedID: 442356
+    m_ExpandedIDs: 00000000f81b0100fa1b0100fc1b0100fe1b0100001c0100021c0100041c0100061c0100081c01000a1c01000c1c01000e1c0100101c0100121c0100141c01005c1c0100781c0100861c010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1446,11 +1258,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< HEAD
-    m_ExpandedIDs: 0000000036660100386601003a6601003c6601003e66010040660100426601004466010046660100486601004a6601004c6601004e660100
-=======
-    m_ExpandedIDs: 00000000001c0100021c0100041c0100061c0100081c01000a1c01000c1c01000e1c0100101c0100121c0100141c0100161c0100181c01001a1c01001c1c0100
->>>>>>> feature/kurita/etcFix8
+    m_ExpandedIDs: 00000000f81b0100fa1b0100fc1b0100fe1b0100001c0100021c0100041c0100061c0100081c01000a1c01000c1c01000e1c0100101c0100121c0100141c0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1475,17 +1283,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-<<<<<<< HEAD
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c0000fe2001002cf00000e825fdff361efdff049d0200a20f04001c9e010094fe0000e416020000000000f4370d00
-=======
-    m_SelectedInstanceIDs: ee9fffff
-    m_LastClickedInstanceID: -24594
-    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c0000fe2001002cf00000e825fdff361efdff049d0200a20f04001c9e010094fe0000e4160200f4370d0038451400000000000a7c17003cb2150016630000821c0100861c0100
->>>>>>> feature/kurita/etcFix8
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1509,14 +1310,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0.40000916}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 50
   m_SkipHiddenPackages: 0
-<<<<<<< HEAD
-  m_DirectoriesAreaWidth: 254.85715
-=======
   m_DirectoriesAreaWidth: 50
->>>>>>> feature/kurita/etcFix8
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1553,11 +1350,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-<<<<<<< HEAD
-  m_LastSelectedObjectID: -33718
-=======
-  m_LastSelectedObjectID: -24600
->>>>>>> feature/kurita/etcFix8
+  m_LastSelectedObjectID: -1612046
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1578,17 +1371,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-    x: 1159.2001
-    y: 73.6
-    width: 375.80005
-    height: 701.8
-=======
-    x: 1316.5715
+    x: 1276
     y: 72.571434
-    width: 437.85718
+    width: 478.4286
     height: 935.8571
->>>>>>> feature/kurita/etcFix8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

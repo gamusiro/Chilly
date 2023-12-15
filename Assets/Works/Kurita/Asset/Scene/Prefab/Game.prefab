@@ -900,7 +900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fade: {fileID: 4635261179086377480}
   m_setFadeTime: 1
+  m_hp: {fileID: 0}
   m_nextSceneName: Re_Ending
+  m_gameoverSceneName: GameOver
 --- !u!1 &5507988824894949704
 GameObject:
   m_ObjectHideFlags: 0

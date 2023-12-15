@@ -33,7 +33,7 @@ public class OpeningFriend : AbstractFriend
             float speed = 10.0f;
             this.transform.Rotate(0.0f, 0.0f, speed);
 
-            await UniTask.Delay(1, cancellationToken: token);
+            await UniTask.WaitForFixedUpdate(cancellationToken: token);
             _time += Time.deltaTime;
             Mathf.Clamp(_time, 0.0f, 1.0f);
 

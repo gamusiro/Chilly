@@ -11,9 +11,20 @@ public class Fade_K : MonoBehaviour
 
     void Start()
     {
+        float time = 0.0f;
         _fadeImage.gameObject.SetActive(true);
         if (_isClear)
-            FadeOut(0.0f);
+        {
+            time = 0.0f;
+            FadeOut(time);
+        }
+        else
+        {
+            time = 0.0f;
+            FadeIn(time);
+            time = 2.0f;
+            FadeOut(time);
+        }
     }
 
     //フェードイン
