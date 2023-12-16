@@ -92,7 +92,7 @@ public class LastMovieManager : MonoBehaviour
 
 
         //ç≈èâÇÃLogoÇÃï\é¶
-        time = 19.0f;
+        time = 18.5f;
         await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
         _lastLogoFirstShow.Show();
 
