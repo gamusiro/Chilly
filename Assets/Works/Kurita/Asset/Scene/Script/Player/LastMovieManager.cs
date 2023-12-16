@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine.SceneManagement;
 using System.Threading;
+using DG.Tweening;
 
 public class LastMovieManager : MonoBehaviour
 {
@@ -37,14 +38,17 @@ public class LastMovieManager : MonoBehaviour
     [SerializeField] private Fade_K _fade;
     [SerializeField] string _nextScene; 
 
+    //タイトルロゴ
+    [SerializeField] private LastLogo _lastLogoFirstShow;
+    [SerializeField] private LastLogo _lastLogoSecondShow;
+
     private async void Start()
     {
         var cts = new CancellationTokenSource();
         CancellationToken token = cts.Token;
 
-        CS_AudioManager.Instance.PlayAudio("Explosion", true);
+        CS_AudioManager.Instance.PlayAudio("Last", true);
         CS_AudioManager.Instance.MasterVolume = 1.0f;
-        //_fade.FadeOut(0.5f);
 
         //ベルがなを鳴らす
         await UniTask.WaitUntil(() => _playerCS.OnBell, cancellationToken: token);
@@ -53,34 +57,54 @@ public class LastMovieManager : MonoBehaviour
         _playerCS.OnBell = false;
 
         //敵がやられた判定になる
-        await UniTask.Delay(TimeSpan.FromSeconds(4.0f), cancellationToken: token);
+       　float time = 4.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
         _enemy.Disapper(_enemy.transform);
-        //Destroy(_moveObjectTransform.gameObject);
 
         //爆発後
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f), cancellationToken: token);
+        time = 5.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
         _enemy.Explosion(_phase1.transform);
 
         //フェーズ1終了,フェーズ2開始
-        await UniTask.Delay(TimeSpan.FromSeconds(5.0f), cancellationToken: token);
+        time = 5.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
         _bell.SetRing(false);
         Destroy(_phase1);
         Instantiate(_phase2);
 
-        _fade.FadeIn(0.0f);
+        time = 0.0f;
+        _fade.FadeIn(time);
 
-        CS_AudioManager.Instance.MasterVolume = 0.0f;
-        CS_AudioManager.Instance.StopBGM();
-        CS_AudioManager.Instance.PlayAudio("Rescue", true);
-        CS_AudioManager.Instance.MasterVolume = 1.0f;
+        //CS_AudioManager.Instance.MasterVolume = 0.0f;
+        //CS_AudioManager.Instance.StopBGM();
+        //CS_AudioManager.Instance.PlayAudio("Rescue", true);
+        //CS_AudioManager.Instance.MasterVolume = 1.0f;
 
-        _fade.FadeOut(1.0f);
+        time = 1.0f;
+        _fade.FadeOut(time);
 
         //友達生成
-        await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: token);
-        Instantiate(_friendPrefab, new Vector3(0.0f, 500.0f, 30.0f), Quaternion.identity);
+        time = 1.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+        Vector3 spawnPosition = new Vector3(0.0f, 500.0f, 30.0f);
+        Instantiate(_friendPrefab, spawnPosition, Quaternion.identity);
 
-        await UniTask.Delay(TimeSpan.FromSeconds(22.0f), cancellationToken: token);
+
+        //最初のLogoの表示
+        time = 19.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+        _lastLogoFirstShow.Show();
+
+        //二つ目のLogoの表示
+        time = 3.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+        _lastLogoSecondShow.Show();
+        CS_AudioManager.Instance.MasterVolume = 2.0f;
+        Debug.Log(CS_AudioManager.Instance.MasterVolume);
+
+        time = 4.0f;
+        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
         CS_AudioManager.Instance.MasterVolume = 0.0f;
         CS_AudioManager.Instance.StopBGM();
         SceneManager.LoadScene(_nextScene);
@@ -98,17 +122,11 @@ public class LastMovieManager : MonoBehaviour
     //移動オブジェクト
     private  void MoveObject()
     {
-      //  while (true)
-        //{
-            //ヌルチェック
-            if (_moveObjectTransform == null)
-                return;
+        if (_moveObjectTransform == null)
+            return;
 
-            Vector3 position = _moveObjectTransform.localPosition;
-            position.z -= 3.0f;
-            _moveObjectTransform.localPosition = position;
-
-       //     await UniTask.Delay(1);
-        //}
+        Vector3 position = _moveObjectTransform.localPosition;
+        position.z -= 3.0f;
+        _moveObjectTransform.localPosition = position;
     }
 }
