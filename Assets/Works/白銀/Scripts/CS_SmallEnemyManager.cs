@@ -83,7 +83,7 @@ public class CS_SmallEnemyManager : CS_LoadNotesFile
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         m_objects[index] = obj;
         obj.transform.parent = m_parent;
-        obj.GetComponentInChildren<SmallEnemy>().Initialize(m_cameraManager);
+        obj.GetComponentInChildren<SmallEnemy>().Initialize(m_cameraManager, m_parent);
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
 

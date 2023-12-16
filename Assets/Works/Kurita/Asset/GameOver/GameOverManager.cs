@@ -24,6 +24,7 @@ public class GameOverManager : MonoBehaviour
         //‘JˆÚˆ—
         timeSpan = 3.0f;
         await UniTask.Delay(TimeSpan.FromSeconds(timeSpan), cancellationToken: token);
+
         //‚±‚±
     }
 }

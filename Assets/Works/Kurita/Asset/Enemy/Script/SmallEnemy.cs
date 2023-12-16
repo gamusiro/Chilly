@@ -10,14 +10,15 @@ public class SmallEnemy : Enemy
 {
     //‚â‚ç‚ê‚é
     [SerializeField] private GameObject _explosionPrefabA;
-    [SerializeField] private Transform _explosionParent;
+    private Transform _explosionParent = null;
 
     //ƒJƒƒ‰
     private CameraPhaseManager _cameraPhaseManager;
 
-    public void Initialize(CameraPhaseManager cpm)
+    public void Initialize(CameraPhaseManager cpm, Transform parent)
     {
         _cameraPhaseManager = cpm;
+        _explosionParent = parent;
     }
 
     private void Start()
@@ -48,6 +49,9 @@ public class SmallEnemy : Enemy
             CS_Player player = obj.GetComponent<CS_Player>();
             if (player.IsDashing)
             {
+                if (_explosionParent == null) 
+                    Debug.LogError("e‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+
                 //”š”­‚·‚é
                 Instantiate(_explosionPrefabA, this.transform.position, Quaternion.identity, _explosionParent);
 
