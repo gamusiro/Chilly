@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using System;
+using UnityEditor;
 
 public class GameOverManager : MonoBehaviour
 {
     [SerializeField] private Fade_K _fade;
+    [SerializeField] private string _gameoverScene;
 
     private async void Start()
     {
@@ -26,5 +29,7 @@ public class GameOverManager : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(timeSpan), cancellationToken: token);
 
         //‚±‚±
+        //await UniTask.WaitUntil()
+        SceneManager.LoadScene(_gameoverScene);
     }
 }

@@ -60,6 +60,9 @@ MonoBehaviour:
   - m_label: Rescue
     m_clip: {fileID: 8300000, guid: fc73ad0359cf31448848bd197a87221e, type: 3}
     m_volume: 0.1
+  - m_label: Last
+    m_clip: {fileID: 8300000, guid: 186cf89a053450f42afab2d1997f7ac7, type: 3}
+    m_volume: 0.1
   m_sePack:
   - m_label: Fall
     m_clip: {fileID: 8300000, guid: a5073c3476ffb5c4989efbbd873f86cf, type: 3}
@@ -84,4 +87,7 @@ MonoBehaviour:
     m_volume: 0.2
   - m_label: Heal
     m_clip: {fileID: 8300000, guid: e080af49517be024985f27e44f28e83a, type: 3}
+    m_volume: 0.2
+  - m_label: Bell
+    m_clip: {fileID: 8300000, guid: edf81e57594ee4d4a9c8ec422d0813d1, type: 3}
     m_volume: 0.2

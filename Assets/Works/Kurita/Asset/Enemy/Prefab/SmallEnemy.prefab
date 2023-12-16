@@ -263,7 +263,6 @@ MonoBehaviour:
   _mouthTransform: {fileID: 7236862996928823590}
   _standardPosition: {fileID: 2457936762666890964}
   _explosionPrefabA: {fileID: 97280904656272491, guid: afdac2a2aa3f3764ea6c2d7a604f40c7, type: 3}
-  _explosionParent: {fileID: 7268751786742833106}
 --- !u!4 &2457936762666890964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4588435773175841993, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
@@ -272,10 +271,5 @@ Transform:
 --- !u!4 &7236862996928823590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8781947794142917435, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
-  m_PrefabInstance: {fileID: 2139559952727241245}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7268751786742833106 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
   m_PrefabInstance: {fileID: 2139559952727241245}
   m_PrefabAsset: {fileID: 0}
