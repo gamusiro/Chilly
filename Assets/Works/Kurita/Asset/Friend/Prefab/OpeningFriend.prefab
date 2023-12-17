@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpeningFriend
       objectReference: {fileID: 0}
+    - target: {fileID: 8039189850672294854, guid: 41bd600f8c756054c812971775d97349, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 86f69c4ffe4bedf449d0169d0ba8099d, type: 2}
     - target: {fileID: 8333234477815431004, guid: 41bd600f8c756054c812971775d97349, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.7933533

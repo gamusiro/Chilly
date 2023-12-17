@@ -12,6 +12,7 @@ TagManager:
   - Scattering
   - GameEnemy
   - HeartNotes
+  - ReverseCamera
   layers:
   - Default
   - TransparentFX

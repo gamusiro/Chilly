@@ -11,7 +11,7 @@ public class SmallEnemyExplosion : MonoBehaviour
     {
         //Šg‘å‚µ‚Ä©g‚ğíœ‚·‚é
         Vector3 scale = new Vector3(100.0f, 100.0f, 100.0f);
-        float time = 0.2f;
+        float time = 0.6f;
         _sphere.transform.DOScale(scale, time)
             .SetLink(this.gameObject);
 

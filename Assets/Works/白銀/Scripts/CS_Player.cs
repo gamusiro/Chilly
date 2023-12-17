@@ -187,27 +187,11 @@ public class CS_Player : MonoBehaviour
         rotate.y = -30.0f * direction.x * m_mainVirtualCamera.gameObject.transform.right.x;
         transform.localEulerAngles = rotate;
 
-        //スピン
-        //if (Input.GetKeyDown(KeyCode.V))
-        //{
-        //    _playerModel.transform.DOComplete();
-        //    Vector3 modelRotate = Vector3.zero;
-        //    modelRotate.y = 360.0f+180.0f;
-        //    var tweener=_playerModel.transform.DOLocalRotate(modelRotate, 0.5f, RotateMode.FastBeyond360)
-        //        .OnComplete(() => _isRotate = false)
-        //        .SetLink(this.gameObject);
-        //    _isRotate = true;
-
-        //    //Instantiate(_spinEffectPrefab, this.transform.position, Quaternion.identity, this.transform);
-        //}
-
         // ジャンプ
         if (m_inputAction.Player.Jump.triggered && !m_isFlying)
         {
             // 差分
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
-            Debug.Log(subFromEnemy);
-
 
             // 後ろからのタイミング(perfectTiming)
             if (subFromEnemy <= m_perfectTimeRange && subFromEnemy >= -m_perfectTimeRange)

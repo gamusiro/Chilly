@@ -24,6 +24,10 @@ public class CS_SmallEnemyManager : CS_LoadNotesFile
     [SerializeField, CustomLabel("カメラマネージャー")]
     CameraPhaseManager m_cameraManager;
 
+    //プレイヤー
+    [SerializeField, CustomLabel("プレイヤー")]
+    CS_Player m_player;
+
     #endregion
 
     #region 内部用変数
@@ -77,13 +81,13 @@ public class CS_SmallEnemyManager : CS_LoadNotesFile
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = -60.0f + info.lane * 30.0f;
-        createPos.y = 4.0f;
+        createPos.y = 20.0f;
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         GameObject obj = Instantiate(m_createObject, createPos, Quaternion.identity);
         m_objects[index] = obj;
         obj.transform.parent = m_parent;
-        obj.GetComponentInChildren<SmallEnemy>().Initialize(m_cameraManager, m_parent);
+        obj.GetComponentInChildren<SmallEnemy>().Initialize(m_cameraManager, m_parent, m_player.transform);
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
 
