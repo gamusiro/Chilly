@@ -107,12 +107,14 @@ public class Conversation : ScreenTextParent
 
         //ç¿ïWÇê›íËÇ∑ÇÈ
         float half = 0.5f;
-        float correct = 50.0f;
+        float correctX = 50.0f;
+        float correctY = 6.0f;
         Vector3 position = Vector3.zero;
         position += _nameTMP.transform.position;
         position += _nameTMP.textInfo.characterInfo[0].topLeft * half;
         position += _nameTMP.textInfo.characterInfo[0].bottomRight * half;
-        position.x -= correct;
+        position.x -= correctX;
+        position.y -= correctY;
         _icon.transform.position = position;
     }
 
