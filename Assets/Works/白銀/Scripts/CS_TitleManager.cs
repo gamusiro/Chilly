@@ -20,13 +20,13 @@ public class CS_TitleManager : MonoBehaviour
     [SerializeField, CustomLabel("シーン名")]
     string m_sceneName;
 
-    // ファーストテイクパネルUI
-    [SerializeField, CustomLabel("FirstTake")]
-    GameObject m_firstTakePanel;
+    //// ファーストテイクパネルUI
+    //[SerializeField, CustomLabel("FirstTake")]
+    //GameObject m_firstTakePanel;
 
-    // メニューテイクパネルUI
-    [SerializeField, CustomLabel("MenuTake")]
-    GameObject m_menuTakePanel;
+    //// メニューテイクパネルUI
+    //[SerializeField, CustomLabel("MenuTake")]
+    //GameObject m_menuTakePanel;
 
     #endregion
 
@@ -60,10 +60,7 @@ public class CS_TitleManager : MonoBehaviour
 
         // フェードインの後、音量をマックスにする
         m_fade.FadeIn(1.0f, () => { CS_AudioManager.Instance.MasterVolume = 1.0f; });
-
-        // ファーストテイクUIの設定
-        m_take = TAKE.FIRST;
-        m_firstTakePanel.SetActive(true);
+    
     }
 
     /// <summary>
@@ -77,8 +74,8 @@ public class CS_TitleManager : MonoBehaviour
             StateNone();
         else if (state == Fade.STATE.IN)
             StateIn();
-        else
-            StateOut();
+        //else
+        //    StateOut();
     }
 
     /// <summary>
@@ -99,10 +96,8 @@ public class CS_TitleManager : MonoBehaviour
                     break;
                 case TAKE.MENU:
                     // ゲームの遷移を管理
-
-                    // ここは無駄な機能なので時間あるとき実装
                     //m_menuTakePanel.SetActive(true);
-                    //MenuTakeUpdate();
+                    MenuTakeUpdate();
                     break;
             }
         } 

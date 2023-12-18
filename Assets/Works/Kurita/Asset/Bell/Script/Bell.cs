@@ -26,7 +26,9 @@ public class Bell : MonoBehaviour
         CancellationToken token = cts.Token;
 
         await UniTask.WaitUntil(() => RingFlag, cancellationToken: token);
-        _audioSource.PlayOneShot(SE);
+        //_audioSource.PlayOneShot(SE);
+        CS_AudioManager.Instance.PlayAudio("Bell");
+
         while (true)
         {
             //ƒxƒ‹‚ð—h‚ç‚·

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Release/Ending/Re_Ending.unity
     guid: 86a589c972bbdda4c8d0429a9593c6c7
+  - enabled: 1
+    path: Assets/Release/Gameover/Re_GameOver.unity
+    guid: 1df25d6d033cab04db7ff0cac9f73d18
   m_configObjects: {}

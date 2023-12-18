@@ -231,8 +231,6 @@ public class CS_Player : MonoBehaviour
         Vector3 currentVel = m_rigidBody.velocity;
         if (m_inputAction.Player.SlideL.triggered)
         {
-            //CS_AudioManager.Instance.PlayAudio("Dash");
-
             // ‰¡ˆÚ“®‚Ì‘¬“x‚ðŽ~‚ß‚é
             ResetSideVel(currentVel);
 
@@ -242,8 +240,6 @@ public class CS_Player : MonoBehaviour
         }
         else if (m_inputAction.Player.SlideR.triggered)
         {
-            //CS_AudioManager.Instance.PlayAudio("Dash");
-
             // ‰¡ˆÚ“®‚Ì‘¬“x‚ðŽ~‚ß‚é
             ResetSideVel(currentVel);
 
