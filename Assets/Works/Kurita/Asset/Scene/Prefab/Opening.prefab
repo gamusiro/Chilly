@@ -5427,7 +5427,7 @@ Transform:
   m_GameObject: {fileID: 2215302907999412029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3216}
+  m_LocalPosition: {x: 0, y: 0, z: -2514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7308,6 +7308,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 2323053218224701902, guid: 5be5fdb8938783d448c4b7454fc96b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 2323053218224701902, guid: 5be5fdb8938783d448c4b7454fc96b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 2491453835863478449, guid: 5be5fdb8938783d448c4b7454fc96b57, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 2491453835863478449, guid: 5be5fdb8938783d448c4b7454fc96b57, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
     - target: {fileID: 7531794052650572223, guid: 5be5fdb8938783d448c4b7454fc96b57, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7862,6 +7878,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1789914228984052668, guid: f17d4b8cf2e86494982b2e244e43d948, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Content
+      value: "\u3053\u3053\u306F\u5FC3\u3068\u5FC3\u304C\u7E4B\u304C\u308B\u4E0D\u601D\u8B70\u306A\u4E16\u754C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789914228984052668, guid: f17d4b8cf2e86494982b2e244e43d948, type: 3}
       propertyPath: _screenTextInfoList.Array.data[0].DisplayTime
       value: 3
       objectReference: {fileID: 0}
@@ -7957,6 +7977,14 @@ PrefabInstance:
       propertyPath: m_text
       value: Content
       objectReference: {fileID: 0}
+    - target: {fileID: 6540338930992353798, guid: f17d4b8cf2e86494982b2e244e43d948, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 6540338930992353798, guid: f17d4b8cf2e86494982b2e244e43d948, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

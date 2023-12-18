@@ -88,10 +88,10 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         // 生成ポジションの指定
         Vector3 createPos = Vector3.zero;
         createPos.x = 0.0f;
-        createPos.y = 0.01f;
+        createPos.y = 1.75f;
         createPos.z = (info.time + m_offset) * CS_MoveController.GetMoveVel() * -1.0f;
-        GameObject obj = Instantiate(m_jumpLineObject, createPos, Quaternion.identity);
-        obj.transform.parent = m_parent;
+        GameObject obj = Instantiate(m_jumpLineObject, createPos, Quaternion.identity, m_parent);
+        //obj.transform.localPosition = createPos;
 
         Destroy(obj, info.time - CS_AudioManager.Instance.TimeBGM + 0.5f);
         m_createCount++;

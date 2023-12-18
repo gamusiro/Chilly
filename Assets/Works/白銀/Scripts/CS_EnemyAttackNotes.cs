@@ -21,7 +21,7 @@ public class CS_EnemyAttackNotes : MonoBehaviour
     void Start()
     {
         // ¶¬‚³‚ê‚½‚Æ‚«‚ÌŒ»İƒ|ƒWƒVƒ‡ƒ“‚ğæ“¾
-        m_targetPosition = transform.position;
+        m_targetPosition = transform.localPosition;
         m_targetPosition.z *= -1.0f;
     }
 
@@ -32,6 +32,6 @@ public class CS_EnemyAttackNotes : MonoBehaviour
     {
         Vector3 setPosition = m_targetPosition;
         setPosition.z += 400.0f * 1.0f * (m_perfTime - CS_AudioManager.Instance.TimeBGM);
-        transform.position = setPosition;
+        transform.localPosition = setPosition;
     }
 }

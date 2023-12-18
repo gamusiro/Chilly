@@ -50,7 +50,7 @@ MonoBehaviour:
   _mouthTransform: {fileID: 7236862996928823590}
   _standardPosition: {fileID: 2457936762666890964}
   _enemyModel: {fileID: 9010876798708829002}
-  _explosionPrefabA: {fileID: 97280904656272491, guid: afdac2a2aa3f3764ea6c2d7a604f40c7, type: 3}
+  _explosionPrefabA: {fileID: 97280904656272491, guid: e9603a563b231f14dbce5ce69e7fbed2, type: 3}
   _smallEnemyRoot: {fileID: 4597716646732703268}
 --- !u!54 &8191208474322412582
 Rigidbody:
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2485811754803811385, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_Name
-      value: SmallEnemy
+      value: SmallEnemy_1
       objectReference: {fileID: 0}
     - target: {fileID: 2791824582579515516, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -376,30 +376,6 @@ PrefabInstance:
       addedObject: {fileID: 4956430046630868404}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
-<<<<<<< HEAD
-=======
---- !u!1 &1789605855019306312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 388659201055391573, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
-  m_PrefabInstance: {fileID: 2139559952727241245}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5834490088652995608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1789605855019306312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269beb7311c50364ba3ccc7259502682, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eyeTransform: []
-  _mouthTransform: {fileID: 7236862996928823590}
-  _standardPosition: {fileID: 2457936762666890964}
-  _explosionPrefabA: {fileID: 97280904656272491, guid: afdac2a2aa3f3764ea6c2d7a604f40c7, type: 3}
->>>>>>> gamusiro_32
 --- !u!4 &2457936762666890964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4588435773175841993, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
@@ -415,7 +391,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8781947794142917435, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
   m_PrefabInstance: {fileID: 2139559952727241245}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!4 &7268751786742833106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
@@ -426,5 +401,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6970497742614051159, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
   m_PrefabInstance: {fileID: 2139559952727241245}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> gamusiro_32

@@ -1292,6 +1292,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518981582103528167, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335449576897415016, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_createObject
+      value: 
+      objectReference: {fileID: 4597716646732703268, guid: 7223d424825832f498724d7e0f90876d, type: 3}
     - target: {fileID: 2662233724022230442, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Name
       value: Game
@@ -1299,6 +1307,18 @@ PrefabInstance:
     - target: {fileID: 2736222139724366260, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4412094488351319529, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Priority
@@ -1322,7 +1342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6489232690089896436, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 400
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 6489232690089896436, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalRotation.w
