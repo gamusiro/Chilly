@@ -30,6 +30,7 @@ public class CS_FallObject : MonoBehaviour
         if(collision.gameObject.tag == "Player"
             || collision.gameObject.tag == "Field")
         {
+            Debug.Log(m_perfTime + "Å@:Å@" + CS_AudioManager.Instance.TimeBGM);
             CS_AudioManager.Instance.PlayAudioMemoryTime("Fall", m_perfTime);
         }
     }

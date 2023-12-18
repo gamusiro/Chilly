@@ -69,8 +69,8 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
             if (m_fallObjects[i] == null)
                 CreateGameObject(i);
         }
-    }
 
+    }
     /// <summary>
     /// ノーツオブジェクトの生成
     /// </summary>
@@ -87,13 +87,14 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         Vector3 createPos = Vector3.zero;
         float time = info.time - CS_AudioManager.Instance.TimeBGM;
 
+        float offset = 0.0f;
         createPos.x = -60.0f + info.lane * 30.0f;
-        createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f);    // 床が高くなったので offset 2.4f
+        createPos.y = (9.81f / 2.0f) * Mathf.Pow(time, 2.0f)+offset;
         createPos.z = info.time * CS_MoveController.GetMoveVel() * -1.0f;
 
         // 落ちるオブジェクトの変数を生成
         GameObject fall = Instantiate(m_createObject, createPos, Quaternion.identity);
-        fall.GetComponent<CS_FallObject>().m_perfTime = time;
+        fall.GetComponent<CS_FallObject>().m_perfTime = info.time;
         fall.transform.parent = m_parent;
         
         // 影オブジェクトの影を生成
