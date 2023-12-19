@@ -82,13 +82,16 @@ public class SmallEnemy : Enemy
     private void LookAt()
     {
         //‹tŒü‚«‚ÌŽžˆÈŠO‚Í
-        if (_cameraPhaseManager.GetCurCamera().tag == "ReverseCamera")
+        if (_cameraPhaseManager?.GetCurCamera().tag == "ReverseCamera")
         {
             _enemyModel.transform.eulerAngles = Vector3.zero;
             _enemyModel.transform.eulerAngles += new Vector3(0.0f, 180.0f, 0.0f);
         }
         else
         {
+            if (_player != true)
+                return;
+
             _enemyModel.transform.LookAt(_player.position);
 
             Vector3 angel = _enemyModel.transform.eulerAngles;
