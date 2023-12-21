@@ -1543,7 +1543,7 @@ MonoBehaviour:
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+    m_NoiseOffsets: {x: 337.31125, y: -250.6753, z: 51.51523}
 --- !u!1 &4862867955182495171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,7 +3352,7 @@ MonoBehaviour:
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+    m_NoiseOffsets: {x: -400.90454, y: -349.69388, z: -344.77078}
 --- !u!4 &2145409605089905518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4143245341189896144, guid: 1d5b310fd0f20d4479951b3f68e441db, type: 3}
@@ -3458,7 +3458,7 @@ MonoBehaviour:
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+    m_NoiseOffsets: {x: -103.324554, y: 331.95493, z: -980.2842}
 --- !u!1001 &2982639820679568089
 PrefabInstance:
   m_ObjectHideFlags: 0
