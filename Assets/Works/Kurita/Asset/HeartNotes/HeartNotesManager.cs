@@ -14,7 +14,7 @@ public class HeartNotesManager : CS_LoadNotesFile
 
     private void Start()
     {
-        this.Load();// 読み込み処理
+        this.Load("Health");// 読み込み処理
         HeartNotes();//ハートノーツ
     }
 

@@ -41,7 +41,7 @@ public class CS_EnemyAttackFromSide : CS_LoadNotesFile
         m_objects = new GameObject[m_numMax];
 
         // “Ç‚İ‚İˆ—
-        this.Load();
+        this.Load("Side");
     }
 
     /// <summary>
