@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
+  m_IndirectSpecularColor: {r: 0.32097128, g: 0.21131825, b: 0.40435025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,98 +243,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1405774841432251656, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9e1994a5da9b73a48aba79c6236d9077, type: 2}
-    - target: {fileID: 1405774841432251656, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2f91d162dce48b248a2c2f5f65415fbd, type: 2}
-    - target: {fileID: 1405774841432251656, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 25772aef2888e634999fb325410f7735, type: 2}
     - target: {fileID: 2662233724022230442, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
-    - target: {fileID: 4254308253787845583, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_sePack.Array.data[0].m_clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f97e3225b7582f4c847a895548d99a5, type: 3}
-    - target: {fileID: 4254308253787845583, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_sePack.Array.data[0].m_volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270245551884667465, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_workOffTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7218698591550357033, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3524e9759f8dfa144a4514ee054f6f0d, type: 2}
-    - target: {fileID: 7218698591550357033, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 27d23969003648b4b8957839cc26578c, type: 2}
-    - target: {fileID: 7218698591550357033, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6a2fc430e3d24ec42abe34613f72e482, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[2].loopCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[2].materials.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e92401223f6da8d4493107cd465079a6, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 084d587ab0d63434cbbb6e22b42bf5b8, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[0].materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 52875bc7f2d23844c94a3c0ea137c3a3, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[1].materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 10a5e8b8a9c0a4f48a8fb3278577467f, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[1].materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: ba99c0b5f0fd62b4c9dc6861298e7253, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[1].materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6435eb0b2ec4ba446aafa7c7d7589280, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[2].materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a19f89efba0a2244684bbcc661df35b4, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[2].materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0eab2399ab9e9f94189d00345a67a8ce, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[2].materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: d691aa8138765144f8495c09aa9736b0, type: 2}
-    - target: {fileID: 7923447542858586896, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_data.Array.data[2].materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0eab2399ab9e9f94189d00345a67a8ce, type: 2}
     - target: {fileID: 8796158530720522957, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

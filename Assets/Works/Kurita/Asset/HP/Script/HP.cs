@@ -9,6 +9,7 @@ public class HP : MonoBehaviour
     [SerializeField] private List<Image> _hpImageList;//表示画像
     int _hp = 0;//現在の体力
     bool _isAlive;
+    private Tweener tweener;
 
     public bool Die
     {
@@ -19,12 +20,18 @@ public class HP : MonoBehaviour
     {
         _hp = _hpImageList.Count - 1;//HPの値を設定する
         _isAlive = true;
-       
+        tweener = null;
+
+
         Recover();
     }
 
     public void Hit()
     {
+        //既にアニメーションが設定されていれば削除する
+        if (tweener != null)
+            tweener.Kill();
+
         //やられていなければ処理を続行
         if (_hp - 1 < 0)
         {
@@ -35,16 +42,18 @@ public class HP : MonoBehaviour
         //アニメーション
         float alpha = 0.0f;
         float time = 1.0f;
-        _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
+        tweener = _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
 
         //体力を減らす
         _hp--;
-
-        //Debug.Log("ダメージ: " + _hp);
     }
 
     public void Recover()
     {
+        //既にアニメーションが設定されていれば削除する
+        if (tweener != null)
+            tweener.Kill();
+
         //体力が上限になっていなければ処理を続行
         if (_hp >= _hpImageList.Count - 1)
             return;
@@ -55,8 +64,6 @@ public class HP : MonoBehaviour
         //アニメーション
         float alpha = 1.0f;
         float time = 1.0f;
-        _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
-
-        //Debug.Log("回復: " + _hp);
+        tweener = _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
     }
 }

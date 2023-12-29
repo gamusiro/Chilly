@@ -316,6 +316,11 @@ public class CS_Player : MonoBehaviour
         m_rigidBody.velocity = vel;
     }
 
+    public void ResetVel()
+    {
+        m_rigidBody.velocity = Vector3.zero;
+    }
+
     /// <summary>
     /// ƒ_ƒbƒVƒ…‚µ‚Ä‚é‚©
     /// </summary>

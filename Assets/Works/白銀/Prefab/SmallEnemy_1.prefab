@@ -98,7 +98,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25, y: 25, z: 30}
+  m_Size: {x: 20, y: 25, z: 30}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2139559952727241245
 PrefabInstance:
@@ -338,11 +338,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9096946596428749175, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 10
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096946596428749175, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9096946596428749175, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 75
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9096946596428749175, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 9096946596428749175, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
@@ -373,6 +381,8 @@ PrefabInstance:
     - {fileID: 6090525391599060971, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
     - {fileID: 1491365547078393421, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
     - {fileID: 7028906759665913891, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+    - {fileID: 4096420065786747780, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
+    - {fileID: 4677299286786672272, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8750200841329159631, guid: fcb339d08cd0f7947ace14082208e77c, type: 3}

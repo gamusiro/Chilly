@@ -58,6 +58,9 @@ public class SmallEnemy : Enemy
                 if (_explosionParent == null) 
                     Debug.LogError("親が設定されていません");
 
+                //プレイヤーの動きを止める
+                player.ResetVel();
+
                 //爆発する
                 Instantiate(_explosionPrefabA, this.transform.position, Quaternion.identity, _explosionParent);
 

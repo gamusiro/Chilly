@@ -66,8 +66,9 @@ public class CS_GameManager : MonoBehaviour
     /// </summary>
     void StateNone()
     {
+        float correctionValue = 3.5f;
         // ƒQ[ƒ€ƒNƒŠƒAŽž‚Ì‘JˆÚ
-        if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM - m_setFadeTime)
+        if (CS_AudioManager.Instance.TimeBGM >= CS_AudioManager.Instance.LengthBGM - correctionValue - m_setFadeTime) 
         {
             m_fade.FadeOut(m_setFadeTime, 
                 () => {
