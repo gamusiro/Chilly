@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 2805825986091302669}
   - component: {fileID: 6266803314944984776}
   m_Layer: 0
-  m_Name: SoundWave
+  m_Name: BellSoundWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

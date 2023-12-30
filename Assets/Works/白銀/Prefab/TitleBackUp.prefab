@@ -794,8 +794,6 @@ MonoBehaviour:
   m_fade: {fileID: 3610494665513947528}
   m_setFadeTime: 1
   m_sceneName: Re_Opening
-  m_firstTakePanel: {fileID: 0}
-  m_menuTakePanel: {fileID: 0}
 --- !u!114 &434773253897923976
 MonoBehaviour:
   m_ObjectHideFlags: 0
