@@ -7,7 +7,7 @@ using Cysharp.Threading.Tasks;
 
 public class HeartNotes : MonoBehaviour
 {
-    private CameraPhaseManager m_mainGameCameraManager;
+    private LastCameraPhaseManager m_mainGameCameraManager;
     private CS_Player _player;
 
     private GameObject m_enemyObject;
@@ -141,7 +141,7 @@ public class HeartNotes : MonoBehaviour
     end:;
     }
 
-    public void SetMainGameCameraManager(CameraPhaseManager cameraManager)
+    public void SetMainGameCameraManager(LastCameraPhaseManager cameraManager)
     {
         m_mainGameCameraManager = cameraManager;
     }    

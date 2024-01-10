@@ -21,7 +21,9 @@ public class SoundWave : MonoBehaviour
         foreach(var renderer in _rendererList)
         {
             float alpha = 0.0f;
-            renderer.material.DOFade(alpha, _time);
+            renderer.material
+                .DOFade(alpha, _time)
+                .OnComplete(()=> { Destroy(this.gameObject);}) ;
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using UnityEngine;
 
-public class GameCameraPhaseManager : CameraPhaseManager
+public class GameCameraPhaseManager : LastCameraPhaseManager
 {
     [SerializeField] private CS_Player _player;
     private float _elapsedTime = 0.0f;

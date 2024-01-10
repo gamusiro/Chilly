@@ -51,7 +51,7 @@ public class CS_Player : MonoBehaviour
 
     //現在使用中のカメラの情報
     [SerializeField, CustomLabel("カメラマネージャー")] 
-    CameraPhaseManager m_mainGameCameraManager;
+    LastCameraPhaseManager m_mainGameCameraManager;
 
     [Header("パーフェクトタイミング")]
 

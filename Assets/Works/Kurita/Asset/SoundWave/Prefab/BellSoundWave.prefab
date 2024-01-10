@@ -473,15 +473,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fc05f76e9db2841be81eee05257aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxScale: {x: 1000, y: 1000, z: 1000}
-  _time: 20
-  _thisTransform: {fileID: 2805825986091302669}
+  _maxScale: 1000
+  _maxDistance: 0
   _rendererList:
   - {fileID: 6749646342010369991}
   - {fileID: 8559666263470079464}
   - {fileID: 6016789766840189874}
   - {fileID: 922327823491520536}
   - {fileID: 1345673119803378977}
+  _time: 20
 --- !u!1 &6630245040274829414
 GameObject:
   m_ObjectHideFlags: 0

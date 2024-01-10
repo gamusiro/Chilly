@@ -8,7 +8,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.3BE40471" = "camera"
+	"last_search.3BE40471" = "logo"
 	"OpenInspectorPreview.3BE40471" = "0"
 	"currentGroup.3BE40471" = "all"
 }
@@ -62,6 +62,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"logo"
 	"camera"
 ]
 searchItemFavorites = [

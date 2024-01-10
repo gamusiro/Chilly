@@ -22,7 +22,7 @@ public class CS_SmallEnemyManager : CS_LoadNotesFile
 
     // メインカメラオブジェクト
     [SerializeField, CustomLabel("カメラマネージャー")]
-    CameraPhaseManager m_cameraManager;
+    LastCameraPhaseManager m_cameraManager;
 
     //プレイヤー
     [SerializeField, CustomLabel("プレイヤー")]

@@ -9,7 +9,7 @@ public class HeartNotesManager : CS_LoadNotesFile
     // 生成するオブジェクト
     [SerializeField, CustomLabel("生成オブジェクト")]
     private HeartNotes _heartNotesPrefab;
-    [SerializeField] private CameraPhaseManager _cameraPhaseManager;
+    [SerializeField] private LastCameraPhaseManager _cameraPhaseManager;
     [SerializeField] private CS_Player _player;
 
     private void Start()

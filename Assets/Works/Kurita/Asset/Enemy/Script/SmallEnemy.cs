@@ -17,9 +17,9 @@ public class SmallEnemy : Enemy
     private Vector3 _angle = Vector3.zero;
 
     //ƒJƒƒ‰
-    private CameraPhaseManager _cameraPhaseManager;
+    private LastCameraPhaseManager _cameraPhaseManager;
 
-    public void Initialize(CameraPhaseManager cpm, Transform parent,Transform player)
+    public void Initialize(LastCameraPhaseManager cpm, Transform parent,Transform player)
     {
         _cameraPhaseManager = cpm;
         _explosionParent = parent;
