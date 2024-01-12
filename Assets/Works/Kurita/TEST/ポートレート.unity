@@ -387,7 +387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &920746823
 RectTransform:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ RectTransform:
   m_GameObject: {fileID: 920746822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.52, y: 3.52, z: 3.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 473046718}
@@ -405,7 +405,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3020, y: 50}
+  m_SizeDelta: {x: 3144.26, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &920746824
 MonoBehaviour:
@@ -521,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &969055963
 RectTransform:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ RectTransform:
   m_GameObject: {fileID: 969055962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 473046718}
@@ -539,7 +539,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3020, y: 50}
+  m_SizeDelta: {x: 4094, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969055964
 MonoBehaviour:
@@ -561,27 +561,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GAKUTO SHIROGANE
-
-    ALTO KURITA
-
-    RYOGA SANADA
-
-    MELISSA AIMI
-    SAITO
-
-    CHIKANE SUNAKAWA
-
-    RUAN JINYAO
-
-    KOSEI SEKIGUCHI
-
-    KOHEI
-    ISHI
-
-    KOICHI SUZUKI
-
-'
+  m_text: "GAKUTO SHIROGANE\u3000ALTO KURITA\u3000RYOGA SANADA\nMELISSA AIMI SAITO\u3000CHIKANE
+    SUNAKAWA\u3000RUAN JINYAO\nKOSEI SEKIGUCHI\u3000KOHEI ISHI\u3000KOICHI SUZUKI\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ff5f15704a25b34ebd5278780fd8764, type: 2}
   m_sharedMaterial: {fileID: 6615689470355340818, guid: 3ff5f15704a25b34ebd5278780fd8764, type: 2}
@@ -608,8 +589,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
