@@ -4,20 +4,10 @@ using UnityEngine;
 
 
 public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
-{
-    private StateType _state = new();//åªç›ÇÃëIëçÄñ⁄
-                                     
+{                               
     private void Start()
     {
         SetNextState(new MenuStateMachine.LeftTriangle(this));
-
-        _state = StateType.LeftTriangle;
-
-        switch (_state)
-        {
-            case StateType.LeftTriangle:
-                break;
-        }
     }
 
     private class LeftTriangle : MenuStateBase<MenuStateMachine>
@@ -34,14 +24,18 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.D))
-                machine.SetNextState(new MenuStateMachine.Play(machine));
-            if (Input.GetKeyDown(KeyCode.S))
-                machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-            if (Input.GetKeyDown(KeyCode.A) ||
-                Input.GetKeyDown(KeyCode.Return)) 
-                NextStage(false);
+            if (_canUpdate)
+            {
+                if (Input.GetKeyDown(KeyCode.D))
+                    machine.SetNextState(new MenuStateMachine.Play(machine));
+                if (Input.GetKeyDown(KeyCode.S))
+                    machine.SetNextState(new MenuStateMachine.BGM(machine));
+
+                if (Input.GetKeyDown(KeyCode.A) ||
+                    Input.GetKeyDown(KeyCode.Return))
+                    NextStage(false);
+            }
         }
 
         public override void OnExit()
@@ -64,14 +58,17 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-                machine.SetNextState(new MenuStateMachine.Play(machine));
-            if (Input.GetKeyDown(KeyCode.S))
-                machine.SetNextState(new MenuStateMachine.BGM(machine));
+            if (_canUpdate)
+            {
+                if (Input.GetKeyDown(KeyCode.A))
+                    machine.SetNextState(new MenuStateMachine.Play(machine));
+                if (Input.GetKeyDown(KeyCode.S))
+                    machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-            if (Input.GetKeyDown(KeyCode.D) ||
-                Input.GetKeyDown(KeyCode.Return))
-                NextStage(true);
+                if (Input.GetKeyDown(KeyCode.D) ||
+                    Input.GetKeyDown(KeyCode.Return))
+                    NextStage(true);
+            }
         }
 
         public override void OnExit()
@@ -94,12 +91,15 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-                machine.SetNextState(new MenuStateMachine.LeftTriangle(machine));
-            if (Input.GetKeyDown(KeyCode.D))
-                machine.SetNextState(new MenuStateMachine.RightTriangle(machine));
-            if (Input.GetKeyDown(KeyCode.S))
-                machine.SetNextState(new MenuStateMachine.BGM(machine));
+            if (_canUpdate)
+            {
+                if (Input.GetKeyDown(KeyCode.A))
+                    machine.SetNextState(new MenuStateMachine.LeftTriangle(machine));
+                if (Input.GetKeyDown(KeyCode.D))
+                    machine.SetNextState(new MenuStateMachine.RightTriangle(machine));
+                if (Input.GetKeyDown(KeyCode.S))
+                    machine.SetNextState(new MenuStateMachine.BGM(machine));
+            }
         }
 
         public override void OnExit()
@@ -122,22 +122,27 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.W))
-                machine.SetNextState(new MenuStateMachine.Play(machine));
-            if (Input.GetKeyDown(KeyCode.S))
-                machine.SetNextState(new MenuStateMachine.SE(machine));
+            if (_canUpdate)
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                    machine.SetNextState(new MenuStateMachine.Play(machine));
+                if (Input.GetKeyDown(KeyCode.S))
+                    machine.SetNextState(new MenuStateMachine.SE(machine));
 
 
-            if (Input.GetKeyDown(KeyCode.A))
-                machine.SetBGMVolume(0.0f);
+                if (Input.GetKeyDown(KeyCode.A))
+                    machine.SetBGMVolume(0.0f);
 
-            if (Input.GetKeyDown(KeyCode.D))
-                machine.SetBGMVolume(1.0f);
+                if (Input.GetKeyDown(KeyCode.D))
+                    machine.SetBGMVolume(1.0f);
+
+                if (Input.GetKeyDown(KeyCode.X))
+                    machine.SetBGMVolume(0.5f);
+            }
         }
 
         public override void OnExit()
         {
-            ChangeBlueColor((int)StateType.BGM);
             ChangeBlueColor((int)StateType.BGM);
         }
     }
@@ -156,14 +161,20 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.W))
-                machine.SetNextState(new MenuStateMachine.BGM(machine));
+            if (_canUpdate)
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                    machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-            if (Input.GetKeyDown(KeyCode.A))
-                machine.SetSEVolume(0.1f);
+                if (Input.GetKeyDown(KeyCode.A))
+                    machine.SetSEVolume(0.0f);
 
-            if (Input.GetKeyDown(KeyCode.D))
-                machine.SetSEVolume(0.1f);
+                if (Input.GetKeyDown(KeyCode.D))
+                    machine.SetSEVolume(1.0f);
+
+                if (Input.GetKeyDown(KeyCode.X))
+                    machine.SetSEVolume(0.5f);
+            }
         }
 
         public override void OnExit()

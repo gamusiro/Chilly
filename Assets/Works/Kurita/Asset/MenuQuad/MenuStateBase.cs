@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cinemachine;
 
 //whereは制約を設けること。
 //<T>は「MenuStateMachine」を継承していないといけませんよっていう制約。
@@ -38,6 +39,15 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     //BGM/SE
     private GameObject _bgmLine;//ライン
     private GameObject _seLine; //ライン
+
+    //リミット
+    private Transform _bgmLineLeftRimit;
+    private Transform _bgmLineRightRimit;
+    private Transform _seLineLeftRimit;
+    private Transform _seLineRightRimit;
+
+    //更新フラグ
+    protected bool _canUpdate;
 
     public virtual void OnEnter() { }
     public virtual void OnUpdate() { }
@@ -124,32 +134,35 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
 
     public void SetBGMVolume(float volume)
     {
-        float half = 0.5f;
-
-        float left = _bgmLine.transform.localPosition.x + _bgmLine.transform.localScale.x * -half;
-        float right = _bgmLine.transform.localPosition.x + _bgmLine.transform.localScale.x * half;
-
         float t = volume;
-        float positionX = Mathf.Lerp(left,right,t);
+        float positionX = Mathf.Lerp(_bgmLineLeftRimit.localPosition.x, _bgmLineRightRimit.localPosition.x, t);
         float duration = 0.5f;
         _quadUIList[(int)StateType.BGM].transform
             .DOLocalMoveX(positionX, duration)
             .SetLink(_quadUIList[(int)StateType.BGM].gameObject);
-
-        Debug.Log("ポジション" + positionX);
     }
 
     public void SetSEVolume(float volume)
     {
-        float half = 0.5f;
-        float left = _seLine.transform.localScale.x * -half + _seLine.transform.localPosition.x;
-        float right = _seLine.transform.localScale.x * half + _seLine.transform.localPosition.x;
         float t = volume;
-        float position = Mathf.Lerp(left, right, t);
+        float positionX = Mathf.Lerp(_seLineLeftRimit.localPosition.x, _seLineRightRimit.localPosition.x, t);
         float duration = 0.5f;
         _quadUIList[(int)StateType.SE].transform
-            .DOMoveX(position, duration)
+            .DOLocalMoveX(positionX, duration)
             .SetLink(_quadUIList[(int)StateType.SE].gameObject);
+    }
+
+    public void SetLineRimit(Transform bgmLeft, Transform bgmRight, Transform seLeft, Transform seRight)
+    {
+        _bgmLineLeftRimit = bgmLeft;
+        _bgmLineRightRimit = bgmRight;
+        _seLineLeftRimit = seLeft;
+        _seLineRightRimit = seRight;
+    }
+
+    public void SetCanUpdate(bool flag)
+    {
+        _canUpdate = flag;
     }
 }
 
@@ -165,8 +178,14 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     [SerializeField] protected List<StageInfo> _stageInfoList = new();
 
     //BGM/SE
-    [SerializeField]private GameObject _bgmLine;//ライン
+    [SerializeField] private GameObject _bgmLine;//ライン
     [SerializeField] private GameObject _seLine; //ライン
+
+    //リミット
+    [SerializeField] private Transform _bgmLineLeftRimit;
+    [SerializeField] private Transform _bgmLineRightRimit;
+    [SerializeField] private Transform _seLineLeftRimit;
+    [SerializeField] private Transform _seLineRightRimit;
 
     private void Update()
     {
@@ -197,6 +216,7 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         _nextState.SetStageInfoList(_stageInfoList);
         _nextState.SetBGMLine(_bgmLine);
         _nextState.SetSELine(_seLine);
+        _nextState.SetLineRimit(_bgmLineLeftRimit, _bgmLineRightRimit, _seLineLeftRimit, _seLineRightRimit);
         return bRet;
     }    
 
@@ -208,6 +228,11 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     public void SetSEVolume(float volume)
     {
         _currentState.SetSEVolume(volume);
+    }
+
+    public void SetCanUpdate(bool flag)
+    {
+        _currentState?.SetCanUpdate(flag);
     }
 }
 

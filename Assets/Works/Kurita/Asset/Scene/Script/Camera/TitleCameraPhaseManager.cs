@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TitleCameraPhaseManager : LastCameraPhaseManager
 {
-    private float _elapsedTime = 0.0f;
+    private bool _canUpdate;
 
     private async void Start()
     {
@@ -19,15 +19,44 @@ public class TitleCameraPhaseManager : LastCameraPhaseManager
 
         //カメラの遷移処理
 
-        await UniTask.Delay(TimeSpan.FromSeconds(2.0f));
-        NextCamera();
+        while (true)
+        {
+            if (GetCurrentCameraIndex() == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.K))//Bボタンにする　※
+                {
+                    NextCamera();
+                    _canUpdate = true;
+                }
+            }
+            else if (GetCurrentCameraIndex() == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.K))//Aボタンにする　※
+                {
+                    NextCamera();
+                    _canUpdate = false;
+                }
+            }
+
+            await UniTask.WaitForFixedUpdate();
+        } 
     }
 
     //カメラを切り替える
-    protected new void NextCamera()
+    public new void NextCamera()
     {
         _virtualCamera[_cameraIndex].Priority = 0;
-        _cameraIndex++;
+        _cameraIndex = 1 - _cameraIndex;
         _virtualCamera[_cameraIndex].Priority = 1;
+    }
+
+    public int GetCurrentCameraIndex()
+    {
+        return _cameraIndex;
+    }
+
+    public bool GetCanUpdate()
+    {
+        return _canUpdate;
     }
 }
