@@ -31,10 +31,11 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
             {
                 if (_input.currentActionMap["Right"].triggered)
                     machine.SetNextState(new MenuStateMachine.Play(machine));
-                if (_input.currentActionMap["Left"].triggered)
+                if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-                if (_input.currentActionMap["Commit"].triggered)
+                if (_input.currentActionMap["Left"].triggered
+                    || _input.currentActionMap["Commit"].triggered)
                     NextStage(false);
             }
         }
@@ -66,7 +67,8 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                 if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-                if (_input.currentActionMap["Commit"].triggered)
+                if (_input.currentActionMap["Right"].triggered
+                    || _input.currentActionMap["Commit"].triggered)
                     NextStage(true);
             }
         }

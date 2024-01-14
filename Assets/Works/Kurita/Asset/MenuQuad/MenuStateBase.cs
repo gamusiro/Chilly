@@ -230,8 +230,8 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         // 音量フェード
         if(_fade.GetState() != Fade.STATE.NONE)
         {
-            float vol = 1.0f - _fade.GetRange();
-            CS_AudioManager.Instance.MasterVolume = (vol);
+            float tmp = _fade.GetRange();
+            CS_AudioManager.Instance.FadeVolume(tmp);
         }
     }
 

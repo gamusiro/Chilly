@@ -64,7 +64,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <summary>
     /// トータルのボリューム
     /// </summary>
-    private float m_masterVolume;
+    private float m_masterVolume = 1.0f;
     public float MasterVolume
     {
         set 
@@ -73,6 +73,33 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * m_masterVolume;
         }
         get { return m_masterVolume; }
+    }
+
+    /// <summary>
+    /// BGMのボリューム
+    /// </summary>
+    private float m_bgmVolume = 1.0f;
+    public float BGMVolume
+    {
+        set
+        {
+            m_bgmVolume = Mathf.Clamp01(value);
+            m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * m_bgmVolume * m_masterVolume;
+        }
+        get { return m_bgmVolume; }
+    }
+
+    /// <summary>
+    /// SEのボリューム
+    /// </summary>
+    private float m_seVolume = 1.0f;
+    public float SEVolume
+    {
+        set
+        {
+            m_seVolume = Mathf.Clamp01(value);
+        }
+        get { return m_seVolume; }
     }
 
     #endregion
@@ -148,7 +175,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
 
             // SEデータをソースにセットする
             m_seSources[m_seSourceIndex].playOnAwake = false;
-            m_seSources[m_seSourceIndex].PlayOneShot(pack.m_clip, pack.m_volume * m_masterVolume);
+            m_seSources[m_seSourceIndex].PlayOneShot(pack.m_clip, pack.m_volume * m_seVolume * m_masterVolume);
 
             m_seSourceIndex = (m_seSourceIndex + 1) % c_sePlayNum;
         }
@@ -183,6 +210,13 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     {
         m_bgmSource.Stop();
     }
+
+    public void FadeVolume(float tmp)
+    {
+        float vol = Mathf.Lerp(0.0f, MasterVolume, 1.0f - tmp);
+        m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * vol;
+    }
+
 
     /// <summary>
     /// インデックスを取得する(BGM)

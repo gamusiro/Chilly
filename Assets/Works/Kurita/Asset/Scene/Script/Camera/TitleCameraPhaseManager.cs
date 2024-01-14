@@ -23,27 +23,32 @@ public class TitleCameraPhaseManager : LastCameraPhaseManager
 
         //カメラの遷移処理
 
-        while (true)
-        {
-            if (GetCurrentCameraIndex() == 0)
-            {
-                if (_input.currentActionMap["Commit"].triggered)//Bボタンにする　※
-                {
-                    NextCamera();
-                    _canUpdate = true;
-                }
-            }
-            else if (GetCurrentCameraIndex() == 1)
-            {
-                if (_input.currentActionMap["Cancel"].triggered)//Aボタンにする　※
-                {
-                    NextCamera();
-                    _canUpdate = false;
-                }
-            }
+        //while (true)
+        //{
+            
 
-            await UniTask.WaitForFixedUpdate();
-        } 
+        //    await UniTask.WaitForFixedUpdate();
+        //} 
+    }
+
+    private void Update()
+    {
+        if (GetCurrentCameraIndex() == 0)
+        {
+            if (_input.currentActionMap["Commit"].triggered)//Bボタンにする　※
+            {
+                NextCamera();
+                _canUpdate = true;
+            }
+        }
+        else if (GetCurrentCameraIndex() == 1)
+        {
+            if (_input.currentActionMap["Cancel"].triggered)//Aボタンにする　※
+            {
+                NextCamera();
+                _canUpdate = false;
+            }
+        }
     }
 
     //カメラを切り替える
