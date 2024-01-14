@@ -33,6 +33,7 @@ public class PerNoteInfo
 public class CS_LoadNotesFile : MonoBehaviour
 {
     static string m_folderName = "WeMadeIt";
+    
 
     public List<PerNoteInfo> m_perNoteInfos = new List<PerNoteInfo>();
 
@@ -40,6 +41,12 @@ public class CS_LoadNotesFile : MonoBehaviour
     {
         m_folderName = _foldeName;
     }
+    static public string GetFolderName()
+    {
+        return m_folderName;
+    }
+
+
 
     public void Load(string _type)
     {

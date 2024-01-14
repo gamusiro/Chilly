@@ -2,10 +2,14 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TitleCameraPhaseManager : LastCameraPhaseManager
 {
     private bool _canUpdate;
+
+    [SerializeField, CustomLabel("入力")]
+    PlayerInput _input;
 
     private async void Start()
     {
@@ -23,7 +27,7 @@ public class TitleCameraPhaseManager : LastCameraPhaseManager
         {
             if (GetCurrentCameraIndex() == 0)
             {
-                if (Input.GetKeyDown(KeyCode.K))//Bボタンにする　※
+                if (_input.currentActionMap["Commit"].triggered)//Bボタンにする　※
                 {
                     NextCamera();
                     _canUpdate = true;
@@ -31,7 +35,7 @@ public class TitleCameraPhaseManager : LastCameraPhaseManager
             }
             else if (GetCurrentCameraIndex() == 1)
             {
-                if (Input.GetKeyDown(KeyCode.K))//Aボタンにする　※
+                if (_input.currentActionMap["Cancel"].triggered)//Aボタンにする　※
                 {
                     NextCamera();
                     _canUpdate = false;

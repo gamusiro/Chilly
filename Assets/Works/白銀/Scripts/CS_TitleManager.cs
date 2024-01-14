@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CS_TitleManager : MonoBehaviour
@@ -20,6 +21,9 @@ public class CS_TitleManager : MonoBehaviour
     [SerializeField, CustomLabel("シーン名")]
     string m_sceneName;
 
+    [SerializeField, CustomLabel("カメラマネージャ")]
+    TitleCameraPhaseManager m_manager;
+
     //// ファーストテイクパネルUI
     //[SerializeField, CustomLabel("FirstTake")]
     //GameObject m_firstTakePanel;
@@ -33,7 +37,7 @@ public class CS_TitleManager : MonoBehaviour
     #region 内部用変数
 
     // InputSystem
-    IA_Player m_inputAction;
+    PlayerInput m_inputAction;
 
 
     enum TAKE
@@ -52,11 +56,9 @@ public class CS_TitleManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-
         CS_AudioManager.Instance.PlayAudio("TitleAudio", true);
 
-        m_inputAction = new IA_Player();
-        m_inputAction.Enable();
+        m_inputAction = GetComponent<PlayerInput>();
 
         // フェードインの後、音量をマックスにする
         m_fade.FadeIn(1.0f, () => { CS_AudioManager.Instance.MasterVolume = 1.0f; });
@@ -72,10 +74,11 @@ public class CS_TitleManager : MonoBehaviour
 
         if (state == Fade.STATE.NONE)
             StateNone();
-        else if (state == Fade.STATE.IN)
-            StateIn();
-        //else
-        //    StateOut();
+        else
+        {
+            float vol = 1.0f - m_fade.GetRange();
+            CS_AudioManager.Instance.MasterVolume = (vol);
+        }
     }
 
     /// <summary>
@@ -84,43 +87,12 @@ public class CS_TitleManager : MonoBehaviour
     void StateNone()
     {
         // 決定ボタンが押されたら
-        if (m_inputAction.Title.ToGameScene.triggered)
+        if (m_inputAction.currentActionMap["Commit"].triggered)
         {
             CS_AudioManager.Instance.PlayAudio("Commit");
-            
-            switch(m_take)
-            {
-                case TAKE.FIRST:
-                    // メニュ―テイクへの切り替えを行う
-                    FirstTakeUpdate();
-                    break;
-                case TAKE.MENU:
-                    // ゲームの遷移を管理
-                    //m_menuTakePanel.SetActive(true);
-                    MenuTakeUpdate();
-                    break;
-            }
+            m_manager.NextCamera();
         } 
     }
-
-    /// <summary>
-    /// フェードイン(音量の変更を行う)
-    /// </summary>
-    void StateIn()
-    {
-        float vol = 1.0f - m_fade.GetRange();
-        CS_AudioManager.Instance.MasterVolume = (vol);
-    }
-
-    /// <summary>
-    /// フェードアウト
-    /// </summary>
-    void StateOut()
-    {
-        float vol = 1.0f - m_fade.GetRange();
-        CS_AudioManager.Instance.MasterVolume = (vol);
-    }
-
 
     /// <summary>
     /// 次のシーンへ移動する処理
@@ -133,26 +105,5 @@ public class CS_TitleManager : MonoBehaviour
             CS_AudioManager.Instance.StopBGM();
             SceneManager.LoadScene(m_sceneName);
         });
-    }
-
-    /// <summary>
-    /// 初期処理
-    /// </summary>
-    void FirstTakeUpdate()
-    {
-        //m_take = TAKE.MENU;
-        //m_firstTakePanel.SetActive(false);
-        //m_menuTakePanel.SetActive(true);
-
-        // 今はゲームシーンに直移動
-        NextScene();
-    }
-
-    /// <summary>
-    /// メニュー処理
-    /// </summary>
-    void MenuTakeUpdate()
-    {
-
     }
 }

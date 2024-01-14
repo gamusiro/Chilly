@@ -116,9 +116,54 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             ""id"": ""86fdf6b1-b545-49f8-9ddb-29a6816da82c"",
             ""actions"": [
                 {
-                    ""name"": ""ToGameScene"",
+                    ""name"": ""Commit"",
                     ""type"": ""Button"",
                     ""id"": ""5649a849-3882-43c1-ad9e-d8c27fdb6dd3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c7f3ad0-f191-45d7-bdba-1f1b1c1d1882"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""df73d35c-c12b-4f7d-b67e-b1f4c8497caf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e1ccf23-fa83-4b4d-a2ee-a0f3b5564740"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""e636658e-f1de-4dbe-8a73-8b97ebeabad1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""134d2190-b2a7-41ed-9e7f-e7e4a9795506"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -133,7 +178,73 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ToGameScene"",
+                    ""action"": ""Commit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d96079c-556e-4e1d-ab36-93fd2b3efee7"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Commit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01388ada-1f2d-4377-bc04-40f8e47b60d1"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26e5344a-6507-4187-b120-e3d0f751a68b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c77144a9-9cec-4bb5-b187-6b6a967830ea"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c53728b3-272e-476a-81db-03df9c83dbfb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbdbdd0d-6c39-404d-b9dc-ef72e1c790ff"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -150,7 +261,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Player_SlideR = m_Player.FindAction("SlideR", throwIfNotFound: true);
         // Title
         m_Title = asset.FindActionMap("Title", throwIfNotFound: true);
-        m_Title_ToGameScene = m_Title.FindAction("ToGameScene", throwIfNotFound: true);
+        m_Title_Commit = m_Title.FindAction("Commit", throwIfNotFound: true);
+        m_Title_Cancel = m_Title.FindAction("Cancel", throwIfNotFound: true);
+        m_Title_Right = m_Title.FindAction("Right", throwIfNotFound: true);
+        m_Title_Left = m_Title.FindAction("Left", throwIfNotFound: true);
+        m_Title_Up = m_Title.FindAction("Up", throwIfNotFound: true);
+        m_Title_Down = m_Title.FindAction("Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,12 +398,22 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     // Title
     private readonly InputActionMap m_Title;
     private List<ITitleActions> m_TitleActionsCallbackInterfaces = new List<ITitleActions>();
-    private readonly InputAction m_Title_ToGameScene;
+    private readonly InputAction m_Title_Commit;
+    private readonly InputAction m_Title_Cancel;
+    private readonly InputAction m_Title_Right;
+    private readonly InputAction m_Title_Left;
+    private readonly InputAction m_Title_Up;
+    private readonly InputAction m_Title_Down;
     public struct TitleActions
     {
         private @IA_Player m_Wrapper;
         public TitleActions(@IA_Player wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ToGameScene => m_Wrapper.m_Title_ToGameScene;
+        public InputAction @Commit => m_Wrapper.m_Title_Commit;
+        public InputAction @Cancel => m_Wrapper.m_Title_Cancel;
+        public InputAction @Right => m_Wrapper.m_Title_Right;
+        public InputAction @Left => m_Wrapper.m_Title_Left;
+        public InputAction @Up => m_Wrapper.m_Title_Up;
+        public InputAction @Down => m_Wrapper.m_Title_Down;
         public InputActionMap Get() { return m_Wrapper.m_Title; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -297,16 +423,46 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_TitleActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_TitleActionsCallbackInterfaces.Add(instance);
-            @ToGameScene.started += instance.OnToGameScene;
-            @ToGameScene.performed += instance.OnToGameScene;
-            @ToGameScene.canceled += instance.OnToGameScene;
+            @Commit.started += instance.OnCommit;
+            @Commit.performed += instance.OnCommit;
+            @Commit.canceled += instance.OnCommit;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
         }
 
         private void UnregisterCallbacks(ITitleActions instance)
         {
-            @ToGameScene.started -= instance.OnToGameScene;
-            @ToGameScene.performed -= instance.OnToGameScene;
-            @ToGameScene.canceled -= instance.OnToGameScene;
+            @Commit.started -= instance.OnCommit;
+            @Commit.performed -= instance.OnCommit;
+            @Commit.canceled -= instance.OnCommit;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
         }
 
         public void RemoveCallbacks(ITitleActions instance)
@@ -333,6 +489,11 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     }
     public interface ITitleActions
     {
-        void OnToGameScene(InputAction.CallbackContext context);
+        void OnCommit(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
 }

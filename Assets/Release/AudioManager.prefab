@@ -51,11 +51,11 @@ MonoBehaviour:
   - m_label: Opening
     m_clip: {fileID: 8300000, guid: 5d66d2d7bc7f8a1418867746db23bcfd, type: 3}
     m_volume: 0.1
-  - m_label: GameAudio
+  - m_label: WeMadeIt
     m_clip: {fileID: 8300000, guid: 766efc0ae62bbb54eb43f58f49f93594, type: 3}
     m_volume: 0.1
-  - m_label: Explosion
-    m_clip: {fileID: 8300000, guid: 9501a366deacfec4e8b66be91fa37981, type: 3}
+  - m_label: IWillBeHere
+    m_clip: {fileID: 8300000, guid: a352f3a28f3368943a4c04619bb4c40f, type: 3}
     m_volume: 0.1
   - m_label: Rescue
     m_clip: {fileID: 8300000, guid: fc73ad0359cf31448848bd197a87221e, type: 3}

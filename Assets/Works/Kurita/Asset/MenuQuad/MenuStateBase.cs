@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
+using System;
+using UnityEngine.InputSystem;
 
 //whereは制約を設けること。
 //<T>は「MenuStateMachine」を継承していないといけませんよっていう制約。
@@ -48,6 +50,9 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
 
     //更新フラグ
     protected bool _canUpdate;
+
+    // 入力
+    protected PlayerInput _input;
 
     public virtual void OnEnter() { }
     public virtual void OnUpdate() { }
@@ -164,6 +169,16 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     {
         _canUpdate = flag;
     }
+
+    public void SetPlayerInput(PlayerInput input)
+    {
+        _input = input;
+    }
+
+    public StageInfo GetSelectStage()
+    {
+        return _stageInfoList[_stageIndex];
+    }
 }
 
 public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineBase<T>
@@ -187,6 +202,11 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     [SerializeField] private Transform _seLineLeftRimit;
     [SerializeField] private Transform _seLineRightRimit;
 
+    
+    [SerializeField] private Fade _fade;
+    [SerializeField] protected PlayerInput _input;
+
+
     private void Update()
     {
         //現在のステートを次のステートに更新する
@@ -206,6 +226,13 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         {
             _currentState.OnUpdate();
         }
+
+        // 音量フェード
+        if(_fade.GetState() != Fade.STATE.NONE)
+        {
+            float vol = 1.0f - _fade.GetRange();
+            CS_AudioManager.Instance.MasterVolume = (vol);
+        }
     }
 
     public bool SetNextState(MenuStateBase<T> nextState)
@@ -217,6 +244,7 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         _nextState.SetBGMLine(_bgmLine);
         _nextState.SetSELine(_seLine);
         _nextState.SetLineRimit(_bgmLineLeftRimit, _bgmLineRightRimit, _seLineLeftRimit, _seLineRightRimit);
+        _nextState.SetPlayerInput(_input);
         return bRet;
     }    
 
@@ -234,11 +262,26 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     {
         _currentState?.SetCanUpdate(flag);
     }
+
+    public void SetFadeIn(float time, Action act)
+    {
+        _fade.FadeIn(time, act);
+    }
+
+    public void SetFadeOut(float time, Action act)
+    {
+        _fade.FadeOut(time, act);
+    }
 }
 
 [System.Serializable]
 public class StageInfo
 {
+    public string AudioName;
+
+    [Tooltip("Re_Opening or Re_Game7")]
+    public string NextSceneName;
+
     public Renderer Name;
     public Renderer Picture;
 }

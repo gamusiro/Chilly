@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
@@ -27,13 +29,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
             if (_canUpdate)
             {
-                if (Input.GetKeyDown(KeyCode.D))
+                if (_input.currentActionMap["Right"].triggered)
                     machine.SetNextState(new MenuStateMachine.Play(machine));
-                if (Input.GetKeyDown(KeyCode.S))
+                if (_input.currentActionMap["Left"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-                if (Input.GetKeyDown(KeyCode.A) ||
-                    Input.GetKeyDown(KeyCode.Return))
+                if (_input.currentActionMap["Commit"].triggered)
                     NextStage(false);
             }
         }
@@ -60,13 +61,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         {
             if (_canUpdate)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (_input.currentActionMap["Left"].triggered)
                     machine.SetNextState(new MenuStateMachine.Play(machine));
-                if (Input.GetKeyDown(KeyCode.S))
+                if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-                if (Input.GetKeyDown(KeyCode.D) ||
-                    Input.GetKeyDown(KeyCode.Return))
+                if (_input.currentActionMap["Commit"].triggered)
                     NextStage(true);
             }
         }
@@ -93,12 +93,29 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         {
             if (_canUpdate)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (_input.currentActionMap["Left"].triggered)
                     machine.SetNextState(new MenuStateMachine.LeftTriangle(machine));
-                if (Input.GetKeyDown(KeyCode.D))
+                if (_input.currentActionMap["Right"].triggered)
                     machine.SetNextState(new MenuStateMachine.RightTriangle(machine));
-                if (Input.GetKeyDown(KeyCode.S))
+                if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
+
+                // シーン遷移
+                if (_input.currentActionMap["Commit"].triggered)
+                {
+                    // 読み込むノーツフォルダを指定
+                    StageInfo stageInfo = GetSelectStage();
+                    CS_LoadNotesFile.SetFolderName(stageInfo.AudioName);
+
+                    // オープニングシーンが必要なもの
+                    machine.SetFadeOut(1.0f,
+                        () =>
+                        {
+                            CS_AudioManager.Instance.MasterVolume = 0.0f;
+                            CS_AudioManager.Instance.StopBGM();
+                            SceneManager.LoadScene(stageInfo.NextSceneName);
+                        });
+                }
             }
         }
 
@@ -124,16 +141,16 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         {
             if (_canUpdate)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (_input.currentActionMap["Up"].triggered)
                     machine.SetNextState(new MenuStateMachine.Play(machine));
-                if (Input.GetKeyDown(KeyCode.S))
+                if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.SE(machine));
 
 
-                if (Input.GetKeyDown(KeyCode.A))
+                if (_input.currentActionMap["Left"].triggered)
                     machine.SetBGMVolume(0.0f);
 
-                if (Input.GetKeyDown(KeyCode.D))
+                if (_input.currentActionMap["Right"].triggered)
                     machine.SetBGMVolume(1.0f);
 
                 if (Input.GetKeyDown(KeyCode.X))
@@ -163,13 +180,13 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         {
             if (_canUpdate)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (_input.currentActionMap["Up"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
 
-                if (Input.GetKeyDown(KeyCode.A))
+                if (_input.currentActionMap["Left"].triggered)
                     machine.SetSEVolume(0.0f);
 
-                if (Input.GetKeyDown(KeyCode.D))
+                if (_input.currentActionMap["Right"].triggered)
                     machine.SetSEVolume(1.0f);
 
                 if (Input.GetKeyDown(KeyCode.X))
