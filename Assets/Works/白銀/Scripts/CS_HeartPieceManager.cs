@@ -45,7 +45,7 @@ public class CS_HeartPieceManager : CS_LoadNotesFile
         m_objects = new GameObject[m_numMax];
         m_createCount = 0;
 
-        this.Load();
+        this.Load("Health");
     }
 
     /// <summary>

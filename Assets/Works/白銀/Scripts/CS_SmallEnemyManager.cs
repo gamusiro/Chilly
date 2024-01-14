@@ -49,7 +49,7 @@ public class CS_SmallEnemyManager : CS_LoadNotesFile
         m_objects = new GameObject[m_numMax];
         m_createCount = 0;
 
-        this.Load();
+        this.Load("Hohoho");
     }
 
     /// <summary>

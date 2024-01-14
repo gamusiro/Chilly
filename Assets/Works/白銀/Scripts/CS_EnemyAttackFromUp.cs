@@ -52,7 +52,7 @@ public class CS_EnemyAttackFromUp : CS_LoadNotesFile
         m_createCount = 0;
 
         // “Ç‚İ‚İˆ—
-        this.Load();
+        this.Load("Fall");
     }
 
     /// <summary>

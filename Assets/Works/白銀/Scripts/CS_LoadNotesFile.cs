@@ -32,14 +32,20 @@ public class PerNoteInfo
 
 public class CS_LoadNotesFile : MonoBehaviour
 {
-    [SerializeField, CustomLabel("ノーツファイル名")]
-    protected string m_jsonFileName;
+    static string m_folderName = "WeMadeIt";
 
     public List<PerNoteInfo> m_perNoteInfos = new List<PerNoteInfo>();
 
-    public void Load()
+    static public void SetFolderName(string _foldeName)
     {
-        string inputString = Resources.Load<TextAsset>(m_jsonFileName).ToString();
+        m_folderName = _foldeName;
+    }
+
+    public void Load(string _type)
+    {
+        string path = m_folderName + "/" + _type;
+
+        string inputString = Resources.Load<TextAsset>(path).ToString();
         Data inputJson = JsonUtility.FromJson<Data>(inputString);
 
         for (int i = 0; i < inputJson.notes.Length; i++)

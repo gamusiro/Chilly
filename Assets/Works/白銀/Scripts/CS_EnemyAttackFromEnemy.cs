@@ -49,7 +49,7 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         m_refInfoIndex = 0;
 
         // “Ç‚İ‚İˆ—
-        this.Load();
+        this.Load("Jump");
     }
 
     /// <summary>
