@@ -56,6 +56,7 @@ public class OpeningMovieManager : MonoBehaviour
 
         //ƒV[ƒ“‘JˆÚ
         CS_AudioManager.Instance.StopBGM();
+        CS_GameManager.SetTutorial(true);
         SceneManager.LoadScene(_sceneName);
     }
 

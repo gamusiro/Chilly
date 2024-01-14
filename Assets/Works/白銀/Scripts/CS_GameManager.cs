@@ -32,6 +32,21 @@ public class CS_GameManager : MonoBehaviour
 
     #endregion
 
+    #region 内部用変数
+
+    static bool m_onTutorial;
+
+    #endregion
+
+    #region 公開用変数
+
+    public static bool GetOnTutorial
+    {
+        get { return m_onTutorial; }
+    }
+
+    #endregion
+
 
     /// <summary>
     /// 初期化処理
@@ -58,8 +73,11 @@ public class CS_GameManager : MonoBehaviour
 
         if (state == Fade.STATE.NONE)
             StateNone();
-        else if (state == Fade.STATE.IN)
-            StateIn();
+        else
+        {
+            float tmp = m_fade.GetRange();
+            CS_AudioManager.Instance.FadeVolume(tmp);
+        }
     }
 
     /// <summary>
@@ -91,14 +109,8 @@ public class CS_GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// フェードイン(音量の変更を行う)
-    /// </summary>
-    void StateIn()
+    public static void SetTutorial(bool on)
     {
-        //Debug.Log("フェードイン!");
-
-        float vol = 1.0f - m_fade.GetRange();
-        CS_AudioManager.Instance.MasterVolume = (vol);
+        m_onTutorial = on;
     }
 }

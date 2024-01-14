@@ -109,6 +109,9 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     StageInfo stageInfo = GetSelectStage();
                     CS_LoadNotesFile.SetFolderName(stageInfo.AudioName);
 
+                    // チュートリアル
+                    CS_GameManager.SetTutorial(false);
+
                     // オープニングシーンが必要なもの
                     machine.SetFadeOut(1.0f,
                         () =>

@@ -59,7 +59,13 @@ public class CS_Signboard : MonoBehaviour
     #endregion
 
 
-
+    /// <summary>
+    /// ¶¬
+    /// </summary>
+    private void Awake()
+    {
+        gameObject.SetActive(CS_GameManager.GetOnTutorial);
+    }
 
     /// <summary>
     /// ‰Šú‰»ˆ—
