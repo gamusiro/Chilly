@@ -132,9 +132,10 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
     private class BGM : MenuStateBase<MenuStateMachine>
     {
+        const float amount = 0.1f;
+
         public BGM(MenuStateMachine machine) : base(machine)
         {
-
         }
 
         public override void OnEnter()
@@ -153,13 +154,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
 
                 if (_input.currentActionMap["Left"].triggered)
-                    machine.SetBGMVolume(0.0f);
+                    CS_AudioManager.Instance.BGMVolume -= amount;
 
                 if (_input.currentActionMap["Right"].triggered)
-                    machine.SetBGMVolume(1.0f);
+                    CS_AudioManager.Instance.BGMVolume += amount;
 
-                if (Input.GetKeyDown(KeyCode.X))
-                    machine.SetBGMVolume(0.5f);
+                machine.SetBGMVolume(CS_AudioManager.Instance.BGMVolume);
             }
         }
 
@@ -171,6 +171,8 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
     private class SE : MenuStateBase<MenuStateMachine>
     {
+        const float amount = 0.1f;
+
         public SE(MenuStateMachine machine) : base(machine)
         {
 
@@ -189,13 +191,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
 
                 if (_input.currentActionMap["Left"].triggered)
-                    machine.SetSEVolume(0.0f);
+                    CS_AudioManager.Instance.SEVolume -= amount;
 
                 if (_input.currentActionMap["Right"].triggered)
-                    machine.SetSEVolume(1.0f);
+                    CS_AudioManager.Instance.SEVolume += amount;
 
-                if (Input.GetKeyDown(KeyCode.X))
-                    machine.SetSEVolume(0.5f);
+                machine.SetSEVolume(CS_AudioManager.Instance.SEVolume);
             }
         }
 
