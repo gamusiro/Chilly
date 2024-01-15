@@ -32,7 +32,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
 
     //UI
     protected List<Renderer> _quadUIList = new();
-    private List<Color> _quadUIOriginalColorList = new();
+    private Color[] _quadUIOriginalColorList = new Color[5];
 
     //ステージ
     private List<StageInfo> _stageInfoList = new();
@@ -71,7 +71,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     public void ChangeRedColor(int stateType)
     {
         //元の色を保存する
-       // _quadUIOriginalColorList[stateType] = _quadUIList[stateType].material.GetColor("_EmissionColor");
+        _quadUIOriginalColorList[stateType] = _quadUIList[stateType].material.GetColor("_EmissionColor");
 
         //色を変更する
         float intensity = 10.0f;
@@ -82,8 +82,9 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     public void ChangeBlueColor(int stateType)
     {
         //元の色に戻す
-       // _quadUIList[stateType].material.SetColor("_EmissionColor", _quadUIOriginalColorList[stateType]);
-        _quadUIList[stateType].material.SetColor("_EmissionColor", Color.blue);
+        Debug.Log(_quadUIOriginalColorList[stateType]);
+        _quadUIList[stateType].material.SetColor("_EmissionColor", _quadUIOriginalColorList[stateType]);
+        //_quadUIList[stateType].material.SetColor("_EmissionColor", Color.blue);
     }
 
     //真なら次のステージ、偽なら一つ前のステージに遷移する
