@@ -4,32 +4,12 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TitleCameraPhaseManager : LastCameraPhaseManager
+public class TitleCameraPhaseManager : AbstractCameraPhaseManager
 {
     private bool _canUpdate;
 
     [SerializeField, CustomLabel("入力")]
     PlayerInput _input;
-
-    private async void Start()
-    {
-        var cts = new CancellationTokenSource();
-        CancellationToken token = cts.Token;
-
-        //カメラの優先度をリセットする
-        foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
-        _cameraIndex = 0;
-        _virtualCamera[_cameraIndex].Priority = 1;
-
-        //カメラの遷移処理
-
-        //while (true)
-        //{
-            
-
-        //    await UniTask.WaitForFixedUpdate();
-        //} 
-    }
 
     private void Update()
     {
@@ -49,19 +29,6 @@ public class TitleCameraPhaseManager : LastCameraPhaseManager
                 _canUpdate = false;
             }
         }
-    }
-
-    //カメラを切り替える
-    public new void NextCamera()
-    {
-        _virtualCamera[_cameraIndex].Priority = 0;
-        _cameraIndex = 1 - _cameraIndex;
-        _virtualCamera[_cameraIndex].Priority = 1;
-    }
-
-    public int GetCurrentCameraIndex()
-    {
-        return _cameraIndex;
     }
 
     public bool GetCanUpdate()

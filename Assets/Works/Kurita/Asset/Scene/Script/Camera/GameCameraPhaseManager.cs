@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class GameCameraPhaseManager : LastCameraPhaseManager
+public class GameCameraPhaseManager : AbstractCameraPhaseManager
 {
     [SerializeField] private CS_Player _player;
     private float _elapsedTime = 0.0f;

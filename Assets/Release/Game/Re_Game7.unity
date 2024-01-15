@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
+  m_IndirectSpecularColor: {r: 0.32097128, g: 0.21131825, b: 0.40435025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -246,14 +246,6 @@ PrefabInstance:
     - target: {fileID: 2662233724022230442, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Name
       value: Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6866188887831853807, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_setFadeTime
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8796158530720522957, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fade: {fileID: 4635261179086377480}
-  m_setFadeTime: 1
+  m_setFadeTime: 0.5
   m_hp: {fileID: 5620352543662174715}
   m_nextSceneName: Re_Ending
   m_gameoverSceneName: Re_Gameover
@@ -3425,12 +3425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb4d8e8a9050414681b7a16a70dd4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_jsonFileName: WeMadeIt_Hohoho2
   m_perNoteInfos: []
   m_parent: {fileID: 8573625657416255334}
   m_createObject: {fileID: 4597716646732703268, guid: 7223d424825832f498724d7e0f90876d, type: 3}
   m_numMax: 20
-  m_cameraManager: {fileID: 5787186835757619923}
+  m_cameraManager: {fileID: 0}
   m_player: {fileID: 6507343208830028189}
 --- !u!114 &6507343208830028189 stripped
 MonoBehaviour:
@@ -3509,7 +3508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1724021515713868118, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6259762484489612901, guid: 1891669fbc6a96a4ea6ab26a89649365, type: 3}
       propertyPath: m_LocalPosition.x
