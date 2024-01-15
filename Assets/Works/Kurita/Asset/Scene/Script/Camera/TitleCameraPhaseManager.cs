@@ -11,6 +11,17 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
     [SerializeField, CustomLabel("入力")]
     PlayerInput _input;
 
+    private async void Start()
+    {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
+        //カメラの優先度をリセットする
+        foreach (var virtualCamera in _virtualCamera) { virtualCamera.Priority = 0; }
+        _cameraIndex = 0;
+        _virtualCamera[_cameraIndex].Priority = 1;
+    }
+
     private void Update()
     {
         if (GetCurrentCameraIndex() == 0)
@@ -25,10 +36,19 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
         {
             if (_input.currentActionMap["Cancel"].triggered)//Aボタンにする　※
             {
+                Debug.Log("aaa");
                 NextCamera();
                 _canUpdate = false;
             }
         }
+    }
+
+    //カメラを切り替える
+    public new void NextCamera()
+    {
+        _virtualCamera[_cameraIndex].Priority = 0;
+        _cameraIndex = 1 - _cameraIndex;
+        _virtualCamera[_cameraIndex].Priority = 1;
     }
 
     public bool GetCanUpdate()

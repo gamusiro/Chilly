@@ -82,7 +82,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     public void ChangeBlueColor(int stateType)
     {
         //å≥ÇÃêFÇ…ñﬂÇ∑
-        Debug.Log(_quadUIOriginalColorList[stateType]);
+        //Debug.Log(_quadUIOriginalColorList[stateType]);
         _quadUIList[stateType].material.SetColor("_EmissionColor", _quadUIOriginalColorList[stateType]);
         //_quadUIList[stateType].material.SetColor("_EmissionColor", Color.blue);
     }
