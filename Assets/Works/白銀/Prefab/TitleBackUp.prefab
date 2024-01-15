@@ -132,6 +132,7 @@ MonoBehaviour:
   _virtualCamera:
   - {fileID: 2754183267023213169}
   - {fileID: 5348800039814198363}
+  _input: {fileID: 0}
 --- !u!1 &1266816379303636574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,11 +1289,17 @@ MonoBehaviour:
   - {fileID: 5017208475954337987}
   - {fileID: 7898097621080866652}
   _stageInfoList:
-  - Name: {fileID: 1470925956395403641}
+  - AudioName: 
+    NextSceneName: 
+    Name: {fileID: 1470925956395403641}
     Picture: {fileID: 61174592993055262}
-  - Name: {fileID: 5313493685455042782}
+  - AudioName: 
+    NextSceneName: 
+    Name: {fileID: 5313493685455042782}
     Picture: {fileID: 3121546885375898133}
-  - Name: {fileID: 2004571355258157743}
+  - AudioName: 
+    NextSceneName: 
+    Name: {fileID: 2004571355258157743}
     Picture: {fileID: 2429835334069084929}
   _bgmLine: {fileID: 8486845679693711910}
   _seLine: {fileID: 8025662832606395580}
@@ -1300,6 +1307,8 @@ MonoBehaviour:
   _bgmLineRightRimit: {fileID: 8151777213679832706}
   _seLineLeftRimit: {fileID: 4188694243411142820}
   _seLineRightRimit: {fileID: 8923582020853650588}
+  _fade: {fileID: 0}
+  _input: {fileID: 0}
 --- !u!1 &3105189003842969535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,6 +3220,7 @@ MonoBehaviour:
   m_fade: {fileID: 3610494665513947528}
   m_setFadeTime: 1
   m_sceneName: Re_Opening
+  m_manager: {fileID: 0}
 --- !u!114 &434773253897923976
 MonoBehaviour:
   m_ObjectHideFlags: 0

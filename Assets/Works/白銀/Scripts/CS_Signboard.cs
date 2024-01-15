@@ -78,8 +78,6 @@ public class CS_Signboard : MonoBehaviour
         // スケールの取得・変更
         transform.localScale = m_startScale;
 
-        Debug.Log(m_startScale);
-
         // 補間変数
         m_rad = 0.0f;
         m_tmp = 0.0f;
