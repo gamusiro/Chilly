@@ -5449,7 +5449,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5283900490225920436}
-  - component: {fileID: 9068683547029763822}
   - component: {fileID: 3558822706777052660}
   - component: {fileID: 6233978183890571801}
   - component: {fileID: 4526102937058977148}
@@ -5477,41 +5476,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3619724656422871893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9068683547029763822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2418182545955894189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a975bd39f159dbc4caccf7e1f91fd052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transTimeList:
-  - 5
-  - 2
-  - 2
-  - 0
-  - 4
-  - 4
-  - 2.5
-  - 0
-  - 2
-  - 0
-  _virtualCamera:
-  - {fileID: 1063402416706249648}
-  - {fileID: 5004914967312874862}
-  - {fileID: 6168109626076028018}
-  - {fileID: 4523955512024622952}
-  - {fileID: 5303662705252867666}
-  - {fileID: 9207989535430046822}
-  - {fileID: 1694004653362710421}
-  - {fileID: 5317490917865986606}
-  - {fileID: 2779222361844801595}
-  - {fileID: 6792820318762909737}
-  - {fileID: 4068731761929279191}
 --- !u!114 &3558822706777052660
 MonoBehaviour:
   m_ObjectHideFlags: 0
