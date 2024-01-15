@@ -57,8 +57,8 @@ MonoBehaviour:
   - m_label: IWillBeHere
     m_clip: {fileID: 8300000, guid: a352f3a28f3368943a4c04619bb4c40f, type: 3}
     m_volume: 0.1
-  - m_label: Rescue
-    m_clip: {fileID: 8300000, guid: fc73ad0359cf31448848bd197a87221e, type: 3}
+  - m_label: Deserve-Better
+    m_clip: {fileID: 8300000, guid: 93d0b63079f8557459ed4630b9056f52, type: 3}
     m_volume: 0.1
   - m_label: Last
     m_clip: {fileID: 8300000, guid: 186cf89a053450f42afab2d1997f7ac7, type: 3}
@@ -89,5 +89,11 @@ MonoBehaviour:
     m_clip: {fileID: 8300000, guid: e080af49517be024985f27e44f28e83a, type: 3}
     m_volume: 0.2
   - m_label: Bell
+    m_clip: {fileID: 8300000, guid: edf81e57594ee4d4a9c8ec422d0813d1, type: 3}
+    m_volume: 0.2
+  - m_label: Cursor
+    m_clip: {fileID: 8300000, guid: 5a31ccef204583d4aa8c6cb414b23d7f, type: 3}
+    m_volume: 0.2
+  - m_label: Cancel
     m_clip: {fileID: 8300000, guid: edf81e57594ee4d4a9c8ec422d0813d1, type: 3}
     m_volume: 0.2

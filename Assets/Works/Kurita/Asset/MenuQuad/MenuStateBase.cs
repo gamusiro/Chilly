@@ -223,21 +223,27 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
             _nextState = null;
         }
 
-        if (_currentState != null)
-        {
-            _currentState.OnUpdate();
-        }
-
         // 音量フェード
-        if(_fade.GetState() != Fade.STATE.NONE)
+        if (_fade.GetState() != Fade.STATE.NONE)
         {
             float tmp = _fade.GetRange();
             CS_AudioManager.Instance.FadeVolume(tmp);
         }
+        else
+        {
+            if (_currentState != null)
+            {
+                _currentState.OnUpdate();
+            }
+        }
     }
 
-    public bool SetNextState(MenuStateBase<T> nextState)
+    public bool SetNextState(MenuStateBase<T> nextState, bool se = true)
     {
+        // カーソル音を鳴らす
+        if(se)
+            CS_AudioManager.Instance.PlayAudio("Cursor");
+
         bool bRet = _nextState == null;
         _nextState = nextState;
         _nextState.SetQuadUIList(_quadUIList);

@@ -11,6 +11,9 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
     [SerializeField, CustomLabel("入力")]
     PlayerInput _input;
 
+    [SerializeField, CustomLabel("フェード")]
+    Fade _fade;
+
     private async void Start()
     {
         var cts = new CancellationTokenSource();
@@ -24,10 +27,14 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
 
     private void Update()
     {
+        if (_fade.GetState() != Fade.STATE.NONE)
+            return;
+
         if (GetCurrentCameraIndex() == 0)
         {
             if (_input.currentActionMap["Commit"].triggered)//Bボタンにする　※
             {
+                CS_AudioManager.Instance.PlayAudio("Commit");
                 NextCamera();
                 _canUpdate = true;
             }
@@ -36,7 +43,7 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
         {
             if (_input.currentActionMap["Cancel"].triggered)//Aボタンにする　※
             {
-                Debug.Log("aaa");
+                CS_AudioManager.Instance.PlayAudio("Cancel");
                 NextCamera();
                 _canUpdate = false;
             }

@@ -9,7 +9,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 {                               
     private void Start()
     {
-        SetNextState(new MenuStateMachine.LeftTriangle(this));
+        SetNextState(new MenuStateMachine.LeftTriangle(this), false);
     }
 
     private class LeftTriangle : MenuStateBase<MenuStateMachine>
@@ -93,7 +93,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-            if (_canUpdate)
+            if (_canUpdate )
             {
                 if (_input.currentActionMap["Left"].triggered)
                     machine.SetNextState(new MenuStateMachine.LeftTriangle(machine));
@@ -105,6 +105,8 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                 // シーン遷移
                 if (_input.currentActionMap["Commit"].triggered)
                 {
+                    CS_AudioManager.Instance.PlayAudio("Commit");
+
                     // 読み込むノーツフォルダを指定
                     StageInfo stageInfo = GetSelectStage();
                     CS_LoadNotesFile.SetFolderName(stageInfo.AudioName);
