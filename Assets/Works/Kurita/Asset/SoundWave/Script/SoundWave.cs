@@ -23,7 +23,8 @@ public class SoundWave : MonoBehaviour
             float alpha = 0.0f;
             renderer.material
                 .DOFade(alpha, _time)
-                .OnComplete(()=> { Destroy(this.gameObject);}) ;
+                .OnComplete(()=> { Destroy(this.gameObject);})
+                .SetLink(this.gameObject);
         }
     }
 }

@@ -27,7 +27,8 @@ public class PressBButton : MonoBehaviour
         float timeSpan = 1.0f;
         while (true)
         {
-            _renderer.material.DOFade(alpha, timeSpan)
+            _renderer.material
+                .DOFade(alpha, timeSpan)
                 .OnComplete(()=> 
                 {
                     alpha = 0.5f - alpha;
@@ -35,7 +36,7 @@ public class PressBButton : MonoBehaviour
                 })
                 .SetLink(this.gameObject);
 
-            await UniTask.WaitUntil(() => next);
+            await UniTask.WaitUntil(() => next, cancellationToken: token); ;
             next = false;
         }
     }

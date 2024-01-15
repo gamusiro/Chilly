@@ -132,6 +132,7 @@ MonoBehaviour:
   _virtualCamera:
   - {fileID: 2754183267023213169}
   - {fileID: 5348800039814198363}
+  _input: {fileID: 434773253897923976}
 --- !u!1 &1266816379303636574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,11 +1289,17 @@ MonoBehaviour:
   - {fileID: 5017208475954337987}
   - {fileID: 7898097621080866652}
   _stageInfoList:
-  - Name: {fileID: 1470925956395403641}
+  - AudioName: WeMadeIt
+    NextSceneName: Re_Opening
+    Name: {fileID: 1470925956395403641}
     Picture: {fileID: 61174592993055262}
-  - Name: {fileID: 5313493685455042782}
+  - AudioName: IWillBeHere
+    NextSceneName: Re_Game7
+    Name: {fileID: 5313493685455042782}
     Picture: {fileID: 3121546885375898133}
-  - Name: {fileID: 2004571355258157743}
+  - AudioName: 
+    NextSceneName: 
+    Name: {fileID: 2004571355258157743}
     Picture: {fileID: 2429835334069084929}
   _bgmLine: {fileID: 8486845679693711910}
   _seLine: {fileID: 8025662832606395580}
@@ -1300,6 +1307,8 @@ MonoBehaviour:
   _bgmLineRightRimit: {fileID: 8151777213679832706}
   _seLineLeftRimit: {fileID: 4188694243411142820}
   _seLineRightRimit: {fileID: 8923582020853650588}
+  _fade: {fileID: 3610494665513947528}
+  _input: {fileID: 434773253897923976}
 --- !u!1 &3105189003842969535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,6 +3180,7 @@ GameObject:
   - component: {fileID: 4885775737765863609}
   - component: {fileID: 7794121249346724646}
   - component: {fileID: 434773253897923976}
+  - component: {fileID: 2609437820407839338}
   m_Layer: 0
   m_Name: TitleBackUp
   m_TagString: Untagged
@@ -3203,7 +3213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9082341865691745296}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69a85348e3f94a3468802bf7a3fc1fe8, type: 3}
   m_Name: 
@@ -3211,6 +3221,7 @@ MonoBehaviour:
   m_fade: {fileID: 3610494665513947528}
   m_setFadeTime: 1
   m_sceneName: Re_Opening
+  m_manager: {fileID: 3534847981480387444}
 --- !u!114 &434773253897923976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3223,7 +3234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 5c3db523dcfa030458ba65cc003942f4, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -3241,6 +3252,20 @@ MonoBehaviour:
   m_DefaultActionMap: Title
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2609437820407839338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082341865691745296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b859054b2130cd41be0865172141454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _titleCameraPhaseManager: {fileID: 3534847981480387444}
+  _menuStateMachine: {fileID: 6956860489275180731}
 --- !u!1001 &42153597159687597
 PrefabInstance:
   m_ObjectHideFlags: 0
