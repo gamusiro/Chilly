@@ -14,7 +14,7 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
     [SerializeField, CustomLabel("フェード")]
     Fade _fade;
 
-    private async void Start()
+    private void Start()
     {
         var cts = new CancellationTokenSource();
         CancellationToken token = cts.Token;

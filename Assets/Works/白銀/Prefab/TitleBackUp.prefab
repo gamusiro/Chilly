@@ -133,6 +133,7 @@ MonoBehaviour:
   - {fileID: 2754183267023213169}
   - {fileID: 5348800039814198363}
   _input: {fileID: 0}
+  _fade: {fileID: 0}
 --- !u!1 &1266816379303636574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1310,7 @@ MonoBehaviour:
   _seLineRightRimit: {fileID: 8923582020853650588}
   _fade: {fileID: 0}
   _input: {fileID: 0}
+  brainCamera: {fileID: 0}
 --- !u!1 &3105189003842969535
 GameObject:
   m_ObjectHideFlags: 0

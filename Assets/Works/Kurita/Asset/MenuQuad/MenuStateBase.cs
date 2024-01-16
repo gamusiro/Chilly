@@ -82,9 +82,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     public void ChangeBlueColor(int stateType)
     {
         //元の色に戻す
-        //Debug.Log(_quadUIOriginalColorList[stateType]);
         _quadUIList[stateType].material.SetColor("_EmissionColor", _quadUIOriginalColorList[stateType]);
-        //_quadUIList[stateType].material.SetColor("_EmissionColor", Color.blue);
     }
 
     //真なら次のステージ、偽なら一つ前のステージに遷移する
@@ -186,6 +184,7 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
 {
     private MenuStateBase<T> _currentState;
     private MenuStateBase<T> _nextState;
+    private static int _currentStageIndex = 0;
 
     //UI
     [SerializeField] protected List<Renderer> _quadUIList = new();
@@ -207,6 +206,12 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     [SerializeField] private Fade _fade;
     [SerializeField] protected PlayerInput _input;
 
+    [SerializeField] protected CinemachineBrain brainCamera;
+
+    private void Start()
+    {
+        //子クラスでオーバーライドしてるため、これは呼ばれない
+    }
 
     private void Update()
     {
@@ -235,6 +240,43 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
             {
                 _currentState.OnUpdate();
             }
+        }
+    }
+
+    protected void SetStageInfo()
+    {
+        {
+            //全てのステージ情報を非表示にする
+            float alpha = 0.0f;
+            float duration = 0.0f;
+
+            for (int i = 0; i < _stageInfoList.Count; i++)
+            {
+                _stageInfoList[i].Name.material
+                    .DOFade(alpha, duration)
+                    .SetLink(_stageInfoList[i].Name.gameObject);
+
+                _stageInfoList[i].Picture.material
+                    .DOFade(alpha, duration)
+                    .SetLink(_stageInfoList[i].Picture.gameObject);
+
+
+            }
+        }
+
+        {
+            //現在のステージのみ表示する
+            float alpha = 1.0f;
+            float duration = 0.0f;
+
+            _currentStageIndex = 0;
+            _stageInfoList[_currentStageIndex].Name.material
+                .DOFade(alpha, duration)
+                .SetLink(_stageInfoList[_currentStageIndex].Name.gameObject);
+
+            _stageInfoList[_currentStageIndex].Picture.material
+                .DOFade(alpha, duration)
+                .SetLink(_stageInfoList[_currentStageIndex].Picture.gameObject);
         }
     }
 

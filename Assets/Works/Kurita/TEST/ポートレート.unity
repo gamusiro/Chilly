@@ -387,7 +387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &920746823
 RectTransform:
   m_ObjectHideFlags: 0
@@ -397,15 +397,15 @@ RectTransform:
   m_GameObject: {fileID: 920746822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.61, y: 3.61, z: 3.61}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 473046718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3144.26, y: 50}
+  m_SizeDelta: {x: 918.26, y: -1202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &920746824
 MonoBehaviour:
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: We Made It
+  m_text: Deserve-Better
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ff5f15704a25b34ebd5278780fd8764, type: 2}
   m_sharedMaterial: {fileID: 6615689470355340818, guid: 3ff5f15704a25b34ebd5278780fd8764, type: 2}
@@ -521,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &969055963
 RectTransform:
   m_ObjectHideFlags: 0

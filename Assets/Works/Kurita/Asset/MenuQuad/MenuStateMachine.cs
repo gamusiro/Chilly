@@ -9,6 +9,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 {                               
     private void Start()
     {
+        SetStageInfo();
         SetNextState(new MenuStateMachine.LeftTriangle(this), false);
     }
 
@@ -26,7 +27,6 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
         public override void OnUpdate()
         {
-
             if (_canUpdate)
             {
                 if (_input.currentActionMap["Right"].triggered)
