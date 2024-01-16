@@ -191,6 +191,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619910156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5787186835757619923, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+  m_PrefabInstance: {fileID: 8237552874407531336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c81d1154281af439dfcc0510e6188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1011845967
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,10 +254,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2335449576897415016, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_cameraManager
+      value: 
+      objectReference: {fileID: 619910156}
     - target: {fileID: 2662233724022230442, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_IsActive
       value: 0
