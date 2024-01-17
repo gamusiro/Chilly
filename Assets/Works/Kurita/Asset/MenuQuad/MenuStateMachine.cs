@@ -9,8 +9,11 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 {                               
     private void Start()
     {
+
         SetStageInfo();
         SetNextState(new MenuStateMachine.LeftTriangle(this), false);
+        SetBGMVolume(CS_AudioManager.Instance.BGMVolume);
+        SetSEVolume(CS_AudioManager.Instance.SEVolume);
     }
 
     private class LeftTriangle : MenuStateBase<MenuStateMachine>

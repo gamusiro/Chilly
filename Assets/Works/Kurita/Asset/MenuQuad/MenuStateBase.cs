@@ -216,19 +216,6 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
 
     private void Update()
     {
-        //現在のステートを次のステートに更新する
-        if (_nextState != null)
-        {
-            if (_currentState != null)
-            {
-                _currentState.OnExit();
-            }
-
-            _currentState = _nextState;
-            _currentState.OnEnter();
-            _nextState = null;
-        }
-
         // 音量フェード
         if (_fade.GetState() != Fade.STATE.NONE)
         {
@@ -293,6 +280,20 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         _nextState.SetSELine(_seLine);
         _nextState.SetLineRimit(_bgmLineLeftRimit, _bgmLineRightRimit, _seLineLeftRimit, _seLineRightRimit);
         _nextState.SetPlayerInput(_input);
+
+        //現在のステートを次のステートに更新する
+        if (_nextState != null)
+        {
+            if (_currentState != null)
+            {
+                _currentState.OnExit();
+            }
+
+            _currentState = _nextState;
+            _currentState.OnEnter();
+            _nextState = null;
+        }
+
         return bRet;
     }    
 
