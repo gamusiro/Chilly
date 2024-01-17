@@ -268,6 +268,8 @@ public class CS_Player : MonoBehaviour
             color.r = c; color.g = c; color.b = c;
             m_material.color = color;
         }
+
+        Debug.Log("ƒ_ƒbƒVƒ…: " + IsDashing);
     }
 
     /// <summary>
