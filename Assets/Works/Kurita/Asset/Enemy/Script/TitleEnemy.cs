@@ -6,7 +6,7 @@ using System;
 
 public class TitleEnemy : Enemy
 {
-    public new void FixedUpdate()
+    public void FixedUpdate()
     {
         Eyes();
         Mouth();
@@ -14,7 +14,7 @@ public class TitleEnemy : Enemy
     }
 
     //“®‚«
-    protected new void Move()
+    protected void Move()
     {
         float speed = 3.0f;
         float range = 3.0f;

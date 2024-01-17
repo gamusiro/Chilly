@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8442202024012203929, guid: fb2d181ce1ba5bc4dbbb5cfbb77656de, type: 3}
       propertyPath: m_Name
-      value: OpeningScreenText Variant
+      value: OpeningScreenText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

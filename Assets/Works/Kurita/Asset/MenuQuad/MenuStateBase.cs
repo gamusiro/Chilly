@@ -202,11 +202,12 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     [SerializeField] private Transform _seLineLeftRimit;
     [SerializeField] private Transform _seLineRightRimit;
 
-    
+    //フェード
     [SerializeField] private Fade _fade;
+    //入力
     [SerializeField] protected PlayerInput _input;
-
-    [SerializeField] protected CinemachineBrain brainCamera;
+    //カメラ
+    [SerializeField] protected CinemachineBrain _brainCamera;
 
     private void Start()
     {
@@ -236,7 +237,7 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         }
         else
         {
-            if (_currentState != null)
+            if (_currentState != null && _brainCamera.ActiveBlend == null) 
             {
                 _currentState.OnUpdate();
             }
@@ -259,8 +260,6 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
                 _stageInfoList[i].Picture.material
                     .DOFade(alpha, duration)
                     .SetLink(_stageInfoList[i].Picture.gameObject);
-
-
             }
         }
 
