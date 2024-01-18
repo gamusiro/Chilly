@@ -9,7 +9,6 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 {                               
     private void Start()
     {
-
         SetStageInfo();
         SetNextState(new MenuStateMachine.LeftTriangle(this), false);
         SetBGMVolume(CS_AudioManager.Instance.BGMVolume);
@@ -115,7 +114,10 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     CS_LoadNotesFile.SetFolderName(stageInfo.AudioName);
 
                     // チュートリアル
-                    CS_GameManager.SetTutorial(false);
+                    if(stageInfo.AudioName == "WeMadeIt")
+                        CS_GameManager.SetTutorial(true);
+                    else
+                        CS_GameManager.SetTutorial(false);
 
                     // オープニングシーンが必要なもの
                     machine.SetFadeOut(1.0f,
@@ -123,7 +125,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                         {
                             CS_AudioManager.Instance.MasterVolume = 0.0f;
                             CS_AudioManager.Instance.StopBGM();
-                            SceneManager.LoadScene(stageInfo.NextSceneName);
+                            SceneManager.LoadScene("Re_Opening");
                         });
                 }
             }

@@ -269,7 +269,7 @@ public class CS_Player : MonoBehaviour
             m_material.color = color;
         }
 
-        Debug.Log("ダッシュ: " + IsDashing);
+        //Debug.Log("ダッシュ: " + IsDashing);
     }
 
     /// <summary>

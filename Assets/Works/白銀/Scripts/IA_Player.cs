@@ -304,6 +304,45 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Scene"",
+            ""id"": ""fe895669-c253-41aa-8191-01e46411f39e"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""ecfb02bd-ba1d-4b1a-9ee9-77772aa36ea0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""280b1458-3e92-4679-8e66-1adfdcf561c4"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f0d4c13-4623-40ec-973b-d43ea8470efd"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -322,6 +361,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Title_Left = m_Title.FindAction("Left", throwIfNotFound: true);
         m_Title_Up = m_Title.FindAction("Up", throwIfNotFound: true);
         m_Title_Down = m_Title.FindAction("Down", throwIfNotFound: true);
+        // Scene
+        m_Scene = asset.FindActionMap("Scene", throwIfNotFound: true);
+        m_Scene_Skip = m_Scene.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -535,6 +577,52 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         }
     }
     public TitleActions @Title => new TitleActions(this);
+
+    // Scene
+    private readonly InputActionMap m_Scene;
+    private List<ISceneActions> m_SceneActionsCallbackInterfaces = new List<ISceneActions>();
+    private readonly InputAction m_Scene_Skip;
+    public struct SceneActions
+    {
+        private @IA_Player m_Wrapper;
+        public SceneActions(@IA_Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_Scene_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_Scene; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SceneActions set) { return set.Get(); }
+        public void AddCallbacks(ISceneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SceneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SceneActionsCallbackInterfaces.Add(instance);
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+        }
+
+        private void UnregisterCallbacks(ISceneActions instance)
+        {
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+        }
+
+        public void RemoveCallbacks(ISceneActions instance)
+        {
+            if (m_Wrapper.m_SceneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISceneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SceneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SceneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SceneActions @Scene => new SceneActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -550,5 +638,9 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnUp(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
+    }
+    public interface ISceneActions
+    {
+        void OnSkip(InputAction.CallbackContext context);
     }
 }

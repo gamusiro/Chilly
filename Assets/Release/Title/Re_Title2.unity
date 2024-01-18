@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31281084, g: 0.2933994, b: 0.51391363, a: 1}
+  m_IndirectSpecularColor: {r: 0.31315362, g: 0.29385304, b: 0.5141655, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,6 +131,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98965424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0590556
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.09245797
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333780208229862593, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.092457965
+      objectReference: {fileID: 0}
     - target: {fileID: 4885775737765863609, guid: 276e6b603201dd440826664764597d4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,6 +198,18 @@ PrefabInstance:
     - target: {fileID: 4885775737765863609, guid: 276e6b603201dd440826664764597d4d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348800039814198363, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956860489275180731, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: _stageInfoList.Array.data[1].AudioName
+      value: Deserve-Better
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956860489275180731, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: _stageInfoList.Array.data[2].AudioName
+      value: IWillBeHere
       objectReference: {fileID: 0}
     - target: {fileID: 9082341865691745296, guid: 276e6b603201dd440826664764597d4d, type: 3}
       propertyPath: m_Name

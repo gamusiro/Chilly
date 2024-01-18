@@ -282,6 +282,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Scene",
+            "id": "fe895669-c253-41aa-8191-01e46411f39e",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "ecfb02bd-ba1d-4b1a-9ee9-77772aa36ea0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "280b1458-3e92-4679-8e66-1adfdcf561c4",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f0d4c13-4623-40ec-973b-d43ea8470efd",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

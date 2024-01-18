@@ -55,8 +55,9 @@ public class GameCameraPhaseManager : AbstractCameraPhaseManager
         Dictionary<string, List<float>> pairs = new Dictionary<string, List<float>>();
         pairs.Add("WeMadeIt", new List<float> { 1, 73, 126 });
         pairs.Add("IWillBeHere", new List<float> { 1, 68, 132 });
+        pairs.Add("Deserve-Better", new List<float> { 1, 73, 123 });
 
-        if(!pairs.ContainsKey(audioName))
+        if (!pairs.ContainsKey(audioName))
         {
             Debug.LogError(audioName + "‚Ìƒf[ƒ^‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
             return null;

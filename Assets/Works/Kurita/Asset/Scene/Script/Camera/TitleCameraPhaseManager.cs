@@ -39,15 +39,6 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
                 _canUpdate = true;
             }
         }
-        else if (GetCurrentCameraIndex() == 1)
-        {
-            if (_input.currentActionMap["Cancel"].triggered)//Aボタンにする　※
-            {
-                CS_AudioManager.Instance.PlayAudio("Cancel");
-                NextCamera();
-                _canUpdate = false;
-            }
-        }
     }
 
     //カメラを切り替える

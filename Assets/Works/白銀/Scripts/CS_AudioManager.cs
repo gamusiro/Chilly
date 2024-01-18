@@ -211,6 +211,12 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         m_bgmSource.Stop();
     }
 
+    public void StopAllSE()
+    {
+        for (int i = 0; i < c_sePlayNum; ++i)
+            m_seSources[i].Stop();
+    }
+
     public void FadeVolume(float tmp)
     {
         float vol = Mathf.Lerp(0.0f, MasterVolume, 1.0f - tmp);

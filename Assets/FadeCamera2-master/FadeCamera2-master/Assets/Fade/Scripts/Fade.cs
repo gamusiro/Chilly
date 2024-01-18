@@ -90,11 +90,11 @@ public class Fade : MonoBehaviour
         StopAllCoroutines();
         if (fade == null)
         {
-            Debug.Log("フェードがないよ～:" + time);
+            Debug.LogError("フェードがないよ～:" + time);
             return null;
         }
             
-        Debug.Log("スタートフェード");
+        //Debug.Log("スタートフェード");
         return StartCoroutine(FadeInCoroutine(time, action));
     }
 

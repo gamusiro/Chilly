@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32097128, g: 0.21131825, b: 0.40435025, a: 1}
+  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -239,6 +239,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3282893913510634423, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2664
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905418720471735413, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      propertyPath: _playerInput
+      value: 
+      objectReference: {fileID: 2768702757215716845}
     - target: {fileID: 9004493701433633413, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
       propertyPath: m_Name
       value: Opening
@@ -246,8 +254,46 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9004493701433633413, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2768702757215716845}
   m_SourcePrefab: {fileID: 100100000, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+--- !u!1 &2768702757215716844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9004493701433633413, guid: bf0670f25151ae140bde396c1bca8a23, type: 3}
+  m_PrefabInstance: {fileID: 2768702757215716843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2768702757215716845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768702757215716844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5c3db523dcfa030458ba65cc003942f4, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: fe895669-c253-41aa-8191-01e46411f39e
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -4,12 +4,16 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MovieSkip : MonoBehaviour
 {
     [SerializeField] private string _nextStageName;
     [SerializeField] private TMPro.TextMeshProUGUI _text;
     private bool _showText = false;
+    private bool _islooping = true;
+
+    [SerializeField] private PlayerInput _playerInput;
 
     private async void Start()
     {
@@ -22,10 +26,10 @@ public class MovieSkip : MonoBehaviour
                 .SetLink(this.gameObject);
         }
 
-        while (true)
+        while (_islooping)
         {
             //プラスボタンが押されたとき　※
-            await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.K));
+            await UniTask.WaitUntil(() => _playerInput.currentActionMap["Skip"].triggered);
 
             if (!_showText)
             {
@@ -44,8 +48,10 @@ public class MovieSkip : MonoBehaviour
             else if(_showText)
             {
                 //シーン遷移
+                _islooping = false;
                 CS_AudioManager.Instance.MasterVolume = 0.0f;
                 CS_AudioManager.Instance.StopBGM();
+                CS_AudioManager.Instance.StopAllSE();
                 SceneManager.LoadScene(_nextStageName);
                 return;
             }
@@ -61,6 +67,10 @@ public class MovieSkip : MonoBehaviour
         {
             float alpha = 0.0f;
             float duration = 0.5f;
+
+            if (_text == null)
+                return;
+
             _text.DOKill();
             _text
                 .DOFade(alpha, duration)

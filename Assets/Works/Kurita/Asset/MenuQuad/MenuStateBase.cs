@@ -327,10 +327,6 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
 public class StageInfo
 {
     public string AudioName;
-
-    [Tooltip("Re_Opening or Re_Game7")]
-    public string NextSceneName;
-
     public Renderer Name;
     public Renderer Picture;
 }
