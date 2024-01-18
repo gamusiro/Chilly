@@ -55,7 +55,13 @@ public class LastMovieManager : MonoBehaviour
             await UniTask.WaitUntil(() => _playerCS.OnBell, cancellationToken: token);
             if (!_bell)
                 return;
-            _bell?.SetRing(true);
+            if (!_soundWave)
+                return;
+            if (!_phase1)
+                return;
+            if (!_playerCS)
+                return;
+            _bell.SetRing(true);
             Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
             _playerCS.OnBell = false;
         }
@@ -66,14 +72,17 @@ public class LastMovieManager : MonoBehaviour
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
             if (!_enemy)
                 return;
-            _enemy?.Disapper(_enemy.transform);
+            _enemy.Disapper(_enemy.transform);
         }
 
         //■爆発後
         {
             float time = 5.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-            _enemy?.Explosion(_phase1.transform, this.gameObject);
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            if (!_enemy)
+                return;
+            _enemy.Explosion(_phase1.transform, this.gameObject);
         }
 
         //■フェーズ1終了,フェーズ2開始
@@ -101,6 +110,9 @@ public class LastMovieManager : MonoBehaviour
             float time  = 1.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
             Vector3 spawnPosition = new Vector3(0.0f, 500.0f, 30.0f);
+            if (!_friendPrefab)
+                return;
+
             Instantiate(_friendPrefab, spawnPosition, Quaternion.identity);
         }
 
@@ -108,6 +120,9 @@ public class LastMovieManager : MonoBehaviour
         {
             float time  = 18.5f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+
+            if (!_lastLogoFirstShow)
+                return;
             _lastLogoFirstShow.Show();
         }
 
@@ -115,6 +130,8 @@ public class LastMovieManager : MonoBehaviour
         {
             float time = 3.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            if (!_lastLogoSecondShow)
+                return;
             _lastLogoSecondShow.Show();
             CS_AudioManager.Instance.MasterVolume = 2.0f;
             Debug.Log(CS_AudioManager.Instance.MasterVolume);
