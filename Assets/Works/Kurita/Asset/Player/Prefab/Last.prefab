@@ -1722,7 +1722,7 @@ MonoBehaviour:
   _phase2: {fileID: 6351149350339914892, guid: 80d2b6e1a2213e74b97cd7e1177cec74, type: 3}
   _friendPrefab: {fileID: 4180146663070340526, guid: 257693135f3ea134eab76da2a633f276, type: 3}
   _fade: {fileID: 2536048150370305801}
-  _nextScene: Re_Title1
+  _nextScene: Re_Title2
   _lastLogoFirstShow: {fileID: 5786952396365701417}
   _lastLogoSecondShow: {fileID: 3414410674754997207}
 --- !u!1 &6197229052305672101
@@ -4138,6 +4138,10 @@ PrefabInstance:
     - target: {fileID: 4669762212937126823, guid: 74646e20ab5eb2f48a822fe0c4350cd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6926046790356395055, guid: 74646e20ab5eb2f48a822fe0c4350cd3, type: 3}
+      propertyPath: _nextStageName
+      value: Re_Title2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -37,9 +37,11 @@ public class LastLogo : MonoBehaviour
 
     private void ChangeAlpha(float alpha, float time)
     {
-        //”Z’W‚ð”Z‚­‚·‚é
         foreach (var renderer in _rendererList)
         {
+            if (!renderer)
+                continue;
+
             renderer.material.DOFade(alpha, time)
                 .SetLink(this.gameObject);
         }

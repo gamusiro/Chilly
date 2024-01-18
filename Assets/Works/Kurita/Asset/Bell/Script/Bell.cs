@@ -34,6 +34,10 @@ public class Bell : MonoBehaviour
             //ƒxƒ‹‚ð—h‚ç‚·
             radian += Time.deltaTime;
             float range = 40.0f;
+
+            if (!_root)
+                return;
+
             Vector3 rotate = _root.transform.eulerAngles;
             rotate.z = Mathf.Sin(Mathf.PI * 6.0f / 6.0f + radian) * range;
             _root.transform.eulerAngles = rotate;

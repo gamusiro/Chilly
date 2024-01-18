@@ -62,7 +62,7 @@ public class LastEnemy : Enemy
     }
 
     //”š”­
-    public async void Explosion(Transform parent)
+    public async void Explosion(Transform parent,GameObject flag)
     {
         var cts = new CancellationTokenSource();
         CancellationToken token = cts.Token;
@@ -70,6 +70,8 @@ public class LastEnemy : Enemy
         Vector3 createPosition = _disapperEyeParent.position + new Vector3(0.0f, 40.0f, -20.0f);
         Instantiate(_explosionPrefab, createPosition, Quaternion.identity, parent);
         await UniTask.Delay(TimeSpan.FromSeconds(1.0f), cancellationToken: token);
+        if (!flag)
+            return;
         Instantiate(_explosionPrefab2, createPosition, Quaternion.identity, parent);
     }
 }

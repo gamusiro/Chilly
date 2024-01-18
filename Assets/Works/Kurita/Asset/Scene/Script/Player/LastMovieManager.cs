@@ -50,64 +50,84 @@ public class LastMovieManager : MonoBehaviour
         CS_AudioManager.Instance.PlayAudio("Last", true);
         CS_AudioManager.Instance.MasterVolume = 1.0f;
 
-        //ベルがなを鳴らす
-        await UniTask.WaitUntil(() => _playerCS.OnBell, cancellationToken: token);
-        _bell.SetRing(true);
-        Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
-        _playerCS.OnBell = false;
+        //■ベルを鳴らす
+        {
+            await UniTask.WaitUntil(() => _playerCS.OnBell, cancellationToken: token);
+            if (!_bell)
+                return;
+            _bell?.SetRing(true);
+            Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
+            _playerCS.OnBell = false;
+        }
 
-        //敵がやられた判定になる
-       　float time = 4.0f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        _enemy.Disapper(_enemy.transform);
+        //■敵がやられた判定になる
+        {
+            float time = 4.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            if (!_enemy)
+                return;
+            _enemy?.Disapper(_enemy.transform);
+        }
 
-        //爆発後
-        time = 5.0f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        _enemy.Explosion(_phase1.transform);
+        //■爆発後
+        {
+            float time = 5.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _enemy?.Explosion(_phase1.transform, this.gameObject);
+        }
 
-        //フェーズ1終了,フェーズ2開始
-        time = 5.0f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        _bell.SetRing(false);
-        Destroy(_phase1);
-        Instantiate(_phase2);
+        //■フェーズ1終了,フェーズ2開始
+        {
+            float time = 5.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            if (!_bell)
+                return;
+            if (!_fade)
+                return;
+            _bell.SetRing(false);
+            Destroy(_phase1);
+            Instantiate(_phase2);
 
-        time = 0.0f;
-        _fade.FadeIn(time);
+            time = 0.0f;
+            _fade.FadeIn(time);
 
-        //CS_AudioManager.Instance.MasterVolume = 0.0f;
-        //CS_AudioManager.Instance.StopBGM();
-        //CS_AudioManager.Instance.PlayAudio("Rescue", true);
-        //CS_AudioManager.Instance.MasterVolume = 1.0f;
+            time = 1.0f;
+            _fade.FadeOut(time);
 
-        time = 1.0f;
-        _fade.FadeOut(time);
+        }
 
-        //友達生成
-        time = 1.0f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        Vector3 spawnPosition = new Vector3(0.0f, 500.0f, 30.0f);
-        Instantiate(_friendPrefab, spawnPosition, Quaternion.identity);
-
+        //■友達生成
+        {
+            float time  = 1.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            Vector3 spawnPosition = new Vector3(0.0f, 500.0f, 30.0f);
+            Instantiate(_friendPrefab, spawnPosition, Quaternion.identity);
+        }
 
         //最初のLogoの表示
-        time = 18.5f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        _lastLogoFirstShow.Show();
+        {
+            float time  = 18.5f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _lastLogoFirstShow.Show();
+        }
 
         //二つ目のLogoの表示
-        time = 3.0f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        _lastLogoSecondShow.Show();
-        CS_AudioManager.Instance.MasterVolume = 2.0f;
-        Debug.Log(CS_AudioManager.Instance.MasterVolume);
+        {
+            float time = 3.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _lastLogoSecondShow.Show();
+            CS_AudioManager.Instance.MasterVolume = 2.0f;
+            Debug.Log(CS_AudioManager.Instance.MasterVolume);
+        }
 
-        time = 4.0f;
-        await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-        CS_AudioManager.Instance.MasterVolume = 0.0f;
-        CS_AudioManager.Instance.StopBGM();
-        SceneManager.LoadScene(_nextScene);
+        //■シーンの遷移
+        {
+            float time = 4.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            CS_AudioManager.Instance.MasterVolume = 0.0f;
+            CS_AudioManager.Instance.StopBGM();
+            SceneManager.LoadScene(_nextScene);
+        }
     }
 
     private void Update()

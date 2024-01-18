@@ -34,41 +34,65 @@ public class OpeningMovieManager : MonoBehaviour
         CS_AudioManager.Instance.MasterVolume = 1.0f;
         CS_AudioManager.Instance.PlayAudio("Opening", true);
 
-        //初期化
+        //■初期化
         _ateParticle.Stop();
 
         MoveObject();
 
-        //吸い込み開始
+        //■吸い込みパーティクル生成
+        {
+            float time = 18.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
 
-        await UniTask.Delay(TimeSpan.FromSeconds(18.0f), cancellationToken: token);
-        _ateParticle?.Play();
+            CS_AudioManager.Instance.StopBGM();
+            CS_GameManager.SetTutorial(true);
+            SceneManager.LoadScene(_sceneName);
 
-        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
-        if (!_ateParticle)
-            return;
-        _friend?.Ate(_friend?.transform, _enemyMouthTransform);
+            if (!_ateParticle)
+                return;
+            _ateParticle?.Play();
+        }
 
-        await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
-        _fade?.FadeIn(0.5f);
-        
-        await UniTask.Delay(TimeSpan.FromSeconds(3.0f), cancellationToken: token);
-        _friend?.SetDestroy();
-        _fade?.FadeOut(2.0f);
-        if (!_ateParticle)
-            return;
-        _ateParticle?.Stop();
-        
-        await UniTask.Delay(TimeSpan.FromSeconds(6.0f), cancellationToken: token);
-        _fade?.FadeIn(2.0f);
-        
-        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
-        
-         //シーン遷移
-         CS_AudioManager.Instance.StopBGM();
-         CS_GameManager.SetTutorial(true);
-         SceneManager.LoadScene(_sceneName);
-        
+        //■友達が吸い込まれる
+        {
+            float time = 2.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _friend?.Ate(_friend?.transform, _enemyMouthTransform);
+        }
+
+        //■フェードイン
+        {
+            float time = 0.5f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _fade?.FadeIn(0.5f);
+        }
+
+        //■フェードアウト
+        {
+            float time = 3.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _friend?.SetDestroy();
+            _fade?.FadeOut(2.0f);
+            if (!_ateParticle)
+                return;
+            _ateParticle?.Stop();
+        }
+
+        //■フェードイン
+        { 
+            float time = 6.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            _fade?.FadeIn(2.0f);
+        }
+
+        //■シーン遷移
+        {
+            float time = 2.0f;
+            await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            CS_AudioManager.Instance.StopBGM();
+            CS_GameManager.SetTutorial(true);
+            SceneManager.LoadScene(_sceneName);
+        }
     }
 
 
