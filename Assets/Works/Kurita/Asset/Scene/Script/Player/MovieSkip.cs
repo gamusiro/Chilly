@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class MovieSkip : MonoBehaviour
 {
+    [SerializeField] private string _nextStageName;
     [SerializeField] private TMPro.TextMeshProUGUI _text;
     private bool _showText = false;
 
@@ -41,8 +43,11 @@ public class MovieSkip : MonoBehaviour
             }
             else if(_showText)
             {
-                //シーン遷移　※
-                Debug.Log("シーンが遷移しました。");
+                //シーン遷移
+                CS_AudioManager.Instance.MasterVolume = 0.0f;
+                CS_AudioManager.Instance.StopBGM();
+                SceneManager.LoadScene(_nextStageName);
+                return;
             }
         }
     }

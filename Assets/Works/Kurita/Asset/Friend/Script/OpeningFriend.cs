@@ -24,7 +24,7 @@ public class OpeningFriend : AbstractFriend
         //à⁄ìÆ
         _time = 0.0f;
 
-        while (true) 
+        while (!_destroyFlag) 
         {
             //ãzÇ¢çûÇ‹ÇÍÇÈ
             this.transform.position = Vector3.Lerp(start.position, end.position, _time * 0.1f);
@@ -33,16 +33,16 @@ public class OpeningFriend : AbstractFriend
             float speed = 10.0f;
             this.transform.Rotate(0.0f, 0.0f, speed);
 
-            await UniTask.WaitForFixedUpdate(cancellationToken: token);
             _time += Time.deltaTime;
             Mathf.Clamp(_time, 0.0f, 1.0f);
 
             if (_destroyFlag == true)
             {
-                if (this.gameObject)
+                if (this.gameObject != null) 
                     Destroy(this.gameObject);
                 return;
             }
+            await UniTask.WaitForFixedUpdate(cancellationToken: token);
         }
     }
 

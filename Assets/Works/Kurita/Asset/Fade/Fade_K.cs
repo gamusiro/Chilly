@@ -30,14 +30,28 @@ public class Fade_K : MonoBehaviour
     //フェードイン
     public void FadeIn(float time)
     {
+        _fadeImage?.DOKill();
         float alpha = 1.0f;
-        _fadeImage.DOFade(alpha, time).SetLink(this.gameObject);
+
+        if (!_fadeImage)
+            return;
+
+        _fadeImage
+            .DOFade(alpha, time)
+            .SetLink(_fadeImage.gameObject);
     }
 
     //フェードアウト
     public void FadeOut(float time)
     {
+        _fadeImage?.DOKill();
         float alpha = 0.0f;
-        _fadeImage.DOFade(alpha, time).SetLink(this.gameObject);
+
+        if (!_fadeImage)
+            return;
+
+        _fadeImage
+            .DOFade(alpha, time)
+            .SetLink(_fadeImage.gameObject);
     }
 }

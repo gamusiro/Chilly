@@ -36,28 +36,39 @@ public class OpeningMovieManager : MonoBehaviour
 
         //初期化
         _ateParticle.Stop();
-   
+
         MoveObject();
 
         //吸い込み開始
-        await UniTask.Delay(TimeSpan.FromSeconds(18.0f), cancellationToken: token);
-        _ateParticle.Play();
-        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
-        _friend.Ate(_friend.transform, _enemyMouthTransform);
-        await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
-        _fade.FadeIn(0.5f);
-        await UniTask.Delay(TimeSpan.FromSeconds(3.0f), cancellationToken: token);
-        _friend.SetDestroy();
-        _fade.FadeOut(2.0f);
-        _ateParticle.Stop();
-        await UniTask.Delay(TimeSpan.FromSeconds(6.0f), cancellationToken: token);
-        _fade.FadeIn(2.0f);
-        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
 
-        //シーン遷移
-        CS_AudioManager.Instance.StopBGM();
-        CS_GameManager.SetTutorial(true);
-        SceneManager.LoadScene(_sceneName);
+        await UniTask.Delay(TimeSpan.FromSeconds(18.0f), cancellationToken: token);
+        _ateParticle?.Play();
+
+        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
+        if (!_ateParticle)
+            return;
+        _friend?.Ate(_friend?.transform, _enemyMouthTransform);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f), cancellationToken: token);
+        _fade?.FadeIn(0.5f);
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(3.0f), cancellationToken: token);
+        _friend?.SetDestroy();
+        _fade?.FadeOut(2.0f);
+        if (!_ateParticle)
+            return;
+        _ateParticle?.Stop();
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(6.0f), cancellationToken: token);
+        _fade?.FadeIn(2.0f);
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(2.0f), cancellationToken: token);
+        
+         //シーン遷移
+         CS_AudioManager.Instance.StopBGM();
+         CS_GameManager.SetTutorial(true);
+         SceneManager.LoadScene(_sceneName);
+        
     }
 
 
