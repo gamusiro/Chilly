@@ -83,6 +83,9 @@ public class CS_EnemyAttackFromEnemy : CS_LoadNotesFile
         if (m_createCount >= m_perNoteInfos.Count)
             return;
 
+        if (m_jumpLineObject == null)
+            return;
+
         PerNoteInfo info = m_perNoteInfos[m_createCount];
 
         // 生成ポジションの指定
