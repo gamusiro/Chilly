@@ -31,7 +31,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     #region 内部変数用
 
     // BGM用のオーディオソース
-    AudioSource m_bgmSource;
+    AudioSource[] m_bgmSources;
 
     // SE用オーディオソース
     AudioSource[] m_seSources;
@@ -40,8 +40,15 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     Dictionary<string, float> m_times;
 
     const int c_sePlayNum = 5;
+    const int c_mainBGMIndex = 0;
+    const int c_fadeBGMIndex = 1;
+
     int m_bgmCurrentIndex = 0;
     int m_seSourceIndex = 0;
+
+    // 再生開始時間と終了時間
+    float m_loopStartTime;
+    float m_loopEndTime;
 
     #endregion
 
@@ -70,7 +77,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         set 
         {
             m_masterVolume = Mathf.Clamp01(value);
-            m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * m_masterVolume;
+            m_bgmSources[c_mainBGMIndex].volume = m_bgmPack[m_bgmCurrentIndex].m_volume * BGMVolume * m_masterVolume;
         }
         get { return m_masterVolume; }
     }
@@ -78,13 +85,13 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <summary>
     /// BGMのボリューム
     /// </summary>
-    private float m_bgmVolume = 1.0f;
+    private float m_bgmVolume = 0.1f;
     public float BGMVolume
     {
         set
         {
             m_bgmVolume = Mathf.Clamp01(value);
-            m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * m_bgmVolume * m_masterVolume;
+            m_bgmSources[c_mainBGMIndex].volume = m_bgmPack[m_bgmCurrentIndex].m_volume * m_bgmVolume * MasterVolume;
         }
         get { return m_bgmVolume; }
     }
@@ -92,7 +99,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// <summary>
     /// SEのボリューム
     /// </summary>
-    private float m_seVolume = 1.0f;
+    private float m_seVolume = 0.1f;
     public float SEVolume
     {
         set
@@ -112,8 +119,10 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         base.Awake();
 
         // BGM用のコンポーネント生成
-        m_bgmSource = new AudioSource();
-        m_bgmSource = gameObject.AddComponent<AudioSource>();
+        m_bgmSources = new AudioSource[2];
+        m_bgmSources[c_mainBGMIndex] = gameObject.AddComponent<AudioSource>();
+        m_bgmSources[c_fadeBGMIndex] = gameObject.AddComponent<AudioSource>();
+
 
         // SE用のコンポーネント生成
         m_seSources = new AudioSource[c_sePlayNum];
@@ -128,14 +137,33 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     /// </summary>
     protected void Update()
     {
-        m_currentlyTime = m_bgmSource.time;
+        m_currentlyTime = m_bgmSources[c_mainBGMIndex].time;
+
+        // ループタイムが設定されていなければ
+        if (m_loopEndTime < 0.0f)
+            return;
+
+        if(m_bgmSources[c_mainBGMIndex].time > m_loopEndTime)
+        {
+            m_bgmSources[c_mainBGMIndex].time = m_loopStartTime;
+        }
+
+
+        if (!m_bgmSources[c_fadeBGMIndex].isPlaying)
+            return;
+
+        m_bgmSources[c_fadeBGMIndex].volume = Mathf.Clamp01(m_bgmSources[c_fadeBGMIndex].volume - Time.deltaTime);
+        if (m_bgmSources[c_fadeBGMIndex].volume <= 0.0f)
+            m_bgmSources[c_fadeBGMIndex].Stop();
     }
+
+    
 
     /// <summary>
     /// オーディオを再生する
     /// </summary>
     /// <param name="index"></param>
-    public void PlayAudio(string labelName, bool bgm = false)
+    public void PlayAudio(string labelName, bool bgm = false, float start = 0, float end = -1.0f)
     {
         AudioPack pack = null;
 
@@ -151,16 +179,19 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmCurrentIndex = index;
             pack = m_bgmPack[index];
 
+            // ループエンドタイム
+            m_loopEndTime = end;
+
             // BGMの長さを取得
             m_audioLength = pack.m_clip.length;
 
             // BGMデータをソースにセットする
-            m_bgmSource.playOnAwake = false;
-            m_bgmSource.clip = pack.m_clip;
-            m_bgmSource.volume = pack.m_volume * m_masterVolume;
+            m_bgmSources[c_mainBGMIndex].clip = pack.m_clip;
+            m_bgmSources[c_mainBGMIndex].volume = pack.m_volume * BGMVolume * MasterVolume;
+            m_bgmSources[c_mainBGMIndex].time = start;
 
-            //Debug.Log("再生開始");
-            m_bgmSource.Play();
+
+            m_bgmSources[c_mainBGMIndex].Play();
         }
         else
         {// SEの再生であれば
@@ -175,7 +206,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
 
             // SEデータをソースにセットする
             m_seSources[m_seSourceIndex].playOnAwake = false;
-            m_seSources[m_seSourceIndex].PlayOneShot(pack.m_clip, pack.m_volume * m_seVolume * m_masterVolume);
+            m_seSources[m_seSourceIndex].PlayOneShot(pack.m_clip, pack.m_volume * SEVolume * MasterVolume);
 
             m_seSourceIndex = (m_seSourceIndex + 1) % c_sePlayNum;
         }
@@ -202,13 +233,27 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         PlayAudio(label, false);
     }
 
+    public void PlayAudioAndFadeBeteenTime(string labelName, float start, float end)
+    {
+        if (m_bgmSources[c_mainBGMIndex] == null)
+            return;
+
+        m_bgmSources[c_fadeBGMIndex].clip = m_bgmSources[c_mainBGMIndex].clip;
+        m_bgmSources[c_fadeBGMIndex].time = m_bgmSources[c_mainBGMIndex].time;
+        m_bgmSources[c_fadeBGMIndex].volume = m_bgmSources[c_mainBGMIndex].volume;
+        m_bgmSources[c_fadeBGMIndex].Play();
+        PlayAudio(labelName, true, start, end);
+    }
+
+    
+
     /// <summary>
     /// オーディオを再生する
     /// </summary>
     /// <param name="index"></param>
     public void StopBGM()
     {
-        m_bgmSource.Stop();
+        m_bgmSources[0].Stop();
     }
 
     public void StopAllSE()
@@ -220,7 +265,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
     public void FadeVolume(float tmp)
     {
         float vol = Mathf.Lerp(0.0f, MasterVolume, 1.0f - tmp);
-        m_bgmSource.volume = m_bgmPack[m_bgmCurrentIndex].m_volume * vol;
+        m_bgmSources[c_mainBGMIndex].volume = m_bgmPack[m_bgmCurrentIndex].m_volume * BGMVolume * vol;
     }
 
 

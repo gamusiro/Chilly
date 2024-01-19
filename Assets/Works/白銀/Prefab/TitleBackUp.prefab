@@ -1385,15 +1385,18 @@ MonoBehaviour:
   - {fileID: 7898097621080866652}
   _stageInfoList:
   - AudioName: WeMadeIt
-    NextSceneName: Re_Opening
+    StartTime: 0
+    EndTime: 0
     Name: {fileID: 1470925956395403641}
     Picture: {fileID: 61174592993055262}
   - AudioName: IWillBeHere
-    NextSceneName: Re_Game7
+    StartTime: 0
+    EndTime: 0
     Name: {fileID: 5313493685455042782}
     Picture: {fileID: 3121546885375898133}
   - AudioName: Deserve-Better
-    NextSceneName: Re_Game7
+    StartTime: 0
+    EndTime: 0
     Name: {fileID: 2004571355258157743}
     Picture: {fileID: 2429835334069084929}
   _bgmLine: {fileID: 8486845679693711910}

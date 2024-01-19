@@ -8,21 +8,27 @@ public class Title : MonoBehaviour
 {
     [SerializeField] private TitleCameraPhaseManager _titleCameraPhaseManager;
     [SerializeField] private MenuStateMachine _menuStateMachine;
+    bool _play;
 
-    private async void Start()
+    private void Start()
     {
         Cursor.visible = false;
         CS_AudioManager.Instance.PlayAudio("TitleAudio", true);
 
         // フェードインの処理
         _menuStateMachine.SetFadeIn(1.0f, () => { CS_AudioManager.Instance.MasterVolume = 1.0f; });
+        _play = false;
+    }
 
-        while (true)
+    private void Update()
+    {
+        bool flag = _titleCameraPhaseManager.GetCanUpdate();
+        _menuStateMachine.SetCanUpdate(flag);
+
+        if(flag && !_play)
         {
-            bool flag = _titleCameraPhaseManager.GetCanUpdate();
-            _menuStateMachine.SetCanUpdate(flag);
-
-            await UniTask.WaitForFixedUpdate();
+            _menuStateMachine.SetMenuAudio();
+            _play = true;
         }
     }
 }

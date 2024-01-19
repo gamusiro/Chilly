@@ -1,12 +1,20 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
-{                               
+{    
+    public void SetMenuAudio()
+    {
+        StageInfo info = _stageInfoList[_currentStageIndex];
+        CS_AudioManager.Instance.PlayAudioAndFadeBeteenTime(info.AudioName, info.StartTime, info.EndTime);
+    }
+
+
     private void Start()
     {
         SetStageInfo();

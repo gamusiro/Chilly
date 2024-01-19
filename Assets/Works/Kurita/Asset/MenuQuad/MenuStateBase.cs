@@ -124,6 +124,10 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
         _stageInfoList[_stageIndex].Picture.material
             .DOFade(alpha, duration)
             .SetLink(_stageInfoList[_stageIndex].Picture.gameObject);
+
+        // オーディオの入れ替え
+        StageInfo info = _stageInfoList[_stageIndex];
+        CS_AudioManager.Instance.PlayAudioAndFadeBeteenTime(info.AudioName, info.StartTime, info.EndTime);
     }
 
     public void SetBGMLine(GameObject line)
@@ -184,7 +188,7 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
 {
     private MenuStateBase<T> _currentState;
     private MenuStateBase<T> _nextState;
-    private static int _currentStageIndex = 0;
+    protected static int _currentStageIndex = 0;
 
     //UI
     [SerializeField] protected List<Renderer> _quadUIList = new();
@@ -327,6 +331,8 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
 public class StageInfo
 {
     public string AudioName;
+    public float StartTime;
+    public float EndTime;
     public Renderer Name;
     public Renderer Picture;
 }
