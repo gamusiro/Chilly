@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Threading;
 
 public class MovieSkip : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class MovieSkip : MonoBehaviour
 
     private async void Start()
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         //色を薄くする
         {
             float alpha = 0.0f;
@@ -28,8 +32,8 @@ public class MovieSkip : MonoBehaviour
 
         while (_islooping)
         {
-            //プラスボタンが押されたとき　※
-            await UniTask.WaitUntil(() => _playerInput.currentActionMap["Skip"].triggered);
+            //プラスボタンが押されたとき
+            await UniTask.WaitUntil(() => { return this ? _playerInput.currentActionMap["Skip"].triggered : false ;}, cancellationToken: token);
 
             if (!_showText)
             {
