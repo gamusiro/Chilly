@@ -46,6 +46,8 @@ public class OpeningMovieManager : MonoBehaviour
 
             if (_ateParticle)
                 _ateParticle.Play();
+            else
+                return;
         }
 
         //■友達が吸い込まれる
@@ -55,6 +57,8 @@ public class OpeningMovieManager : MonoBehaviour
 
             if (_friend)
                 _friend.Ate(_friend.transform, _enemyMouthTransform);
+            else
+                return;
         }
 
         //■フェードイン
@@ -64,6 +68,8 @@ public class OpeningMovieManager : MonoBehaviour
 
             if (_fade)
                 _fade.FadeIn(0.5f);
+            else
+                return;
         }
 
         //■フェードアウト
@@ -71,23 +77,29 @@ public class OpeningMovieManager : MonoBehaviour
             float time = 3.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
 
-            if (_friend)
+            if (_friend && _fade && _ateParticle)
+            {
                 _friend.SetDestroy();
-
-            if (_fade)
-                _fade.FadeOut(2.0f);
-
-            if (_ateParticle)
+                float fadeTime = 2.0f;
+                _fade.FadeOut(fadeTime);
                 _ateParticle.Stop();
+            }
+            else
+                return;
         }
 
         //■フェードイン
-        { 
+        {
             float time = 6.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
 
             if (_fade)
-                _fade.FadeIn(2.0f);
+            {
+                float fadeTime = 2.0f;
+                _fade.FadeIn(fadeTime);
+            }
+            else
+                return;
         }
 
         //■シーン遷移
@@ -95,11 +107,13 @@ public class OpeningMovieManager : MonoBehaviour
             float time = 2.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
 
-           // if (this != null && this.gameObject != null && !ReferenceEquals(this.gameObject, null))
+            if (this != null && this.gameObject)
             {
                 CS_AudioManager.Instance.StopBGM();
                 SceneManager.LoadScene(_sceneName);
             }
+            else
+                return;
         }
     }
 

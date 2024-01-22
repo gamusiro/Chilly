@@ -22,7 +22,6 @@ public class LastLogo : MonoBehaviour
         ChangeAlpha(alpha, time);
 
         await UniTask.WaitUntil(() => _isChangeAlpha, cancellationToken: token);
-        Debug.Log(_isChangeAlpha);
 
         //•\Ž¦‚·‚é
         alpha = 1.0f;
