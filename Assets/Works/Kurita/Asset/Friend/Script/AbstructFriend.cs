@@ -43,6 +43,7 @@ public abstract class AbstractFriend : MonoBehaviour
     public void SetDestroy()
     {
         _destroyFlag = true;
+        Destroy(this.gameObject);
     }
 
     private void OnDestroy()
