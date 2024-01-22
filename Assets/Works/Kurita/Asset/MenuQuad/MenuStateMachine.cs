@@ -10,7 +10,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 {    
     public void SetMenuAudio()
     {
-        StageInfo info = _stageInfoList[_currentStageIndex];
+        StageInfo info = _stageInfoList[_currentState.StageIndex];
         CS_AudioManager.Instance.PlayAudioAndFadeBeteenTime(info.AudioName, info.StartTime, info.EndTime);
     }
 
@@ -21,6 +21,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         SetNextState(new MenuStateMachine.LeftTriangle(this), false);
         SetBGMVolume(CS_AudioManager.Instance.BGMVolume);
         SetSEVolume(CS_AudioManager.Instance.SEVolume);
+        _currentState.NextStage(_currentState.StageIndex);
     }
 
     private class LeftTriangle : MenuStateBase<MenuStateMachine>
@@ -46,7 +47,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
                 if (_input.currentActionMap["Left"].triggered
                     || _input.currentActionMap["Commit"].triggered)
-                    NextStage(false);
+                    NextStage(_stageIndex - 1);
             }
         }
 
@@ -60,7 +61,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
     {
         public RightTriangle(MenuStateMachine machine) : base(machine)
         { 
-
+            
         }
 
         public override void OnEnter()
@@ -79,7 +80,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
                 if (_input.currentActionMap["Right"].triggered
                     || _input.currentActionMap["Commit"].triggered)
-                    NextStage(true);
+                    NextStage(_stageIndex + 1);
             }
         }
 

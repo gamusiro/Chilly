@@ -36,7 +36,9 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
 
     //ステージ
     private List<StageInfo> _stageInfoList = new();
-    private static int _stageIndex = 0;
+    protected static int _stageIndex = 0;
+
+    public int StageIndex => _stageIndex;
 
     //BGM/SE
     private GameObject _bgmLine;//ライン
@@ -86,7 +88,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     }
 
     //真なら次のステージ、偽なら一つ前のステージに遷移する
-    public void NextStage(bool transition)
+    public void NextStage(int index)
     {
         //現在のステージ情報を非表示にする
         float alpha = 0.0f;
@@ -101,18 +103,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
             .SetLink(_stageInfoList[_stageIndex].Picture.gameObject);
 
         //インデックスの変更
-        if (transition)
-        {
-            _stageIndex++;
-            if (_stageIndex > _stageInfoList.Count - 1)
-                _stageIndex = 0;
-        }
-        else
-        {
-            _stageIndex--;
-            if (_stageIndex < 0)
-                _stageIndex = _stageInfoList.Count - 1;
-        }
+        _stageIndex = (index + _stageInfoList.Count) % _stageInfoList.Count;
 
         //新たなステージの情報を表示する
         alpha = 1.0f;
@@ -186,9 +177,9 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
 
 public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineBase<T>
 {
-    private MenuStateBase<T> _currentState;
+    protected MenuStateBase<T> _currentState;
     private MenuStateBase<T> _nextState;
-    protected static int _currentStageIndex = 0;
+    //protected static int _currentStageIndex = 0;
 
     //UI
     [SerializeField] protected List<Renderer> _quadUIList = new();
@@ -254,20 +245,20 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
             }
         }
 
-        {
-            //現在のステージのみ表示する
-            float alpha = 1.0f;
-            float duration = 0.0f;
+        //{
+        //    //現在のステージのみ表示する
+        //    float alpha = 1.0f;
+        //    float duration = 0.0f;
 
-            _currentStageIndex = 0;
-            _stageInfoList[_currentStageIndex].Name.material
-                .DOFade(alpha, duration)
-                .SetLink(_stageInfoList[_currentStageIndex].Name.gameObject);
+        //    _currentStageIndex = 0;
+        //    _stageInfoList[_currentStageIndex].Name.material
+        //        .DOFade(alpha, duration)
+        //        .SetLink(_stageInfoList[_currentStageIndex].Name.gameObject);
 
-            _stageInfoList[_currentStageIndex].Picture.material
-                .DOFade(alpha, duration)
-                .SetLink(_stageInfoList[_currentStageIndex].Picture.gameObject);
-        }
+        //    _stageInfoList[_currentStageIndex].Picture.material
+        //        .DOFade(alpha, duration)
+        //        .SetLink(_stageInfoList[_currentStageIndex].Picture.gameObject);
+        //}
     }
 
     public bool SetNextState(MenuStateBase<T> nextState, bool se = true)
