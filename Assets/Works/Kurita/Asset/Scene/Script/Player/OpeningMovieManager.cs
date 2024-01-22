@@ -94,12 +94,14 @@ public class OpeningMovieManager : MonoBehaviour
         {
             float time = 2.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-            CS_AudioManager.Instance.StopBGM();
-            CS_GameManager.SetTutorial(true);
-            SceneManager.LoadScene(_sceneName);
+
+           // if (this != null && this.gameObject != null && !ReferenceEquals(this.gameObject, null))
+            {
+                CS_AudioManager.Instance.StopBGM();
+                SceneManager.LoadScene(_sceneName);
+            }
         }
     }
-
 
     //移動オブジェクト
     private async void MoveObject()
