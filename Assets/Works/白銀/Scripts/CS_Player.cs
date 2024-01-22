@@ -295,6 +295,12 @@ public class CS_Player : MonoBehaviour
             m_rigidBody.constraints |= RigidbodyConstraints.FreezePositionY;
             m_animator.Play("Running", 0, 0.0f);    // 最初から
         }
+
+        // ダメージを受け付ける状態か
+        if (tag == "Enemy")
+        {
+            Damage();
+        }
     }
 
     /// <summary>
