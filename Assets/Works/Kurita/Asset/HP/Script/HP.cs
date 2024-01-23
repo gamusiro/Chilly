@@ -19,8 +19,6 @@ public class HP : MonoBehaviour
     [SerializeField] private CinemachineBrain _cinemachineBrain;
 
     private CinemachineBlend _cinemachineBlend;
-    private Tween _hideTweener;
-    private Tween _showTweener;
 
     public bool Die
     {
@@ -32,8 +30,6 @@ public class HP : MonoBehaviour
         _hp = _meshRenderer.materials.Length - 1;//HPの値を設定する
         _isAlive = true;
         _cinemachineBlend = null;
-        _hideTweener = null;
-        _showTweener = null;
         Recover();
     }
 
@@ -59,9 +55,6 @@ public class HP : MonoBehaviour
 
     public void Hit()
     {
-        //表示するアニメーションを削除する
-        _showTweener?.Kill();
-
         //やられていなければ処理を続行
         if (_hp - 1 < 0)
         {
@@ -73,7 +66,8 @@ public class HP : MonoBehaviour
         float alpha = 0.0f;
         float time = 1.0f;
 
-        _hideTweener = _meshRenderer.materials[_hp].DOFade(alpha, time).SetLink(this.gameObject);
+        _meshRenderer.materials[_hp].DOKill();
+        _meshRenderer.materials[_hp].DOFade(alpha, time).SetLink(this.gameObject);
 
         //体力を減らす
         _hp--;
@@ -81,9 +75,6 @@ public class HP : MonoBehaviour
 
     public void Recover()
     {
-        //非表示するアニメーションを削除する
-        _hideTweener?.Kill();
-
         //体力が上限になっていなければ処理を続行
         if (_hp >= _meshRenderer.materials.Length - 1)
             return;
@@ -92,52 +83,51 @@ public class HP : MonoBehaviour
         _hp++;
 
         //アニメーション
-        //アニメーション
         float alpha = 1.0f;
         float time = 1.0f;
-        _showTweener = _meshRenderer.materials[_hp]
+
+        _meshRenderer.materials[_hp].DOKill();
+        _meshRenderer.materials[_hp]
             .DOFade(alpha, time)
             .SetLink(this.gameObject);
     }
 
     public void Hide()
     {
-        //表示するアニメーションを削除する
-        _showTweener?.Kill();
-
         float alpha = 0.0f;
         float time = 2.5f;
 
         foreach (var material in _meshRenderer.materials)
         {
+            material.DOKill();
             material
                 .DOFade(alpha, time)
                 .SetLink(this.gameObject);
         }
 
         int index = 0;
-        _hideTweener = _meshRendererFrame.materials[index]
+        _meshRendererFrame.DOKill();
+        _meshRendererFrame.materials[index]
                      .DOFade(alpha, time)
                      .SetLink(this.gameObject);
     }
 
     public void Show()
     {
-        //非表示するアニメーションを削除する
-        _hideTweener?.Kill();
-
         float alpha = 1.0f;
         float time = 2.0f;
 
         foreach (var material in _meshRenderer.materials)
         {
+            material.DOKill();
             material
                 .DOFade(alpha, time)
                 .SetLink(this.gameObject);
         }
 
         int index = 0;
-        _showTweener = _meshRendererFrame.materials[index]
+        _meshRendererFrame.DOKill();
+        _meshRendererFrame.materials[index]
                      .DOFade(alpha, time)
                      .SetLink(this.gameObject);
     }
