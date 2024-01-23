@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using Cinemachine;
 
 public class HP : MonoBehaviour
 {
-    [SerializeField] private List<Image> _hpImageList;//表示画像
-    int _hp = 0;//現在の体力
-    bool _isAlive;
-    private Tweener tweener;
+    [SerializeField] private MeshRenderer _meshRenderer;//HPのメッシュレンダラー
+    [SerializeField] private MeshRenderer _meshRendererFrame;//HPフレームのメッシュレンダラー
+    private int _hp = 0;//現在の体力
+    private bool _isAlive;
+
+    [SerializeField] private CS_Player _player;//位置をプレイヤーに合わせるため
+    [SerializeField] private GameCameraPhaseManager _gameCameraPhaseManager;//向きをカメラ方向に合わせるため
+    [SerializeField] private CinemachineBrain _cinemachineBrain;
+
+    private CinemachineBlend _cinemachineBlend;
+    private Tween _hideTweener;
+    private Tween _showTweener;
 
     public bool Die
     {
@@ -18,19 +29,38 @@ public class HP : MonoBehaviour
 
     private void Start()
     {
-        _hp = _hpImageList.Count - 1;//HPの値を設定する
+        _hp = _meshRenderer.materials.Length - 1;//HPの値を設定する
         _isAlive = true;
-        tweener = null;
-
-
+        _cinemachineBlend = null;
+        _hideTweener = null;
+        _showTweener = null;
         Recover();
+    }
+
+    private void FixedUpdate()
+    {
+        //座標をプレイヤーから少しずらす
+        Vector3 offset = new Vector3(20.0f, 5.0f, 0.0f);
+        this.transform.position = _player.transform.position + offset;
+
+        //向きをカメラに合わせる
+        this.transform.LookAt(_gameCameraPhaseManager.GetCurCamera().transform.position);
+
+        //カメラのブレンド中は表示しない
+        if (_cinemachineBrain.ActiveBlend != _cinemachineBlend)
+        {
+            _cinemachineBlend = _cinemachineBrain.ActiveBlend;
+            if (_cinemachineBlend != null)
+                Hide();
+            else
+                Show();
+        }
     }
 
     public void Hit()
     {
-        //既にアニメーションが設定されていれば削除する
-        if (tweener != null)
-            tweener.Kill();
+        //表示するアニメーションを削除する
+        _showTweener?.Kill();
 
         //やられていなければ処理を続行
         if (_hp - 1 < 0)
@@ -42,7 +72,8 @@ public class HP : MonoBehaviour
         //アニメーション
         float alpha = 0.0f;
         float time = 1.0f;
-        tweener = _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
+
+        _hideTweener = _meshRenderer.materials[_hp].DOFade(alpha, time).SetLink(this.gameObject);
 
         //体力を減らす
         _hp--;
@@ -50,20 +81,64 @@ public class HP : MonoBehaviour
 
     public void Recover()
     {
-        //既にアニメーションが設定されていれば削除する
-        if (tweener != null)
-            tweener.Kill();
+        //非表示するアニメーションを削除する
+        _hideTweener?.Kill();
 
         //体力が上限になっていなければ処理を続行
-        if (_hp >= _hpImageList.Count - 1)
+        if (_hp >= _meshRenderer.materials.Length - 1)
             return;
 
         //体力を減らす
         _hp++;
 
         //アニメーション
+        //アニメーション
         float alpha = 1.0f;
         float time = 1.0f;
-        tweener = _hpImageList[_hp].DOFade(alpha, time).SetLink(this.gameObject);
+        _showTweener = _meshRenderer.materials[_hp]
+            .DOFade(alpha, time)
+            .SetLink(this.gameObject);
+    }
+
+    public void Hide()
+    {
+        //表示するアニメーションを削除する
+        _showTweener?.Kill();
+
+        float alpha = 0.0f;
+        float time = 2.5f;
+
+        foreach (var material in _meshRenderer.materials)
+        {
+            material
+                .DOFade(alpha, time)
+                .SetLink(this.gameObject);
+        }
+
+        int index = 0;
+        _hideTweener = _meshRendererFrame.materials[index]
+                     .DOFade(alpha, time)
+                     .SetLink(this.gameObject);
+    }
+
+    public void Show()
+    {
+        //非表示するアニメーションを削除する
+        _hideTweener?.Kill();
+
+        float alpha = 1.0f;
+        float time = 2.0f;
+
+        foreach (var material in _meshRenderer.materials)
+        {
+            material
+                .DOFade(alpha, time)
+                .SetLink(this.gameObject);
+        }
+
+        int index = 0;
+        _showTweener = _meshRendererFrame.materials[index]
+                     .DOFade(alpha, time)
+                     .SetLink(this.gameObject);
     }
 }

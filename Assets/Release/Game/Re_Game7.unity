@@ -247,18 +247,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
-    - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635261179079912606, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635261179099448038, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8796158530720522957, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
