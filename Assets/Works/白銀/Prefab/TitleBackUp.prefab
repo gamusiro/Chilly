@@ -1508,6 +1508,7 @@ MonoBehaviour:
     Picture: {fileID: 2429835334069084929}
   _bgmLine: {fileID: 8486845679693711910}
   _seLine: {fileID: 8025662832606395580}
+  _quitObject: {fileID: 0}
   _bgmLineLeftRimit: {fileID: 8748081489254914575}
   _bgmLineRightRimit: {fileID: 8151777213679832706}
   _seLineLeftRimit: {fileID: 4188694243411142820}

@@ -22,6 +22,7 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         SetBGMVolume(CS_AudioManager.Instance.BGMVolume);
         SetSEVolume(CS_AudioManager.Instance.SEVolume);
         _currentState.NextStage(_currentState.StageIndex);
+        _currentState.QuitUIOn(false);
     }
 
     private class LeftTriangle : MenuStateBase<MenuStateMachine>
@@ -44,6 +45,13 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     machine.SetNextState(new MenuStateMachine.Play(machine));
                 if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
+
+                if (_input.currentActionMap["Cancel"].triggered)
+                {
+                    QuitUIOn(true);
+                    machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
+                }
+                    
 
                 if (_input.currentActionMap["Left"].triggered
                     || _input.currentActionMap["Commit"].triggered)
@@ -77,6 +85,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     machine.SetNextState(new MenuStateMachine.Play(machine));
                 if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
+
+                if (_input.currentActionMap["Cancel"].triggered)
+                {
+                    QuitUIOn(true);
+                    machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
+                }
 
                 if (_input.currentActionMap["Right"].triggered
                     || _input.currentActionMap["Commit"].triggered)
@@ -112,6 +126,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     machine.SetNextState(new MenuStateMachine.RightTriangle(machine));
                 if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
+
+                if (_input.currentActionMap["Cancel"].triggered)
+                {
+                    QuitUIOn(true);
+                    machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
+                }
 
                 // ÉVÅ[ÉìëJà⁄
                 if (_input.currentActionMap["Commit"].triggered)
@@ -168,6 +188,11 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                 if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.SE(machine));
 
+                if (_input.currentActionMap["Cancel"].triggered)
+                {
+                    QuitUIOn(true);
+                    machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
+                }
 
                 if (_input.currentActionMap["Left"].triggered)
                     CS_AudioManager.Instance.BGMVolume -= amount;
@@ -212,6 +237,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                 if (_input.currentActionMap["Right"].triggered)
                     CS_AudioManager.Instance.SEVolume += amount;
 
+                if (_input.currentActionMap["Cancel"].triggered)
+                {
+                    QuitUIOn(true);
+                    machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
+                }
+
                 machine.SetSEVolume(CS_AudioManager.Instance.SEVolume);
             }
         }
@@ -220,7 +251,79 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
         {
             ChangeBlueColor((int)StateType.SE);
         }
-    }   
+    }
+
+    private class Exit_Yes : MenuStateBase<MenuStateMachine>
+    {
+        public Exit_Yes(MenuStateMachine machine) : base(machine)
+        {
+
+        }
+
+        public override void OnEnter()
+        {
+            ChangeRedColor((int)StateType.Exit_Yes);
+        }
+
+        public override void OnUpdate()
+        {
+            if (_canUpdate)
+            {
+                if (_input.currentActionMap["Left"].triggered 
+                    || _input.currentActionMap["Right"].triggered)
+                    machine.SetNextState(new MenuStateMachine.Exit_No(machine));
+
+                if (_input.currentActionMap["Commit"].triggered)
+                    Application.Quit();
+
+                if (_input.currentActionMap["Cancel"].triggered)
+                {
+                    QuitUIOn(false);
+                    machine.SetNextState(new MenuStateMachine.LeftTriangle(machine));
+                }
+            }
+        }
+
+        public override void OnExit()
+        {
+            ChangeBlueColor((int)StateType.Exit_Yes);
+        }
+    }
+
+    private class Exit_No : MenuStateBase<MenuStateMachine>
+    {
+        public Exit_No(MenuStateMachine machine) : base(machine)
+        {
+
+        }
+
+        public override void OnEnter()
+        {
+            ChangeRedColor((int)StateType.Exit_No);
+        }
+
+        public override void OnUpdate()
+        {
+            if (_canUpdate)
+            {
+                if (_input.currentActionMap["Left"].triggered
+                    || _input.currentActionMap["Right"].triggered)
+                    machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
+
+                if (_input.currentActionMap["Cancel"].triggered
+                    || _input.currentActionMap["Commit"].triggered)
+                {
+                    QuitUIOn(false);
+                    machine.SetNextState(new MenuStateMachine.LeftTriangle(machine));
+                }
+            }
+        }
+
+        public override void OnExit()
+        {
+            ChangeBlueColor((int)StateType.Exit_No);
+        }
+    }
 }
 
 

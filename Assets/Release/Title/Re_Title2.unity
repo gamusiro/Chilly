@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31281084, g: 0.2933994, b: 0.51391363, a: 1}
+  m_IndirectSpecularColor: {r: 0.31315362, g: 0.29385304, b: 0.5141655, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,6 +171,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5530120420598989583, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956860489275180731, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: _quitObject
+      value: 
+      objectReference: {fileID: 1460783522}
+    - target: {fileID: 6956860489275180731, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: _quadUIList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956860489275180731, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: _quadUIList.Array.data[5]
+      value: 
+      objectReference: {fileID: 994409155}
+    - target: {fileID: 6956860489275180731, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: _quadUIList.Array.data[6]
+      value: 
+      objectReference: {fileID: 1581289747}
     - target: {fileID: 9082341865691745296, guid: 276e6b603201dd440826664764597d4d, type: 3}
       propertyPath: m_Name
       value: Title
@@ -180,6 +200,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 276e6b603201dd440826664764597d4d, type: 3}
+--- !u!23 &994409155 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 994051837014825923, guid: 276e6b603201dd440826664764597d4d, type: 3}
+  m_PrefabInstance: {fileID: 991517882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1460783522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5530120420598989583, guid: 276e6b603201dd440826664764597d4d, type: 3}
+  m_PrefabInstance: {fileID: 991517882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1581289747 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5497367643716212242, guid: 276e6b603201dd440826664764597d4d, type: 3}
+  m_PrefabInstance: {fileID: 991517882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801871867
 GameObject:
   m_ObjectHideFlags: 0

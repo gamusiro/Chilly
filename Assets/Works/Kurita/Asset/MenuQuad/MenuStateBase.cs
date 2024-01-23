@@ -21,6 +21,8 @@ public enum StateType
     Play,
     BGM,
     SE,
+    Exit_Yes,
+    Exit_No,
     MAX,
 }
 
@@ -32,7 +34,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
 
     //UI
     protected List<Renderer> _quadUIList = new();
-    private Color[] _quadUIOriginalColorList = new Color[5];
+    private Color[] _quadUIOriginalColorList = new Color[(int)StateType.MAX];
 
     //ステージ
     private List<StageInfo> _stageInfoList = new();
@@ -43,6 +45,9 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     //BGM/SE
     private GameObject _bgmLine;//ライン
     private GameObject _seLine; //ライン
+
+    // Quit ui
+    private GameObject _quitUI;
 
     //リミット
     private Transform _bgmLineLeftRimit;
@@ -169,9 +174,19 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
         _input = input;
     }
 
+    public void SetQuitUI(GameObject quitUI)
+    {
+        _quitUI = quitUI;
+    }
+
     public StageInfo GetSelectStage()
     {
         return _stageInfoList[_stageIndex];
+    }
+
+    public void QuitUIOn(bool flag)
+    {
+        _quitUI.SetActive(flag);
     }
 }
 
@@ -190,6 +205,9 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
     //BGM/SE
     [SerializeField] private GameObject _bgmLine;//ライン
     [SerializeField] private GameObject _seLine; //ライン
+
+    // QuitUI
+    [SerializeField] private GameObject _quitObject;
 
     //リミット
     [SerializeField] private Transform _bgmLineLeftRimit;
@@ -275,6 +293,7 @@ public class MenuStateMachineBase<T> : MonoBehaviour where T : MenuStateMachineB
         _nextState.SetSELine(_seLine);
         _nextState.SetLineRimit(_bgmLineLeftRimit, _bgmLineRightRimit, _seLineLeftRimit, _seLineRightRimit);
         _nextState.SetPlayerInput(_input);
+        _nextState.SetQuitUI(_quitObject);
 
         //現在のステートを次のステートに更新する
         if (_nextState != null)
