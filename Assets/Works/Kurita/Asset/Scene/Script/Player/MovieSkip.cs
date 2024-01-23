@@ -64,8 +64,11 @@ public class MovieSkip : MonoBehaviour
 
     private async void HideText()
     {
+        var cts = new CancellationTokenSource();
+        CancellationToken token = cts.Token;
+
         float timeSpan = 4.0f;
-        await UniTask.Delay(System.TimeSpan.FromSeconds(timeSpan));
+        await UniTask.Delay(System.TimeSpan.FromSeconds(timeSpan), cancellationToken: token);
 
         //êFÇîZÇ≠Ç∑ÇÈ
         {
