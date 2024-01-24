@@ -55,7 +55,7 @@ public class CS_GameManager : MonoBehaviour
     {
         string audioName = CS_LoadNotesFile.GetFolderName();
         CS_AudioManager.Instance.PlayAudio(audioName, true);
-
+        
         m_fade.FadeIn(m_setFadeTime,
           () =>
           {

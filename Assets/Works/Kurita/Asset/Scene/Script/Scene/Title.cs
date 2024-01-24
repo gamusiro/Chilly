@@ -25,7 +25,7 @@ public class Title : MonoBehaviour
         bool flag = _titleCameraPhaseManager.GetCanUpdate();
         _menuStateMachine.SetCanUpdate(flag);
 
-        if(flag && !_play)
+        if (flag && !_play)
         {
             _menuStateMachine.SetMenuAudio();
             _play = true;

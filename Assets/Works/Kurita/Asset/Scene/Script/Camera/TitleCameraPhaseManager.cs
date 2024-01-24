@@ -34,6 +34,7 @@ public class TitleCameraPhaseManager : AbstractCameraPhaseManager
         {
             if (_input.currentActionMap["Commit"].triggered)//Bƒ{ƒ^ƒ“‚É‚·‚é@¦
             {
+                _input.currentActionMap["Commit"].Reset();
                 CS_AudioManager.Instance.PlayAudio("Commit");
                 NextCamera();
                 _canUpdate = true;

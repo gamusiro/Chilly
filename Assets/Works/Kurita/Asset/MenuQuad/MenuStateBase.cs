@@ -96,6 +96,7 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
     public void NextStage(int index)
     {
         //現在のステージ情報を非表示にする
+        int beforeIndex = _stageIndex;
         float alpha = 0.0f;
         float duration = 0.5f;
 
@@ -122,8 +123,12 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
             .SetLink(_stageInfoList[_stageIndex].Picture.gameObject);
 
         // オーディオの入れ替え
-        StageInfo info = _stageInfoList[_stageIndex];
-        CS_AudioManager.Instance.PlayAudioAndFadeBeteenTime(info.AudioName, info.StartTime, info.EndTime);
+        Debug.Log(beforeIndex + " >> " + _stageIndex);
+        if (beforeIndex != _stageIndex)
+        {
+            StageInfo info = _stageInfoList[_stageIndex];
+            CS_AudioManager.Instance.PlayAudioAndFadeBeteenTime(info.AudioName, info.StartTime, info.EndTime);
+        }
     }
 
     public void SetBGMLine(GameObject line)

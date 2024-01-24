@@ -18,7 +18,7 @@ public class HP : MonoBehaviour
     [SerializeField] private GameCameraPhaseManager _gameCameraPhaseManager;//向きをカメラ方向に合わせるため
     [SerializeField] private CinemachineBrain _cinemachineBrain;
 
-    private CinemachineBlend _cinemachineBlend;
+    //private CinemachineBlend _cinemachineBlend;
 
     public bool Die
     {
@@ -29,7 +29,6 @@ public class HP : MonoBehaviour
     {
         _hp = _meshRenderer.materials.Length - 1;//HPの値を設定する
         _isAlive = true;
-        _cinemachineBlend = null;
         Recover();
     }
 
@@ -39,18 +38,18 @@ public class HP : MonoBehaviour
         Vector3 offset = new Vector3(20.0f, 5.0f, 0.0f);
         this.transform.position = _player.transform.position + offset;
 
-        //向きをカメラに合わせる
-        this.transform.LookAt(_gameCameraPhaseManager.GetCurCamera().transform.position);
-
         //カメラのブレンド中は表示しない
-        if (_cinemachineBrain.ActiveBlend != _cinemachineBlend)
+        if (_cinemachineBrain.ActiveBlend != null)
         {
-            _cinemachineBlend = _cinemachineBrain.ActiveBlend;
-            if (_cinemachineBlend != null)
-                Hide();
-            else
-                Show();
+            Hide();
         }
+        else
+        {
+            //向きをカメラに合わせる
+            this.transform.LookAt(_gameCameraPhaseManager.GetCurCamera().transform.position);
+            Show();
+        }
+            
     }
 
     public void Hit()
@@ -97,10 +96,10 @@ public class HP : MonoBehaviour
         float alpha = 0.0f;
         float time = 2.5f;
 
-        foreach (var material in _meshRenderer.materials)
+        for (int i = 0; i < _meshRenderer.materials.Length; ++i)
         {
-            material.DOKill();
-            material
+            _meshRenderer.materials[i].DOKill();
+            _meshRenderer.materials[i]
                 .DOFade(alpha, time)
                 .SetLink(this.gameObject);
         }
@@ -117,10 +116,10 @@ public class HP : MonoBehaviour
         float alpha = 1.0f;
         float time = 2.0f;
 
-        foreach (var material in _meshRenderer.materials)
+        for(int i = 0; i <= _hp; ++i)
         {
-            material.DOKill();
-            material
+            _meshRenderer.materials[i].DOKill();
+            _meshRenderer.materials[i]
                 .DOFade(alpha, time)
                 .SetLink(this.gameObject);
         }

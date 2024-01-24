@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.32097128, g: 0.21131825, b: 0.40435025, a: 1}
+  m_IndirectSpecularColor: {r: 0.32107174, g: 0.21133253, b: 0.40438062, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,7 +207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1011845968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,9 +243,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1580899360670078899, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2662233724022230442, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Name
       value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3368838158341692317, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657725707834224340, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3657725707834224340, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 3657725707834224340, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8198822568607329104, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796158530720522957, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.x

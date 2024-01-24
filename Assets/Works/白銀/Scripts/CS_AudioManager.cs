@@ -123,6 +123,9 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         m_bgmSources[c_mainBGMIndex] = gameObject.AddComponent<AudioSource>();
         m_bgmSources[c_fadeBGMIndex] = gameObject.AddComponent<AudioSource>();
 
+        for (int i = 0; i < 2; ++i)
+            m_bgmSources[i].playOnAwake = false;
+
 
         // SE用のコンポーネント生成
         m_seSources = new AudioSource[c_sePlayNum];
@@ -179,7 +182,8 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmCurrentIndex = index;
             pack = m_bgmPack[index];
 
-            // ループエンドタイム
+            // ループタイム
+            m_loopStartTime = start;
             m_loopEndTime = end;
 
             // BGMの長さを取得
@@ -188,8 +192,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             // BGMデータをソースにセットする
             m_bgmSources[c_mainBGMIndex].clip = pack.m_clip;
             m_bgmSources[c_mainBGMIndex].volume = pack.m_volume * BGMVolume * MasterVolume;
-            m_bgmSources[c_mainBGMIndex].time = start;
-
+            m_bgmSources[c_mainBGMIndex].time = m_loopStartTime;
 
             m_bgmSources[c_mainBGMIndex].Play();
         }
@@ -242,6 +245,8 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
         m_bgmSources[c_fadeBGMIndex].time = m_bgmSources[c_mainBGMIndex].time;
         m_bgmSources[c_fadeBGMIndex].volume = m_bgmSources[c_mainBGMIndex].volume;
         m_bgmSources[c_fadeBGMIndex].Play();
+
+        //Debug.Log("ここ");
         PlayAudio(labelName, true, start, end);
     }
 

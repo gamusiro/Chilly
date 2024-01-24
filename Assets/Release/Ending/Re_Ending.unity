@@ -210,6 +210,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1779378355102696849, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 1779378355102696849, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6615689470355340818, guid: ab9bb9c28de91ba4ab36006a9344e808, type: 2}
+    - target: {fileID: 1779378355102696849, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2143524954488019402, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
       propertyPath: _nextScene
       value: Re_Title2

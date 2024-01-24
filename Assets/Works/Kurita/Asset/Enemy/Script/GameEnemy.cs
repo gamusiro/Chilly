@@ -17,8 +17,8 @@ public class GameEnemy : Enemy
     [SerializeField] protected Color _defeatColor;//“|‚µ‚½‚Æ‚«‚ÌF
 
     //“®‚«
-    [SerializeField] protected Transform _standardPosition;
-    protected float _moveSpeed;
+    //[SerializeField] protected Transform _standardPosition;
+    //protected float _moveSpeed;
 
     private void Start()
     {
