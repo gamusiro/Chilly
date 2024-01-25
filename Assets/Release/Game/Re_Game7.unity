@@ -147,8 +147,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05, y: 0.02, z: 0.05}
-  m_Center: {x: 0, y: -0.01, z: 0}
+  m_Size: {x: 0.05, y: 0.01, z: 0.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &116912068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2150230785990145291, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2662233724022230442, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_Name
       value: Game
@@ -320,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_perfectMaxTimeRange
