@@ -25,6 +25,9 @@ public class PressBButton : MonoBehaviour
         bool next = false;
         float alpha = 0.0f;
         float timeSpan = 1.0f;
+
+        await UniTask.WaitUntil(() => _renderer.material != null, cancellationToken: token);
+
         while (true)
         {
             _renderer.material
@@ -36,7 +39,7 @@ public class PressBButton : MonoBehaviour
                 })
                 .SetLink(this.gameObject);
 
-            await UniTask.WaitUntil(() => next, cancellationToken: token); ;
+            await UniTask.WaitUntil(() => next, cancellationToken: token);
             next = false;
         }
     }
