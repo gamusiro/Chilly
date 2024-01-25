@@ -54,8 +54,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     
 
                 if (_input.currentActionMap["Left"].triggered
-                    || _input.currentActionMap["Commit"].triggered)
+                    || _input.currentActionMap["Commit"].triggered
+                    || _input.currentActionMap["LTrigger"].triggered)
                     NextStage(_stageIndex - 1);
+
+                if (_input.currentActionMap["RTrigger"].triggered)
+                    NextStage(_stageIndex + 1);
             }
         }
 
@@ -93,8 +97,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                 }
 
                 if (_input.currentActionMap["Right"].triggered
-                    || _input.currentActionMap["Commit"].triggered)
+                    || _input.currentActionMap["Commit"].triggered
+                    || _input.currentActionMap["RTrigger"].triggered)
                     NextStage(_stageIndex + 1);
+
+                if (_input.currentActionMap["LTrigger"].triggered)
+                    NextStage(_stageIndex - 1);
             }
         }
 
@@ -126,6 +134,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     machine.SetNextState(new MenuStateMachine.RightTriangle(machine));
                 if (_input.currentActionMap["Down"].triggered)
                     machine.SetNextState(new MenuStateMachine.BGM(machine));
+
+                if (_input.currentActionMap["LTrigger"].triggered)
+                    NextStage(_stageIndex - 1);
+
+                if (_input.currentActionMap["RTrigger"].triggered)
+                    NextStage(_stageIndex + 1);
 
                 if (_input.currentActionMap["Cancel"].triggered)
                 {
@@ -194,6 +208,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
                     machine.SetNextState(new MenuStateMachine.Exit_Yes(machine));
                 }
 
+                if (_input.currentActionMap["LTrigger"].triggered)
+                    NextStage(_stageIndex - 1);
+
+                if (_input.currentActionMap["RTrigger"].triggered)
+                    NextStage(_stageIndex + 1);
+
                 if (_input.currentActionMap["Left"].triggered)
                     CS_AudioManager.Instance.BGMVolume -= amount;
 
@@ -236,6 +256,12 @@ public class MenuStateMachine : MenuStateMachineBase<MenuStateMachine>
 
                 if (_input.currentActionMap["Right"].triggered)
                     CS_AudioManager.Instance.SEVolume += amount;
+
+                if (_input.currentActionMap["LTrigger"].triggered)
+                    NextStage(_stageIndex - 1);
+
+                if (_input.currentActionMap["RTrigger"].triggered)
+                    NextStage(_stageIndex + 1);
 
                 if (_input.currentActionMap["Cancel"].triggered)
                 {

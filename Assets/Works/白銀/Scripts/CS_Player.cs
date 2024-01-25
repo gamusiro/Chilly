@@ -201,7 +201,7 @@ public class CS_Player : MonoBehaviour
         {
             // 差分
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
-            Debug.Log(subFromEnemy);
+            //Debug.Log(subFromEnemy);
             // 後ろからのタイミング(perfectTiming)
             if (subFromEnemy <= m_perfectMaxTimeRange && subFromEnemy >= m_perfectMinTimeRange)
             {

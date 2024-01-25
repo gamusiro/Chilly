@@ -94,7 +94,7 @@ public class HP : MonoBehaviour
     public void Hide()
     {
         float alpha = 0.0f;
-        float time = 2.5f;
+        float time = 1.0f;
 
         for (int i = 0; i < _meshRenderer.materials.Length; ++i)
         {

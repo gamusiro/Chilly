@@ -168,6 +168,24 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa83e749-ab67-478a-9a95-e08b48b22b11"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e90a809-3d10-4210-af01-8a3196e4ea6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -206,8 +224,30 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8b8e26b6-cf65-4027-8b96-bd5ab0fdf19d"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""921b6414-fb65-41db-8a7f-30781b4178b1"",
                     ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b1f1791-cd7c-4e14-a2b5-cb56f435c6e7"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -228,12 +268,56 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1d9ff0bc-d6cb-40b4-9368-66b20089f19c"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ce179a11-1add-4687-8132-1b4583a90854"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fd6feae-9dbb-4aea-9239-467efb8fea1c"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbadb5c3-6d0c-4fa6-b8d1-0d55691d1316"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0139db3e-2d71-4c26-88a5-23b364e70c0e"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -284,6 +368,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Title_Left = m_Title.FindAction("Left", throwIfNotFound: true);
         m_Title_Up = m_Title.FindAction("Up", throwIfNotFound: true);
         m_Title_Down = m_Title.FindAction("Down", throwIfNotFound: true);
+        m_Title_RTrigger = m_Title.FindAction("RTrigger", throwIfNotFound: true);
+        m_Title_LTrigger = m_Title.FindAction("LTrigger", throwIfNotFound: true);
         // Scene
         m_Scene = asset.FindActionMap("Scene", throwIfNotFound: true);
         m_Scene_Skip = m_Scene.FindAction("Skip", throwIfNotFound: true);
@@ -424,6 +510,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Title_Left;
     private readonly InputAction m_Title_Up;
     private readonly InputAction m_Title_Down;
+    private readonly InputAction m_Title_RTrigger;
+    private readonly InputAction m_Title_LTrigger;
     public struct TitleActions
     {
         private @IA_Player m_Wrapper;
@@ -434,6 +522,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         public InputAction @Left => m_Wrapper.m_Title_Left;
         public InputAction @Up => m_Wrapper.m_Title_Up;
         public InputAction @Down => m_Wrapper.m_Title_Down;
+        public InputAction @RTrigger => m_Wrapper.m_Title_RTrigger;
+        public InputAction @LTrigger => m_Wrapper.m_Title_LTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Title; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -461,6 +551,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Down.started += instance.OnDown;
             @Down.performed += instance.OnDown;
             @Down.canceled += instance.OnDown;
+            @RTrigger.started += instance.OnRTrigger;
+            @RTrigger.performed += instance.OnRTrigger;
+            @RTrigger.canceled += instance.OnRTrigger;
+            @LTrigger.started += instance.OnLTrigger;
+            @LTrigger.performed += instance.OnLTrigger;
+            @LTrigger.canceled += instance.OnLTrigger;
         }
 
         private void UnregisterCallbacks(ITitleActions instance)
@@ -483,6 +579,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Down.started -= instance.OnDown;
             @Down.performed -= instance.OnDown;
             @Down.canceled -= instance.OnDown;
+            @RTrigger.started -= instance.OnRTrigger;
+            @RTrigger.performed -= instance.OnRTrigger;
+            @RTrigger.canceled -= instance.OnRTrigger;
+            @LTrigger.started -= instance.OnLTrigger;
+            @LTrigger.performed -= instance.OnLTrigger;
+            @LTrigger.canceled -= instance.OnLTrigger;
         }
 
         public void RemoveCallbacks(ITitleActions instance)
@@ -561,6 +663,8 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnUp(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
+        void OnRTrigger(InputAction.CallbackContext context);
+        void OnLTrigger(InputAction.CallbackContext context);
     }
     public interface ISceneActions
     {
