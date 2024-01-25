@@ -3480,11 +3480,22 @@ PrefabInstance:
       objectReference: {fileID: 6411371140920350179}
     - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: _screenTextInfoList.Array.data[0].Size
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: _screenTextInfoList.Array.data[1].Size
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480595002995766534, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Content
+      value: '-MUSIC-
+
+        We Made It
+
+        Deserve-Better
+
+        I Will
+        Be Here'
       objectReference: {fileID: 0}
     - target: {fileID: 6951347918768708796, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: m_text
@@ -3583,6 +3594,10 @@ PrefabInstance:
     - target: {fileID: 7792672947872128568, guid: db82663defe76bc4898c0936f7302124, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792672947872128568, guid: db82663defe76bc4898c0936f7302124, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
