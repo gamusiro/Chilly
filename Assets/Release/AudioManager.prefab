@@ -48,52 +48,69 @@ MonoBehaviour:
   - m_label: TitleAudio
     m_clip: {fileID: 8300000, guid: 7ccb7beded8b17947bbf6b4d6bf03cda, type: 3}
     m_volume: 0.1
+    m_loop: 1
   - m_label: Opening
     m_clip: {fileID: 8300000, guid: 5d66d2d7bc7f8a1418867746db23bcfd, type: 3}
     m_volume: 0.1
+    m_loop: 0
   - m_label: WeMadeIt
     m_clip: {fileID: 8300000, guid: 766efc0ae62bbb54eb43f58f49f93594, type: 3}
     m_volume: 0.1
+    m_loop: 0
   - m_label: IWillBeHere
     m_clip: {fileID: 8300000, guid: a352f3a28f3368943a4c04619bb4c40f, type: 3}
     m_volume: 0.1
+    m_loop: 0
   - m_label: Deserve-Better
     m_clip: {fileID: 8300000, guid: 93d0b63079f8557459ed4630b9056f52, type: 3}
     m_volume: 0.1
+    m_loop: 0
   - m_label: Last
     m_clip: {fileID: 8300000, guid: 186cf89a053450f42afab2d1997f7ac7, type: 3}
     m_volume: 0.1
+    m_loop: 0
   m_sePack:
   - m_label: Fall
     m_clip: {fileID: 8300000, guid: 4f97e3225b7582f4c847a895548d99a5, type: 3}
     m_volume: 0.5
+    m_loop: 0
   - m_label: Jump
     m_clip: {fileID: 8300000, guid: baf7e59b9a14fd446905a3be8f5ce0a7, type: 3}
     m_volume: 0.5
+    m_loop: 0
   - m_label: PerfectJump
     m_clip: {fileID: 8300000, guid: 240b6035d7f0b504ba459e8393906961, type: 3}
     m_volume: 0.5
+    m_loop: 0
   - m_label: Dash
     m_clip: {fileID: 8300000, guid: 5a31ccef204583d4aa8c6cb414b23d7f, type: 3}
     m_volume: 1
+    m_loop: 0
   - m_label: Damage
     m_clip: {fileID: 8300000, guid: dfdb09d5e145eff46a7307cc0bb8b87b, type: 3}
     m_volume: 1
+    m_loop: 0
   - m_label: Commit
     m_clip: {fileID: 8300000, guid: 740f3c6bae239ed47b042165f8f77131, type: 3}
     m_volume: 0.2
+    m_loop: 0
   - m_label: DestroySmallEnemy
     m_clip: {fileID: 8300000, guid: 6f63dec833983384bb4c25037ea5317a, type: 3}
     m_volume: 0.2
+    m_loop: 0
   - m_label: Heal
     m_clip: {fileID: 8300000, guid: e080af49517be024985f27e44f28e83a, type: 3}
     m_volume: 0.2
+    m_loop: 0
   - m_label: Bell
     m_clip: {fileID: 8300000, guid: edf81e57594ee4d4a9c8ec422d0813d1, type: 3}
     m_volume: 0.2
+    m_loop: 0
   - m_label: Cursor
     m_clip: {fileID: 8300000, guid: 5a31ccef204583d4aa8c6cb414b23d7f, type: 3}
     m_volume: 0.2
+    m_loop: 0
   - m_label: Cancel
     m_clip: {fileID: 8300000, guid: edf81e57594ee4d4a9c8ec422d0813d1, type: 3}
     m_volume: 0.2
+    m_loop: 0

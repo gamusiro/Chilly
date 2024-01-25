@@ -7,9 +7,10 @@ using UnityEngine.Windows;
 [Serializable]
 public class AudioPack
 {
-    public string m_label = "";       // 呼び出し名
-    public AudioClip m_clip = null;      // オーディオクリップ
-    public float m_volume = 1.0f;    // 個々のボリューム設定
+    public string m_label = "";         // 呼び出し名
+    public AudioClip m_clip = null;     // オーディオクリップ
+    public float m_volume = 1.0f;       // 個々のボリューム設定
+    public bool m_loop = false;
 }
 
 
@@ -193,6 +194,7 @@ public class CS_AudioManager : CS_SingletonMonoBehaviour<CS_AudioManager>
             m_bgmSources[c_mainBGMIndex].clip = pack.m_clip;
             m_bgmSources[c_mainBGMIndex].volume = pack.m_volume * BGMVolume * MasterVolume;
             m_bgmSources[c_mainBGMIndex].time = m_loopStartTime;
+            m_bgmSources[c_mainBGMIndex].loop = pack.m_loop;
 
             m_bgmSources[c_mainBGMIndex].Play();
         }

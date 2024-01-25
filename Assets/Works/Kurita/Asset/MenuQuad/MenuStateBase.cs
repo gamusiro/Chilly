@@ -123,7 +123,6 @@ public class MenuStateBase<T> where T : MenuStateMachineBase<T>
             .SetLink(_stageInfoList[_stageIndex].Picture.gameObject);
 
         // オーディオの入れ替え
-        Debug.Log(beforeIndex + " >> " + _stageIndex);
         if (beforeIndex != _stageIndex)
         {
             StageInfo info = _stageInfoList[_stageIndex];
