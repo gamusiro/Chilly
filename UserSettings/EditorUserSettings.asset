@@ -28,6 +28,7 @@ EditorUserSettings:
       value: 5b0755535d0c0a025a5c0e2014275e44154f1c7a787a7f31747c4460e1b6376f
       flags: 0
     RecentlyUsedSceneGuid-7:
+<<<<<<< HEAD
       value: 02525053010750095d0f5d7a12205e44154f412e797a20647f7d4e37b1b3376e
 =======
       value: 5b0755535d0c0a025a5c0e2014275e44154f1c7a787a7f31747c4460e1b6376f
@@ -47,9 +48,12 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-9:
       value: 0502015051000c5e5d5c087a49770844154e4d7f297e7e697c2f1c66b3b2626a
 >>>>>>> feature/kurita/movieManagerFix
+=======
+      value: 5650060251015e0c08085c2342265d44424f19792f2c73637a781c35b3b06c3c
+>>>>>>> gamusiro_46
       flags: 0
     RecentlyUsedSceneGuid-8:
-      value: 5650060251015e0c08085c2342265d44424f19792f2c73637a781c35b3b06c3c
+      value: 02525053010750095d0f5d7a12205e44154f412e797a20647f7d4e37b1b3376e
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

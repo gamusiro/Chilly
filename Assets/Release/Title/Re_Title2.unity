@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.092457965
       objectReference: {fileID: 0}
+    - target: {fileID: 3610494665513946262, guid: 276e6b603201dd440826664764597d4d, type: 3}
+      propertyPath: maskTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: fa1a3190dbfa04441be991a36ac3760f, type: 3}
     - target: {fileID: 3754070690164648169, guid: 276e6b603201dd440826664764597d4d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -261,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1222658308
 MonoBehaviour:
   m_ObjectHideFlags: 0

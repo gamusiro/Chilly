@@ -56,9 +56,14 @@ public class CS_Player : MonoBehaviour
     [Header("パーフェクトタイミング")]
 
     // 許容パーフェクトタイミング
-    [SerializeField, CustomLabel("パーフェクトタイミング(秒)")]
-    [Range(0.1f, 1.0f)]
-    float m_perfectTimeRange;
+    [SerializeField, CustomLabel("パーフェクトMaxタイミング(秒)")]
+    [Range(0.01f, 0.1f)]
+    float m_perfectMaxTimeRange;
+
+    // 許容パーフェクトタイミング
+    [SerializeField, CustomLabel("パーフェクトMinタイミング(秒)")]
+    [Range(0.0f, 0.1f)]
+    float m_perfectMinTimeRange;
 
     [Header("スピンエフェクト")]
     [SerializeField] private SpinEffect _spinEffectPrefab;
@@ -94,7 +99,8 @@ public class CS_Player : MonoBehaviour
     const float c_sideMax = 69.0f;
 
     // ジャンプ中かどうかのフラグ
-    public bool m_isFlying;
+    //public bool m_isFlying;
+    CS_PlayerJumpCollider m_PlayerJumpCollider;
 
     // 衝突したか
     bool m_damaged;
@@ -132,8 +138,11 @@ public class CS_Player : MonoBehaviour
         m_rigidBody = GetComponent<Rigidbody>();
         m_material = gameObject.transform.GetChild(0).Find("mesh_Character").GetComponent<Renderer>().material;
 
+        m_PlayerJumpCollider = GetComponentInChildren<CS_PlayerJumpCollider>();
+        m_PlayerJumpCollider.Init(m_rigidBody, m_animator, gameObject);
+
         m_mainVirtualCamera = m_mainGameCameraManager.GetCurCamera();
-        m_isFlying = false;
+        //m_isFlying = false;
         m_damaged = false;
         m_degree = 0.0f;
         _isRotate = false;
@@ -188,13 +197,13 @@ public class CS_Player : MonoBehaviour
         transform.localEulerAngles = rotate;
 
         // ジャンプ
-        if (m_inputAction.Player.Jump.triggered && !m_isFlying)
+        if (m_inputAction.Player.Jump.triggered && !m_PlayerJumpCollider.IsFlying)
         {
             // 差分
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
-
+            Debug.Log(subFromEnemy);
             // 後ろからのタイミング(perfectTiming)
-            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy >= -m_perfectTimeRange)
+            if (subFromEnemy <= m_perfectMaxTimeRange && subFromEnemy >= m_perfectMinTimeRange)
             {
                 GameObject obj = Instantiate(m_perfectEffectObject);
                 obj.transform.parent = transform;
@@ -219,7 +228,7 @@ public class CS_Player : MonoBehaviour
                 m_animator.Play("Jumping", 0, 0.0f);        // 最初から流したいのでこんな感じの設定
             }
 
-            m_isFlying = true;
+            m_PlayerJumpCollider.Fly();
             m_rigidBody.constraints = RigidbodyConstraints.None;
 
             // 回転はしない | Zの値固定
@@ -268,8 +277,6 @@ public class CS_Player : MonoBehaviour
             color.r = c; color.g = c; color.b = c;
             m_material.color = color;
         }
-
-        //Debug.Log("ダッシュ: " + IsDashing);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -288,13 +295,6 @@ public class CS_Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         string tag = collision.gameObject.tag;
-
-        if (tag == "Field")
-        {
-            m_isFlying = false;
-            m_rigidBody.constraints |= RigidbodyConstraints.FreezePositionY;
-            m_animator.Play("Running", 0, 0.0f);    // 最初から
-        }
 
         // ダメージを受け付ける状態か
         if (tag == "Enemy")
@@ -351,6 +351,9 @@ public class CS_Player : MonoBehaviour
     {
         if (!m_damaged)
         {
+            Vector3 currentVel = m_rigidBody.velocity;
+            ResetSideVel(currentVel);
+
             m_damaged = true;
             CS_AudioManager.Instance.PlayAudio("Damage");
             m_hp.Hit();
