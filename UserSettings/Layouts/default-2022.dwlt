@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 43.2
     width: 1536
     height: 772.8
+=======
+    x: 7.4285717
+    y: 49.714287
+    width: 1740.5715
+    height: 992.00006
+>>>>>>> feature/kurita/movieManagerFix
   m_ShowMode: 4
   m_Title: Inspector
   m_RootView: {fileID: 2}
@@ -44,8 +51,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1536
     height: 772.8
+=======
+    width: 1740.5714
+    height: 992
+>>>>>>> feature/kurita/movieManagerFix
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -69,7 +81,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1536
+=======
+    width: 1740.5714
+>>>>>>> feature/kurita/movieManagerFix
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -90,8 +106,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 752.8
     width: 1536
+=======
+    y: 972
+    width: 1740.5714
+>>>>>>> feature/kurita/movieManagerFix
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -115,12 +136,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1536
     height: 722.8
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 97
+=======
+    width: 1740.5714
+    height: 942
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 19
+>>>>>>> feature/kurita/movieManagerFix
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,10 +168,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 252.8
     height: 722.8
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+    width: 285.14285
+    height: 942
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> feature/kurita/movieManagerFix
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -164,10 +201,17 @@ MonoBehaviour:
   - {fileID: 9}
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 252.8
     y: 0
     width: 857.60004
     height: 722.8
+=======
+    x: 285.14285
+    y: 0
+    width: 1066.2858
+    height: 942
+>>>>>>> feature/kurita/movieManagerFix
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
@@ -182,25 +226,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 857.60004
     height: 504
   m_MinSize: {x: 202, y: 221}
+=======
+    width: 1066.2858
+    height: 658.8571
+  m_MinSize: {x: 102, y: 121}
+>>>>>>> feature/kurita/movieManagerFix
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 11}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 11}
   - {fileID: 13}
   - {fileID: 14}
   - {fileID: 18}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -217,9 +267,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 504
     width: 857.60004
     height: 218.79999
+=======
+    y: 658.8571
+    width: 1066.2858
+    height: 283.14288
+>>>>>>> feature/kurita/movieManagerFix
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 17}
@@ -243,10 +299,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1110.4
     y: 0
     width: 425.59998
     height: 722.8
+=======
+    x: 1351.4286
+    y: 0
+    width: 389.14282
+    height: 942
+>>>>>>> feature/kurita/movieManagerFix
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
@@ -274,10 +337,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 252.8
     y: 73.6
     width: 855.60004
     height: 483
+=======
+    x: 292.57144
+    y: 79.42857
+    width: 1063.1428
+    height: 872.1429
+>>>>>>> feature/kurita/movieManagerFix
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -318,8 +388,13 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 0, y: -26.399994}
       snapOffsetDelta: {x: 0, y: 0}
+=======
+      snapOffset: {x: 0, y: -25.714287}
+      snapOffsetDelta: {x: 0, y: -0.0000076293945}
+>>>>>>> feature/kurita/movieManagerFix
       snapCorner: 2
       id: unity-scene-view-toolbar
       index: 0
@@ -623,9 +698,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 0, y: 0, z: -1}
     speed: 2
     m_Value: {x: 0, y: 0, z: -1}
+=======
+    m_Target: {x: 10.901803, y: 8.243001, z: -7.6594315}
+    speed: 2
+    m_Value: {x: 10.901803, y: 8.243001, z: -7.6594315}
+>>>>>>> feature/kurita/movieManagerFix
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -636,7 +717,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -671,6 +752,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.10201097, y: 0.048324198, z: -0.0049614194, w: -0.99359745}
     speed: 2
     m_Value: {x: -0.102010876, y: 0.048324153, z: -0.0049614147, w: -0.9935965}
@@ -678,6 +760,15 @@ MonoBehaviour:
     m_Target: 12.520901
     speed: 2
     m_Value: 12.520901
+=======
+    m_Target: {x: 0.000031475673, y: 0.999928, z: 0.002690177, w: -0.011698787}
+    speed: 2
+    m_Value: {x: 0.000031475673, y: 0.999928, z: 0.002690177, w: -0.011698787}
+  m_Size:
+    m_Target: 2.0852077
+    speed: 2
+    m_Value: 2.0852077
+>>>>>>> feature/kurita/movieManagerFix
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -722,10 +813,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 73.6
     width: 251.8
     height: 701.8
+=======
+    x: 7.4285717
+    y: 80
+    width: 284.14285
+    height: 921
+>>>>>>> feature/kurita/movieManagerFix
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -739,9 +837,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: a086a5ffe886a5ff048aa5ff70e5a5ff4c65a6ffbec0a6ff060ba7ff9c19b5ff5c23b5ffc623b5ffe226b5ff4e82b5ff2a02b6ff9c5db6ffe4a7b6ffcc3edaffc6bddaffc8bddaffb878dbfffe78dbff1e7cdbff8ed7dbff6e57dcffe4b2dcff30fddcffb44addffe67addff2e7bddff4a7eddffb6d9ddff9259deff04b5deff4cffdeff8483dfff2ae3e3ff0a2ce4ff0c2ce4ff0a4fe4ff504fe4ff6c52e4ffd8ade4ffb42de5ff2689e5ff6ed3e5ff8e4ff0ff5051f0ffba52f0ff88cef0ff8acef0ffb4c6f4fffac6f4ff16caf4ff8225f5ff5ea5f5ffd000f6ff184bf6ffccc9f7ff12caf7ff2ecdf7ff9a28f8ff76a8f8ffe803f9ff304ef9ff9ea4f9ffe4a4f9ff00a8f9ff6c03faff4883faffbadefaff0229fbffac9efbfff49efbfff4a1fbff60fdfbff3e7dfcffb0d8fcfff622fdffd432fdff1a33fdff3a36fdffaa91fdff8c11feff026dfeff4cb7feff8875ffffe87bffffe2faffffe4faffffb0c30300a2c803006ad90300e2d90300d4de0300c2df030008e803002a6004001c6e04003c1c05007c3c0500d43c0500a24d05001a4e050088d1050056e2050068f3050076d8070044e9070044850a0044df1200e4f112002af41200840213000e1f1300
+=======
+      m_SelectedIDs: f6abfbff
+      m_LastClickedID: -283658
+      m_ExpandedIDs: 3aacfbff0807fcff0a07fcffe2faffffe4faffff
+>>>>>>> feature/kurita/movieManagerFix
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: HPMaterial
@@ -785,10 +889,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 252.8
     y: 73.6
     width: 855.60004
     height: 483
+=======
+    x: 292.57144
+    y: 80
+    width: 1064.2858
+    height: 637.8571
+>>>>>>> feature/kurita/movieManagerFix
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -805,7 +916,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 1027, y: 577.5}
+=======
+  m_TargetSize: {x: 1862.5001, y: 1048}
+>>>>>>> feature/kurita/movieManagerFix
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -820,10 +935,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -410.80002
     m_HBaseRangeMax: 410.80002
     m_VBaseRangeMin: -231
     m_VBaseRangeMax: 231
+=======
+    m_HBaseRangeMin: -532.14294
+    m_HBaseRangeMax: 532.14294
+    m_VBaseRangeMin: -299.4286
+    m_VBaseRangeMax: 299.4286
+>>>>>>> feature/kurita/movieManagerFix
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -832,7 +954,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -841,16 +963,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 855.60004
       height: 462
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 427.80002, y: 231}
+=======
+      width: 1064.2858
+      height: 616.8571
+    m_Scale: {x: 0.9999999, y: 0.9999999}
+    m_Translation: {x: 532.1429, y: 308.42856}
+>>>>>>> feature/kurita/movieManagerFix
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -427.80002
       y: -231
       width: 855.60004
@@ -858,6 +988,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1069.5, y: 603.75}
+=======
+      x: -532.14294
+      y: -308.4286
+      width: 1064.2859
+      height: 616.8572
+    m_MinimalGUI: 1
+  m_defaultScale: 0.9999999
+  m_LastWindowPixelSize: {x: 1862.5001, y: 1116.25}
+>>>>>>> feature/kurita/movieManagerFix
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -1106,10 +1245,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1110.4
     y: 73.6
     width: 424.59998
     height: 701.8
+=======
+    x: 1358.8572
+    y: 80
+    width: 388.14282
+    height: 921
+>>>>>>> feature/kurita/movieManagerFix
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1153,10 +1299,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 252.8
     y: 577.60004
     width: 855.60004
     height: 197.79999
+=======
+    x: 292.57144
+    y: 738.8572
+    width: 1064.2858
+    height: 262.14288
+>>>>>>> feature/kurita/movieManagerFix
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1187,10 +1340,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 252.8
     y: 577.60004
     width: 855.60004
     height: 197.79999
+=======
+    x: 292.57144
+    y: 738.8572
+    width: 1064.2858
+    height: 262.14288
+>>>>>>> feature/kurita/movieManagerFix
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1202,7 +1362,11 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_SearchFilter:
+<<<<<<< HEAD
     m_NameFilter: 
+=======
+    m_NameFilter: opening
+>>>>>>> feature/kurita/movieManagerFix
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1212,24 +1376,41 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Works/Kurita/Asset/MenuQuad
     m_Globs: []
     m_OriginalText: 
+=======
+    - Assets/Works/Kurita/Asset/MenuQuad/Sprite
+    m_Globs: []
+    m_OriginalText: opening
+>>>>>>> feature/kurita/movieManagerFix
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Works/Kurita/Asset/MenuQuad
+=======
+  - Assets/Works/Kurita/Asset/MenuQuad/Sprite
+>>>>>>> feature/kurita/movieManagerFix
   m_LastFoldersGridSize: 50
-  m_LastProjectPath: C:\Users\Gamus\source\TH425
+  m_LastProjectPath: C:\Users\ALTO\Documents\CProgramming\TH425_Project2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 751}
     m_SelectedIDs: ae670100
     m_LastClickedID: 92078
     m_ExpandedIDs: 00000000226701002467010026670100286701002a6701002c6701002e67010030670100326701003467010036670100a8670100be67010000ca9a3b
+=======
+    scrollPos: {x: 0, y: 461.85712}
+    m_SelectedIDs: d4860100
+    m_LastClickedID: 100052
+    m_ExpandedIDs: 00000000262901009e860100d6860100d8860100da86010000ca9a3b
+>>>>>>> feature/kurita/movieManagerFix
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1257,7 +1438,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000226701002467010026670100286701002a6701002c6701002e67010030670100326701003467010036670100
+=======
+    m_ExpandedIDs: 0000000026290100
+>>>>>>> feature/kurita/movieManagerFix
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1284,8 +1469,13 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c0000fe2001002cf00000e825fdff361efdff049d0200a20f04001c9e010094fe0000e4160200f4370d0038451400000000000a7c17003cb2150016630000821c0100861c0100c28c0600
+=======
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c623000020420100e29d00008c960000a49d0000b29d0000aa9d0000f09d0000229000004290000008900000fe8e00006e9d0000149400000a9800001c980000508901001c7e0000928c0000fe2001002cf00000e825fdff361efdff049d0200a20f04001c9e010094fe0000e4160200f4370d0038451400000000000a7c17003cb2150016630000821c0100861c0100c28c06007ac20300
+>>>>>>> feature/kurita/movieManagerFix
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1349,4 +1539,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: -4927330
+=======
+  m_LastSelectedObjectID: -33594
+>>>>>>> feature/kurita/movieManagerFix

@@ -7,7 +7,7 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Threading;
 
-public class OpeningMovieManager : MonoBehaviour
+public class OpeningMovieManager : MovieManager
 {
     //ムーブオブジェクト
     [SerializeField] Transform _moveObjectTransform;
@@ -43,77 +43,59 @@ public class OpeningMovieManager : MonoBehaviour
         {
             float time = 18.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-            if (_ateParticle)
-                _ateParticle.Play();
-            else
-                return;
+            _ateParticle.Play();
         }
 
         //■友達が吸い込まれる
         {
             float time = 2.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-            if (_friend)
-                _friend.Ate(_friend.transform, _enemyMouthTransform);
-            else
-                return;
+            _friend.Ate(_friend.transform, _enemyMouthTransform);
         }
 
         //■フェードイン
         {
             float time = 0.5f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-            if (_fade)
-                _fade.FadeIn(0.5f);
-            else
-                return;
+            _fade.FadeIn(0.5f);
         }
 
         //■フェードアウト
         {
             float time = 3.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-            if (_friend && _fade && _ateParticle)
-            {
-                _friend.SetDestroy();
-                float fadeTime = 2.0f;
-                _fade.FadeOut(fadeTime);
-                _ateParticle.Stop();
-            }
-            else
-                return;
+            _friend.SetDestroy();
+            float fadeTime = 2.0f;
+            _fade.FadeOut(fadeTime);
+            _ateParticle.Stop();
         }
 
         //■フェードイン
         {
             float time = 6.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-            if (_fade)
-            {
-                float fadeTime = 2.0f;
-                _fade.FadeIn(fadeTime);
-            }
-            else
-                return;
+            float fadeTime = 2.0f;
+            _fade.FadeIn(fadeTime);
         }
 
         //■シーン遷移
         {
             float time = 2.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-            if (this != null && this.gameObject)
-            {
-                CS_AudioManager.Instance.StopBGM();
-                SceneManager.LoadScene(_sceneName);
-            }
-            else
-                return;
+            CS_AudioManager.Instance.StopBGM();
+            SceneManager.LoadScene(_sceneName);
         }
     }
 

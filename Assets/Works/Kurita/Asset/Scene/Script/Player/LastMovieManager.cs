@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 using DG.Tweening;
 
-public class LastMovieManager : MonoBehaviour
+public class LastMovieManager : MovieManager
 {
     [SerializeField, CustomLabel("フェーズ1オブジェクト")]
     private GameObject _phase1;
@@ -36,7 +36,7 @@ public class LastMovieManager : MonoBehaviour
 
     //フェード
     [SerializeField] private Fade_K _fade;
-    [SerializeField] string _nextScene; 
+    [SerializeField] string _nextScene;
 
     //タイトルロゴ
     [SerializeField] private LastLogo _lastLogoFirstShow;
@@ -53,98 +53,83 @@ public class LastMovieManager : MonoBehaviour
         //■ベルを鳴らす
         {
             await UniTask.WaitUntil(() => _playerCS.OnBell, cancellationToken: token);
-            if (_bell && _soundWave && _phase1 && _playerCS)
-            {
-                _bell.SetRing(true);
-                Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
-                _playerCS.OnBell = false;
-            }
-            else
-            {
-                return;
-            }
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+
+            _bell.SetRing(true);
+            Instantiate(_soundWave, _bell.GetPosition(), Quaternion.identity, _phase1.transform);
+            _playerCS.OnBell = false;
         }
 
         //■敵がやられた判定になる
         {
             float time = 4.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-            if (_enemy)
-                _enemy.Disapper(_enemy.transform);
-            else
-                return;
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+
+            _enemy.Disapper(_enemy.transform);
         }
 
         //■爆発後
         {
             float time = 5.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-            if (_enemy)
-                _enemy.Explosion(_phase1.transform, this.gameObject);
-            else
-                return;
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+
+            _enemy.Explosion(_phase1.transform, this.gameObject);
         }
 
         //■フェーズ1終了,フェーズ2開始
         {
             float time = 5.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-            if (_bell && _fade)
-            {
-                _bell.SetRing(false);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
 
-                Destroy(_phase1);
-                Instantiate(_phase2);
+            _bell.SetRing(false);
 
-                time = 0.0f;
-                _fade.FadeIn(time);
+            Destroy(_phase1);
+            Instantiate(_phase2);
 
-                time = 1.0f;
-                _fade.FadeOut(time);
-            }
-            else
-                return;
+            time = 0.0f;
+            _fade.FadeIn(time);
+
+            time = 1.0f;
+            _fade.FadeOut(time);
         }
 
         //■友達生成
         {
-            float time  = 1.0f;
+            float time = 1.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+
             Vector3 spawnPosition = new Vector3(0.0f, 500.0f, 30.0f);
-            if (_friendPrefab)
-                Instantiate(_friendPrefab, spawnPosition, Quaternion.identity);
-            else
-                return;
+            Instantiate(_friendPrefab, spawnPosition, Quaternion.identity);
         }
 
         //最初のLogoの表示
         {
-            float time  = 18.5f;
+            float time = 18.5f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-
-            if (_lastLogoFirstShow)
-                _lastLogoFirstShow.Show();
-            else
-                return;
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+            _lastLogoFirstShow.Show();
         }
 
         //二つ目のLogoの表示
         {
             float time = 3.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
-            if (_lastLogoSecondShow)
-            {
-                _lastLogoSecondShow.Show();
-                CS_AudioManager.Instance.MasterVolume = 2.0f;
-            }
-            else
-                return;
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+
+            _lastLogoSecondShow.Show();
+            CS_AudioManager.Instance.MasterVolume = 2.0f;
         }
 
         //■シーンの遷移
         {
             float time = 4.0f;
             await UniTask.Delay(TimeSpan.FromSeconds(time), cancellationToken: token);
+            await UniTask.WaitUntil(() => this != null, cancellationToken: token);
+
             CS_AudioManager.Instance.MasterVolume = 0.0f;
             CS_AudioManager.Instance.StopBGM();
             SceneManager.LoadScene(_nextScene);
@@ -157,11 +142,11 @@ public class LastMovieManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-       MoveObject();
+        MoveObject();
     }
 
     //移動オブジェクト
-    private  void MoveObject()
+    private void MoveObject()
     {
         if (_moveObjectTransform == null)
             return;

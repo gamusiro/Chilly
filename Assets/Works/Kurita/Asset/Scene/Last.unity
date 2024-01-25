@@ -175,6 +175,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Last
       objectReference: {fileID: 0}
+    - target: {fileID: 2337687902411914568, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Size
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337687902411914568, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Content
+      value: '-MUSIC-
+
+        We Made It
+
+        Deserve-Better
+
+        I Will
+        Be Here'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942335454414657142, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
