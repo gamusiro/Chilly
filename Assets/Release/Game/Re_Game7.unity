@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3463297093256749784, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_offset
+      value: 0.125
+      objectReference: {fileID: 0}
     - target: {fileID: 3657725707834224340, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -317,6 +321,14 @@ PrefabInstance:
     - target: {fileID: 4505995953132219279, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_perfectMaxTimeRange
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507343208830028189, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
+      propertyPath: m_perfectMinTimeRange
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7772751850042085527, guid: fedbac19976ba304b8b82986422c6df2, type: 3}
       propertyPath: m_LocalPosition.y

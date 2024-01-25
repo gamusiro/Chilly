@@ -56,9 +56,14 @@ public class CS_Player : MonoBehaviour
     [Header("パーフェクトタイミング")]
 
     // 許容パーフェクトタイミング
-    [SerializeField, CustomLabel("パーフェクトタイミング(秒)")]
-    [Range(0.1f, 1.0f)]
-    float m_perfectTimeRange;
+    [SerializeField, CustomLabel("パーフェクトMaxタイミング(秒)")]
+    [Range(0.01f, 0.1f)]
+    float m_perfectMaxTimeRange;
+
+    // 許容パーフェクトタイミング
+    [SerializeField, CustomLabel("パーフェクトMinタイミング(秒)")]
+    [Range(0.0f, 0.1f)]
+    float m_perfectMinTimeRange;
 
     [Header("スピンエフェクト")]
     [SerializeField] private SpinEffect _spinEffectPrefab;
@@ -196,9 +201,9 @@ public class CS_Player : MonoBehaviour
         {
             // 差分
             float subFromEnemy = m_enemyAttackFromEnemy.GetPerfectTime() - CS_AudioManager.Instance.TimeBGM;
-
+            Debug.Log(subFromEnemy);
             // 後ろからのタイミング(perfectTiming)
-            if (subFromEnemy <= m_perfectTimeRange && subFromEnemy >= -m_perfectTimeRange)
+            if (subFromEnemy <= m_perfectMaxTimeRange && subFromEnemy >= m_perfectMinTimeRange)
             {
                 GameObject obj = Instantiate(m_perfectEffectObject);
                 obj.transform.parent = transform;
