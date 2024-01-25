@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &2017236007 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2143524954488019402, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
-  m_PrefabInstance: {fileID: 5401712437392115648}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fff49da3bbe42f4b9dcd14dd5e8f241, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5401712437392115648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,10 +175,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Last
       objectReference: {fileID: 0}
-    - target: {fileID: 3764036040961372317, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
-      propertyPath: movieManager
-      value: 
-      objectReference: {fileID: 2017236007}
+    - target: {fileID: 2337687902411914568, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Size
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337687902411914568, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: _screenTextInfoList.Array.data[0].Content
+      value: '-MUSIC-
+
+        We Made It
+
+        Deserve-Better
+
+        I Will
+        Be Here'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942335454414657142, guid: 7984b44059fc4854baef73ada2dbe109, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
